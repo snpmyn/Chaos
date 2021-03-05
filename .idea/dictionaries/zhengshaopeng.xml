@@ -9,6 +9,7 @@
       <w>docx</w>
       <w>emui</w>
       <w>enui</w>
+      <w>eventbus</w>
       <w>externalstorage</w>
       <w>fileprovider</w>
       <w>flyme</w>
@@ -30,6 +31,7 @@
       <w>permcenter</w>
       <w>permissionmanager</w>
       <w>pkgname</w>
+      <w>poped</w>
       <w>pptx</w>
       <w>qihoo</w>
       <w>regexes</w>
@@ -42,6 +44,7 @@
       <w>uniqued</w>
       <w>utilone</w>
       <w>utiltwo</w>
+      <w>wechat</w>
       <w>xiao</w>
       <w>xlsx</w>
       <w>zhihu</w>

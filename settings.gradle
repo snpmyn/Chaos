@@ -1,3 +1,4 @@
+include ':fragmentation'
 include ':ucrop'
 include ':matisse'
 include ':banner'
