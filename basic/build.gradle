@@ -52,4 +52,6 @@ dependencies {
     /*okio*/
     api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     /*spruce*/
+    api 'com.youth.banner:banner:1.4.10'
+    /*banner*/
 }
