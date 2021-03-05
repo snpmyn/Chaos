@@ -4,7 +4,7 @@ package com.chaos.fairy.value;
  * Created on 2020/12/10
  *
  * @author zsp
- * @desc 魔法值
+ * @desc 精灵魔法值
  */
 public class FairyMagic {
     /**

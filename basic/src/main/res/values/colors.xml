@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- Customize your theme here. -->
+    <color name="pageBackground">#F8F8F8</color>
     <color name="fontHint">#993C3C43</color>
     <color name="fontInput">#202323</color>
     <color name="gray">#E7EAF1</color>

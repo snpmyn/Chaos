@@ -48,6 +48,8 @@ dependencies {
     /*ReLinker*/
     api 'org.apache.commons:commons-lang3:3.12.0'
     /*BasicThreadFactory*/
-    api 'com.squareup.okio:okio:2.9.0'
+    api 'com.squareup.okio:okio:3.0.0-alpha.1'
     /*okio*/
+    api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
+    /*spruce*/
 }

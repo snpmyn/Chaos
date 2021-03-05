@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <!-- BaseDialogTheme -->
     <style name="BaseDialogTheme" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -15,5 +14,4 @@
         <item name="android:indeterminateTint" tools:targetApi="lollipop">@color/purple_500</item>
         <item name="android:indeterminateTintMode" tools:targetApi="lollipop">src_atop</item>
     </style>
-
 </resources>

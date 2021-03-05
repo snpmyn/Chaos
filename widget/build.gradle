@@ -30,6 +30,6 @@ android {
 
 dependencies {
 
-    api project(path: ':basic')
-    /*basic*/
+    implementation project(path: ':utilone')
+    /*utilone*/
 }
