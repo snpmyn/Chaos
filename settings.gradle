@@ -1,2 +1,5 @@
+include ':utiltwo'
+include ':utilone'
+include ':basic'
 include ':app'
 rootProject.name = "Chaos"

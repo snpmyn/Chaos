@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    /*implementation 'androidx.appcompat:appcompat:1.2.0'*/
+    /*implementation 'com.google.android.material:material:1.3.0'*/
+
+    api 'androidx.appcompat:appcompat:1.2.0'
+    api 'com.google.android.material:material:1.3.0'
+    /*自带*/
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    api 'io.reactivex:rxandroid:1.2.1'
+    api 'io.reactivex:rxjava:1.3.8'
+    /*官方*/
+    api 'com.jakewharton.timber:timber:4.7.1'
+    /*timber*/
+    api 'com.tencent:mmkv-static:1.0.23'
+    /*MMKV*/
+    api 'com.getkeepsafe.relinker:relinker:1.3.1'
+    /*ReLinker*/
+    api 'org.apache.commons:commons-lang3:3.11'
+    /*BasicThreadFactory*/
+}
