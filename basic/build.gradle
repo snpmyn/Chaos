@@ -54,4 +54,6 @@ dependencies {
     /*spruce*/
     api 'com.youth.banner:banner:1.4.10'
     /*banner*/
+    api 'com.zhihu.android:matisse:0.5.3-beta3'
+    /*matisse*/
 }

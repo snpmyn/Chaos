@@ -10,6 +10,7 @@
       <w>emui</w>
       <w>enui</w>
       <w>externalstorage</w>
+      <w>fileprovider</w>
       <w>flyme</w>
       <w>getprop</w>
       <w>huawei</w>
@@ -42,6 +43,7 @@
       <w>utiltwo</w>
       <w>xiao</w>
       <w>xlsx</w>
+      <w>zhihu</w>
     </words>
   </dictionary>
 </component>

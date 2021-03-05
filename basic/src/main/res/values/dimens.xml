@@ -14,6 +14,7 @@
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_44">44dp</dimen>
     <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_130">130dp</dimen>
     <!-- SP -->
     <dimen name="sp_10">10sp</dimen>
     <dimen name="sp_13">13sp</dimen>
