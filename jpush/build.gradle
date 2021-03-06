@@ -30,8 +30,10 @@ android {
 
 dependencies {
 
-    implementation project(path: ':basic')
-    /*basic*/
-    implementation 'com.youth.banner:banner:1.4.10'
-    /*banner*/
+    implementation project(path: ':utilone')
+    /*utilone*/
+    implementation 'cn.jiguang.sdk:jcore:2.6.0'
+    /*JCore*/
+    api 'cn.jiguang.sdk:jpush:3.9.0'
+    /*极光推送*/
 }

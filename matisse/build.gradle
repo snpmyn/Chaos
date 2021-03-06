@@ -32,4 +32,6 @@ dependencies {
 
     implementation project(path: ':basic')
     /*basic*/
+    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
+    /*matisse*/
 }

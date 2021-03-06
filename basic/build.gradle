@@ -50,14 +50,6 @@ dependencies {
     /*BasicThreadFactory*/
     api 'com.squareup.okio:okio:3.0.0-alpha.1'
     /*okio*/
-    api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
-    /*spruce*/
-    api 'com.youth.banner:banner:1.4.10'
-    /*banner*/
-    api 'com.zhihu.android:matisse:0.5.3-beta3'
-    /*matisse*/
-    api 'com.github.yalantis:ucrop:2.2.6-native'
-    /*uCrop*/
     api 'org.greenrobot:eventbus:3.1.1'
     /*eventbus*/
 }
