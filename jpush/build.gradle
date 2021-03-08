@@ -30,8 +30,8 @@ android {
 
 dependencies {
 
-    implementation project(path: ':utilone')
-    /*utilone*/
+    implementation project(path: ':util')
+    /*util*/
     implementation 'cn.jiguang.sdk:jcore:2.6.0'
     /*JCore*/
     api 'cn.jiguang.sdk:jpush:3.9.0'

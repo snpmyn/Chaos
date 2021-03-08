@@ -30,8 +30,8 @@ android {
 
 dependencies {
 
-    implementation project(path: ':utilone')
-    /*utilone*/
+    implementation project(path: ':util')
+    /*util*/
     implementation 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     /*spruce*/
 }

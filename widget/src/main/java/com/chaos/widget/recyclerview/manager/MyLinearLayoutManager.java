@@ -30,8 +30,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
 
     /**
      * @param context                  Current context, will be used to access resources.
-     * @param orientation              Layout orientation. Should be {@link #HORIZONTAL} or {@link
-     *                                 #VERTICAL}.
+     * @param orientation              Layout orientation. Should be {@link #HORIZONTAL} or {@link #VERTICAL}.
      * @param reverseLayout            When set to true, layouts from end to start.
      * @param onLayoutChildrenListener The listener of layout children
      */

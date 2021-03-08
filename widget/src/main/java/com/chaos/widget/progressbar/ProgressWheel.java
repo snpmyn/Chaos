@@ -18,7 +18,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.chaos.utilone.data.FloatUtils;
+import com.chaos.util.java.data.FloatUtils;
 import com.chaos.widget.R;
 
 import org.jetbrains.annotations.Contract;

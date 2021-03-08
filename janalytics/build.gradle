@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+}
+// 动态圈选插件（可选）
+// 集动态圈选功能后注释下行可关
+apply plugin: 'cn.jiguang.android.analytics'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':util')
+    /*util*/
+    implementation 'cn.jiguang.sdk:jcore:2.6.0'
+    /*JCore*/
+    api 'cn.jiguang.sdk:janalytics:2.1.2'
+    /*极光统计*/
+}

@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.chaos.jpush.value.JpushMagic;
-import com.chaos.utilone.thread.ThreadManager;
+import com.chaos.util.java.thread.ThreadManager;
 
 import org.jetbrains.annotations.NotNull;
 
