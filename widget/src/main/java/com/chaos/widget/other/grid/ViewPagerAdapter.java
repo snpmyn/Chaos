@@ -1,6 +1,8 @@
 package com.chaos.widget.other.grid;
+
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +11,7 @@ import com.chaos.util.java.log.LogUtils;
 
 /**
  * Created on 2020-09-23
+ *
  * @author zsp
  * @desc ViewPager 适配器
  */
