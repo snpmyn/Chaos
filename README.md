@@ -1,13 +1,13 @@
 <div align=center><img src="https://github.com/snpmyn/Chaos/raw/master/image.png"/></div>
 
-//[![SNAPSHOT](https://jitpack.io/v/Jaouan/Revealator.svg)](https://jitpack.io/#snpmyn/Chaos)
-//[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a0b01a4875242408cd21a8d20be2604)](https://www.codacy.com/manual/snpmyn/Chaos?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=snpmyn/Chaos&amp;utm_campaign=Badge_Grade)
-//[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
-//[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
+[![SNAPSHOT](https://jitpack.io/v/Jaouan/Revealator.svg)](https://jitpack.io/#snpmyn/Chaos)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a0b01a4875242408cd21a8d20be2604)](https://www.codacy.com/manual/snpmyn/Chaos?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=snpmyn/Chaos&amp;utm_campaign=Badge_Grade)
+[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 
-//[![GitHub stars](https://img.shields.io/github/stars/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/stargazers)
-//[![GitHub forks](https://img.shields.io/github/forks/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/network)
-//[![GitHub watchers](https://img.shields.io/github/watchers/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/watchers)
+[![GitHub stars](https://img.shields.io/github/stars/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/network)
+[![GitHub watchers](https://img.shields.io/github/watchers/Bigkoo/Chaos.svg?style=social)](https://github.com/Bigkoo/Chaos/watchers)
 # Chaos
 ## 释义
 混沌
