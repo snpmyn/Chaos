@@ -2,13 +2,17 @@
   <dictionary name="zhengshaopeng">
     <words>
       <w>addviewmonitor</w>
+      <w>appname</w>
       <w>appsec</w>
       <w>avocat</w>
       <w>cassis</w>
       <w>cdma</w>
       <w>docx</w>
+      <w>dorg</w>
       <w>emui</w>
+      <w>endlocal</w>
       <w>enui</w>
+      <w>errorlevel</w>
       <w>eventbus</w>
       <w>externalstorage</w>
       <w>fileprovider</w>
@@ -38,7 +42,9 @@
       <w>reposted</w>
       <w>rxbus</w>
       <w>securitycenter</w>
+      <w>setlocal</w>
       <w>snackbar</w>
+      <w>snpmyn</w>
       <w>systemmanager</w>
       <w>ucrop</w>
       <w>uniqued</w>
