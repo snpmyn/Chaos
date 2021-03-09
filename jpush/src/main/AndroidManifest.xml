@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /><!-- 启6.0系统debug版上层窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /><!-- 启 6.0 系统 debug 版上层窗口权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -62,10 +62,10 @@
             </intent-filter>
         </activity>
         <!--Jpush（极光推送公共服务）-->
-        <!-- Since JCore2.0.0 Required SDK核心功能 -->
-        <!-- android:process放Service于其它进程 -->
-        <!-- android:enabled不可false -->
-        <!-- 该自定Service继承极光JCommonService，使推送通道于更多手机平台更稳定 -->
+        <!-- Since JCore2.0.0 Required SDK 核心功能 -->
+        <!-- android:process 放 Service 于其它进程 -->
+        <!-- android:enabled 不可 false -->
+        <!-- 该自定 Service 继承极光 JCommonService，使推送通道于更多手机平台更稳定 -->
         <service
             android:name=".service.JpushCommonService"
             android:enabled="true"
