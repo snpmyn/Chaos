@@ -1,8 +1,8 @@
 package com.chaos.util.java.storage.sharedpreferences;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,25 +25,37 @@ import java.util.List;
  * @desc SharedPreferencesUtils
  */
 public class SharedPreferencesUtils {
+    private SharedPreferencesUtils instance;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     /**
-     * 获SharedPreferences
+     * 获取单例
      *
      * @param context 上下文
-     * @return SharedPreferences
+     * @param name    Desired preferences file.
+     * @param mode    Operating mode.
      */
-    public static SharedPreferences createSharedPreferences(@NotNull Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+    @SuppressLint("CommitPrefEdits")
+    public void getInstance(Context context, String name, int mode) {
+        if (null == instance) {
+            synchronized (SharedPreferencesUtils.class) {
+                if (null == instance) {
+                    instance = new SharedPreferencesUtils();
+                    sharedPreferences = context.getSharedPreferences(name, mode);
+                    editor = sharedPreferences.edit();
+                }
+            }
+        }
     }
 
     /**
      * Save int data.
      *
-     * @param context 上下文
-     * @param key     key
-     * @param value   value
+     * @param key   key
+     * @param value value
      */
-    public static void saveInt(Context context, String key, int value) {
-        SharedPreferences.Editor editor = createSharedPreferences(context).edit();
+    public void saveInt(String key, int value) {
         editor.putInt(key, value);
         editor.apply();
     }
@@ -51,12 +63,10 @@ public class SharedPreferencesUtils {
     /**
      * Save long data.
      *
-     * @param context 上下文
-     * @param key     key
-     * @param value   value
+     * @param key   key
+     * @param value value
      */
-    public static void saveLong(Context context, String key, long value) {
-        SharedPreferences.Editor editor = createSharedPreferences(context).edit();
+    public void saveLong(String key, long value) {
         editor.putLong(key, value);
         editor.apply();
     }
@@ -64,12 +74,10 @@ public class SharedPreferencesUtils {
     /**
      * Save String data.
      *
-     * @param context 上下文
-     * @param key     key
-     * @param value   value
+     * @param key   key
+     * @param value value
      */
-    public static void saveString(Context context, String key, String value) {
-        SharedPreferences.Editor editor = createSharedPreferences(context).edit();
+    public void saveString(String key, String value) {
         editor.putString(key, value);
         editor.apply();
     }
@@ -77,69 +85,61 @@ public class SharedPreferencesUtils {
     /**
      * Save List<String> data.
      *
-     * @param context 上下文
-     * @param key     key
-     * @param list    list
+     * @param key  key
+     * @param list list
      */
-    public static void saveListString(Context context, String key, @NotNull List<String> list) {
+    public void saveListString(String key, @NotNull List<String> list) {
         // 存前清已存数据保唯一性
-        clearListString(context, key);
+        clearListString(key);
         int size = list.size();
-        saveInt(context, key + "size", size);
+        saveInt(key + "size", size);
         for (int i = 0; i < size; i++) {
-            saveString(context, key + i, list.get(i));
+            saveString(key + i, list.get(i));
         }
     }
 
     /**
      * Get int data.
      *
-     * @param context 上下文
-     * @param key     key
+     * @param key key
      * @return int
      */
-    public static int getInt(Context context, String key) {
-        SharedPreferences sharedPreferences = createSharedPreferences(context);
+    public int getInt(String key) {
         return sharedPreferences.getInt(key, 0);
     }
 
     /**
      * Get long data.
      *
-     * @param context 上下文
-     * @param key     key
+     * @param key key
      * @return long
      */
-    public static long getLong(Context context, String key) {
-        SharedPreferences sharedPreferences = createSharedPreferences(context);
+    public long getLong(String key) {
         return sharedPreferences.getLong(key, 0);
     }
 
     /**
      * Get String data.
      *
-     * @param context  上下文
      * @param key      key
      * @param defValue defValue
      * @return string
      */
-    public static String getString(Context context, String key, String defValue) {
-        SharedPreferences sharedPreferences = createSharedPreferences(context);
+    public String getString(String key, String defValue) {
         return sharedPreferences.getString(key, defValue);
     }
 
     /**
      * Get List<String> data.
      *
-     * @param context 上下文
-     * @param key     key
+     * @param key key
      * @return list<String>
      */
-    public static @NotNull List<String> getListString(Context context, String key) {
+    public @NotNull List<String> getListString(String key) {
         List<String> list = new ArrayList<>();
-        int size = getInt(context, key + "size");
+        int size = getInt(key + "size");
         for (int i = 0; i < size; i++) {
-            list.add(getString(context, key + i, null));
+            list.add(getString(key + i, null));
         }
         return list;
     }
@@ -147,37 +147,35 @@ public class SharedPreferencesUtils {
     /**
      * Clear List<String> data.
      *
-     * @param context 上下文
-     * @param key     key
+     * @param key key
      */
-    public static void clearListString(Context context, String key) {
-        int size = getInt(context, key + "size");
+    public void clearListString(String key) {
+        int size = getInt(key + "size");
         if (0 == size) {
             return;
         }
-        clearValueByKey(context, key + "size");
+        clearValueByKey(key + "size");
         for (int i = 0; i < size; i++) {
-            clearValueByKey(context, key + i);
+            clearValueByKey(key + i);
         }
     }
 
     /**
      * Clear ListString's one data.
      *
-     * @param context 上下文
-     * @param key     key
-     * @param str     str
+     * @param key key
+     * @param str str
      */
-    public static void clearListStringOne(Context context, String key, String str) {
-        int size = getInt(context, key + "size");
+    public void clearListStringOne(String key, String str) {
+        int size = getInt(key + "size");
         if (0 == size) {
             return;
         }
-        List<String> list = getListString(context, key);
+        List<String> list = getListString(key);
         for (String string : list) {
             if (string.equals(str)) {
                 list.remove(str);
-                saveListString(context, key, list);
+                saveListString(key, list);
             }
         }
     }
@@ -185,22 +183,17 @@ public class SharedPreferencesUtils {
     /**
      * Clear data corresponding to key.
      *
-     * @param context 上下文
-     * @param key     key
+     * @param key key
      */
-    public static void clearValueByKey(Context context, String key) {
-        SharedPreferences.Editor editor = createSharedPreferences(context).edit();
+    public void clearValueByKey(String key) {
         editor.remove(key);
         editor.apply();
     }
 
     /**
      * Clear all data.
-     *
-     * @param context 上下文
      */
-    public static void clearAll(Context context) {
-        SharedPreferences.Editor editor = createSharedPreferences(context).edit();
+    public void clearAll() {
         editor.clear();
         editor.apply();
     }

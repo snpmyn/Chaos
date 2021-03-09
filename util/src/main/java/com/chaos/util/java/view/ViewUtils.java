@@ -4,6 +4,8 @@ import android.view.View;
 
 import org.jetbrains.annotations.NotNull;
 
+import value.UtilMagic;
+
 /**
  * Created on 2018/12/21.
  *
@@ -11,6 +13,9 @@ import org.jetbrains.annotations.NotNull;
  * @desc ViewUtils
  */
 public class ViewUtils {
+    private static boolean alreadyClick;
+    private static long clickTime;
+
     /**
      * 显示视图
      *
@@ -59,5 +64,35 @@ public class ViewUtils {
         int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         view.measure(w, h);
         return view.getMeasuredWidth();
+    }
+
+    /**
+     * 双重点击检测
+     *
+     * @param view                  视图
+     * @param onDoubleClickListener 双重点击监听
+     */
+    public static void doubleClickCheck(@NotNull View view, final OnDoubleClickListener onDoubleClickListener) {
+        view.setOnClickListener(view1 -> {
+            if (alreadyClick) {
+                if (((System.currentTimeMillis() - clickTime) < UtilMagic.INT_TWO_HUNDRED) && null != onDoubleClickListener) {
+                    onDoubleClickListener.onDoubleClick();
+                }
+                alreadyClick = false;
+            } else {
+                clickTime = System.currentTimeMillis();
+                alreadyClick = true;
+            }
+        });
+    }
+
+    /**
+     * 双重点击监听
+     */
+    public interface OnDoubleClickListener {
+        /**
+         * 双重点击
+         */
+        void onDoubleClick();
     }
 }
