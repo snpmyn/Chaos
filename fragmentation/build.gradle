@@ -30,6 +30,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':basic')
-    /*basic*/
+    implementation project(path: ':util')
+    /*util*/
 }
