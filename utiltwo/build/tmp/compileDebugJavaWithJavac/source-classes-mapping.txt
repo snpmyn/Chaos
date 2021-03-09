@@ -1,2 +1,0 @@
-com/chaos/utiltwo/BuildConfig.java
- com.chaos.utiltwo.BuildConfig
