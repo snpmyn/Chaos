@@ -12,6 +12,8 @@
       <w>cassis</w>
       <w>cdma</w>
       <w>docx</w>
+      <w>doraemon</w>
+      <w>doraemonkit</w>
       <w>dorg</w>
       <w>duid</w>
       <w>edecd</w>
@@ -24,9 +26,11 @@
       <w>fileprovider</w>
       <w>flyme</w>
       <w>getprop</w>
+      <w>hmmss</w>
       <w>huawei</w>
       <w>interprocess</w>
       <w>managment</w>
+      <w>mddhhmmss</w>
       <w>meizu</w>
       <w>misconfigurations</w>
       <w>miui</w>
@@ -36,6 +40,7 @@
       <w>mpeg</w>
       <w>msword</w>
       <w>myapp</w>
+      <w>nofull</w>
       <w>notificationmanager</w>
       <w>occurances</w>
       <w>okio</w>
@@ -44,6 +49,7 @@
       <w>pkgname</w>
       <w>poped</w>
       <w>pptx</w>
+      <w>proc</w>
       <w>qihoo</w>
       <w>regexes</w>
       <w>reposted</w>
@@ -62,6 +68,9 @@
       <w>xiao</w>
       <w>xlsx</w>
       <w>yokeyword</w>
+      <w>yyyymmddhhmmss</w>
+      <w>yyyymmhh</w>
+      <w>yyyymmss</w>
       <w>zhihu</w>
     </words>
   </dictionary>

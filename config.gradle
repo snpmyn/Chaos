@@ -37,13 +37,23 @@ ext {
             "kotlin-gradle-plugin": 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21'
     ]
     jpush = [
-            enabled     : true,
-            jpushAppKey : "00067aa741beb793e0ddc1a5",
+            jpushAppKey : "00067aa741beb793e0ddc000",
             jpushChannel: "developer-default",
     ]
     bugly = [
-            enabled: true,
-            appId  : '00062df435',
-            appKey : '00039694-ce7d-4857-903f-e6112afc19b4',
+            appId : '00062df000',
+            appKey: '00039694-ce7d-4857-903f-e6112afc1000',
+    ]
+    doraemonkit = [
+            gpsSwitch                  : true,
+            networkSwitch              : true,
+            bigImgSwitch               : true,
+            webViewSwitch              : true,
+            stackMethodThresholdTime   : 10,
+            stackMethodEnterMethods    : ["com.didichuxing.doraemondemo.MainDebugActivity.test1"],
+            stackMethodMethodBlacklist : ["com.facebook.drawee.backends.pipeline.Fresco"],
+            normalMethodThresholdTime  : 500,
+            normalMethodPackageNames   : ["com.didichuxing.doraemondemo"],
+            normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
     ]
 }

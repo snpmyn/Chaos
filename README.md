@@ -16,6 +16,7 @@
 | bugly | Bugly | 无 |
 | mobsms | SMSSDK | 无 |
 | bmob | Bmob | 无 |
+| doraemonkit | DoraemonKit | 无 |
 ## 依赖
 #### basic
 ```
@@ -87,6 +88,12 @@ implementation project(path: ':util')
 ```
 implementation project(path: ':util')
 implementation 'cn.bmob.android:bmob-sdk:3.7.8'
+```
+#### doraemonkit
+```
+implementation project(path: ':util')
+debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
 ```
 ## TODO
 #### 处理注解

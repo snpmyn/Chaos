@@ -18,6 +18,15 @@ buildscript {
         // [MobTech]
         // 注册 MobSDK
         classpath 'com.mob.sdk:MobSDK:2018.0319.1724'
+        // [DoraemonKit]
+        // 流量监控及其它 AOP 功能（可选）
+        // AOP 包括以下功能：
+        // 1. 百度、腾讯、高德地图经纬度模拟
+        // 2. UrlConnection、OkHttp 抓包及后续的接口 hook 功能
+        // 3. App 启动耗时统计
+        // 4. 慢函数
+        // 5. 大图
+        classpath 'com.didichuxing.doraemonkit:dokitx-plugin:3.3.5'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

@@ -12,8 +12,12 @@ public class UtilMagic {
      */
     public static final int INT_TWO = 2;
     public static final int INT_THREE = 3;
+    public static final int INT_EIGHT = 8;
+    public static final int INT_TEN = 10;
+    public static final int INT_FOURTEEN = 14;
     public static final int INT_FIFTEEN = 15;
     public static final int INT_EIGHTEEN = 18;
+    public static final int INT_NINETEEN = 19;
     public static final int INT_FORTY = 40;
     public static final int INT_FIFTY = 50;
     public static final int INT_TWO_HUNDRED = 200;

@@ -1,6 +1,7 @@
 package com.chaos.util.java.view;
 
 import android.view.View;
+import android.widget.LinearLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -64,6 +65,18 @@ public class ViewUtils {
         int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         view.measure(w, h);
         return view.getMeasuredWidth();
+    }
+
+    /**
+     * 设线性布局高
+     *
+     * @param linearLayout 线性布局
+     * @param height       高
+     */
+    public static void setLinearLayoutHeight(@NotNull LinearLayout linearLayout, int height) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+        layoutParams.height = height;
+        linearLayout.setLayoutParams(layoutParams);
     }
 
     /**

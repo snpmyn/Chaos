@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.library'
+}
+// 流量监控及其它 AOP 功能（可选）
+apply plugin: 'com.didi.dokit'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+// DoraemonKit 扩展
+dokitExt {
+    // 通用设置
+    comm {
+        // 地图经纬度开关
+        gpsSwitch rootProject.ext.doraemonkit["gpsSwitch"]
+        // 网络开关
+        networkSwitch rootProject.ext.doraemonkit["networkSwitch"]
+        // 大图开关
+        bigImgSwitch rootProject.ext.doraemonkit["bigImgSwitch"]
+        // webView js 抓包
+        webViewSwitch rootProject.ext.doraemonkit["webViewSwitch"]
+    }
+    // 弃用 strategy 和 methodSwitch 配置项（新配置开关于根目录下 gradle.properties 中）
+    slowMethod {
+        // 调用栈模式配置
+        stackMethod {
+            // 默 5ms（小于该值的函数于调用栈中不显示）
+            thresholdTime rootProject.ext.doraemonkit["stackMethodThresholdTime"]
+            // 调用栈函数入口
+            enterMethods = rootProject.ext.doraemonkit["stackMethodEnterMethods"]
+            // 黑名单（粒度最小到类，暂不支持到方法）
+            methodBlacklist = rootProject.ext.doraemonkit["stackMethodMethodBlacklist"]
+        }
+        // 普通模式配置
+        normalMethod {
+            // 默 500ms（小于该值的函数运行时不于控制台被打印）
+            thresholdTime rootProject.ext.doraemonkit["normalMethodThresholdTime"]
+            // 需针对函数插装的包名
+            packageNames = rootProject.ext.doraemonkit["normalMethodPackageNames"]
+            // 无需针对函数插装的包名和类名
+            methodBlacklist = rootProject.ext.doraemonkit["normalMethodMethodBlacklist"]
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':util')
+    /*util*/
+    debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+    // 仅 release 环境需引 no-op
+    // 否则插件注入相关代码致找不到对应 class
+    releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+    /*DoraemonKit*/
+}

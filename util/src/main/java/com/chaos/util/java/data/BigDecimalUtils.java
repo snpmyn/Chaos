@@ -1,15 +1,19 @@
 package com.chaos.util.java.data;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 /**
  * Created on 2019/3/11.
  *
  * @author 郑少鹏
- * @desc BigDecimalToString
+ * @desc BigDecimalUtils
  */
-public class BigDecimalToString {
+public class BigDecimalUtils {
     private static final String EXPR_PATTERN = "0.##########E0";
     private static final String PATTERN = "0.##########";
     private static final String INTEGER_MIN_VALUE_CHANGE_TO_EXPR = "10000000";
@@ -53,5 +57,16 @@ public class BigDecimalToString {
             df.applyPattern(PATTERN);
         }
         return df.format(bigDecimal);
+    }
+
+    /**
+     * 加
+     *
+     * @param bigDecimalOne BigDecimal
+     * @param bigDecimalTwo BigDecimal
+     * @return 结果
+     */
+    public static BigDecimal add(@NotNull BigDecimal bigDecimalOne, BigDecimal bigDecimalTwo) {
+        return bigDecimalOne.add(bigDecimalTwo, new MathContext(8, RoundingMode.HALF_UP));
     }
 }
