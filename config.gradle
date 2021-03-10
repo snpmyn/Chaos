@@ -36,6 +36,11 @@ ext {
     DependenciesInProjectGradle = [
             "kotlin-gradle-plugin": 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21'
     ]
+    jpush = [
+            enabled     : true,
+            jpushAppKey : "00067aa741beb793e0ddc1a5",
+            jpushChannel: "developer-default",
+    ]
     bugly = [
             enabled: true,
             appId  : '00062df435',

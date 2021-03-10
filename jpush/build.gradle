@@ -14,6 +14,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: rootProject.ext.android["applicationId"],
+                // JPush 注册包名对应 AppKey
+                JPUSH_APPKEY : rootProject.ext.jpush["jpushAppKey"],
+                // 暂默值即可
+                JPUSH_CHANNEL: rootProject.ext.jpush["jpushChannel"],
+        ]
     }
 
     buildTypes {
@@ -21,6 +28,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [JPUSH_CHANNEL: name]
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
