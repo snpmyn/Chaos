@@ -13,6 +13,7 @@
 | fragmentation | 碎片 | 无 |
 | jpush | 极光推送 | 无 |
 | janalytics | 极光统计 | 无 |
+| bugly| Bugly | 无 |
 ## 依赖
 #### basic
 ```
@@ -68,10 +69,15 @@ implementation project(path: ':util')
 implementation 'cn.jiguang.sdk:jcore:2.6.0'
 api 'cn.jiguang.sdk:janalytics:2.1.2'
 ```
+### bugly
+、、、
+implementation project(path: ':basic')
+implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
+implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
+、、、
 ## TODO
 #### 处理注解
 #### 支持 kotlin
-#### 整合 util、widget、fairy
 ## License
 ```
 Copyright [2021] [snpmyn]

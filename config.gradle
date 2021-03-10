@@ -36,4 +36,9 @@ ext {
     DependenciesInProjectGradle = [
             "kotlin-gradle-plugin": 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21'
     ]
+    bugly = [
+            enabled: true,
+            appId  : '00062df435',
+            appKey : '00039694-ce7d-4857-903f-e6112afc19b4',
+    ]
 }
