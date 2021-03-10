@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.chaos.doraemonkit" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.chaos.doraemonkit">
+
+    <application>
+        <!-- 拾色器功能失效（适配 Android Q） -->
+        <!-- DoraemonKit 功能仅开发环境用（正式版删除） -->
+        <service
+            android:name="com.didichuxing.doraemonkit.kit.colorpick.ScreenRecorderService"
+            android:enabled="true"
+            android:foregroundServiceType="mediaProjection"
+            tools:targetApi="q" />
+    </application>
+
+</manifest>

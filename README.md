@@ -17,6 +17,7 @@
 | mobsms | SMSSDK | 无 |
 | bmob | Bmob | 无 |
 | doraemonkit | DoraemonKit | 无 |
+| litepal | LitePal | 无 |
 ## 依赖
 #### basic
 ```
@@ -94,6 +95,12 @@ implementation 'cn.bmob.android:bmob-sdk:3.7.8'
 implementation project(path: ':util')
 debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
 releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+```
+#### litepal
+```
+implementation project(path: ':util')
+implementation 'org.litepal.guolindev:core:3.2.3'
+debugImplementation 'com.glance.guolindev:glance:1.0.0'
 ```
 ## TODO
 #### 处理注解
