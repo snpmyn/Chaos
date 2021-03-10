@@ -71,15 +71,15 @@ implementation 'cn.jiguang.sdk:jcore:2.6.0'
 api 'cn.jiguang.sdk:janalytics:2.1.2'
 ```
 #### bugly
-、、、
+```
 implementation project(path: ':basic')
 implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
 implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
-、、、
+```
 #### mobsms
-、、、
+```
 implementation project(path: ':util')
-、、、
+```
 ## TODO
 #### 处理注解
 #### 支持 kotlin
