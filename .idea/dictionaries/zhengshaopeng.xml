@@ -6,7 +6,9 @@
       <w>appsec</w>
       <w>autobuild</w>
       <w>avocat</w>
+      <w>bmob</w>
       <w>bugly</w>
+      <w>bugtags</w>
       <w>cassis</w>
       <w>cdma</w>
       <w>docx</w>
@@ -59,6 +61,7 @@
       <w>wechat</w>
       <w>xiao</w>
       <w>xlsx</w>
+      <w>yokeyword</w>
       <w>zhihu</w>
     </words>
   </dictionary>

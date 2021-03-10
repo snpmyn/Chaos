@@ -17,8 +17,14 @@ import com.tencent.bugly.beta.Beta;
  * Bugly2.0+ 还支持通 AndroidManifest.xml 配 APP 信息，同于代码配 APP 信息终以代码配为准。
  */
 public class BuglyInitConfigure {
-    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActsClass) {
-        betaSet(canShowUpgradeActsClass);
+    /**
+     * 初始化 Bugly
+     *
+     * @param application            应用
+     * @param canShowUpgradeActivity 可显示更新活动
+     */
+    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity) {
+        betaSet(canShowUpgradeActivity);
         Bugly.init(application, "26162df435", BuildConfig.DEBUG);
     }
 

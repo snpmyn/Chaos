@@ -7,10 +7,10 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
-        // [janalytics]
+        // [极光统计]
         // 动态圈选插件（可选）
         classpath 'cn.jiguang.android:janalytics-gradle-plugin:3.0.0'
-        // [bugly]
+        // [Bugly]
         // 自动上传符号表插件
         // 快准定用户 Crash 代码位
         // 通符号表解析还原 Crash 程序堆栈
@@ -28,8 +28,11 @@ allprojects {
     repositories {
         google()
         jcenter()
-        // [ucrop]
+        // [Ucrop]
         maven { url "https://jitpack.io" }
+        // [Bmob]
+        // Bmob maven 仓库地址
+        maven { url 'https://dl.bintray.com/chaozhouzhang/maven' }
     }
 }
 

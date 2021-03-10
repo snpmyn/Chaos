@@ -1,3 +1,4 @@
+include ':bmob'
 include ':mobsms'
 include ':bugly'
 include ':janalytics'

@@ -11,10 +11,11 @@
 | matisse | 选图 | 无 |
 | ucrop | 裁剪 | 无 |
 | fragmentation | 碎片 | 无 |
-| jpush | 极光推送 | 集成待优化 |
+| jpush | 极光推送 | 无 |
 | janalytics | 极光统计 | 无 |
 | bugly | Bugly | 无 |
 | mobsms | SMSSDK | 无 |
+| bmob | Bmob | 无 |
 ## 依赖
 #### basic
 ```
@@ -23,6 +24,8 @@ api 'com.google.android.material:material:1.3.0'
 api 'com.github.bumptech.glide:glide:4.12.0'
 api 'io.reactivex:rxandroid:1.2.1'
 api 'io.reactivex:rxjava:1.3.8'
+api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+api 'io.reactivex.rxjava2:rxjava:2.2.14'
 api 'com.jakewharton.timber:timber:4.7.1'
 api 'com.tencent:mmkv-static:1.0.23'
 api 'com.getkeepsafe.relinker:relinker:1.3.1'
@@ -79,6 +82,11 @@ implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
 #### mobsms
 ```
 implementation project(path: ':util')
+```
+#### bmob
+```
+implementation project(path: ':util')
+implementation 'cn.bmob.android:bmob-sdk:3.7.8'
 ```
 ## TODO
 #### 处理注解
