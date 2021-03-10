@@ -1,3 +1,4 @@
+include ':mobsms'
 include ':bugly'
 include ':janalytics'
 include ':jpush'

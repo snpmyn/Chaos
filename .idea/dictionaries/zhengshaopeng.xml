@@ -11,6 +11,8 @@
       <w>cdma</w>
       <w>docx</w>
       <w>dorg</w>
+      <w>duid</w>
+      <w>edecd</w>
       <w>emui</w>
       <w>endlocal</w>
       <w>enui</w>
@@ -28,6 +30,7 @@
       <w>miui</w>
       <w>mmkv</w>
       <w>mobilesafe</w>
+      <w>mobsms</w>
       <w>mpeg</w>
       <w>msword</w>
       <w>myapp</w>
@@ -45,6 +48,7 @@
       <w>rxbus</w>
       <w>securitycenter</w>
       <w>setlocal</w>
+      <w>smssdk</w>
       <w>snackbar</w>
       <w>snpmyn</w>
       <w>systemmanager</w>

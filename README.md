@@ -11,9 +11,10 @@
 | matisse | 选图 | 无 |
 | ucrop | 裁剪 | 无 |
 | fragmentation | 碎片 | 无 |
-| jpush | 极光推送 | 无 |
+| jpush | 极光推送 | 集成待优化 |
 | janalytics | 极光统计 | 无 |
-| bugly| Bugly | 无 |
+| bugly | Bugly | 无 |
+| mobsms | SMSSDK | 无 |
 ## 依赖
 #### basic
 ```
@@ -69,11 +70,15 @@ implementation project(path: ':util')
 implementation 'cn.jiguang.sdk:jcore:2.6.0'
 api 'cn.jiguang.sdk:janalytics:2.1.2'
 ```
-### bugly
+#### bugly
 、、、
 implementation project(path: ':basic')
 implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
 implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
+、、、
+#### mobsms
+、、、
+implementation project(path: ':util')
 、、、
 ## TODO
 #### 处理注解
