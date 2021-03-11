@@ -1,0 +1,7 @@
+com/chaos/fairy/FairyMagic.java
+ com.chaos.fairy.FairyMagic
+com/chaos/fairy/BuildConfig.java
+ com.chaos.fairy.BuildConfig
+com/chaos/fairy/ViewUtils.java
+ com.chaos.fairy.ViewUtils
+ com.chaos.fairy.ViewUtils$OnDoubleClickListener

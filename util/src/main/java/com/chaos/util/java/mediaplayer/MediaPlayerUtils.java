@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
+import com.chaos.util.java.log.LogUtils;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -34,7 +36,7 @@ public class MediaPlayerUtils {
             // 准备播放
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
     }
 
@@ -55,7 +57,7 @@ public class MediaPlayerUtils {
             // 准备播放
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
     }
 
@@ -78,7 +80,7 @@ public class MediaPlayerUtils {
             // 准备播放
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
     }
 }

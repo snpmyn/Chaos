@@ -1,6 +1,9 @@
 package com.chaos.util.java.drawable;
 
+import android.app.Application;
 import android.graphics.drawable.Drawable;
+
+import com.chaos.util.java.log.LogUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,5 +40,23 @@ public class DrawableUtils {
             e.printStackTrace();
         }
         return drawable;
+    }
+
+    /**
+     * 获取位图资源 ID
+     *
+     * @param application  应用
+     * @param name         名称
+     * @param defaultResId 默认资源 ID
+     * @return 位图资源 ID
+     */
+    public static int getDrawableResIdByName(Application application, String name, int defaultResId) {
+        try {
+            int drawableResId = application.getResources().getIdentifier(name, "drawable", application.getPackageName());
+            return drawableResId > 0 ? drawableResId : defaultResId;
+        } catch (Exception e) {
+            LogUtils.exception(e);
+            return defaultResId;
+        }
     }
 }

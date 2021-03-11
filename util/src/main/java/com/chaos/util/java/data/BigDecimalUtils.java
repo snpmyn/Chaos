@@ -50,13 +50,13 @@ public class BigDecimalUtils {
         if (bigDecimal == null) {
             return null;
         }
-        DecimalFormat df = new DecimalFormat();
+        DecimalFormat decimalFormat = new DecimalFormat();
         if (bigDecimalCanConvertToString(bigDecimal)) {
-            df.applyPattern(EXPR_PATTERN);
+            decimalFormat.applyPattern(EXPR_PATTERN);
         } else {
-            df.applyPattern(PATTERN);
+            decimalFormat.applyPattern(PATTERN);
         }
-        return df.format(bigDecimal);
+        return decimalFormat.format(bigDecimal);
     }
 
     /**

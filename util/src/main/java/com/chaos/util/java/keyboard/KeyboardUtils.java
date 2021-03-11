@@ -31,10 +31,10 @@ public class KeyboardUtils {
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
         // 打开
-        InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.showSoftInput(editText, InputMethodManager.RESULT_SHOWN);
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
+        if (null != inputMethodManager) {
+            inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_SHOWN);
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
         }
     }
 
@@ -46,7 +46,7 @@ public class KeyboardUtils {
      */
     public static void closeKeyboard(@NotNull Context context, EditText editText) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
-        if (inputMethodManager != null) {
+        if (null != inputMethodManager) {
             inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
         }
     }
@@ -59,7 +59,7 @@ public class KeyboardUtils {
     public static void closeKeyboardInActivity(Activity activity) {
         WeakReference<Activity> weakReference = new WeakReference<>(activity);
         Activity activityUse = weakReference.get();
-        if (activityUse == null || activityUse.getCurrentFocus() == null) {
+        if ((null == activityUse) || (null == activityUse.getCurrentFocus())) {
             return;
         }
         ((InputMethodManager) Objects.requireNonNull(activityUse.getSystemService(INPUT_METHOD_SERVICE), "must not be null")).
