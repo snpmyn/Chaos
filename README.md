@@ -34,6 +34,7 @@ api 'com.getkeepsafe.relinker:relinker:1.3.1'
 api 'org.apache.commons:commons-lang3:3.12.0'
 api 'com.squareup.okio:okio:3.0.0-alpha.1'
 api 'org.greenrobot:eventbus:3.1.1'
+api 'com.permissionx.guolindev:permissionx:1.4.0'
 ```
 #### util
 ```
@@ -88,7 +89,7 @@ implementation project(path: ':util')
 #### bmob
 ```
 implementation project(path: ':util')
-implementation 'cn.bmob.android:bmob-sdk:3.7.8'
+api 'cn.bmob.android:bmob-sdk:3.7.8'
 ```
 #### doraemonkit
 ```
@@ -103,6 +104,7 @@ implementation 'org.litepal.guolindev:core:3.2.3'
 debugImplementation 'com.glance.guolindev:glance:1.0.0'
 ```
 ## TODO
+#### 持续优化
 #### 处理注解
 #### 支持 kotlin
 ## License

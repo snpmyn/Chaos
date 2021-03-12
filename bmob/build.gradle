@@ -34,6 +34,6 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
+    api 'cn.bmob.android:bmob-sdk:3.7.8'
     /*bmob*/
 }

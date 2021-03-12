@@ -22,10 +22,11 @@ public class BuglyInitConfigure {
      *
      * @param application            应用
      * @param canShowUpgradeActivity 可显示更新活动
+     * @param appId                  AppID
      */
-    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity) {
+    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, String appId) {
         betaSet(canShowUpgradeActivity);
-        Bugly.init(application, "26162df435", BuildConfig.DEBUG);
+        Bugly.init(application, appId, BuildConfig.DEBUG);
     }
 
     /**

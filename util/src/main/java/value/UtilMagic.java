@@ -36,6 +36,8 @@ public class UtilMagic {
      * String
      */
     public static final String STRING_SHOW = "show";
+    public static final String STRING_L = "0";
+    public static final String STRING_Y = "1";
     public static final String STRING_DOT = ".";
     public static final String STRING_DOT_DOC = ".doc";
     public static final String STRING_DOT_DOCX = ".docx";
