@@ -1,4 +1,4 @@
-package com.chaos.widget.dialog.loading.listener;
+package com.chaos.widget.dialog.bocdialog.loading.listener;
 
 /**
  * Created on 2020-08-31

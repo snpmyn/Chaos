@@ -32,7 +32,7 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    implementation 'org.litepal.guolindev:core:3.2.3'
+    api 'org.litepal.guolindev:core:3.2.3'
     /*LitePal*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/

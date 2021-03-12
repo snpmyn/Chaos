@@ -1,4 +1,4 @@
-package com.chaos.widget.dialog.loading;
+package com.chaos.widget.dialog.bocdialog.loading;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.chaos.util.java.density.DensityUtils;
 import com.chaos.widget.R;
-import com.chaos.widget.dialog.base.BaseInstanceDialog;
-import com.chaos.widget.dialog.loading.listener.OnBackPressedListener;
+import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
+import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
 
 /**
  * Created on 2020-08-28

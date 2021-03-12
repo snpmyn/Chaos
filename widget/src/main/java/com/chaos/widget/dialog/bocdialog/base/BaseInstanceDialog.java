@@ -1,4 +1,4 @@
-package com.chaos.widget.dialog.base;
+package com.chaos.widget.dialog.bocdialog.base;
 
 import android.content.Context;
 

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import com.chaos.widget.R;
-import com.chaos.widget.dialog.base.BaseInstanceDialog;
+import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.message.listener.OnRightAngleMessageDialogButtonClickListener;
 
 import org.jetbrains.annotations.NotNull;

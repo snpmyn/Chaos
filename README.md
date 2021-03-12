@@ -100,7 +100,7 @@ releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
 #### litepal
 ```
 implementation project(path: ':util')
-implementation 'org.litepal.guolindev:core:3.2.3'
+api 'org.litepal.guolindev:core:3.2.3'
 debugImplementation 'com.glance.guolindev:glance:1.0.0'
 ```
 ## TODO

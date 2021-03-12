@@ -1,5 +1,7 @@
 package com.chaos.bmob.base;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created on 2021/3/12
  *
@@ -15,6 +17,6 @@ package com.chaos.bmob.base;
  * updatedAt 数据最后修改时间
  * ACL 数据操作权限
  */
-public class BaseBmobObject {
+public class BaseBmobObject extends BmobObject {
 
 }
