@@ -549,7 +549,7 @@ public class FileUtils {
      * @param uri       the uri to query
      * @return String
      */
-    private static @org.jetbrains.annotations.Nullable String getPath(final Context context, String authority, final @NotNull Uri uri) {
+    public static @org.jetbrains.annotations.Nullable String getPath(final Context context, String authority, final @NotNull Uri uri) {
         Timber.d("Authority: %s +\n Fragment: %s +\n Port: %s +\n Query: %s +\n Scheme: %s +\n Host: %s +\n Segments: %s",
                 uri.getAuthority(), uri.getFragment(), uri.getPort(), uri.getQuery(), uri.getScheme(), uri.getHost(), uri.getPathSegments().toString());
         // DocumentProvider
