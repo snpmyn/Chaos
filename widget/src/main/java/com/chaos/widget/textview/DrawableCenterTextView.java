@@ -28,7 +28,7 @@ public class DrawableCenterTextView extends AppCompatTextView {
         // 获TextView之Drawable对象，返数组长应4（对应左上右下）
         Drawable[] drawables = getCompoundDrawables();
         Drawable drawable = drawables[0];
-        if (drawable != null) {
+        if (null != drawable) {
             // 左Drawable非空，测需绘文本宽
             float textWidth = getPaint().measureText(getText().toString());
             int drawablePadding = getCompoundDrawablePadding();
@@ -37,7 +37,7 @@ public class DrawableCenterTextView extends AppCompatTextView {
             float bodyWidth = textWidth + drawablePadding + drawableWidth;
             // 移画布绘X轴
             canvas.translate((getWidth() - bodyWidth) / 2, 0);
-        } else if ((drawable = drawables[1]) != null) {
+        } else if (null != (drawable = drawables[1])) {
             // 上Drawable非空则获文本高
             getPaint().getTextBounds(getText().toString(), 0, getText().toString().length(), rect);
             float textHeight = rect.height();

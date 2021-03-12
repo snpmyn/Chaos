@@ -24,8 +24,8 @@ public class AppBarLayoutKit {
      * @param flags 标志
      */
     public static void setScrollFlags(@NonNull View view, int flags) {
-        AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) view.getLayoutParams();
-        params.setScrollFlags(flags);
-        view.setLayoutParams(params);
+        AppBarLayout.LayoutParams layoutParams = (AppBarLayout.LayoutParams) view.getLayoutParams();
+        layoutParams.setScrollFlags(flags);
+        view.setLayoutParams(layoutParams);
     }
 }

@@ -129,7 +129,7 @@ public class StatusBarUtils {
         ViewGroup contentView = activity.findViewById(android.R.id.content);
         // 移半透明矩形（避叠加）
         View fakeStatusBarView = contentView.findViewById(FAKE_STATUS_BAR_VIEW_ID);
-        if (fakeStatusBarView != null) {
+        if (null != fakeStatusBarView) {
             if (fakeStatusBarView.getVisibility() == View.GONE) {
                 fakeStatusBarView.setVisibility(View.VISIBLE);
             }
@@ -235,7 +235,7 @@ public class StatusBarUtils {
         // 添StatusBarView到布局
         ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
         View fakeStatusBarView = contentLayout.findViewById(FAKE_STATUS_BAR_VIEW_ID);
-        if (fakeStatusBarView != null) {
+        if (null != fakeStatusBarView) {
             if (fakeStatusBarView.getVisibility() == View.GONE) {
                 fakeStatusBarView.setVisibility(View.VISIBLE);
             }
@@ -390,9 +390,9 @@ public class StatusBarUtils {
     private static void setTranslucentForImageView(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha, View needOffsetView) {
         setTransparentForWindow(activity);
         addTranslucentView(activity, statusBarAlpha);
-        if (needOffsetView != null) {
+        if (null != needOffsetView) {
             Object haveSetOffset = needOffsetView.getTag(TAG_KEY_HAVE_SET_OFFSET);
-            if (haveSetOffset != null && (Boolean) haveSetOffset) {
+            if ((null != haveSetOffset) && (Boolean) haveSetOffset) {
                 return;
             }
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) needOffsetView.getLayoutParams();
@@ -440,11 +440,11 @@ public class StatusBarUtils {
     public static void hideFakeStatusBarView(@NotNull Activity activity) {
         ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
         View fakeStatusBarView = decorView.findViewById(FAKE_STATUS_BAR_VIEW_ID);
-        if (fakeStatusBarView != null) {
+        if (null != fakeStatusBarView) {
             fakeStatusBarView.setVisibility(View.GONE);
         }
         View fakeTranslucentView = decorView.findViewById(FAKE_TRANSLUCENT_VIEW_ID);
-        if (fakeTranslucentView != null) {
+        if (null != fakeTranslucentView) {
             fakeTranslucentView.setVisibility(View.GONE);
         }
     }
@@ -452,7 +452,7 @@ public class StatusBarUtils {
     private static void clearPreviousSetting(@NotNull Activity activity) {
         ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
         View fakeStatusBarView = decorView.findViewById(FAKE_STATUS_BAR_VIEW_ID);
-        if (fakeStatusBarView != null) {
+        if (null != fakeStatusBarView) {
             decorView.removeView(fakeStatusBarView);
             ViewGroup rootView = (ViewGroup) ((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);
             rootView.setPadding(0, 0, 0, 0);
@@ -468,7 +468,7 @@ public class StatusBarUtils {
     private static void addTranslucentView(@NotNull Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha) {
         ViewGroup contentView = activity.findViewById(android.R.id.content);
         View fakeTranslucentView = contentView.findViewById(FAKE_TRANSLUCENT_VIEW_ID);
-        if (fakeTranslucentView != null) {
+        if (null != fakeTranslucentView) {
             if (fakeTranslucentView.getVisibility() == View.GONE) {
                 fakeTranslucentView.setVisibility(View.VISIBLE);
             }
@@ -619,7 +619,7 @@ public class StatusBarUtils {
      * @param dark     深色否
      */
     private static void setMeiZuStatusBarDarkIcon(Activity activity, boolean dark) {
-        if (activity != null) {
+        if (null != activity) {
             try {
                 WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
                 Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
@@ -724,8 +724,8 @@ public class StatusBarUtils {
         }
         try {
             @SuppressLint("PrivateApi") Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
-            Method m = systemPropertiesClass.getMethod("get", String.class);
-            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
+            Method method = systemPropertiesClass.getMethod("get", String.class);
+            String navBarOverride = (String) method.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
             if (UtilMagic.STRING_L.equals(navBarOverride)) {
                 hasNavigationBar = false;
             } else if (UtilMagic.STRING_Y.equals(navBarOverride)) {

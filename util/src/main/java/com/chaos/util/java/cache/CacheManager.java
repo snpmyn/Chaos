@@ -3,6 +3,8 @@ package com.chaos.util.java.cache;
 import android.content.Context;
 import android.os.Environment;
 
+import com.chaos.util.java.log.LogUtils;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -44,7 +46,7 @@ public class CacheManager {
     private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
             String[] children = dir.list();
-            if (children != null) {
+            if (null != children) {
                 for (String aChildren : children) {
                     boolean success = deleteDir(new File(dir, aChildren));
                     if (!success) {
@@ -53,7 +55,7 @@ public class CacheManager {
                 }
             }
         }
-        if (dir != null) {
+        if (null != dir) {
             return dir.delete();
         } else {
             return false;
@@ -73,7 +75,7 @@ public class CacheManager {
         long size = 0;
         try {
             File[] fileList = file.listFiles();
-            if (fileList != null) {
+            if (null != fileList) {
                 for (File aFileList : fileList) {
                     // 下面还有文件
                     if (aFileList.isDirectory()) {
@@ -84,7 +86,7 @@ public class CacheManager {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
         return size;
     }
