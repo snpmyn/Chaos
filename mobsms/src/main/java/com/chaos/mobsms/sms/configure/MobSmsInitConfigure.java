@@ -11,6 +11,13 @@ import com.mob.MobSDK;
  * @desc MobSMS 初始化配置
  */
 public class MobSmsInitConfigure {
+    /**
+     * 初始化 MobSMS
+     *
+     * @param application 应用
+     * @param appKey      AppKey
+     * @param appSecret   AppSecret
+     */
     public static void initMobSms(Application application, String appKey, String appSecret) {
         MobSDK.init(application, appKey, appSecret);
     }

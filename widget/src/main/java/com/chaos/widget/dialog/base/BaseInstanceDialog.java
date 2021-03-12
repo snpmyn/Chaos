@@ -2,6 +2,8 @@ package com.chaos.widget.dialog.base;
 
 import android.content.Context;
 
+import com.chaos.util.java.log.LogUtils;
+
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public abstract class BaseInstanceDialog extends BaseDialog {
                 CURRENT_BASE_INSTANCE_DIALOGS.remove(baseInstanceDialog);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
     }
 }

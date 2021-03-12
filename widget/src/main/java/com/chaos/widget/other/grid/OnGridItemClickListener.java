@@ -6,7 +6,7 @@ package com.chaos.widget.other.grid;
  * @author zsp
  * @desc 条目点击监听
  */
-public interface OnItemClickListener<T extends IGrid> {
+public interface OnGridItemClickListener<T extends IGrid> {
     /**
      * 条目点击
      *

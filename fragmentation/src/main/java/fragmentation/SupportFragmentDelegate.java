@@ -236,15 +236,14 @@ public class SupportFragmentDelegate {
             view.setClickable(true);
             setBackground(view);
         }
-        boolean flag = savedInstanceState != null
-                || mRootStatus == STATUS_ROOT_ANIM_DISABLE
-                || (mFragment.getTag() != null && mFragment.getTag().startsWith("android:switcher:"))
+        boolean flag = (savedInstanceState != null)
+                || (mRootStatus == STATUS_ROOT_ANIM_DISABLE)
+                || ((mFragment.getTag() != null) && mFragment.getTag().startsWith("android:switcher:"))
                 || (mReplaceMode && !mFirstCreateView);
         if (flag) {
             notifyEnterAnimEnd();
         } else if (mCustomEnterAnim != Integer.MIN_VALUE) {
-            fixAnimationListener(mCustomEnterAnim == 0 ?
-                    mAnimHelper.getNoneAnimation() : AnimationUtils.loadAnimation(mFragmentActivity, mCustomEnterAnim));
+            fixAnimationListener(mCustomEnterAnim == 0 ? mAnimHelper.getNoneAnimation() : AnimationUtils.loadAnimation(mFragmentActivity, mCustomEnterAnim));
         }
         if (mFirstCreateView) {
             mFirstCreateView = false;
@@ -367,7 +366,7 @@ public class SupportFragmentDelegate {
      */
     public void setFragmentResult(int resultCode, Bundle bundle) {
         Bundle args = mFragment.getArguments();
-        if (args == null || !args.containsKey(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD)) {
+        if ((args == null) || !args.containsKey(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD)) {
             return;
         }
         ResultRecord resultRecord = args.getParcelable(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD);
@@ -634,9 +633,7 @@ public class SupportFragmentDelegate {
     }
 
     private void setBackground(View view) {
-        boolean flag = (mFragment.getTag() != null && mFragment.getTag().startsWith("android:switcher:")) ||
-                mRootStatus != STATUS_UN_ROOT ||
-                view.getBackground() != null;
+        boolean flag = (mFragment.getTag() != null && mFragment.getTag().startsWith("android:switcher:")) || mRootStatus != STATUS_UN_ROOT || view.getBackground() != null;
         if (flag) {
             return;
         }

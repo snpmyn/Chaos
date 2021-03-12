@@ -89,7 +89,7 @@ public class SupportActivityDelegate {
                 SupportFragmentDelegate delegate = iSupportFragment.getSupportDelegate();
                 if (delegate.mAnimByActivity) {
                     delegate.mFragmentAnimator = fragmentAnimator.copy();
-                    if (delegate.mAnimHelper != null) {
+                    if (null != delegate.mAnimHelper) {
                         delegate.mAnimHelper.notifyChanged(delegate.mFragmentAnimator);
                     }
                 }

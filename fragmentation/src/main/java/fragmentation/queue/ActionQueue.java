@@ -30,8 +30,7 @@ public class ActionQueue {
         if (isThrottleBack(baseAction)) {
             return;
         }
-        if (baseAction.action == BaseAction.ACTION_LOAD && mQueue.isEmpty()
-                && Thread.currentThread() == Looper.getMainLooper().getThread()) {
+        if ((baseAction.action == BaseAction.ACTION_LOAD) && mQueue.isEmpty() && (Thread.currentThread() == Looper.getMainLooper().getThread())) {
             baseAction.run();
             return;
         }
@@ -50,7 +49,7 @@ public class ActionQueue {
             return;
         }
         BaseAction baseAction = mQueue.peek();
-        if (baseAction != null) {
+        if (null != baseAction) {
             baseAction.run();
             executeNextAction(baseAction);
         }
@@ -59,7 +58,7 @@ public class ActionQueue {
     private void executeNextAction(@NotNull BaseAction baseAction) {
         if (baseAction.action == BaseAction.ACTION_POP) {
             ISupportFragment top = SupportHelper.getBackStackTopFragment(baseAction.fragmentManager);
-            baseAction.duration = top == null ? BaseAction.DEFAULT_POP_TIME : top.getSupportDelegate().getExitAnimDuration();
+            baseAction.duration = (null == top) ? BaseAction.DEFAULT_POP_TIME : top.getSupportDelegate().getExitAnimDuration();
         }
         mMainHandler.postDelayed(() -> {
             mQueue.poll();
@@ -71,7 +70,7 @@ public class ActionQueue {
     private boolean isThrottleBack(@NotNull BaseAction baseAction) {
         if (baseAction.action == BaseAction.ACTION_BACK) {
             BaseAction head = mQueue.peek();
-            return head != null && head.action == BaseAction.ACTION_POP;
+            return (null != head) && (head.action == BaseAction.ACTION_POP);
         }
         return false;
     }

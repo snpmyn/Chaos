@@ -1,5 +1,7 @@
 package androidx.fragment.app;
 
+import com.chaos.util.java.log.LogUtils;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class FragmentationMagician {
             FragmentManagerImpl fragmentManagerImpl = (FragmentManagerImpl) fragmentManager;
             return fragmentManagerImpl.isStateSaved();
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtils.exception(e);
         }
         return false;
     }

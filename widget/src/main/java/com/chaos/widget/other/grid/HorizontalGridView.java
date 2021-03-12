@@ -26,8 +26,8 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
     private ViewPager viewPager;
     private LinearLayout linearLayout;
     private ViewPagerAdapter viewPagerAdapter;
-    private OnItemClickListener<T> onItemClickListener;
-    private OnItemChildViewClickListener<T> onItemChildViewClickListener;
+    private OnGridItemClickListener<T> onGridItemClickListener;
+    private OnGridItemChildViewClickListener<T> onGridItemChildViewClickListener;
     /**
      * ViewPage 页数
      */
@@ -177,19 +177,19 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
     /**
      * 设置条目点击监听
      *
-     * @param onItemClickListener 条目点击监听
+     * @param onGridItemClickListener 条目点击监听
      */
-    public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
+    public void setOnGridItemClickListener(OnGridItemClickListener<T> onGridItemClickListener) {
+        this.onGridItemClickListener = onGridItemClickListener;
     }
 
     /**
      * 设置条目子视图点击监听
      *
-     * @param onItemChildViewClickListener 条目子视图点击监听
+     * @param onGridItemChildViewClickListener 条目子视图点击监听
      */
-    public void setOnItemChildViewClickListener(OnItemChildViewClickListener<T> onItemChildViewClickListener) {
-        this.onItemChildViewClickListener = onItemChildViewClickListener;
+    public void setOnGridItemChildViewClickListener(OnGridItemChildViewClickListener<T> onGridItemChildViewClickListener) {
+        this.onGridItemChildViewClickListener = onGridItemChildViewClickListener;
     }
 
     private class MyViewHolder implements IViewHolder {
@@ -228,12 +228,12 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
             baseGridViewAdapter.show(measuredGridView, list);
             // 条目点击监听
             measuredGridView.setOnItemClickListener((parent, view, position, id) -> {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(list.get(position), position);
+                if (onGridItemClickListener != null) {
+                    onGridItemClickListener.onItemClick(list.get(position), position);
                 }
             });
             // 条目子视图点击监听
-            baseGridViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> onItemChildViewClickListener.onItemChildViewClick(item, position));
+            baseGridViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> onGridItemChildViewClickListener.onItemChildViewClick(item, position));
         } catch (Exception e) {
             LogUtils.exception(e);
             return null;

@@ -241,8 +241,8 @@ public class DebugStackDelegate implements SensorEventListener {
 
     private static class StackViewTouchListener implements View.OnTouchListener {
         private final View stackView;
-        private float dx, dy = 0f;
-        private float xDown, yDown = 0f;
+        private float dx, dy = 0.0f;
+        private float xDown, yDown = 0.0f;
         private boolean isClickState;
         private final int clickLimitValue;
 

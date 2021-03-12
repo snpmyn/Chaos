@@ -13,7 +13,7 @@ import com.willowtreeapps.spruce.sort.LinearSort;
  * Created on 2019/6/26.
  *
  * @author 郑少鹏
- * @desc SpruceKit
+ * @desc Spruce 配套元件
  */
 public class SpruceKit {
     /**

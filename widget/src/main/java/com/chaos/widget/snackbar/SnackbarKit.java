@@ -1,4 +1,4 @@
-package com.chaos.util.java.snackbar;
+package com.chaos.widget.snackbar;
 
 import android.view.View;
 
@@ -10,9 +10,9 @@ import org.jetbrains.annotations.NotNull;
  * Created on 2019/6/3.
  *
  * @author 郑少鹏
- * @desc SnackbarUtils
+ * @desc Snackbar 配套元件
  */
-public class SnackbarUtils {
+public class SnackbarKit {
     /**
      * 通字符串序列创Snackbar
      *

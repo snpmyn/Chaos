@@ -19,7 +19,7 @@ public class BmobInitConfiguration {
      * @param application    应用
      * @param applicationId  应用 ID
      * @param connectTimeout 超时时间
-     * @param blockSize      片大小
+     * @param blockSize      每片大小
      * @param expiration     过期时间
      */
     public static void initBmob(Application application, String applicationId, long connectTimeout, int blockSize, long expiration) {
