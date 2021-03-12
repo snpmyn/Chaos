@@ -53,12 +53,12 @@ implementation 'com.youth.banner:banner:1.4.10'
 #### matisse
 ```
 implementation project(path: ':basic')
-implementation 'com.zhihu.android:matisse:0.5.3-beta3'
+api 'com.zhihu.android:matisse:0.5.3-beta3'
 ```
 #### ucrop
 ```
 implementation project(path: ':basic')
-implementation 'com.github.yalantis:ucrop:2.2.6-native'
+api 'com.github.yalantis:ucrop:2.2.6-native'
 ```
 #### fragmentation
 ```
@@ -79,7 +79,7 @@ api 'cn.jiguang.sdk:janalytics:2.1.2'
 #### bugly
 ```
 implementation project(path: ':basic')
-implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
+api 'com.tencent.bugly:crashreport_upgrade:1.4.2'
 implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
 ```
 #### mobsms

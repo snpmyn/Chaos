@@ -32,6 +32,6 @@ dependencies {
 
     implementation project(path: ':basic')
     /*basic*/
-    implementation 'com.github.yalantis:ucrop:2.2.6-native'
+    api 'com.github.yalantis:ucrop:2.2.6-native'
     /*uCrop*/
 }
