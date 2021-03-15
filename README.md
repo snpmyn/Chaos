@@ -107,6 +107,7 @@ debugImplementation 'com.glance.guolindev:glance:1.0.0'
 #### 持续优化
 #### 处理注解
 #### 支持 kotlin
+#### 优化 mobsms 集成
 ## License
 ```
 Copyright [2021] [snpmyn]

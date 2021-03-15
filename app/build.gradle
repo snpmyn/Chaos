@@ -1,8 +1,34 @@
 plugins {
     id 'com.android.application'
 }
+// MobSDK 插件
+apply plugin: 'com.mob.sdk'
+// MobSDK 扩展
+MobSDK {
+    // 严格模式
+    // 终端用户接受隐私条款前 MobSDK 不进行任何操作
+    fp true
+    // 注册 SMSSDK 相关信息
+    SMSSDK {
+        // 默用 GUI（不用下关）
+        gui false
+        // 打开短信本机号验证功能（3.7.0+）
+        // 独用短信才需通开关打开短信本机号验证功能
+        // 同用秒验和短信，默支持短信本机号验证功能，无需也不可通开关打开（类冲突）
+        mobileAuth true
+    }
+}
 
 android {
+    signingConfigs {
+        debug {
+            /*storeFile file('C:\\Users\\Administrator\\.android/debug.keystore')*/
+            storeFile file('/Users/zhengshaopeng/.android/debug.keystore')
+            storePassword 'android'
+            keyPassword 'android'
+            keyAlias = 'androiddebugkey'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -14,12 +40,25 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                // JPush 注册包名对应 AppKey
+                JPUSH_APPKEY : "00067aa741beb793e0ddc000",
+                // 暂默值即可
+                JPUSH_CHANNEL: "developer-default",
+        ]
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            buildConfigField "String", "DOMAIN_NAME", '"http://xxx.com"'
+            manifestPlaceholders = [app_name: "混沌（开发版）"]
+            versionNameSuffix "-debug"
         }
     }
     compileOptions {
@@ -30,21 +69,22 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    /*implementation 'androidx.appcompat:appcompat:1.2.0'*/
+    /*implementation 'com.google.android.material:material:1.3.0'*/
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
-    api project(path: ':bugly')
-    api project(path: ':doraemonkit')
-    api project(path: ':mobsms')
-    api project(path: ':bmob')
-    api project(path: ':widget')
-    api project(path: ':janalytics')
-    api project(path: ':util')
+    /*自带*/
     api project(path: ':basic')
+    api project(path: ':util')
+    api project(path: ':widget')
     api project(path: ':matisse')
     api project(path: ':ucrop')
     api project(path: ':fragmentation')
-    api project(path: ':litepal')
     api project(path: ':jpush')
+    api project(path: ':janalytics')
+    api project(path: ':bugly')
+    api project(path: ':mobsms')
+    api project(path: ':bmob')
+    api project(path: ':doraemonkit')
+    api project(path: ':litepal')
+    /*chaos*/
 }
