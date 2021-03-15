@@ -107,7 +107,51 @@ debugImplementation 'com.glance.guolindev:glance:1.0.0'
 #### 持续优化
 #### 处理注解
 #### 支持 kotlin
-#### 优化 mobsms 集成
+#### 优化 jpush、mobsms、doraemonkit 集成
+```
+plugins {
+    id 'com.android.application'
+}
+// MobSDK 插件
+apply plugin: 'com.mob.sdk'
+// MobSDK 扩展
+MobSDK {
+    // 严格模式
+    // 终端用户接受隐私条款前 MobSDK 不进行任何操作
+    fp true
+    // 注册 SMSSDK 相关信息
+    SMSSDK {
+        // 默用 GUI（不用下关）
+        gui false
+        // 打开短信本机号验证功能（3.7.0+）
+        // 独用短信才需通开关打开短信本机号验证功能
+        // 同用秒验和短信，默支持短信本机号验证功能，无需也不可通开关打开（类冲突）
+        mobileAuth true
+    }
+}
+
+android {
+    defaultConfig {
+    
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                // JPush 注册包名对应 AppKey
+                JPUSH_APPKEY : "86067aa741beb793e0ddc1a5",
+                // 暂默值即可
+                JPUSH_CHANNEL: "developer-default",
+        ]
+    }
+}
+
+dependencies {
+
+    debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+    // 仅 release 环境需引 no-op
+    // 否则插件注入相关代码致找不到对应 class
+    releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+    /*DoraemonKit*/
+}
+```
 ## License
 ```
 Copyright [2021] [snpmyn]
