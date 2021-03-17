@@ -101,7 +101,6 @@ releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
 ```
 implementation project(path: ':util')
 api 'org.litepal.guolindev:core:3.2.3'
-debugImplementation 'com.glance.guolindev:glance:1.0.0'
 ```
 ## TODO
 #### 持续优化
@@ -131,12 +130,13 @@ MobSDK {
 }
 
 android {
+
     defaultConfig {
-    
+
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
                 // JPush 注册包名对应 AppKey
-                JPUSH_APPKEY : "86067aa741beb793e0ddc1a5",
+                JPUSH_APPKEY : "00067aa741beb793e0ddc000",
                 // 暂默值即可
                 JPUSH_CHANNEL: "developer-default",
         ]
@@ -150,6 +150,8 @@ dependencies {
     // 否则插件注入相关代码致找不到对应 class
     releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
     /*DoraemonKit*/
+    debugImplementation 'com.glance.guolindev:glance:1.0.0'
+    /*glance*/
 }
 ```
 ## License

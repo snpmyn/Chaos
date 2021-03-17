@@ -4,8 +4,8 @@
     package="com.chaos.doraemonkit">
 
     <application>
-        <!--拾色器功能失效（适配 Android Q）-->
-        <!--DoraemonKit 功能仅开发环境用（正式版删除）-->
+        <!--拾色器功能失效(适配 Android Q)-->
+        <!--DoraemonKit 功能仅开发环境用(正式版删除)-->
         <service
             android:name="com.didichuxing.doraemonkit.kit.colorpick.ScreenRecorderService"
             android:enabled="true"

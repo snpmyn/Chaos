@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.chaos.jpush">
 
-    <!-- Required -->
+    <!--Required-->
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"
@@ -21,9 +21,9 @@
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Optional for location -->
+    <!--Optional for location-->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /><!-- 启 6.0 系统 debug 版上层窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /><!--启 6.0 系统 debug 版上层窗口权限-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -33,7 +33,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <!-- Required -->
+    <!--Required-->
     <application>
         <!--极光富媒体或极光早上好功能需设此 Activity 之 exported 为 true 覆盖 jcenter 上组件-->
         <activity
@@ -61,11 +61,11 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </activity>
-        <!--Jpush（极光推送公共服务）-->
-        <!-- Since JCore2.0.0 Required SDK 核心功能 -->
-        <!-- android:process 放 Service 于其它进程 -->
-        <!-- android:enabled 不可 false -->
-        <!-- 该自定 Service 继承极光 JCommonService，使推送通道于更多手机平台更稳定 -->
+        <!--Jpush(极光推送公共服务)-->
+        <!--Since JCore2.0.0 Required SDK 核心功能-->
+        <!--android:process 放 Service 于其它进程-->
+        <!--android:enabled 不可 false-->
+        <!--该自定 Service 继承极光 JCommonService，使推送通道于更多手机平台更稳定-->
         <service
             android:name=".service.JpushCommonService"
             android:enabled="true"

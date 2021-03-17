@@ -5,7 +5,6 @@ import android.app.Application;
 import android.os.Environment;
 
 import com.chaos.bugly.BuildConfig;
-import com.chaos.bugly.R;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
@@ -21,20 +20,26 @@ public class BuglyInitConfigure {
      * 初始化 Bugly
      *
      * @param application            应用
+     * @param largeIconId            通知栏大图（R.mipmap.icon_round）
+     * @param smallIconId            状态栏小图（R.mipmap.icon）
+     * @param defaultBannerId        默 banner 图（R.mipmap.icon）
      * @param canShowUpgradeActivity 可显示更新活动
      * @param appId                  AppID
      */
-    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, String appId) {
-        betaSet(canShowUpgradeActivity);
+    public static void initBugly(Application application, int largeIconId, int smallIconId, int defaultBannerId, Class<? extends Activity> canShowUpgradeActivity, String appId) {
+        betaSet(largeIconId, smallIconId, defaultBannerId, canShowUpgradeActivity);
         Bugly.init(application, appId, BuildConfig.DEBUG);
     }
 
     /**
      * Beta 设置
      *
+     * @param largeIconId            通知栏大图（R.mipmap.icon_round）
+     * @param smallIconId            状态栏小图（R.mipmap.icon）
+     * @param defaultBannerId        默 banner 图（R.mipmap.icon）
      * @param canShowUpgradeActivity 可显示更新活动
      */
-    private static void betaSet(Class<? extends Activity> canShowUpgradeActivity) {
+    private static void betaSet(int largeIconId, int smallIconId, int defaultBannerId, Class<? extends Activity> canShowUpgradeActivity) {
         // true 表 app 启时自动初始升级模块（默 true）
         // false 表不自动初始
         // 考虑 SDK 初始影 app 启速设 false（后面某时刻手调 Beta.init(getApplicationContext(),false)）
@@ -49,12 +54,12 @@ public class BuglyInitConfigure {
         // APP 启 1s 后初始 SDK 避影 APP 启速
         Beta.initDelay = 1000;
         // 通知栏大图
-        Beta.largeIconId = R.mipmap.icon_round;
+        Beta.largeIconId = largeIconId;
         // 状态栏小图
-        Beta.smallIconId = R.mipmap.icon;
+        Beta.smallIconId = smallIconId;
         // 更新弹窗默展 banner
         // 后台配 banner 拉取失败显此 banner（默不设展 loading）
-        Beta.defaultBannerId = R.mipmap.icon;
+        Beta.defaultBannerId = defaultBannerId;
         // 更新资源保存目录为 SD 卡 Download
         // 后续更新资源存此目录
         Beta.storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);

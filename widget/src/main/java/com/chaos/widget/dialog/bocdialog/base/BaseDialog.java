@@ -28,7 +28,7 @@ public abstract class BaseDialog extends Dialog {
      * @param selfThemeResId 自身主题资源 ID
      */
     BaseDialog(Context context, int selfThemeResId) {
-        super(context, selfThemeResId == 0 ? R.style.BaseDialogTheme : selfThemeResId);
+        super(context, selfThemeResId == 0 ? R.style.BocDialogStyle : selfThemeResId);
         this.context = context;
         setContentView(R.layout.dialog_base);
         // 基类调用
