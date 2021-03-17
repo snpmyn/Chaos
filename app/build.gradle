@@ -84,14 +84,14 @@ dependencies {
     api project(path: ':bugly')
     api project(path: ':mobsms')
     api project(path: ':bmob')
-    api project(path: ':doraemonkit')
     api project(path: ':litepal')
+    api project(path: ':doraemonkit')
     /*chaos*/
+    debugImplementation 'com.glance.guolindev:glance:1.0.0'
+    /*glance*/
     debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
     releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
     /*DoraemonKit*/
-    debugImplementation 'com.glance.guolindev:glance:1.0.0'
-    /*glance*/
 }

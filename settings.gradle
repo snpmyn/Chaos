@@ -1,5 +1,5 @@
-include ':litepal'
 include ':doraemonkit'
+include ':litepal'
 include ':bmob'
 include ':mobsms'
 include ':bugly'

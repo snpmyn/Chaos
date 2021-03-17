@@ -16,8 +16,8 @@
 | bugly | Bugly | 无 |
 | mobsms | SMSSDK | 无 |
 | bmob | Bmob | 无 |
-| doraemonkit | DoraemonKit | 无 |
 | litepal | LitePal | 无 |
+| doraemonkit | DoraemonKit | 无 |
 ## 依赖
 #### basic
 ```
@@ -91,22 +91,19 @@ implementation project(path: ':util')
 implementation project(path: ':util')
 api 'cn.bmob.android:bmob-sdk:3.7.8'
 ```
+#### litepal
+```
+implementation project(path: ':util')
+api 'org.litepal.guolindev:core:3.2.3'
+```
 #### doraemonkit
 ```
 implementation project(path: ':util')
 debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
 releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
 ```
-#### litepal
-```
-implementation project(path: ':util')
-api 'org.litepal.guolindev:core:3.2.3'
-```
-## TODO
-#### 持续优化
-#### 处理注解
-#### 支持 kotlin
-#### 优化 jpush、mobsms、doraemonkit 集成
+## 使用
+gradle(app)
 ```
 plugins {
     id 'com.android.application'
@@ -145,15 +142,111 @@ android {
 
 dependencies {
 
+    debugImplementation 'com.glance.guolindev:glance:1.0.0'
+    /*glance*/
     debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
     releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
     /*DoraemonKit*/
-    debugImplementation 'com.glance.guolindev:glance:1.0.0'
-    /*glance*/
 }
 ```
+gradle(project)
+```
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    apply from: "config.gradle"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        // [MobTech]
+        // 注册 MobSDK
+        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+
+        // NOTE: Do not place your com.zsp.clicktonote.application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        // [Bmob]
+        // Bmob maven 仓库地址
+        maven { url 'https://dl.bintray.com/chaozhouzhang/maven' }
+    }
+}
+```
+gradle(config)
+```
+ext {
+    android = [
+            compileSdkVersion: 30,
+            applicationId    : "com.zsp.clicktonote",
+            minSdkVersion    : 23,
+            targetSdkVersion : 30,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+    compileOptions = [
+            sourceCompatibility: JavaVersion.VERSION_1_8,
+            targetCompatibility: JavaVersion.VERSION_1_8
+    ]
+    /*jpush = [
+            // JPush 注册包名对应 AppKey
+            jpushAppKey : "86067aa741beb793e0ddc1a5",
+            // 暂默值即可
+            jpushChannel: "developer-default",
+    ]*/
+    bugly = [
+            appId : '26162df435',
+            appKey: '52339694-ce7d-4857-903f-e6112afc19b4',
+    ]
+    /*mobsms = [
+            // 严格模式
+            // 终端用户接受隐私条款前 MobSDK 不进行任何操作
+            fp        : true,
+            // 默用 GUI（不用下关）
+            gui       : true,
+            // 打开短信本机号验证功能（3.7.0+）
+            // 独用短信才需通开关打开短信本机号验证功能
+            // 同用秒验和短信，默支持短信本机号验证功能，无需也不可通开关打开（类冲突）
+            mobileAuth: true,
+    ]*/
+    doraemonkit = [
+            // 地图经纬度开关
+            gpsSwitch                  : true,
+            // 网络开关
+            networkSwitch              : true,
+            // 大图开关
+            bigImgSwitch               : true,
+            // webView js 抓包
+            webViewSwitch              : true,
+            // [调用栈模式配置] 默 5ms（小于该值的函数于调用栈中不显示）
+            stackMethodThresholdTime   : 10,
+            // [调用栈模式配置] 调用栈函数入口
+            stackMethodEnterMethods    : ["com.didichuxing.doraemondemo.MainDebugActivity.test1"],
+            // [调用栈模式配置] 黑名单（粒度最小到类，暂不支持到方法）
+            stackMethodMethodBlacklist : ["com.facebook.drawee.backends.pipeline.Fresco"],
+            // [普通模式配置] 默 500ms（小于该值的函数运行时不于控制台被打印）
+            normalMethodThresholdTime  : 500,
+            // [普通模式配置] 需针对函数插装的包名
+            normalMethodPackageNames   : ["com.didichuxing.doraemondemo"],
+            // [普通模式配置] 无需针对函数插装的包名和类名
+            normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
+    ]
+}
+```
+## TODO
+#### 持续优化
+#### 处理注解
+#### 支持 kotlin
+#### 优化 jpush、mobsms、litepal、doraemonkit 集成
 ## License
 ```
 Copyright [2021] [snpmyn]
