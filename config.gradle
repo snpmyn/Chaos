@@ -55,3 +55,6 @@ ext {
             normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
     ]
 }
+
+// 使用
+// applicationId rootProject.ext.android["applicationId"]

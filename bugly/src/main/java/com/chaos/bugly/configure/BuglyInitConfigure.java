@@ -22,10 +22,12 @@ public class BuglyInitConfigure {
      *
      * @param application            应用
      * @param canShowUpgradeActivity 可显示更新活动
+     * @param upgradeDialogLayoutId  升级对话框 UI 布局 ID
+     * @param tipsDialogLayoutId     tip 弹窗 UI 布局 ID
      * @param appId                  AppID
      */
-    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, String appId) {
-        betaSet(canShowUpgradeActivity);
+    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId, String appId) {
+        betaSet(canShowUpgradeActivity, upgradeDialogLayoutId, tipsDialogLayoutId);
         Bugly.init(application, appId, BuildConfig.DEBUG);
     }
 
@@ -33,8 +35,10 @@ public class BuglyInitConfigure {
      * Beta 设置
      *
      * @param canShowUpgradeActivity 可显示更新活动
+     * @param upgradeDialogLayoutId  升级对话框 UI 布局 ID
+     * @param tipsDialogLayoutId     tip 弹窗 UI 布局 ID
      */
-    private static void betaSet(Class<? extends Activity> canShowUpgradeActivity) {
+    private static void betaSet(Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId) {
         // true 表 app 启时自动初始升级模块（默 true）
         // false 表不自动初始
         // 考虑 SDK 初始影 app 启速设 false（后面某时刻手调 Beta.init(getApplicationContext(),false)）
@@ -63,6 +67,22 @@ public class BuglyInitConfigure {
         // 仅 MainActivity 显更新弹窗（其它 Activity 不显）
         // 不设默所有 Activity 都可显弹窗
         Beta.canShowUpgradeActs.add(canShowUpgradeActivity);
+        // 自定升级对话框 UI 布局
+        // 注意：保持接口统一，需于指定控件以下方式设 tag，否影响正常使用。
+        // 特性图片：beta_upgrade_banner，如：android:tag="beta_upgrade_banner"
+        // 标题：beta_title，如：android:tag="beta_title"
+        // 升级信息：beta_upgrade_info 如： android:tag="beta_upgrade_info"
+        // 更新属性：beta_upgrade_feature 如： android:tag="beta_upgrade_feature"
+        // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
+        // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
+        Beta.upgradeDialogLayoutId = upgradeDialogLayoutId;
+        // 自定 tip 弹窗 UI 布局
+        // 注意：保持接口统一，需于指定控件以下方式设 tag，否影响正常使用。
+        // 标题：beta_title，如：android:tag="beta_title"
+        // 提示信息：beta_tip_message 如： android:tag="beta_tip_message"
+        // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
+        // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
+        Beta.tipsDialogLayoutId = tipsDialogLayoutId;
         // true 显消息通知（默 true）
         // false 通知栏不显下载进度
         Beta.enableNotification = true;
