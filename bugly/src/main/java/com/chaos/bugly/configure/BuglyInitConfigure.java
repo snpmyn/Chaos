@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Environment;
 
-import com.chaos.bugly.BuildConfig;
 import com.chaos.bugly.R;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
@@ -25,10 +24,12 @@ public class BuglyInitConfigure {
      * @param upgradeDialogLayoutId  升级对话框 UI 布局 ID
      * @param tipsDialogLayoutId     tip 弹窗 UI 布局 ID
      * @param appId                  AppID
+     * @param debug                  调试否
+     *                               勿用 BuildConfig.DEBUG (true 或 false 或自定常量)
      */
-    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId, String appId) {
+    public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId, String appId, boolean debug) {
         betaSet(canShowUpgradeActivity, upgradeDialogLayoutId, tipsDialogLayoutId);
-        Bugly.init(application, appId, BuildConfig.DEBUG);
+        Bugly.init(application, appId, debug);
     }
 
     /**
@@ -75,14 +76,18 @@ public class BuglyInitConfigure {
         // 更新属性：beta_upgrade_feature 如： android:tag="beta_upgrade_feature"
         // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
         // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
-        Beta.upgradeDialogLayoutId = upgradeDialogLayoutId;
+        if (upgradeDialogLayoutId != 0) {
+            Beta.upgradeDialogLayoutId = upgradeDialogLayoutId;
+        }
         // 自定 tip 弹窗 UI 布局
         // 注意：保持接口统一，需于指定控件以下方式设 tag，否影响正常使用。
         // 标题：beta_title，如：android:tag="beta_title"
         // 提示信息：beta_tip_message 如： android:tag="beta_tip_message"
         // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
         // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
-        Beta.tipsDialogLayoutId = tipsDialogLayoutId;
+        if (tipsDialogLayoutId != 0) {
+            Beta.tipsDialogLayoutId = tipsDialogLayoutId;
+        }
         // true 显消息通知（默 true）
         // false 通知栏不显下载进度
         Beta.enableNotification = true;

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chaos">
 
+    <!--Attribute application@allowBackup value=(true) from AndroidManifest.xml:17:9-35 is also present at [com.mob.sec.plugins:SecPlugins-Cmcc:3.0.9] AndroidManifest.xml:18:9-36 value=(false).-->
+    <!--Suggestion: add 'tools:replace="android:allowBackup"' to <application> element at AndroidManifest.xml:15:5-126:19 to override.-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Chaos">
+        android:theme="@style/Theme.Chaos"
+        tools:replace="android:allowBackup">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

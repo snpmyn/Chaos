@@ -14,4 +14,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <application>
+        <!--动态圈选（可选）必要 Activity-->
+        <activity
+            android:name="cn.jiguang.analytics.android.view.BuryWebActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+    </application>
+
 </manifest>

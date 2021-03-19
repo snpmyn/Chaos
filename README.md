@@ -79,8 +79,8 @@ api 'cn.jiguang.sdk:janalytics:2.1.2'
 #### bugly
 ```
 implementation project(path: ':basic')
-api 'com.tencent.bugly:crashreport_upgrade:1.4.2'
-implementation 'com.tencent.bugly:nativecrashreport:3.7.5'
+api 'com.tencent.bugly:crashreport_upgrade:1.5.1'
+implementation 'com.tencent.bugly:nativecrashreport:3.9.1'
 ```
 #### mobsms
 ```
