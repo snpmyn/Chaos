@@ -161,7 +161,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath 'com.android.tools.build:gradle:4.1.3'
         // [MobTech]
         // 注册 MobSDK
         classpath "com.mob.sdk:MobSDK:2018.0319.1724"
