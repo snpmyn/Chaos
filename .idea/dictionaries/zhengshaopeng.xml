@@ -13,6 +13,7 @@
       <w>cdma</w>
       <w>colorpick</w>
       <w>crashreport</w>
+      <w>dexopt</w>
       <w>didichuxing</w>
       <w>docx</w>
       <w>doraemon</w>
@@ -23,10 +24,12 @@
       <w>emui</w>
       <w>endlocal</w>
       <w>enui</w>
+      <w>epub</w>
       <w>errorlevel</w>
       <w>eventbus</w>
       <w>externalstorage</w>
       <w>fileprovider</w>
+      <w>flac</w>
       <w>flyme</w>
       <w>getprop</w>
       <w>hmmss</w>
@@ -37,12 +40,15 @@
       <w>managment</w>
       <w>mddhhmmss</w>
       <w>meizu</w>
+      <w>memu</w>
+      <w>miniqb</w>
       <w>misconfigurations</w>
       <w>miui</w>
       <w>mmkv</w>
       <w>mobilesafe</w>
       <w>mobsms</w>
       <w>mpeg</w>
+      <w>mpga</w>
       <w>msword</w>
       <w>myapp</w>
       <w>nativecrashreport</w>
@@ -64,6 +70,7 @@
       <w>setlocal</w>
       <w>sharedpref</w>
       <w>smssdk</w>
+      <w>smtt</w>
       <w>snackbar</w>
       <w>snpmyn</w>
       <w>systemmanager</w>

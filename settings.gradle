@@ -1,3 +1,4 @@
+include ':tbs'
 include ':doraemonkit'
 include ':litepal'
 include ':bmob'

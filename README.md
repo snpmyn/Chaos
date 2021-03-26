@@ -18,6 +18,7 @@
 | bmob | Bmob | 无 |
 | litepal | LitePal | 无 |
 | doraemonkit | DoraemonKit | 无 |
+| tbs | 腾讯浏览服务 | 无 |
 ## 依赖
 #### basic
 ```
@@ -79,6 +80,7 @@ api 'cn.jiguang.sdk:janalytics:2.1.2'
 #### bugly
 ```
 implementation project(path: ':basic')
+implementation project(path: ':tbs')
 api 'com.tencent.bugly:crashreport_upgrade:1.5.1'
 implementation 'com.tencent.bugly:nativecrashreport:3.9.1'
 ```
@@ -101,6 +103,10 @@ api 'org.litepal.guolindev:core:3.2.3'
 implementation project(path: ':util')
 debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
 releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+```
+#### tbs
+```
+api 'com.tencent.tbs.tbssdk:sdk:43939'
 ```
 ## 使用
 gradle(app)
@@ -161,7 +167,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+
         // [MobTech]
         // 注册 MobSDK
         classpath "com.mob.sdk:MobSDK:2018.0319.1724"

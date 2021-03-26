@@ -1,12 +1,6 @@
 plugins {
     id 'com.android.library'
 }
-// 配符号表用 Bugly 插件
-apply plugin: 'bugly'
-bugly {
-    appId = rootProject.ext.bugly["appId"]
-    appKey = rootProject.ext.bugly["appKey"]
-}
 
 android {
     compileSdkVersion 30
@@ -36,13 +30,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':basic')
-    /*basic*/
-    implementation project(path: ':tbs')
+    api 'com.tencent.tbs.tbssdk:sdk:43939'
     /*tbs*/
-    /*api 'com.tencent.bugly:crashreport_upgrade:latest.release'*/
-    api 'com.tencent.bugly:crashreport_upgrade:1.5.1'
-    /*implementation 'com.tencent.bugly:nativecrashreport:latest.release'*/
-    implementation 'com.tencent.bugly:nativecrashreport:3.9.1'
-    /*bugly*/
 }

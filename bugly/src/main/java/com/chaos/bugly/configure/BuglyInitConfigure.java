@@ -7,6 +7,11 @@ import android.os.Environment;
 import com.chaos.bugly.R;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
+import com.tencent.bugly.crashreport.CrashReport;
+
+import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created on 2018/11/23.
@@ -29,7 +34,30 @@ public class BuglyInitConfigure {
      */
     public static void initBugly(Application application, Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId, String appId, boolean debug) {
         betaSet(canShowUpgradeActivity, upgradeDialogLayoutId, tipsDialogLayoutId);
-        Bugly.init(application, appId, debug);
+        CrashReport.UserStrategy userStrategy = new CrashReport.UserStrategy(application);
+        // int i 对应 int crashType
+        // String s 对应 String errorType
+        // String s1 对应 String errorMessage
+        // String s2 对应 String errorStack
+        userStrategy.setCrashHandleCallback(new CrashReport.CrashHandleCallback() {
+            @Override
+            public synchronized Map<String, String> onCrashHandleStart(int i, String s, String s1, String s2) {
+                LinkedHashMap<String, String> map = new LinkedHashMap<>();
+                String x5CrashInfo = com.tencent.smtt.sdk.WebView.getCrashExtraMessage(application);
+                map.put("x5crashInfo", x5CrashInfo);
+                return map;
+            }
+
+            @Override
+            public synchronized byte[] onCrashHandleStart2GetExtraDatas(int i, String s, String s1, String s2) {
+                try {
+                    return "Extra data.".getBytes(StandardCharsets.UTF_8);
+                } catch (Exception e) {
+                    return null;
+                }
+            }
+        });
+        Bugly.init(application, appId, debug, userStrategy);
     }
 
     /**

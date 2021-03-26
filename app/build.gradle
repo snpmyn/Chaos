@@ -86,6 +86,7 @@ dependencies {
     api project(path: ':bmob')
     api project(path: ':litepal')
     api project(path: ':doraemonkit')
+    api project(path: ':tbs')
     /*chaos*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
