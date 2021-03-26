@@ -47,10 +47,10 @@ public class TbsKit {
      * @param valueCallback 值回调
      *                      MiniQB 打开/关闭时给调用方回调通知，以便应用层做相应处理。可在出现以下回调时结束进程，节约内存占用。
      *                      主要回调值：
-     *                      -1: filePath 空（打开失败）
-     *                      1: 用 QQ 浏览器打开
-     *                      2: 用 MiniQB 打开
-     *                      3: 调阅读器弹框
+     *                      {@link com.chaos.tbs.value.TbsEnum#OPEN_FAIL} filePath 空（打开失败）
+     *                      {@link com.chaos.tbs.value.TbsEnum#QQ} 用 QQ 浏览器打开
+     *                      {@link com.chaos.tbs.value.TbsEnum#MINI_QB} 用 MiniQB 打开
+     *                      {@link com.chaos.tbs.value.TbsEnum#READER} 调阅读器弹框
      */
     public void openFileReader(Context context, String filePath, HashMap<String, String> extraParams, ValueCallback<String> valueCallback) {
         if (null == extraParams) {
