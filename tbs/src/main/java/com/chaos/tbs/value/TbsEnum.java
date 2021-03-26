@@ -24,6 +24,10 @@ public enum TbsEnum {
      */
     READER(3, "调阅读器弹框");
     /**
+     * 类型
+     */
+    private final int type;
+    /**
      * 提示
      */
     private final String hint;
@@ -35,7 +39,12 @@ public enum TbsEnum {
      * @param hint 提示
      */
     TbsEnum(int type, String hint) {
+        this.type = type;
         this.hint = hint;
+    }
+
+    public int getType() {
+        return type;
     }
 
     public String getHint() {
