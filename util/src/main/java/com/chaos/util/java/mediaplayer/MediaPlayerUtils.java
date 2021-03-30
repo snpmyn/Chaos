@@ -18,10 +18,10 @@ import java.io.IOException;
  */
 public class MediaPlayerUtils {
     /**
-     * 播放Raw资源
+     * 播放 Raw 资源
      *
      * @param context 上下文
-     * @param resId   资源ID
+     * @param resId   资源 ID
      */
     public static void playRawResource(@NotNull Context context, int resId) {
         try {
@@ -62,7 +62,7 @@ public class MediaPlayerUtils {
     }
 
     /**
-     * 播放Assets资源
+     * 播放 Assets 资源
      *
      * @param context  上下文
      * @param fileName 文件名

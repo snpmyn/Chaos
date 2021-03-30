@@ -9,9 +9,14 @@ import timber.log.Timber;
  * Created on 2019/7/28.
  *
  * @author 郑少鹏
- * @desc timber初始化配置
+ * @desc timber 初始化配置
  */
 public class TimberInitConfigure {
+    /**
+     * 初始化 timber
+     *
+     * @param debug 调试模式
+     */
     public static void initTimber(boolean debug) {
         if (debug) {
             Timber.plant(new ThreadAwareDebugTree());

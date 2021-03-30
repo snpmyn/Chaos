@@ -23,9 +23,9 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  *
  * @author 郑少鹏
  * @desc GlideUtils
- * context类型影Glide加载优化，Glide监视activity生命周期并activity销毁时自取等待请求。Application context优化失效。
- * 不同Glide v3，Glide v4不默交叉淡入或其它过渡效果。每请求须手动应用过渡。
- * override(width, height)重写宽高后或致获图模糊。
+ * context 类型影 Glide 加载优化，Glide 监视 activity 生命周期并 activity 销毁时自取等待请求。Application context 优化失效。
+ * 不同 Glide v3，Glide v4 不默交叉淡入或其它过渡效果。每请求须手动应用过渡。
+ * override(width, height) 重写宽高后或致获图模糊。
  */
 public class GlideUtils {
     /**
@@ -67,7 +67,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param rId              int资源符
+     * @param rId              int 资源符
      * @param cId              颜色占位符
      * @param iv               控件
      */
@@ -89,7 +89,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param strId            String资源符
+     * @param strId            String 资源符
      * @param cId              颜色占位符
      * @param iv               控件
      */
@@ -111,7 +111,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param rId              int资源符
+     * @param rId              int 资源符
      * @param cId              颜色占位符
      * @param iv               控件
      */
@@ -134,7 +134,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param strId            String资源符
+     * @param strId            String 资源符
      * @param cId              颜色占位符
      * @param iv               控件
      */
@@ -157,7 +157,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param head             int资源符
+     * @param head             int 资源符
      * @param cId              颜色占位符
      * @param radius           半径
      * @param iv               控件
@@ -181,7 +181,7 @@ public class GlideUtils {
      * 加载
      *
      * @param fragmentActivity 上下文
-     * @param strId            String资源符
+     * @param strId            String 资源符
      * @param cId              颜色占位符
      * @param radius           半径
      * @param iv               控件

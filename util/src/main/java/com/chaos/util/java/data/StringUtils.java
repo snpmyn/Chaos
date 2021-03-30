@@ -34,7 +34,7 @@ public class StringUtils {
         String result = null;
         // 指定部分长
         int appointLength = appoint.length();
-        // for循环找合适范围
+        // for 循环找合适范围
         for (int i = 0; i < str.length() - appointLength; i++) {
             if (str.substring(i, i + appointLength).equals(appoint)) {
                 result = str.substring(0, i);
@@ -54,7 +54,7 @@ public class StringUtils {
         String result = null;
         // 指定部分长
         int appointLength = appoint.length();
-        // for循环找合适范围
+        // for 循环找合适范围
         for (int i = 0; i < str.length() - appointLength; i++) {
             if (str.substring(i, i + appointLength).equals(appoint)) {
                 result = str.substring(i + appointLength);
@@ -75,10 +75,10 @@ public class StringUtils {
     }
 
     /**
-     * 转double为字符串
+     * 转 double 为字符串
      * <p>
-     * 最多留num位小数。
-     * num为2时，1.268为1.27；1.2仍为1.2；1仍为1（而非1.00）；100.00为100。
+     * 最多留 num 位小数。
+     * num 为 2 时，1.268 为 1.27；1.2 仍为 1.2；1 仍为 1（而非 1.00）；100.00 为 100。
      *
      * @param d   double
      * @param num 小数位数
@@ -105,13 +105,13 @@ public class StringUtils {
     }
 
     /**
-     * 转Double为字符串
+     * 转 Double 为字符串
      * <p>
-     * 最多留num位小数。
+     * 最多留 num 位小数。
      *
      * @param d        double
      * @param num      小数位数
-     * @param defValue 默认值。null时返该值。
+     * @param defValue 默认值。null 时返该值。
      * @return 字符串
      */
     public static String doubleToString(Double d, int num, String defValue) {
@@ -228,7 +228,7 @@ public class StringUtils {
     }
 
     /**
-     * 转ABC为整型
+     * 转 ABC 为整型
      *
      * @param s 字符串
      * @return 整型
@@ -248,7 +248,7 @@ public class StringUtils {
     }
 
     /**
-     * 转整型为ABC
+     * 转整型为 ABC
      *
      * @param i 整型
      * @return ABC

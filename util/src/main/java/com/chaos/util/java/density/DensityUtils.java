@@ -45,7 +45,7 @@ public class DensityUtils {
     }
 
     /**
-     * px转sp
+     * px 转 sp
      *
      * @param context 上下文
      * @param px      px
@@ -56,7 +56,7 @@ public class DensityUtils {
     }
 
     /**
-     * sp转px
+     * sp 转 px
      *
      * @param context 上下文
      * @param sp      sp

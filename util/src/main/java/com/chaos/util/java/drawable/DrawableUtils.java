@@ -18,7 +18,7 @@ import java.net.URLConnection;
  */
 public class DrawableUtils {
     /**
-     * 据URL获Drawable
+     * 据 URL 获 Drawable
      * <p>
      * Required thread execution.
      * Main thread cannot get graph.

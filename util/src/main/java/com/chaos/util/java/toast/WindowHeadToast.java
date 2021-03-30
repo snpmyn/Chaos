@@ -88,7 +88,7 @@ public class WindowHeadToast implements View.OnTouchListener {
         WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
         wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-        // 不同系统版本（界限 7.1.1）策略不一，判断版本并设type，否则会引起崩溃。
+        // 不同系统版本（界限 7.1.1）策略不一，判断版本并设 type，否则会引起崩溃。
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1) {
             wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         } else {

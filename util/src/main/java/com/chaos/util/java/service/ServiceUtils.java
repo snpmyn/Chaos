@@ -24,7 +24,7 @@ public class ServiceUtils {
      */
     public static boolean isServiceRunning(@NotNull Context context, String serviceName, int maxNumber) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        // 此处前maxNum个查找（据需设）
+        // 此处前 maxNum 个查找（据需设）
         List<ActivityManager.RunningServiceInfo> runningServiceInfoList = activityManager.getRunningServices(maxNumber);
         for (ActivityManager.RunningServiceInfo runningServiceInfo : runningServiceInfoList) {
             // 比对服务名

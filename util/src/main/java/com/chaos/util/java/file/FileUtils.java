@@ -52,7 +52,7 @@ public class FileUtils {
     public static void createFolder(String folderPath, boolean singleLevel) {
         File folder = new File(folderPath);
         if (!folder.exists()) {
-            // mkdirs()建多级文件夹，mkdir()建一级文件夹
+            // mkdirs() 建多级文件夹，mkdir() 建一级文件夹
             if (singleLevel) {
                 folder.mkdir();
             } else {
@@ -62,11 +62,11 @@ public class FileUtils {
     }
 
     /**
-     * 据Uri获真路径
+     * 据 Uri 获真路径
      *
      * @param context    上下文
      * @param contentUri contentUri
-     * @return 据Uri真路径
+     * @return 据 Uri 真路径
      */
     public static @org.jetbrains.annotations.Nullable String getRealPathFromUri(Context context, Uri contentUri) {
         String[] pro = {MediaStore.Images.Media.DATA};
@@ -113,7 +113,7 @@ public class FileUtils {
     }
 
     private static boolean isSpace(final String s) {
-        if (s == null) {
+        if (null == s) {
             return true;
         }
         for (int i = 0, len = s.length(); i < len; ++i) {
@@ -128,7 +128,7 @@ public class FileUtils {
      * 删文件或文件夹
      *
      * @param fileName 所删文件名
-     * @return 成true败false
+     * @return 成 true 败 false
      */
     public static boolean deleteByName(String fileName) {
         File file = new File(fileName);
@@ -147,7 +147,7 @@ public class FileUtils {
      * 删单文件
      *
      * @param fileName 所删文件名
-     * @return 成true败false
+     * @return 成 true 败 false
      */
     private static boolean deleteByNameTwo(String fileName) {
         File file = new File(fileName);
@@ -170,17 +170,17 @@ public class FileUtils {
      * 删目录及目录下文件
      *
      * @param dir 所删目录文件路径
-     * @return 成true败false
+     * @return 成 true 败 false
      */
     private static boolean deleteDirectory(@NotNull String dir) {
-        // dir不以文件分隔符结尾则自动添文件分隔符
+        // dir 不以文件分隔符结尾则自动添文件分隔符
         if (!dir.endsWith(File.separator)) {
             dir = dir + File.separator;
         }
         File dirFile = new File(dir);
-        // dir对应文件不存或非目录则退出
+        // dir 对应文件不存或非目录则退出
         if ((!dirFile.exists()) || (!dirFile.isDirectory())) {
-            Timber.d("删目录失败：%s%s", dir, "不存在");
+            Timber.d("删目录失败：%s %s", dir, "不存在");
             return false;
         }
         boolean flag = true;
@@ -210,7 +210,7 @@ public class FileUtils {
         }
         // 删当前目录
         if (dirFile.delete()) {
-            Timber.d("删目录%s%s", dir, "成功");
+            Timber.d("删目录 %s %s", dir, "成功");
             return true;
         } else {
             return false;
@@ -319,7 +319,7 @@ public class FileUtils {
      *
      * @param newFile  新文件
      * @param destFile 目标文件
-     * @return 成true败false
+     * @return 成 true 败 false
      * @throws IOException 输入/出流异常
      */
     public static boolean copy(File newFile, File destFile) throws IOException {
@@ -696,7 +696,7 @@ public class FileUtils {
 
     @Nullable
     private static File generateFileName(@Nullable String name, File directory) {
-        if (name == null) {
+        if (null == name) {
             return null;
         }
         File file = new File(directory, name);
@@ -816,11 +816,11 @@ public class FileUtils {
     }
 
     /**
-     * assets转文件
+     * assets 转文件
      *
      * @param context                   上下文
      * @param count                     数量
-     * @param assetsFileNamePrefix      assets文件前缀
+     * @param assetsFileNamePrefix      assets 文件前缀
      * @param transferredFileNamePrefix 转后文件前缀
      * @return 文件集
      */
@@ -848,11 +848,11 @@ public class FileUtils {
     }
 
     /**
-     * assets转统一资源标识符
+     * assets 转统一资源标识符
      *
      * @param context                   上下文
      * @param count                     数量
-     * @param assetsFileNamePrefix      assets文件前缀
+     * @param assetsFileNamePrefix      assets 文件前缀
      * @param transferredFileNamePrefix 转后文件前缀
      * @return 统一资源标识符集
      */

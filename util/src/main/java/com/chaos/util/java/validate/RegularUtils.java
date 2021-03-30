@@ -183,11 +183,11 @@ public class RegularUtils {
      * @param input 所匹字符串
      * @return 正则匹配部分
      */
-    public static List getMatches(String regex, CharSequence input) {
+    public static List<String> getMatches(String regex, CharSequence input) {
         if (input == null) {
             return null;
         }
-        List matches = new ArrayList<>();
+        List<String> matches = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
         while (matcher.find()) {

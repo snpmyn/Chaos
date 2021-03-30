@@ -47,7 +47,7 @@ public class LogUtils {
         } catch (ClassNotFoundException | NoSuchMethodException e) {
             exception(e);
         }
-        if (c == null) {
+        if (null == c) {
             try {
                 c = LogUtils.class;
                 methodDebug = methodError = methodInfo = methodVerbose = methodWarn = methodDebugWithThrowable = methodErrorWithThrowable
@@ -147,7 +147,7 @@ public class LogUtils {
     }
 
     private static void log(int level, Method method, String tag, String info, Throwable throwable) {
-        if (info == null) {
+        if (null == info) {
             return;
         }
         if (!Builder.logSystem) {
@@ -198,7 +198,7 @@ public class LogUtils {
     }
 
     private static @NotNull String getStackTraceString(Throwable e) {
-        if (e == null) {
+        if (null == e) {
             return "";
         }
         // This is to reduce the amount of log spew that apps do in the non-error condition of the network being unavailable.

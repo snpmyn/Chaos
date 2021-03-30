@@ -20,7 +20,7 @@ public class VibratorUtils {
      *
      * @param context      上下文
      * @param milliseconds 振动时长（ms）
-     * @param amplitude    振动强度（1到255间或DEFAULT_AMPLITUDE）
+     * @param amplitude    振动强度（1 到 255 间或 DEFAULT_AMPLITUDE）
      */
     public static void oneShotVibration(@NotNull Context context, long milliseconds, int amplitude) {
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
@@ -37,9 +37,9 @@ public class VibratorUtils {
      * 波形振动
      *
      * @param context    上下文
-     * @param timings    交替开关定时模式（从关闭开始，0忽略时序/幅度序列）
-     * @param amplitudes 振幅值（0（断开）到255间或DEFAULT_AMPLITUDE）
-     * @param repeat     振动重复模式（-1不重复、0一直重复、1从数组下标1开始重复振动后结束、2从数组下标2开始重复振动后结束）
+     * @param timings    交替开关定时模式（从关闭开始，0 忽略时序/幅度序列）
+     * @param amplitudes 振幅值（0（断开）到 255 间或 DEFAULT_AMPLITUDE）
+     * @param repeat     振动重复模式（-1 不重复、0 一直重复、1 从数组下标1开始重复振动后结束、2 从数组下标 2 开始重复振动后结束）
      */
     public static void waveformVibration(@NotNull Context context, long[] timings, int[] amplitudes, int repeat) {
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);

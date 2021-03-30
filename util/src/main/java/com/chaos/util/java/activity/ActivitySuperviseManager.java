@@ -26,16 +26,16 @@ import static android.content.Context.ACTIVITY_SERVICE;
  * @author 郑少鹏
  * @desc ActivitySuperviseManager
  * Application：
- * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)}之onActivityCreated当{@link AppCompatActivity#onCreate(Bundle, PersistableBundle)}时执行，android:launchMode="singleTask"时不执行。
- * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)}onActivityDestroyed当{@link AppCompatActivity#finish()(Bundle, PersistableBundle)}时执行，android:launchMode="singleTask"时不执行。
+ * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} 之 onActivityCreated 当 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
+ * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} onActivityDestroyed 当 {@link AppCompatActivity#finish()(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
  * 基类：
- * 基类之onCreate推当前Activity至Activity管理容器，需时遍历容器并finish所有Activity。
+ * 基类之 onCreate 推当前 Activity 至 Activity 管理容器，需时遍历容器并 finish 所有 Activity。
  */
 public class ActivitySuperviseManager {
     private static final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
 
     /**
-     * 推Activity至堆栈
+     * 推 Activity 至堆栈
      *
      * @param activity Activity
      */
@@ -49,7 +49,7 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 从堆栈去Activity
+     * 从堆栈去 Activity
      *
      * @param activity Activity
      */
@@ -63,15 +63,15 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 当前Activity名
+     * 当前 Activity 名
      * <p>
-     * info.topActivity.getShortClassName() Activity名
+     * info.topActivity.getShortClassName() Activity 名
      * info.topActivity.getClassName() 类名
      * info.topActivity.getPackageName() 包名
      * info.topActivity.getClass() 类实例
      *
      * @param context 上下文
-     * @return 当前Activity名
+     * @return 当前 Activity 名
      */
     public static String getCurrentRunningActivityName(@NotNull Context context) {
         ActivityManager activityManager = (ActivityManager) context.getApplicationContext().getSystemService(ACTIVITY_SERVICE);
@@ -87,9 +87,9 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 栈顶Activity实例
+     * 栈顶 Activity 实例
      *
-     * @return 栈顶Activity实例
+     * @return 栈顶 Activity 实例
      */
     public static @Nullable Activity getTopActivityInstance() {
         Activity topActivityInstance;
@@ -104,7 +104,7 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 结束指定Activity
+     * 结束指定 Activity
      *
      * @param activity Activity
      */
@@ -120,7 +120,7 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 结束指定类名Activity
+     * 结束指定类名 Activity
      *
      * @param cls Class<?>
      */
@@ -136,7 +136,7 @@ public class ActivitySuperviseManager {
     }
 
     /**
-     * 结束所有Activity
+     * 结束所有 Activity
      */
     private static void finishAllActivity() {
         for (Activity activity : ACTIVITIES) {

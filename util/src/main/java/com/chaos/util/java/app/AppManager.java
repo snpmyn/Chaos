@@ -12,7 +12,7 @@ import timber.log.Timber;
  * Created on 2019/4/19.
  *
  * @author 郑少鹏
- * @desc App管理器
+ * @desc App 管理器
  */
 public class AppManager {
     /**

@@ -12,7 +12,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
  *
  * @author 郑少鹏
  * @desc 线程管理器
- * 依赖org.apache.commons:commons-lang3:3.8
+ * 依赖 org.apache.commons:commons-lang3:xxx
  */
 public class ThreadManager {
     @Contract(" -> new")

@@ -3,8 +3,11 @@ package com.chaos.util.java.screen;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -16,7 +19,7 @@ import static android.content.Context.WINDOW_SERVICE;
  * Created on 2019/3/6.
  *
  * @author 郑少鹏
- * @desc ScreenUtils
+ * @desc 屏幕工具类
  */
 public class ScreenUtils {
     private static WindowManager windowManager;
@@ -61,14 +64,38 @@ public class ScreenUtils {
     /**
      * Setting window background alpha.
      *
-     * @param activity Activity
-     * @param alpha    Alpha
+     * @param appCompatActivity 活动
+     * @param alpha             透明度
      */
-    public static void setWindowBackgroundAlpha(Activity activity, float alpha) {
-        WeakReference<Activity> weakReference = new WeakReference<>(activity);
+    public static void setWindowBackgroundAlpha(AppCompatActivity appCompatActivity, float alpha) {
+        WeakReference<Activity> weakReference = new WeakReference<>(appCompatActivity);
         Window window = weakReference.get().getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.alpha = alpha;
+        window.setAttributes(layoutParams);
+    }
+
+    /**
+     * 隐藏导航栏且滑动中可显示
+     *
+     * @param appCompatActivity 活动
+     */
+    public static void hideNavigationWithCanShowInScroll(@NotNull AppCompatActivity appCompatActivity) {
+        View decorView = appCompatActivity.getWindow().getDecorView();
+        int visibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(visibility);
+    }
+
+    /**
+     * 隐藏导航栏且滑动中不可显示
+     *
+     * @param appCompatActivity 活动
+     */
+    public static void hideNavigationWithoutCanShowInScroll(AppCompatActivity appCompatActivity) {
+        WeakReference<Activity> weakReference = new WeakReference<>(appCompatActivity);
+        Window window = weakReference.get().getWindow();
+        WindowManager.LayoutParams layoutParams = window.getAttributes();
+        layoutParams.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
         window.setAttributes(layoutParams);
     }
 }

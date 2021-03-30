@@ -145,7 +145,7 @@ public class CaesarCipherUtils {
     private static char encrypt(char c, int offsetValue) {
         // 如果字符串中某字符是小写字母
         if (c >= UtilMagic.CHAR_SMALL_A && c <= UtilMagic.CHAR_SMALL_Z) {
-            // 移动key%26位
+            // 移动 key%26 位
             c += offsetValue % 26;
             if (c < UtilMagic.CHAR_SMALL_A) {
                 // 向左超界
@@ -157,7 +157,7 @@ public class CaesarCipherUtils {
         }
         // 如果字符串中某字符是大写字母
         else if (c >= UtilMagic.CHAR_BIG_A && c <= UtilMagic.CHAR_BIG_Z) {
-            // 移动key%26位
+            // 移动 key%26 位
             c += offsetValue % 26;
             if (c < UtilMagic.CHAR_BIG_A) {
                 // 向左超界

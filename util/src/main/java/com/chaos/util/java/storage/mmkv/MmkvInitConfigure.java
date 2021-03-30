@@ -16,16 +16,16 @@ import timber.log.Timber;
  * Created on 2019/9/9.
  *
  * @author 郑少鹏
- * @desc MMKV初始化配置
+ * @desc MMKV 初始化配置
  */
 public class MmkvInitConfigure {
     /**
-     * 初始MMKV
+     * 初始 MMKV
      *
      * @param application                   应用
      * @param debug                         调试模式
-     * @param mmkvHandler                   MMKV处理
-     * @param mmkvContentChangeNotification MMKV内容改变通知
+     * @param mmkvHandler                   MMKV 处理
+     * @param mmkvContentChangeNotification MMKV 内容改变通知
      */
     public static void initMmkv(@NotNull Application application, boolean debug, MMKVHandler mmkvHandler, MMKVContentChangeNotification mmkvContentChangeNotification) {
         String dir = application.getFilesDir().getAbsolutePath() + "/mmkv";
@@ -39,7 +39,7 @@ public class MmkvInitConfigure {
     /**
      * 退出
      * <p>
-     * 官方示例于Activity之onDestroy()调。
+     * 官方示例于 Activity之onDestroy() 调。
      */
     public static void exit() {
         MMKV.onExit();
