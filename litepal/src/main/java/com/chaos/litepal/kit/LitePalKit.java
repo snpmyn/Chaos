@@ -76,6 +76,16 @@ public class LitePalKit {
     }
 
     /**
+     * 全部删除
+     *
+     * @param modelClass 模型类
+     * @param <T>        <T>
+     */
+    public <T extends LitePalSupport> void allDelete(Class<T> modelClass) {
+        LitePal.deleteAll(modelClass);
+    }
+
+    /**
      * 删除数据库
      *
      * @param dbName 数据库名
