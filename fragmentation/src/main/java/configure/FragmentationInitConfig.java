@@ -22,8 +22,8 @@ public class FragmentationInitConfig {
                 // SHAKE 摇一摇唤出、NONE 隐藏
                 // 仅 Debug 环境生效
                 .stackViewMode(Fragmentation.BUBBLE)
-                // 测试场景.debug(true)
-                // 实际场景.debug(false)
+                // 测试场景 .debug(true)
+                // 实际场景 .debug(false)
                 .debug(debug)
                 // 可获 {@link me.yokeyword.fragmentation.exception.AfterSaveStateTransactionWarning}
                 // 遇 After onSaveInstanceState 不抛异常而回调至下 ExceptionHandler

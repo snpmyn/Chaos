@@ -32,7 +32,7 @@ public class BannerKit {
         banner.setBannerAnimation(cls);
         // 时间
         banner.setDelayTime(delayTime);
-        // 设置法全调后调
+        // 开始（最后调）
         banner.start();
     }
 }

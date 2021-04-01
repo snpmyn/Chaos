@@ -53,7 +53,7 @@ public class DebugStackDelegate implements SensorEventListener {
             return;
         }
         mSensorManager = (SensorManager) mActivity.getSystemService(Context.SENSOR_SERVICE);
-        if (mSensorManager != null) {
+        if (null != mSensorManager) {
             mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
@@ -81,7 +81,7 @@ public class DebugStackDelegate implements SensorEventListener {
     }
 
     public void onDestroy() {
-        if (mSensorManager != null) {
+        if (null != mSensorManager) {
             mSensorManager.unregisterListener(this);
         }
     }
@@ -205,7 +205,7 @@ public class DebugStackDelegate implements SensorEventListener {
     }
 
     private void addDebugFragmentRecord(List<DebugFragmentRecord> fragmentRecords, Fragment fragment) {
-        if (fragment != null) {
+        if (null != fragment) {
             int backStackCount = 0;
             if (fragment.getFragmentManager() != null) {
                 backStackCount = fragment.getFragmentManager().getBackStackEntryCount();
@@ -216,8 +216,7 @@ public class DebugStackDelegate implements SensorEventListener {
             } else {
                 for (int j = 0; j < backStackCount; j++) {
                     FragmentManager.BackStackEntry entry = fragment.getFragmentManager().getBackStackEntryAt(j);
-                    boolean flag = (entry.getName() != null && entry.getName().equals(fragment.getTag()))
-                            || (entry.getName() == null && fragment.getTag() == null);
+                    boolean flag = (entry.getName() != null && entry.getName().equals(fragment.getTag())) || (entry.getName() == null && fragment.getTag() == null);
                     if (flag) {
                         break;
                     }

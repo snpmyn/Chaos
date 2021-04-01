@@ -63,7 +63,7 @@ public class SupportFragmentDelegate {
     private final Runnable mNotifyEnterAnimEndRunnable = new Runnable() {
         @Override
         public void run() {
-            if (mFragment == null) {
+            if (null == mFragment) {
                 return;
             }
             iSupportFragment.onEnterAnimationEnd(mSaveInstanceState);
@@ -71,11 +71,11 @@ public class SupportFragmentDelegate {
                 return;
             }
             final View view = mFragment.getView();
-            if (view == null) {
+            if (null == view) {
                 return;
             }
             ISupportFragment preFragment = SupportHelper.getPreFragment(mFragment);
-            if (preFragment == null) {
+            if (null == preFragment) {
                 return;
             }
             long prePopExitDuration = preFragment.getSupportDelegate().getPopExitAnimDuration();
@@ -101,7 +101,7 @@ public class SupportFragmentDelegate {
      * @return BaseExtraTransaction
      */
     public BaseExtraTransaction extraTransaction() {
-        if (mTransactionDelegate == null) {
+        if (null == mTransactionDelegate) {
             throw new RuntimeException(mFragment.getClass().getSimpleName() + " not attach!");
         }
         return new BaseExtraTransaction.BaseExtraTransactionImpl<>((FragmentActivity) mSupport, iSupportFragment, mTransactionDelegate, false);
@@ -120,7 +120,7 @@ public class SupportFragmentDelegate {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         getVisibleDelegate().onCreate(savedInstanceState);
         Bundle bundle = mFragment.getArguments();
-        if (bundle != null) {
+        if (null != bundle) {
             mRootStatus = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_ROOT_STATUS, STATUS_UN_ROOT);
             mIsSharedElement = bundle.getBoolean(TransactionDelegate.FRAGMENTATION_ARG_IS_SHARED_ELEMENT, false);
             mContainerId = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_CONTAINER);
@@ -129,7 +129,7 @@ public class SupportFragmentDelegate {
             mCustomExitAnim = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_CUSTOM_EXIT_ANIM, Integer.MIN_VALUE);
             mCustomPopExitAnim = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_CUSTOM_POP_EXIT_ANIM, Integer.MIN_VALUE);
         }
-        if (savedInstanceState == null) {
+        if (null == savedInstanceState) {
             getFragmentAnimator();
         } else {
             savedInstanceState.setClassLoader(getClass().getClassLoader());
@@ -139,7 +139,7 @@ public class SupportFragmentDelegate {
         }
         mAnimHelper = new AnimatorHelper(mFragmentActivity.getApplicationContext(), mFragmentAnimator);
         final Animation enter = getEnterAnim();
-        if (enter == null) {
+        if (null == enter) {
             return;
         }
         getEnterAnim().setAnimationListener(new Animation.AnimationListener() {
@@ -231,14 +231,14 @@ public class SupportFragmentDelegate {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         getVisibleDelegate().onActivityCreated();
         View view = mFragment.getView();
-        if (view != null) {
+        if (null != view) {
             mRootViewClickable = view.isClickable();
             view.setClickable(true);
             setBackground(view);
         }
-        boolean flag = (savedInstanceState != null)
+        boolean flag = (null != savedInstanceState)
                 || (mRootStatus == STATUS_ROOT_ANIM_DISABLE)
-                || ((mFragment.getTag() != null) && mFragment.getTag().startsWith("android:switcher:"))
+                || ((null != mFragment.getTag()) && mFragment.getTag().startsWith("android:switcher:"))
                 || (mReplaceMode && !mFirstCreateView);
         if (flag) {
             notifyEnterAnimEnd();
@@ -334,12 +334,12 @@ public class SupportFragmentDelegate {
      * @return FragmentAnimator
      */
     public FragmentAnimator getFragmentAnimator() {
-        if (mSupport == null) {
+        if (null == mSupport) {
             throw new RuntimeException("Fragment has not been attached to Activity!");
         }
-        if (mFragmentAnimator == null) {
+        if (null == mFragmentAnimator) {
             mFragmentAnimator = iSupportFragment.onCreateFragmentAnimator();
-            if (mFragmentAnimator == null) {
+            if (null == mFragmentAnimator) {
                 mFragmentAnimator = mSupport.getFragmentAnimator();
             }
         }
@@ -351,7 +351,7 @@ public class SupportFragmentDelegate {
      */
     public void setFragmentAnimator(FragmentAnimator fragmentAnimator) {
         this.mFragmentAnimator = fragmentAnimator;
-        if (mAnimHelper != null) {
+        if (null != mAnimHelper) {
             mAnimHelper.notifyChanged(fragmentAnimator);
         }
         mAnimByActivity = false;
@@ -366,11 +366,11 @@ public class SupportFragmentDelegate {
      */
     public void setFragmentResult(int resultCode, Bundle bundle) {
         Bundle args = mFragment.getArguments();
-        if ((args == null) || !args.containsKey(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD)) {
+        if ((null == args) || !args.containsKey(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD)) {
             return;
         }
         ResultRecord resultRecord = args.getParcelable(TransactionDelegate.FRAGMENTATION_ARG_RESULT_RECORD);
-        if (resultRecord != null) {
+        if (null != resultRecord) {
             resultRecord.resultCode = resultCode;
             resultRecord.resultBundle = bundle;
         }
@@ -429,7 +429,7 @@ public class SupportFragmentDelegate {
      */
     public void hideSoftInput() {
         Activity activity = mFragment.getActivity();
-        if (activity == null) {
+        if (null == activity) {
             return;
         }
         View view = activity.getWindow().getDecorView();
@@ -616,7 +616,7 @@ public class SupportFragmentDelegate {
         // AnimationListener is not reliable.
         getHandler().postDelayed(mNotifyEnterAnimEndRunnable, enterAnim.getDuration());
         mSupport.getSupportDelegate().mFragmentClickable = true;
-        if (mEnterAnimListener != null) {
+        if (null != mEnterAnimListener) {
             getHandler().post(() -> {
                 mEnterAnimListener.onEnterAnimStart();
                 mEnterAnimListener = null;
@@ -633,7 +633,7 @@ public class SupportFragmentDelegate {
     }
 
     private void setBackground(View view) {
-        boolean flag = (mFragment.getTag() != null && mFragment.getTag().startsWith("android:switcher:")) || mRootStatus != STATUS_UN_ROOT || view.getBackground() != null;
+        boolean flag = ((null != mFragment.getTag()) && mFragment.getTag().startsWith("android:switcher:")) || (mRootStatus != STATUS_UN_ROOT) || (null != view.getBackground());
         if (flag) {
             return;
         }
@@ -661,14 +661,14 @@ public class SupportFragmentDelegate {
     }
 
     private Handler getHandler() {
-        if (mHandler == null) {
+        if (null == mHandler) {
             mHandler = new Handler(Looper.getMainLooper());
         }
         return mHandler;
     }
 
     public VisibleDelegate getVisibleDelegate() {
-        if (mVisibleDelegate == null) {
+        if (null == mVisibleDelegate) {
             mVisibleDelegate = new VisibleDelegate(iSupportFragment);
         }
         return mVisibleDelegate;
@@ -680,7 +680,7 @@ public class SupportFragmentDelegate {
 
     private @org.jetbrains.annotations.Nullable Animation getEnterAnim() {
         if (mCustomEnterAnim == Integer.MIN_VALUE) {
-            if (mAnimHelper != null && mAnimHelper.enterAnimation != null) {
+            if ((null != mAnimHelper) && (null != mAnimHelper.enterAnimation)) {
                 return mAnimHelper.enterAnimation;
             }
         } else {
@@ -695,7 +695,7 @@ public class SupportFragmentDelegate {
 
     private long getEnterAnimDuration() {
         Animation enter = getEnterAnim();
-        if (enter != null) {
+        if (null != enter) {
             return enter.getDuration();
         }
         return NOT_FOUND_ANIM_TIME;
@@ -703,7 +703,7 @@ public class SupportFragmentDelegate {
 
     public long getExitAnimDuration() {
         if (mCustomExitAnim == Integer.MIN_VALUE) {
-            if (mAnimHelper != null && mAnimHelper.exitAnimation != null) {
+            if ((null != mAnimHelper) && (null != mAnimHelper.exitAnimation)) {
                 return mAnimHelper.exitAnimation.getDuration();
             }
         } else {
@@ -718,7 +718,7 @@ public class SupportFragmentDelegate {
 
     private long getPopExitAnimDuration() {
         if (mCustomPopExitAnim == Integer.MIN_VALUE) {
-            if (mAnimHelper != null && mAnimHelper.popExitAnimation != null) {
+            if ((null != mAnimHelper) && (null != mAnimHelper.popExitAnimation)) {
                 return mAnimHelper.popExitAnimation.getDuration();
             }
         } else {
@@ -734,7 +734,7 @@ public class SupportFragmentDelegate {
     @Nullable
     Animation getExitAnim() {
         if (mCustomExitAnim == Integer.MIN_VALUE) {
-            if (mAnimHelper != null && mAnimHelper.exitAnimation != null) {
+            if ((null != mAnimHelper) && (null != mAnimHelper.exitAnimation)) {
                 return mAnimHelper.exitAnimation;
             }
         } else {

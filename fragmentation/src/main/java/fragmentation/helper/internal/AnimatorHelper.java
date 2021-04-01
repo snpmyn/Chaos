@@ -38,14 +38,14 @@ public final class AnimatorHelper {
     }
 
     public Animation getNoneAnimation() {
-        if (noneAnimation == null) {
+        if (null == noneAnimation) {
             noneAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
         }
         return noneAnimation;
     }
 
     public Animation getNoneAnimationFixed() {
-        if (noneAnimationFixed == null) {
+        if (null == noneAnimationFixed) {
             noneAnimationFixed = new Animation() {
             };
         }
@@ -54,8 +54,8 @@ public final class AnimatorHelper {
 
     @Nullable
     public Animation compatChildFragmentExitAnim(@NotNull Fragment fragment) {
-        boolean flag = (fragment.getTag() != null && fragment.getTag().startsWith("android:switcher:") && fragment.getUserVisibleHint()) ||
-                (fragment.getParentFragment() != null && fragment.getParentFragment().isRemoving() && !fragment.isHidden());
+        boolean flag = ((null != fragment.getTag()) && fragment.getTag().startsWith("android:switcher:") && fragment.getUserVisibleHint()) ||
+                ((null != fragment.getParentFragment()) && fragment.getParentFragment().isRemoving() && !fragment.isHidden());
         if (flag) {
             Animation animation = new Animation() {
             };

@@ -32,14 +32,14 @@ public class SupportHelper {
      * @param view 视图
      */
     static void showSoftInput(final View view) {
-        if (view == null || view.getContext() == null) {
+        if ((null == view) || (null == view.getContext())) {
             return;
         }
-        final InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        final InputMethodManager inputMethodManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         view.requestFocus();
         view.postDelayed(() -> {
-            if (imm != null) {
-                imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+            if (null != inputMethodManager) {
+                inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
             }
         }, SHOW_SPACE);
     }
@@ -50,12 +50,12 @@ public class SupportHelper {
      * @param view 视图
      */
     static void hideSoftInput(View view) {
-        if (view == null || view.getContext() == null) {
+        if ((null == view) || (null == view.getContext())) {
             return;
         }
-        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        InputMethodManager inputMethodManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (null != inputMethodManager) {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
@@ -111,7 +111,7 @@ public class SupportHelper {
      */
     public static @Nullable ISupportFragment getPreFragment(@NotNull Fragment fragment) {
         FragmentManager fragmentManager = fragment.getFragmentManager();
-        if (fragmentManager == null) {
+        if (null == fragmentManager) {
             return null;
         }
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
@@ -156,7 +156,7 @@ public class SupportHelper {
     @SuppressWarnings("unchecked")
     private static <T extends ISupportFragment> @Nullable T findStackFragment(Class<T> fragmentClass, String toFragmentTag, FragmentManager fragmentManager) {
         Fragment fragment = null;
-        if (toFragmentTag == null) {
+        if (null == toFragmentTag) {
             List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
             int sizeChildFrgList = fragmentList.size();
             for (int i = sizeChildFrgList - 1; i >= 0; i--) {
@@ -168,7 +168,7 @@ public class SupportHelper {
             }
         } else {
             fragment = fragmentManager.findFragmentByTag(toFragmentTag);
-            if (fragment == null) {
+            if (null == fragment) {
                 return null;
             }
         }
@@ -219,7 +219,7 @@ public class SupportHelper {
     @SuppressWarnings("unchecked")
     static <T extends ISupportFragment> @Nullable T findBackStackFragment(Class<T> fragmentClass, String toFragmentTag, @NotNull FragmentManager fragmentManager) {
         int count = fragmentManager.getBackStackEntryCount();
-        if (toFragmentTag == null) {
+        if (null == toFragmentTag) {
             toFragmentTag = fragmentClass.getName();
         }
         for (int i = count - 1; i >= 0; i--) {
@@ -255,7 +255,7 @@ public class SupportHelper {
         }
         for (int i = size - 1; i >= startIndex; i--) {
             Fragment fragment = fragmentList.get(i);
-            if (fragment != null && fragment.getView() != null) {
+            if ((null != fragment) && (null != fragment.getView())) {
                 willPopFragments.add(fragment);
             }
         }

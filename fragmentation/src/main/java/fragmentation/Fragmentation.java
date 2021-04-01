@@ -34,9 +34,9 @@ public class Fragmentation {
     private ExceptionHandler handler;
 
     static Fragmentation getDefault() {
-        if (INSTANCE == null) {
+        if (null == INSTANCE) {
             synchronized (Fragmentation.class) {
-                if (INSTANCE == null) {
+                if (null == INSTANCE) {
                     INSTANCE = new Fragmentation(new FragmentationBuilder());
                 }
             }

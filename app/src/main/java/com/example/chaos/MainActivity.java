@@ -1,8 +1,8 @@
 package com.example.chaos;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @desc: 主页

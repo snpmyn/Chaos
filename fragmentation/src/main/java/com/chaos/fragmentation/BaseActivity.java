@@ -137,7 +137,7 @@ public abstract class BaseActivity extends SupportActivity {
      * @return boolean
      */
     protected boolean isTouchView(View[] views, MotionEvent ev) {
-        if (views == null || views.length == 0) {
+        if ((null == views) || (views.length == 0)) {
             return false;
         }
         int[] location = new int[2];
@@ -164,7 +164,7 @@ public abstract class BaseActivity extends SupportActivity {
         int[] location = new int[2];
         for (int id : ids) {
             View view = findViewById(id);
-            if (view == null) {
+            if (null == view) {
                 continue;
             }
             view.getLocationOnScreen(location);
@@ -189,17 +189,17 @@ public abstract class BaseActivity extends SupportActivity {
             if (isTouchView(filterViewByIds(), ev)) {
                 return super.dispatchTouchEvent(ev);
             }
-            if (hideSoftByEditViewIds() == null || hideSoftByEditViewIds().length == 0) {
+            if ((null == hideSoftByEditViewIds()) || (hideSoftByEditViewIds().length == 0)) {
                 return super.dispatchTouchEvent(ev);
             }
-            View v = getCurrentFocus();
-            if (isFocusEditText(v, hideSoftByEditViewIds())) {
+            View view = getCurrentFocus();
+            if (isFocusEditText(view, hideSoftByEditViewIds())) {
                 if (isTouchView(hideSoftByEditViewIds(), ev)) {
                     return super.dispatchTouchEvent(ev);
                 }
                 // 隐键盘
                 KeyboardUtils.closeKeyboardInActivity(this);
-                clearViewFocus(v, hideSoftByEditViewIds());
+                clearViewFocus(view, hideSoftByEditViewIds());
             }
         }
         return super.dispatchTouchEvent(ev);

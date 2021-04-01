@@ -25,7 +25,7 @@ public class VisibleDelegate {
     private static final String FRAGMENTATION_STATE_SAVE_IS_INVISIBLE_WHEN_LEAVE = "fragmentation_invisible_when_leave";
     private static final String FRAGMENTATION_STATE_SAVE_COMPAT_REPLACE = "fragmentation_compat_replace";
     /**
-     * SupportVisible相关
+     * SupportVisible 相关
      */
     private boolean mIsSupportVisible;
     private boolean mNeedDispatch = true;
@@ -43,7 +43,7 @@ public class VisibleDelegate {
     }
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
+        if (null != savedInstanceState) {
             mSaveInstanceState = savedInstanceState;
             // setUserVisibleHint() may be called before onCreate()
             mInvisibleWhenLeave = savedInstanceState.getBoolean(FRAGMENTATION_STATE_SAVE_IS_INVISIBLE_WHEN_LEAVE);
@@ -57,14 +57,14 @@ public class VisibleDelegate {
     }
 
     public void onActivityCreated() {
-        if (!mFirstCreateViewCompatReplace && mFragment.getTag() != null && mFragment.getTag().startsWith(FragmentationMagic.STRING_ANDROID_SWITCHER)) {
+        if (!mFirstCreateViewCompatReplace && (null != mFragment.getTag()) && mFragment.getTag().startsWith(FragmentationMagic.STRING_ANDROID_SWITCHER)) {
             return;
         }
         if (mFirstCreateViewCompatReplace) {
             mFirstCreateViewCompatReplace = false;
         }
         if (!mInvisibleWhenLeave && !mFragment.isHidden() && mFragment.getUserVisibleHint()) {
-            if (mFragment.getParentFragment() == null || isFragmentVisible(mFragment.getParentFragment())) {
+            if ((null == mFragment.getParentFragment()) || isFragmentVisible(mFragment.getParentFragment())) {
                 mNeedDispatch = false;
                 safeDispatchUserVisibleHint(true);
             }
@@ -168,7 +168,7 @@ public class VisibleDelegate {
             FragmentManager fragmentManager = mFragment.getChildFragmentManager();
             List<Fragment> childFragments = FragmentationMagician.getActiveFragments(fragmentManager);
             for (Fragment child : childFragments) {
-                if (child instanceof ISupportFragment && !child.isHidden() && child.getUserVisibleHint()) {
+                if ((child instanceof ISupportFragment) && !child.isHidden() && child.getUserVisibleHint()) {
                     ((ISupportFragment) child).getSupportDelegate().getVisibleDelegate().dispatchSupportVisible(visible);
                 }
             }
@@ -180,7 +180,7 @@ public class VisibleDelegate {
         if (parentFragment instanceof ISupportFragment) {
             return !((ISupportFragment) parentFragment).isSupportVisible();
         }
-        return parentFragment != null && !parentFragment.isVisible();
+        return (null != parentFragment) && !parentFragment.isVisible();
     }
 
     private boolean checkAddState() {
@@ -200,7 +200,7 @@ public class VisibleDelegate {
     }
 
     private Handler getHandler() {
-        if (mHandler == null) {
+        if (null == mHandler) {
             mHandler = new Handler(Looper.getMainLooper());
         }
         return mHandler;

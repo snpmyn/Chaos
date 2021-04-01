@@ -69,7 +69,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
         mLinearLayout.removeAllViews();
         LinearLayout ll = getTitleLayout();
         mLinearLayout.addView(ll);
-        if (fragmentRecords == null) {
+        if (null == fragmentRecords) {
             return;
         }
         DebugHierarchyViewContainer.this.setView(fragmentRecords, 0, null);
@@ -77,7 +77,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
 
     @NonNull
     private LinearLayout getTitleLayout() {
-        if (mTitleLayout != null) {
+        if (null != mTitleLayout) {
             return mTitleLayout;
         }
         mTitleLayout = new LinearLayout(mContext);
@@ -112,12 +112,12 @@ public class DebugHierarchyViewContainer extends ScrollView {
             childTvItem = getTextView(child, tempHierarchy);
             childTvItem.setTag(R.id.hierarchy, tempHierarchy);
             final List<DebugFragmentRecord> childFragmentRecord = child.childFragmentRecord;
-            if (childFragmentRecord != null && childFragmentRecord.size() > 0) {
+            if ((null != childFragmentRecord) && (childFragmentRecord.size() > 0)) {
                 tempHierarchy++;
                 childTvItem.setCompoundDrawablesWithIntrinsicBounds(R.drawable.fragmentation_arrow_right, 0, 0, 0);
                 final int finalChildHierarchy = tempHierarchy;
                 childTvItem.setOnClickListener(v -> {
-                    if (v.getTag(R.id.isExpand) != null) {
+                    if (null != v.getTag(R.id.isExpand)) {
                         boolean isExpand = (boolean) v.getTag(R.id.isExpand);
                         if (isExpand) {
                             childTvItem.setCompoundDrawablesWithIntrinsicBounds(R.drawable.fragmentation_arrow_right, 0, 0, 0);
@@ -134,7 +134,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
             } else {
                 childTvItem.setPadding(childTvItem.getPaddingLeft() + mPadding, 0, mPadding, 0);
             }
-            if (tvItem == null) {
+            if (null == tvItem) {
                 mLinearLayout.addView(childTvItem);
             } else {
                 mLinearLayout.addView(childTvItem, mLinearLayout.indexOfChild(tvItem) + 1);
@@ -151,7 +151,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
         int size = mLinearLayout.getChildCount();
         for (int i = size - 1; i >= 0; i--) {
             View view = mLinearLayout.getChildAt(i);
-            if (view.getTag(R.id.hierarchy) != null && (int) view.getTag(R.id.hierarchy) >= hierarchy) {
+            if ((null != view.getTag(R.id.hierarchy)) && ((int) view.getTag(R.id.hierarchy) >= hierarchy)) {
                 mLinearLayout.removeView(view);
             }
         }

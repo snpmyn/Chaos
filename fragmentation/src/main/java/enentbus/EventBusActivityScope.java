@@ -33,7 +33,7 @@ public class EventBusActivityScope {
         }
         ((Application) context.getApplicationContext())
                 .registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-                    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+                    private final Handler handler = new Handler(Looper.getMainLooper());
 
                     @Override
                     public void onActivityCreated(@NonNull Activity activity, Bundle bundle) {
@@ -71,7 +71,7 @@ public class EventBusActivityScope {
                             return;
                         }
                         // Make sure Fragment's onDestroy() has been called.
-                        mainHandler.post(() -> S_ACTIVITY_EVENT_BUS_SCOPE_POOL.remove(activity));
+                        handler.post(() -> S_ACTIVITY_EVENT_BUS_SCOPE_POOL.remove(activity));
                     }
                 });
     }
@@ -83,12 +83,12 @@ public class EventBusActivityScope {
      * @return the activity-scope EventBus instance
      */
     public static EventBus getDefault(Activity activity) {
-        if (activity == null) {
+        if (null == activity) {
             Timber.d("Can't find the Activity, the Activity is null!");
             return invalidEventBus();
         }
         LazyEventBusInstance lazyEventBusInstance = S_ACTIVITY_EVENT_BUS_SCOPE_POOL.get(activity);
-        if (lazyEventBusInstance == null) {
+        if (null == lazyEventBusInstance) {
             Timber.d("Can't find the Activity, it has been removed!");
             return invalidEventBus();
         }
@@ -96,9 +96,9 @@ public class EventBusActivityScope {
     }
 
     private static EventBus invalidEventBus() {
-        if (sInvalidEventBus == null) {
+        if (null == sInvalidEventBus) {
             synchronized (EventBusActivityScope.class) {
-                if (sInvalidEventBus == null) {
+                if (null == sInvalidEventBus) {
                     sInvalidEventBus = new EventBus();
                 }
             }
@@ -110,9 +110,9 @@ public class EventBusActivityScope {
         private volatile EventBus eventBus;
 
         EventBus getInstance() {
-            if (eventBus == null) {
+            if (null == eventBus) {
                 synchronized (this) {
-                    if (eventBus == null) {
+                    if (null == eventBus) {
                         eventBus = new EventBus();
                     }
                 }

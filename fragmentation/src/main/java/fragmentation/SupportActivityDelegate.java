@@ -57,7 +57,7 @@ public class SupportActivityDelegate {
     }
 
     TransactionDelegate getTransactionDelegate() {
-        if (mTransactionDelegate == null) {
+        if (null == mTransactionDelegate) {
             mTransactionDelegate = new TransactionDelegate(mSupport);
         }
         return mTransactionDelegate;

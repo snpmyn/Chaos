@@ -22,7 +22,7 @@ public class JanalyticsInitConfigure {
         JanalyticsKit.setDebugMode(debug);
         // 初始
         JanalyticsKit.init(application);
-        // 开CrashLog日志上报
+        // 开 CrashLog 日志上报
         JanalyticsKit.initCrashHandler(application);
     }
 }
