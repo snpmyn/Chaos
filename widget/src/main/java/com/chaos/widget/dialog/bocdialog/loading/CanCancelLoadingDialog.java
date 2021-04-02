@@ -2,7 +2,6 @@ package com.chaos.widget.dialog.bocdialog.loading;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -116,12 +115,6 @@ public class CanCancelLoadingDialog extends BaseInstanceDialog {
             onBackPressedListener.backPressed();
             onBackPressedListener = null;
         }
-    }
-
-    @Override
-    public void setCancelable(boolean flag) {
-        super.setCancelable(flag);
-        canCancelLoadingDialogIvClose.setVisibility(flag ? View.GONE : View.VISIBLE);
     }
 
     /**
