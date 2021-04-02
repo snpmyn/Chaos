@@ -88,6 +88,10 @@ dependencies {
     api project(path: ':doraemonkit')
     api project(path: ':tbs')
     /*chaos*/
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+    /*ButterKnife*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
     debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
@@ -95,4 +99,6 @@ dependencies {
     // 否则插件注入相关代码致找不到对应 class
     releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
     /*DoraemonKit*/
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+    /*LeakCanary*/
 }

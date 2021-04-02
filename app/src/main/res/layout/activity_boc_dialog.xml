@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pageBackground"
+    android:clipToPadding="false"
+    android:padding="@dimen/dp_12"
+    tools:context="widget.dialog.BocDialogActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnRightAngleMessageDialogWithNoTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:text="@string/rightAngleMessageDialogWithNoTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnRightAngleMessageDialogWithTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/rightAngleMessageDialogWithTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnRightAngleMessageDialogWithNoTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/roundCornerMessageDialogWithNoTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnRightAngleMessageDialogWithTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/roundCornerMessageDialogWithTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnCommonLoadingDialog"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/commonLoadingDialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bocDialogActivityBtnCanCancelLoadingDialog"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/canCancelLoadingDialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnCommonLoadingDialog" />
+</androidx.constraintlayout.widget.ConstraintLayout>

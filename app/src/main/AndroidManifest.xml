@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chaos">
 
-    <!--Attribute application@allowBackup value=(true) from AndroidManifest.xml:17:9-35 is also present at [com.mob.sec.plugins:SecPlugins-Cmcc:3.0.9] AndroidManifest.xml:18:9-36 value=(false).-->
-    <!--Suggestion: add 'tools:replace="android:allowBackup"' to <application> element at AndroidManifest.xml:15:5-126:19 to override.-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
     <application
+        android:name="application.App"
         android:allowBackup="true"
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/icon"
@@ -17,7 +21,15 @@
         android:theme="@style/Theme.Chaos"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name="widget.dialog.BocDialogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="widget.WidgetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
