@@ -155,6 +155,7 @@ public class BocDialogActivityKit {
                 .setOnClickToCloseListener(() -> ToastKit.showShort("clickToClose"))
                 .setOnDialogCloseListener(() -> ToastKit.showShort("dialogClose"))
                 .setOnBackPressedListener(() -> ToastKit.showShort("backPressed")).build();
+        canCancelLoadingDialog.setCancelable(false);
         canCancelLoadingDialog.show();
     }
 }
