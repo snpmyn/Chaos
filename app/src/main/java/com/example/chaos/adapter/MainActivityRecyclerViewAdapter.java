@@ -39,7 +39,7 @@ public class MainActivityRecyclerViewAdapter extends BaseRecyclerViewAdapter<Mai
         MainActivityModule mainActivityModule = getItem(position);
         // 设置条目子视图点击监听
         setOnItemChildViewClickListener(position, mainActivityModule, holder.mainActivityItemIv);
-        // 显示
+        // 模块名称
         holder.mainActivityItemTv.setText(mainActivityModule.getModuleName());
     }
 

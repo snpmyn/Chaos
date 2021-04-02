@@ -38,7 +38,7 @@ public class MainActivityListViewAdapter extends BaseListViewAdapter<MainActivit
         MainActivityModule mainActivityModule = getItem(i);
         // 设置条目子视图点击监听
         setOnItemChildViewClickListener(i, mainActivityModule, viewHolder.mainActivityItemIv);
-        // 显示
+        // 模块名称
         viewHolder.mainActivityItemTv.setText(mainActivityModule.getModuleName());
         return view;
     }
