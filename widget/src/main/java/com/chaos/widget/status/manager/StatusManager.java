@@ -26,7 +26,7 @@ public class StatusManager {
     public static int BASE_EMPTY_LAYOUT_ID = NO_LAYOUT_ID;
     public static int BASE_RETRY_LAYOUT_ID = NO_LAYOUT_ID;
     /**
-     * 状（0无网络、1连接失败、2加载失败、3加载、4空、5内容）
+     * 状（0 无网络、1 连接失败、2 加载失败、3 加载、4 空、5 内容）
      */
     public int status;
     /**
@@ -36,7 +36,7 @@ public class StatusManager {
     private final StatusLayout statusLayout;
 
     private StatusManager(Object activityOrFragmentOrView, BaseStatusListener listener) {
-        if (listener == null) {
+        if (null == listener) {
             listener = new BaseStatusListener() {
                 @Override
                 public void setRetryEvent(View retryView) {
@@ -163,7 +163,7 @@ public class StatusManager {
     /**
      * 重试
      *
-     * @param status 0无网络、1连接失败、2加载失败
+     * @param status 0 无网络、1 连接失败、2 加载失败
      */
     public void showRetry(int status) {
         statusLayout.showRetry(status);

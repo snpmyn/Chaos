@@ -15,8 +15,8 @@ import java.util.List;
  * @author zsp
  * @desc 单例对话框基类
  * <p>
- * 继承{@link BaseDialog}实现对话框，关闭时调{{@link #dismiss()}}。
- * 继承{@link BaseInstanceDialog}实现对话框，关闭时调{{@link #handle(Class)}}。
+ * 继承 {@link BaseDialog} 实现对话框，关闭时调 {@link #dismiss()}。
+ * 继承 {@link BaseInstanceDialog} 实现对话框，关闭时调 {@link #handle(Class)}。
  */
 public abstract class BaseInstanceDialog extends BaseDialog {
     private static final List<BaseInstanceDialog> CURRENT_BASE_INSTANCE_DIALOGS = new ArrayList<>();

@@ -12,8 +12,8 @@ import com.chaos.widget.R;
 /**
  * @desc: 基类
  * <p>
- * 继承{@link BaseDialog}实现对话框，关闭时调{{@link #dismiss()}}。
- * 继承{@link BaseInstanceDialog}实现对话框，关闭时调{{@link BaseInstanceDialog#handle(Class)}}。
+ * 继承 {@link BaseDialog} 实现对话框，关闭时调 {@link #dismiss()}。
+ * 继承 {@link BaseInstanceDialog} 实现对话框，关闭时调 {@link BaseInstanceDialog#handle(Class)}。
  * @author: zsp
  * @date: 2020-08-19 16:17
  */
@@ -28,7 +28,7 @@ public abstract class BaseDialog extends Dialog {
      * @param selfThemeResId 自身主题资源 ID
      */
     BaseDialog(Context context, int selfThemeResId) {
-        super(context, selfThemeResId == 0 ? R.style.BocDialogStyle : selfThemeResId);
+        super(context, (selfThemeResId == 0) ? R.style.BocDialogStyle : selfThemeResId);
         this.context = context;
         setContentView(R.layout.dialog_base);
         // 基类调用
@@ -52,7 +52,7 @@ public abstract class BaseDialog extends Dialog {
         rootView.getViewTreeObserver().addOnWindowFocusChangeListener(new ViewTreeObserver.OnWindowFocusChangeListener() {
             @Override
             public void onWindowFocusChanged(boolean hasFocus) {
-                if (hasFocus && rootView.getMeasuredWidth() == 0) {
+                if (hasFocus && (rootView.getMeasuredWidth() == 0)) {
                     rootView.requestLayout();
                 }
                 if (hasFocus) {

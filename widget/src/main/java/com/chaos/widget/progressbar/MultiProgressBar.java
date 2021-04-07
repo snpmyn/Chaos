@@ -238,7 +238,7 @@ public class MultiProgressBar extends ProgressBar {
     }
 
     private void calculateTextWidthAndHeight() {
-        // fix by Michael 改参数溢出
+        // 改参数溢出
         mText = String.format(Locale.CHINA, "%d", (int) (getProgress() * 1.0f / getMax() * 100)) + "%";
         mPaint.setTextSize(mTextSize);
         mPaint.setStyle(Paint.Style.FILL);

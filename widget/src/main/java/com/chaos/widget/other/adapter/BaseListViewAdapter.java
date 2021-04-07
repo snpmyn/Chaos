@@ -37,7 +37,7 @@ public abstract class BaseListViewAdapter<T> extends BaseAdapter {
 
     @Override
     public T getItem(int i) {
-        return (null == list || list.isEmpty()) ? null : list.get(i);
+        return ((null == list) || list.isEmpty()) ? null : list.get(i);
     }
 
     @Override

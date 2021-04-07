@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager;
  *
  * @author zsp
  * @desc 测量版 ViewPager
- * 解决{@link ViewPager}与{@link android.widget.ScrollView}冲突。
+ * 解决 {@link ViewPager} 与 {@link android.widget.ScrollView} 冲突。
  */
 public class MeasuredViewPager extends ViewPager implements ViewTreeObserver.OnGlobalLayoutListener {
     public MeasuredViewPager(Context context) {

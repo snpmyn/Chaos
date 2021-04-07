@@ -55,9 +55,7 @@ public class RecyclerViewDisplayController {
         }
         layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT;
         layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
-
         itemView.setLayoutParams(layoutParams);
-
         itemView.setVisibility(View.VISIBLE);
     }
 

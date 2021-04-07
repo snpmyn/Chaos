@@ -138,7 +138,7 @@ public class ProgressWheel extends View {
             width = viewWidth;
         }
         // measure Height
-        if (heightMode == MeasureSpec.EXACTLY || widthMode == MeasureSpec.EXACTLY) {
+        if ((heightMode == MeasureSpec.EXACTLY) || (widthMode == MeasureSpec.EXACTLY)) {
             // must be this size
             height = heightSize;
         } else if (heightMode == MeasureSpec.AT_MOST) {
@@ -265,7 +265,9 @@ public class ProgressWheel extends View {
                 // a full turn has been completed
                 // we run the callback with -1 in case we want to
                 // do something, like changing the color
-                runCallback(-1.0f);
+                if (null != callback) {
+                    callback.onProgressUpdate(-1.0f);
+                }
             }
             lastTimeAnimated = SystemClock.uptimeMillis();
             float from = mProgress - 90;
@@ -375,14 +377,8 @@ public class ProgressWheel extends View {
         invalidate();
     }
 
-    private void runCallback(float value) {
-        if (callback != null) {
-            callback.onProgressUpdate(value);
-        }
-    }
-
     private void runCallback() {
-        if (callback != null) {
+        if (null != callback) {
             float normalizedProgress = (float) Math.round(mProgress * 100 / 360.0f) / 100;
             callback.onProgressUpdate(normalizedProgress);
         }
@@ -461,6 +457,7 @@ public class ProgressWheel extends View {
     public float getProgress() {
         return isSpinning ? -1 : mProgress / 360.0f;
     }
+
     //----------------------------------
     // getters + setters
     //----------------------------------

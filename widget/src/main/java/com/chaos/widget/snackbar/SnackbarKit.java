@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class SnackbarKit {
     /**
-     * 通字符串序列创Snackbar
+     * 通字符串序列创 Snackbar
      *
      * @param view         视图
      * @param charSequence 字符序列
@@ -26,13 +26,13 @@ public class SnackbarKit {
     }
 
     /**
-     * 通字符串序列创Snackbar附通字符串序列动作
+     * 通字符串序列创 Snackbar 附通字符串序列动作
      *
      * @param view                    视图
      * @param createCharSequence      创字符序列
      * @param lengthLong              长否
      * @param actionCharSequence      动作字符序列
-     * @param snackbarOnClickListener Snackbar点监听
+     * @param snackbarOnClickListener Snackbar 点监听
      * @return Snackbar
      */
     public static @NotNull Snackbar snackbarCreateByCharSequenceWithActionByCharSequence(
@@ -44,10 +44,10 @@ public class SnackbarKit {
     }
 
     /**
-     * 通资源ID创Snackbar
+     * 通资源 ID 创 Snackbar
      *
      * @param view       视图
-     * @param resId      资源ID
+     * @param resId      资源 ID
      * @param lengthLong 长否
      * @return Snackbar
      */
@@ -56,13 +56,13 @@ public class SnackbarKit {
     }
 
     /**
-     * 通资源ID创Snackbar附通资源ID动作
+     * 通资源 ID 创 Snackbar 附通资源 ID 动作
      *
      * @param view                    视图
-     * @param createResId             创资源ID
+     * @param createResId             创资源 ID
      * @param lengthLong              长否
-     * @param actionResId             动作资源ID
-     * @param snackbarOnClickListener Snackbar点监听
+     * @param actionResId             动作资源 ID
+     * @param snackbarOnClickListener Snackbar 点监听
      * @return Snackbar
      */
     public static @NotNull Snackbar snackbarCreateByResIdWithActionByResId(
@@ -75,7 +75,7 @@ public class SnackbarKit {
 
     public interface SnackbarOnClickListener {
         /**
-         * Snackbar点监听
+         * Snackbar 点监听
          *
          * @param view     视图
          * @param snackbar Snackbar

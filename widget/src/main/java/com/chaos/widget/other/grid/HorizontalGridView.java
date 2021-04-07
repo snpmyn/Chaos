@@ -130,7 +130,7 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
 
     public void setData(List<T> list) {
         this.list = list;
-        if (list != null) {
+        if (null != list) {
             initPagerData();
         }
     }

@@ -9,7 +9,7 @@ import android.widget.ListView;
  *
  * @author zsp
  * @desc 测量版 ListView
- * 解决{@link ListView}与{@link android.widget.ScrollView}冲突。
+ * 解决 {@link ListView} 与 {@link android.widget.ScrollView} 冲突。
  */
 public class MeasuredListView extends ListView {
     public MeasuredListView(Context context) {

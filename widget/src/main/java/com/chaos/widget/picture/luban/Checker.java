@@ -52,7 +52,7 @@ enum Checker {
     }
 
     private boolean isJpg(byte[] data) {
-        if (data == null || data.length < WidgetMagic.INT_THREE) {
+        if ((null == data) || (data.length < WidgetMagic.INT_THREE)) {
             return false;
         }
         byte[] bSignature = new byte[]{data[0], data[1], data[2]};
@@ -60,13 +60,13 @@ enum Checker {
     }
 
     private int getOrientation(byte[] jpeg) {
-        if (jpeg == null) {
+        if (null == jpeg) {
             return 0;
         }
         int offset = 0;
         int length = 0;
         // ISO/IEC 10918-1:1993(E)
-        while (offset + WidgetMagic.INT_THREE < jpeg.length && (jpeg[offset++] & WidgetMagic.INT_ZERO_X_F_F) == WidgetMagic.INT_ZERO_X_F_F) {
+        while (((offset + WidgetMagic.INT_THREE) < jpeg.length) && ((jpeg[offset++] & WidgetMagic.INT_ZERO_X_F_F) == WidgetMagic.INT_ZERO_X_F_F)) {
             int marker = jpeg[offset] & 0xFF;
             // Check if the marker is a padding.
             if (marker == 0xFF) {
@@ -74,23 +74,23 @@ enum Checker {
             }
             offset++;
             // Check if the marker is SOI or TEM.
-            if (marker == 0xD8 || marker == 0x01) {
+            if ((marker == 0xD8) || (marker == 0x01)) {
                 continue;
             }
             // Check if the marker is EOI or SOS.
-            if (marker == 0xD9 || marker == 0xDA) {
+            if ((marker == 0xD9) || (marker == 0xDA)) {
                 break;
             }
             // Get the length and check if it is reasonable.
             length = pack(jpeg, offset, 2, false);
-            if (length < 2 || offset + length > jpeg.length) {
+            if ((length < 2) || (offset + length > jpeg.length)) {
                 Timber.d("invalid length");
                 return 0;
             }
             // Break if the marker is EXIF in APP1.
-            if (marker == 0xE1 && length >= 8
-                    && pack(jpeg, offset + 2, 4, false) == 0x45786966
-                    && pack(jpeg, offset + 6, 2, false) == 0) {
+            if ((marker == 0xE1) && (length >= 8)
+                    && (pack(jpeg, offset + 2, 4, false) == 0x45786966)
+                    && (pack(jpeg, offset + 6, 2, false) == 0)) {
                 offset += 8;
                 length -= 8;
                 break;
@@ -103,14 +103,14 @@ enum Checker {
         if (length > WidgetMagic.INT_EIGHT) {
             // Identify the byte order.
             int tag = pack(jpeg, offset, 4, false);
-            if (tag != WidgetMagic.INT_ZERO_X_FOUR_NINE_FOUR_NINE_TWO_A_ZERO_ZERO && tag != WidgetMagic.INT_ZERO_X_FOUR_D_FOUR_D_ZERO_ZERO_TWO_A) {
+            if ((tag != WidgetMagic.INT_ZERO_X_FOUR_NINE_FOUR_NINE_TWO_A_ZERO_ZERO) && (tag != WidgetMagic.INT_ZERO_X_FOUR_D_FOUR_D_ZERO_ZERO_TWO_A)) {
                 Timber.d("invalid byte order");
                 return 0;
             }
             boolean littleEndian = (tag == 0x49492A00);
             // Get the offset and check if it is reasonable.
             int count = pack(jpeg, offset + 4, 4, littleEndian) + 2;
-            if (count < WidgetMagic.INT_TEN || count > length) {
+            if ((count < WidgetMagic.INT_TEN) || (count > length)) {
                 Timber.d("invalid offset");
                 return 0;
             }
@@ -118,7 +118,7 @@ enum Checker {
             length -= count;
             // Get the count and go through all the elements.
             count = pack(jpeg, offset - 2, 2, littleEndian);
-            while (count-- > 0 && length >= WidgetMagic.INT_TWELVE) {
+            while ((count-- > 0) && (length >= WidgetMagic.INT_TWELVE)) {
                 // Get the tag and check if it is orientation.
                 tag = pack(jpeg, offset, 2, littleEndian);
                 if (tag == 0x0112) {
@@ -197,8 +197,8 @@ enum Checker {
         } finally {
             try {
                 buffer.close();
-            } catch (IOException ignored) {
-                Timber.e(ignored);
+            } catch (IOException e) {
+                Timber.e(e);
             }
         }
         return buffer.toByteArray();

@@ -9,7 +9,7 @@ import android.widget.GridView;
  *
  * @author zsp
  * @desc 测量版 GridView
- * 解决{@link GridView}与{@link android.widget.ScrollView}冲突。
+ * 解决 {@link GridView} 与 {@link android.widget.ScrollView} 冲突。
  */
 public class MeasuredGridView extends GridView {
     public MeasuredGridView(Context context) {

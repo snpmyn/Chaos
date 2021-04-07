@@ -9,10 +9,14 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
-    <!--ProgressBarStyle-->
-    <style name="ProgressBarStyle" parent="Base.Widget.AppCompat.ProgressBar">
-        <item name="android:indeterminateTint">@color/purple_500</item>
-        <item name="android:indeterminateTintMode">src_atop</item>
+    <!--CircularProgressIndicatorStyle-->
+    <style name="CircularProgressIndicatorStyle" parent="Widget.MaterialComponents.CircularProgressIndicator.ExtraSmall">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.CircularProgressIndicator</item>
+        <item name="trackCornerRadius">@dimen/dp_8</item>
+    </style>
+
+    <style name="ThemeOverlay.App.CircularProgressIndicator" parent="">
+        <item name="colorPrimary">@color/purple_500</item>
     </style>
     <!--CustomDialogStyle-->
     <style name="CustomDialogStyle" parent="@android:style/Theme.Dialog">

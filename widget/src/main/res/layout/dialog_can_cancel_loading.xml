@@ -31,5 +31,5 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_12"
         android:contentDescription="@string/toDo"
-        app:srcCompat="@drawable/ic_close_font_input_24dp" />
+        app:srcCompat="@drawable/ic_close_font_input_20dp" />
 </LinearLayout>

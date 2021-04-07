@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 /**
  * @decs: InputStreamProvider
- * 通此接口获输入流兼容文件、FileProvider方式所获图。
+ * 通此接口获输入流兼容文件、FileProvider 方式所获图。
  * @author: 郑少鹏
  * @date: 2019/8/28 19:06
  */

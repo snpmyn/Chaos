@@ -48,7 +48,7 @@ public class StatusLayout extends FrameLayout {
         } else {
             post(() -> showView(mLoadingView));
         }
-        // 避Fragment场景碎片叠加致点击穿透
+        // 避 Fragment 场景碎片叠加致点击穿透
         mLoadingView.setClickable(true);
     }
 
@@ -58,7 +58,7 @@ public class StatusLayout extends FrameLayout {
         } else {
             post(() -> showView(mEmptyView));
         }
-        // 避Fragment场景碎片叠加致点击穿透
+        // 避 Fragment 场景碎片叠加致点击穿透
         mEmptyView.setClickable(true);
     }
 
@@ -103,7 +103,7 @@ public class StatusLayout extends FrameLayout {
             default:
                 break;
         }
-        // 避Fragment场景碎片叠加致点击穿透
+        // 避 Fragment 场景碎片叠加致点击穿透
         mRetryView.setClickable(true);
     }
 
@@ -116,7 +116,7 @@ public class StatusLayout extends FrameLayout {
     }
 
     private void showView(View view) {
-        if (view == null) {
+        if (null == view) {
             return;
         }
         if (view == mLoadingView) {

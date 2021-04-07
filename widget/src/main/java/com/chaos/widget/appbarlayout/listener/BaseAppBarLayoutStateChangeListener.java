@@ -6,7 +6,7 @@ import com.google.android.material.appbar.AppBarLayout;
  * Created on 2019/5/27.
  *
  * @author 郑少鹏
- * @desc AppBarLayout状变监听
+ * @desc AppBarLayout 状变监听
  */
 public abstract class BaseAppBarLayoutStateChangeListener implements AppBarLayout.OnOffsetChangedListener {
     private State mCurrentState = State.IDLE;

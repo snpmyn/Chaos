@@ -16,8 +16,8 @@ public class AppBarLayoutKit {
     /**
      * 滑标志
      * <p>
-     * CollapsingToolbarLayout自身app:layout_scrollFlags含scroll时下设layout_behavior布局无法垂直居中。
-     * 不设scroll上无法滑而吸顶。
+     * CollapsingToolbarLayout 自身 app:layout_scrollFlags 含 scroll 时下设 layout_behavior 布局无法垂直居中。
+     * 不设 scroll 上无法滑而吸顶。
      * 动设即可。
      *
      * @param view  视图

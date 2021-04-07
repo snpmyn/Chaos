@@ -431,11 +431,11 @@ public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration 
         }
 
         void checkBuilderParams() {
-            if (mPaintProvider != null) {
-                if (mColorProvider != null) {
+            if (null != mPaintProvider) {
+                if (null != mColorProvider) {
                     throw new IllegalArgumentException("Use setColor method of Paint class to specify line color. Do not provider ColorProvider if you set PaintProvider.");
                 }
-                if (mSizeProvider != null) {
+                if (null != mSizeProvider) {
                     throw new IllegalArgumentException("Use setStrokeWidth method of Paint class to specify line size. Do not provider SizeProvider if you set PaintProvider.");
                 }
             }

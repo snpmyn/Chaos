@@ -41,22 +41,22 @@ class Engine {
     }
 
     private int computeSize() {
-        srcWidth = srcWidth % 2 == 1 ? srcWidth + 1 : srcWidth;
-        srcHeight = srcHeight % 2 == 1 ? srcHeight + 1 : srcHeight;
+        srcWidth = ((srcWidth % 2) == 1) ? (srcWidth + 1) : srcWidth;
+        srcHeight = ((srcHeight % 2) == 1) ? (srcHeight + 1) : srcHeight;
         int longSide = Math.max(srcWidth, srcHeight);
         int shortSide = Math.min(srcWidth, srcHeight);
         float scale = ((float) shortSide / longSide);
-        if (scale <= 1 && scale > WidgetMagic.FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE) {
+        if ((scale <= 1) && (scale > WidgetMagic.FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE)) {
             if (longSide < WidgetMagic.INT_ONE_THOUSAND_SIX_HUNDRED_SIXTY_FOUR) {
                 return 1;
             } else if (longSide < WidgetMagic.INT_FOUR_THOUSAND_NINE_HUNDRED_NINETY) {
                 return 2;
-            } else if (longSide > WidgetMagic.INT_FOUR_THOUSAND_NINE_HUNDRED_NINETY && longSide < WidgetMagic.INT_ONE_THOUSAND_TWO_HUNDRED_FIFTY) {
+            } else if ((longSide > WidgetMagic.INT_FOUR_THOUSAND_NINE_HUNDRED_NINETY) && (longSide < WidgetMagic.INT_ONE_THOUSAND_TWO_HUNDRED_FIFTY)) {
                 return 4;
             } else {
                 return longSide / 1280;
             }
-        } else if (scale <= WidgetMagic.FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE && scale > WidgetMagic.FLOAT_ZERO_DOT_FIVE) {
+        } else if ((scale <= WidgetMagic.FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE) && (scale > WidgetMagic.FLOAT_ZERO_DOT_FIVE)) {
             return longSide / 1280 == 0 ? 1 : longSide / 1280;
         } else {
             return (int) Math.ceil(longSide / (1280.0 / scale));

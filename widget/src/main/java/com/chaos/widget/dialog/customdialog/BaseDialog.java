@@ -36,7 +36,7 @@ public abstract class BaseDialog extends DialogFragment {
     private static final String LAYOUT = "layout_id";
     private static final String CENTER = "show_center";
     /**
-     * 布局ID
+     * 布局 ID
      */
     int layoutId;
     /**
@@ -72,7 +72,7 @@ public abstract class BaseDialog extends DialogFragment {
     /**
      * xxx
      *
-     * @return 布局ID
+     * @return 布局 ID
      */
     public abstract int intLayoutId();
 
@@ -118,7 +118,7 @@ public abstract class BaseDialog extends DialogFragment {
     }
 
     /**
-     * 屏幕旋转等致DialogFragment销毁后重建时保存数据
+     * 屏幕旋转等致 DialogFragment 销毁后重建时保存数据
      *
      * @param outState outState
      */
@@ -141,7 +141,7 @@ public abstract class BaseDialog extends DialogFragment {
             Window window = getDialog().getWindow();
             if (window != null) {
                 WindowManager.LayoutParams lp = window.getAttributes();
-                // 调节灰色背景透明度[0-1]（默0.5f）
+                // 调节灰色背景透明度 [0-1]（默 0.5f）
                 lp.dimAmount = dimAmount;
                 // 底部显
                 if (showBottom) {
@@ -157,19 +157,19 @@ public abstract class BaseDialog extends DialogFragment {
                         animStyle = R.style.DefaultAnimation;
                     }
                 }
-                // Dialog宽
+                // Dialog 宽
                 if (width == 0) {
                     lp.width = ScreenUtils.screenWidth(Objects.requireNonNull(getContext())) - 2 * DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), margin);
                 } else {
                     lp.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
                 }
-                // Dialog高
+                // Dialog 高
                 if (height == 0) {
                     lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 } else {
                     lp.height = DensityUtils.dipToPxByFloat(getContext(), height);
                 }
-                // Dialog进/退动画
+                // Dialog 进/退动画
                 window.setWindowAnimations(animStyle);
                 window.setAttributes(lp);
             }

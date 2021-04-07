@@ -39,7 +39,7 @@ public abstract class BaseRecyclerViewAdapter<T, A extends RecyclerView.ViewHold
     }
 
     protected T getItem(int position) {
-        return (null == list || list.isEmpty()) ? null : list.get(position);
+        return ((null == list) || list.isEmpty()) ? null : list.get(position);
     }
 
     @Override

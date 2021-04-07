@@ -79,11 +79,11 @@ public class VerticalDividerDecoration extends BaseDividerDecoration {
     }
 
     private int getDividerSize(int position, RecyclerView parent) {
-        if (paintProvider != null) {
+        if (null != paintProvider) {
             return (int) paintProvider.dividerPaint(position, parent).getStrokeWidth();
-        } else if (sizeProvider != null) {
+        } else if (null != sizeProvider) {
             return sizeProvider.dividerSize(position, parent);
-        } else if (drawableProvider != null) {
+        } else if (null != drawableProvider) {
             Drawable drawable = drawableProvider.drawableProvider(position, parent);
             return drawable.getIntrinsicWidth();
         }

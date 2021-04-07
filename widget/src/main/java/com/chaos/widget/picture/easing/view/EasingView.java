@@ -262,11 +262,11 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      * This must be called every time the drawable associated to this view changes.
      */
     private void updateDrawableBounds() {
-        if (mDrawableRect == null) {
+        if (null == mDrawableRect) {
             mDrawableRect = new RectF();
         }
         Drawable drawable = getDrawable();
-        if (drawable != null && drawable.getIntrinsicHeight() > 0 && drawable.getIntrinsicWidth() > 0) {
+        if ((null != drawable) && (drawable.getIntrinsicHeight() > 0) && (drawable.getIntrinsicWidth() > 0)) {
             mDrawableRect.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
     }

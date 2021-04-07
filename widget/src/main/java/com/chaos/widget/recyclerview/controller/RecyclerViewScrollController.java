@@ -53,10 +53,10 @@ public class RecyclerViewScrollController {
                     // 此处第二次滚动
                     if (move) {
                         move = false;
-                        // 所置顶项于当前屏幕位，mIndex记录所置顶于RecyclerView中位
-                        int n = index - manager.findFirstVisibleItemPosition();
-                        if (0 <= n && n < recyclerView.getChildCount()) {
-                            // 所置顶项顶距RecyclerView顶距离
+                        // 所置顶项于当前屏幕位，mIndex 记录所置顶于 RecyclerView 中位
+                        int n = (index - manager.findFirstVisibleItemPosition());
+                        if ((0 <= n) && (n < recyclerView.getChildCount())) {
+                            // 所置顶项顶距 RecyclerView 顶距离
                             int top = recyclerView.getChildAt(n).getTop();
                             // 最后移动
                             recyclerView.smoothScrollBy(0, top);
@@ -72,14 +72,14 @@ public class RecyclerViewScrollController {
      *
      * @param recyclerView   控件
      * @param targetPosition 目标位
-     * @param scrollMode     滑动模式（默SNAP_TO_ANY）
+     * @param scrollMode     滑动模式（默 SNAP_TO_ANY）
      *                       {@link LinearSmoothScroller#SNAP_TO_START}
      *                       子视图左侧或顶部对齐父视图左侧或顶部。
      *                       {@link LinearSmoothScroller#SNAP_TO_END}
      *                       子视图右侧或底部对齐父视图右侧面或底部。
      *                       {@link LinearSmoothScroller#SNAP_TO_ANY}
      *                       据子视图当前位与父布局关系定子视图从头到尾跟随否。
-     *                       子视图实际于RecyclerView左侧，SNAP_TO_ANY和SNAP_TO_START无差别。
+     *                       子视图实际于 RecyclerView 左侧，SNAP_TO_ANY 和 SNAP_TO_START 无差别。
      */
     public void smoothScrollToTargetPositionWithScrollMode(@NonNull RecyclerView recyclerView, int targetPosition, int scrollMode) {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
@@ -111,7 +111,7 @@ public class RecyclerViewScrollController {
      */
     public void itemScrollToCenter(@NonNull RecyclerView recyclerView, int position) {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        if (linearLayoutManager != null) {
+        if (null != linearLayoutManager) {
             int firstPosition = linearLayoutManager.findFirstVisibleItemPosition();
             int lastPosition = linearLayoutManager.findLastVisibleItemPosition();
             int left = recyclerView.getChildAt(position - firstPosition).getLeft();

@@ -35,8 +35,8 @@ public abstract class BaseInputStreamAdapter implements InputStreamProvider {
         if (null != inputStream) {
             try {
                 inputStream.close();
-            } catch (IOException ignore) {
-                LogUtils.exception(ignore);
+            } catch (IOException e) {
+                LogUtils.exception(e);
             } finally {
                 inputStream = null;
             }

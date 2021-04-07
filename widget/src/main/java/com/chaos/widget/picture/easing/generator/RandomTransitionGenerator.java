@@ -69,7 +69,7 @@ public class RandomTransitionGenerator implements TransitionGenerator {
             drawableBoundsChanged = !drawableBounds.equals(mLastDrawableBounds);
             viewportRatioChanged = !MathUtils.haveSameAspectRatio(dstRect, viewport);
         }
-        if (dstRect == null || drawableBoundsChanged || viewportRatioChanged) {
+        if ((null == dstRect) || drawableBoundsChanged || viewportRatioChanged) {
             srcRect = generateRandomRect(drawableBounds, viewport);
         } else {
             // Sets the destiny rect of the last transition as the source one if the current drawable has the same dimensions as the one of the last transition.
