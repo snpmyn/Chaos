@@ -42,7 +42,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性XY缩放（1-0）
+     * 属性 XY 缩放（1-0）
      *
      * @param view             视图
      * @param duration         时长
@@ -61,7 +61,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性XY缩放（0-1）
+     * 属性 XY 缩放（0-1）
      *
      * @param view              视图
      * @param duration          时长
@@ -80,7 +80,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性XY缩放（1-0-1）
+     * 属性 XY 缩放（1-0-1）
      *
      * @param view             视图
      * @param duration         时长
@@ -99,7 +99,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性X渐变
+     * 属性 X 渐变
      *
      * @param view             视图
      * @param start            开始
@@ -134,7 +134,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性Y渐变
+     * 属性 Y 渐变
      *
      * @param view             视图
      * @param start            开始
@@ -169,7 +169,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性Y渐变
+     * 属性 Y 渐变
      *
      * @param view             视图
      * @param start            开始
@@ -205,7 +205,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性Y位移
+     * 属性 Y 位移
      *
      * @param view             视图
      * @param yTranslationEnd  trEnd
@@ -264,11 +264,11 @@ public class AnimationManager {
      */
     public static @NotNull ObjectAnimator alphaChangeCircle(View view, long duration, Animator.AnimatorListener animatorListener) {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.1f);
-        // 播放次数（infinite无限重复）
+        // 播放次数（infinite 无限重复）
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         // 播放模式
         // ValueAnimator.RESTART（默）正序重放
-        // ValueAnimator.REVERSE倒序回放
+        // ValueAnimator.REVERSE 倒序回放
         objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
         objectAnimator.setDuration(duration);
         if (null != animatorListener) {
@@ -278,7 +278,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性XY缩透（1-0）
+     * 属性 XY 缩透（1-0）
      *
      * @param view             视图
      * @param duration         时长
@@ -298,7 +298,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性XY缩透（0-1）
+     * 属性 XY 缩透（0-1）
      *
      * @param view             视图
      * @param duration         duration
@@ -351,7 +351,7 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void rotation(View view, int duration, Float start, Float end, Animator.AnimatorListener animatorListener) {
-        // 负逆正顺（0.0f到360.0f）
+        // 负逆正顺（0.0f 到 360.0f）
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "rotation", start, end);
         objectAnimator.setDuration(duration);
         if (null != animatorListener) {

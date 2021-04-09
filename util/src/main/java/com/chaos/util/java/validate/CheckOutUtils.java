@@ -36,10 +36,10 @@ public class CheckOutUtils {
     private static final Pattern P16 = Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-/\\s]?((((0?[13578])|(1[02]))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-/\\s]?((((0?[13578])|(1[02]))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3])):([0-5]?[0-9])((\\s)|(:([0-5]?[0-9])))))?$");
 
     /**
-     * 用户名1-50即2-25汉字
+     * 用户名 1-50 即 2-25 汉字
      *
      * @param userName 用户名
-     * @return 2-25汉字
+     * @return 2-25 汉字
      */
     public static boolean isUserNameYws(String userName) {
         Matcher mc = P1.matcher(userName);
@@ -127,7 +127,7 @@ public class CheckOutUtils {
     }
 
     /**
-     * 邮件email格式正确否
+     * 邮件 email 格式正确否
      */
     public static boolean isEmail(String email) {
         if (null == email || "".equals(email)) {
@@ -138,30 +138,30 @@ public class CheckOutUtils {
     }
 
     /**
-     * 字符长6到20位
+     * 字符长 6 到 20 位
      *
      * @param str 字符
-     * @return 6到20位
+     * @return 6 到 20 位
      */
     public static boolean isLength(String str) {
         return P10.matcher(str).matches();
     }
 
     /**
-     * 住址字符长1到250位
+     * 住址字符长 1 到 250 位
      *
      * @param str 住址
-     * @return 1到250位
+     * @return 1 到 250 位
      */
     public static boolean isAddressLength(String str) {
         return P11.matcher(str).matches();
     }
 
     /**
-     * 用户名长4到16位
+     * 用户名长 4 到 16 位
      *
      * @param str 用户名
-     * @return 4到16位
+     * @return 4 到 16 位
      */
     public static boolean isUserNameSsl(String str) {
         return P12.matcher(str).matches();
@@ -188,10 +188,10 @@ public class CheckOutUtils {
     }
 
     /**
-     * 银行卡13到19位
+     * 银行卡 13 到 19 位
      *
      * @param str 银行卡号
-     * @return 13到19位
+     * @return 13 到 19 位
      */
     public static boolean isBank(String str) {
         return P15.matcher(str).matches();
@@ -225,7 +225,7 @@ public class CheckOutUtils {
     }
 
     /**
-     * 密码长（6-20位除空格回车tab外字符）
+     * 密码长（6-20 位除空格回车 tab 外字符）
      */
     public static boolean isPassLenLes(String str) {
         String regex = "^\\INT_S{6,20}$";
@@ -233,7 +233,7 @@ public class CheckOutUtils {
     }
 
     /**
-     * 密码长（6到16位数字字母组合）
+     * 密码长（6 到 16 位数字字母组合）
      */
     public static boolean isPassLenLsl(String str) {
         String regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
@@ -243,7 +243,7 @@ public class CheckOutUtils {
     /**
      * @param regex 正则表达式字符串
      * @param str   所匹字符串
-     * @return str符regex正则表达式格式返true，否返false
+     * @return str 符 regex 正则表达式格式返 true，否返 false
      */
     private static boolean match(String regex, String str) {
         Pattern pattern = Pattern.compile(regex);
@@ -287,14 +287,14 @@ public class CheckOutUtils {
     public static String getUserBirthdayByCardId(@NotNull String ids) {
         String birthday = "";
         if (ids.length() == UtilMagic.INT_EIGHTEEN) {
-            // 18位
+            // 18 位
             birthday = ids.substring(6, 14);
             String years = birthday.substring(0, 4);
             String moths = birthday.substring(4, 6);
             String days = birthday.substring(6, 8);
             birthday = years + "-" + moths + "-" + days;
         } else if (ids.length() == UtilMagic.INT_FIFTEEN) {
-            // 15位
+            // 15 位
             birthday = ids.substring(6, 12);
             String years = birthday.substring(0, 2);
             String moths = birthday.substring(2, 4);

@@ -47,10 +47,10 @@ public class IntentOther {
     }
 
     /**
-     * 装APK
+     * 装 APK
      *
      * @param context 上下文
-     * @param apkPath APK路径
+     * @param apkPath APK 路径
      */
     public static void installApk(Context context, String apkPath) {
         File apkFile = new File(apkPath);

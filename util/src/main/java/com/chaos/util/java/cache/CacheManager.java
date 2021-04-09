@@ -66,7 +66,7 @@ public class CacheManager {
      * 目录大小
      * <p>
      * Context.getExternalFilesDir() --> SDCard/Android/data/应用包名/files/ 目录（通放长存数据）
-     * Context.getExternalCacheDir() --> SDCard/Android/data/应用包名/cache/目录（通放临缓数据）
+     * Context.getExternalCacheDir() --> SDCard/Android/data/应用包名/cache/ 目录（通放临缓数据）
      *
      * @param file 文件
      * @return 目录大小

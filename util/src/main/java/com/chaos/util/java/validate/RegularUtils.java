@@ -26,7 +26,7 @@ public class RegularUtils {
      * 中国移动号段 134(0-8)、135、136、137、138、139、147、150、151、152、157、158、159、178、182、183、184、187、188、198
      * <p>
      * 其它号段
-     * 14号段前为上网卡专属号段，如中国联通145、中国移动147等。
+     * 14 号段前为上网卡专属号段，如中国联通 145、中国移动 147 等。
      * <p>
      * 虚拟运营商
      * 电信：1700、1701、1702
@@ -55,11 +55,11 @@ public class RegularUtils {
      */
     private static final String REGEX_TEL = "^0\\d{2,3}[- ]?\\d{7,8}";
     /**
-     * 身份证号码15位（正则）
+     * 身份证号码 15 位（正则）
      */
     private static final String REGEX_ID_CARD15 = "^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$";
     /**
-     * 身份证号码18位（正则）
+     * 身份证号码 18 位（正则）
      */
     private static final String REGEX_ID_CARD18 = "^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9Xx])$";
     /**
@@ -79,7 +79,7 @@ public class RegularUtils {
      * 手机号（精确）
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isMobileExact(CharSequence input) {
         return isMatch(REGEX_MOBILE_EXACT, input);
@@ -89,7 +89,7 @@ public class RegularUtils {
      * 全手机号
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean allMobile(CharSequence input) {
         return isMatch(REGEX_ALL_MOBILE, input);
@@ -99,7 +99,7 @@ public class RegularUtils {
      * 符合短信全手机号
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean allMobileWithSms(CharSequence input) {
         return isMatch(REGEX_ALL_MOBILE_WITH_SMS, input);
@@ -109,17 +109,17 @@ public class RegularUtils {
      * 电话号码
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isTel(CharSequence input) {
         return isMatch(REGEX_TEL, input);
     }
 
     /**
-     * 身份证号码15位
+     * 身份证号码 15 位
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isIdCard15(CharSequence input) {
         return isMatch(REGEX_ID_CARD15, input);
@@ -129,7 +129,7 @@ public class RegularUtils {
      * 身份证号码18位
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isIdCard18(CharSequence input) {
         return isMatch(REGEX_ID_CARD18, input);
@@ -139,7 +139,7 @@ public class RegularUtils {
      * 邮箱
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isEmail(CharSequence input) {
         return isMatch(REGEX_EMAIL, input);
@@ -149,7 +149,7 @@ public class RegularUtils {
      * URL
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isUrl(CharSequence input) {
         return isMatch(REGEX_URL, input);
@@ -159,7 +159,7 @@ public class RegularUtils {
      * 汉字
      *
      * @param input 待验文本
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     public static boolean isZh(CharSequence input) {
         return isMatch(REGEX_ZH, input);
@@ -170,7 +170,7 @@ public class RegularUtils {
      *
      * @param regex 正则表达式
      * @param input 所匹字符串
-     * @return true匹/false不匹
+     * @return true 匹 / false 不匹
      */
     private static boolean isMatch(String regex, CharSequence input) {
         return input != null && input.length() > 0 && Pattern.matches(regex, input);

@@ -167,10 +167,10 @@ public abstract class BaseExtraTransaction {
     /**
      * popTo
      * <p>
-     * setTag()自定Tag时通下popTo()／popToChild()出栈。
+     * setTag() 自定 Tag 时通下 popTo() ／ popToChild() 出栈。
      *
-     * @param targetFragmentTag     通setTag()所设tag
-     * @param includeTargetFragment 含目标（Tag为targetFragmentTag）Fragment否
+     * @param targetFragmentTag     通 setTag() 所设 tag
+     * @param includeTargetFragment 含目标（Tag 为 targetFragmentTag）Fragment 否
      */
     public abstract void popTo(String targetFragmentTag, boolean includeTargetFragment);
 
@@ -214,7 +214,7 @@ public abstract class BaseExtraTransaction {
     /**
      * 移除
      * <p>
-     * doNotAddToBackStack()加载Fragment时通remove()移Fragment。
+     * doNotAddToBackStack() 加载 Fragment 时通 remove() 移 Fragment。
      *
      * @param fragment        fragment
      * @param showPreFragment showPreFragment

@@ -106,7 +106,7 @@ public class DebugStackDelegate implements SensorEventListener {
     /**
      * 调试相关
      * <p>
-     * Dialog形式显栈视图。
+     * Dialog 形式显栈视图。
      */
     public void showFragmentStackHierarchyView() {
         if (mStackDialog != null && mStackDialog.isShowing()) {
@@ -126,7 +126,7 @@ public class DebugStackDelegate implements SensorEventListener {
     /**
      * 调试相关
      * <p>
-     * Log形式打印栈视图。
+     * Log 形式打印栈视图。
      */
     public void logFragmentRecords() {
         List<DebugFragmentRecord> fragmentRecordList = getFragmentRecords();

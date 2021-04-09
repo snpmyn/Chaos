@@ -74,8 +74,8 @@ public class DateFormatUtils {
     /**
      * 格式转换
      * <p>
-     * yyyy-MM-dd hh:mm:ss和yyyyMMddhhmmss互转
-     * yyyy-mm-dd和yyyymmss互转
+     * yyyy-MM-dd hh:mm:ss 和 yyyyMMddhhmmss 互转
+     * yyyy-mm-dd 和 yyyymmss 互转
      *
      * @param value 日期
      * @return String
@@ -86,7 +86,7 @@ public class DateFormatUtils {
             return sReturn;
         }
         if (value.length() == UtilMagic.INT_FOURTEEN) {
-            // 长度14格式转yyyy-mm-dd hh:mm:ss
+            // 长度 14 格式转 yyyy-mm-dd hh:mm:ss
             sReturn = value.substring(0, 4)
                     + "-" + value.substring(4, 6)
                     + "-" + value.substring(6, 8) + " "
@@ -96,7 +96,7 @@ public class DateFormatUtils {
             return sReturn;
         }
         if (value.length() == UtilMagic.INT_NINETEEN) {
-            // 长度19格式转yyyymmddhhmmss
+            // 长度 19 格式转 yyyymmddhhmmss
             sReturn = value.substring(0, 4)
                     + value.substring(5, 7)
                     + value.substring(8, 10)
@@ -106,11 +106,11 @@ public class DateFormatUtils {
             return sReturn;
         }
         if (value.length() == UtilMagic.INT_TEN) {
-            // 长度10格式转yyyymmhh
+            // 长度 10 格式转 yyyymmhh
             sReturn = value.substring(0, 4) + value.substring(5, 7) + value.substring(8, 10);
         }
         if (value.length() == UtilMagic.INT_EIGHT) {
-            // 长度8格式转yyyy-mm-dd
+            // 长度 8 格式转 yyyy-mm-dd
             sReturn = value.substring(0, 4) + "-" + value.substring(4, 6) + "-" + value.substring(6, 8);
         }
         return sReturn;
@@ -206,7 +206,7 @@ public class DateFormatUtils {
     }
 
     /**
-     * 日期显格式（空默yyyy-mm-dd HH:mm）
+     * 日期显格式（空默 yyyy-mm-dd HH:mm）
      *
      * @param format format
      * @return SimpleDateFormat

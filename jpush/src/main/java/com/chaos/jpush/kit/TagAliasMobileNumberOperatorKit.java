@@ -138,7 +138,7 @@ public class TagAliasMobileNumberOperatorKit {
      *
      * @param context      上下文
      * @param sequence     序列
-     * @param tagAliasBean TagAlias实体
+     * @param tagAliasBean TagAlias 实体
      */
     private void handleAction(Context context, int sequence, TagAliasBean tagAliasBean) {
         init(context);
@@ -173,7 +173,7 @@ public class TagAliasMobileNumberOperatorKit {
                     JPushInterface.deleteTags(context, sequence, tagAliasBean.tags);
                     break;
                 case ACTION_CHECK:
-                    // 一次仅check一tag
+                    // 一次仅 check 一 tag
                     Object[] objects = tagAliasBean.tags.toArray();
                     if (objects.length > 0) {
                         String tag = (String) objects[0];
@@ -197,8 +197,8 @@ public class TagAliasMobileNumberOperatorKit {
             Timber.d("no network");
             return false;
         }
-        // 错误码6002超时
-        // 错误码6014服务器繁忙
+        // 错误码 6002 超时
+        // 错误码 6014 服务器繁忙
         // 建延迟重试
         if (errorCode == JpushMagic.INT_SIX_THOUSAND_TWO || errorCode == JpushMagic.INT_SIX_THOUSAND_FOURTEEN) {
             Timber.d("need retry");
@@ -220,8 +220,8 @@ public class TagAliasMobileNumberOperatorKit {
             Timber.d("no network");
             return false;
         }
-        // 错误码6002超时
-        // 错误码6024服务器内错
+        // 错误码 6002 超时
+        // 错误码 6024 服务器内错
         // 建稍后重试
         if (errorCode == JpushMagic.INT_SIX_THOUSAND_TWO || errorCode == JpushMagic.INT_SIX_THOUSAND_TWENTY_FOUR) {
             Timber.d("need retry");
@@ -269,7 +269,7 @@ public class TagAliasMobileNumberOperatorKit {
         Timber.d("action - onTagOperatorResult, sequence: %s, tags: %s", sequence, jPushMessage.getTags());
         Timber.d("tags size: %s", jPushMessage.getTags().size());
         init(context);
-        // 据sequence从之前操作缓存获缓存记录
+        // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (tagAliasBean == null) {
             ExampleKit.showToast("获缓存记录失败", context);
@@ -284,7 +284,7 @@ public class TagAliasMobileNumberOperatorKit {
         } else {
             String logs = "Failed to " + getActionStr(tagAliasBean.action) + " tags";
             if (jPushMessage.getErrorCode() == JpushMagic.INT_SIX_THOUSAND_EIGHTEEN) {
-                // tag数超限，需先清除一部分再add
+                // tag 数超限，需先清除一部分再 add
                 logs += ", tags is exceed limit need to clean";
             }
             logs += ", errorCode: " + jPushMessage.getErrorCode();
@@ -299,7 +299,7 @@ public class TagAliasMobileNumberOperatorKit {
         int sequence = jPushMessage.getSequence();
         Timber.d("action - onCheckTagOperatorResult, sequence: %s, check tag: %s", sequence, jPushMessage.getCheckTag());
         init(context);
-        // 据sequence从之前操作缓存获缓存记录
+        // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (tagAliasBean == null) {
             ExampleKit.showToast("获缓存记录失败", context);
@@ -324,7 +324,7 @@ public class TagAliasMobileNumberOperatorKit {
         int sequence = jPushMessage.getSequence();
         Timber.d("action - onAliasOperatorResult, sequence: %s, alias: %s", sequence, jPushMessage.getAlias());
         init(context);
-        // 据sequence从之前操作缓存获缓存记录
+        // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (tagAliasBean == null) {
             ExampleKit.showToast("获缓存记录失败", context);
@@ -349,7 +349,7 @@ public class TagAliasMobileNumberOperatorKit {
      * 手机号回调
      *
      * @param context      上下文
-     * @param jPushMessage JPush消息
+     * @param jPushMessage JPush 消息
      */
     public void onMobileNumberOperatorResult(Context context, @NotNull JPushMessage jPushMessage) {
         int sequence = jPushMessage.getSequence();

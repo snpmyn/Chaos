@@ -30,8 +30,8 @@ import timber.log.Timber;
 public class ExampleKit {
     private static final String KEY_APP_KEY = "JPUSH_APP_KEY";
     /**
-     * "+"或数字开头
-     * 后面内容仅含"-"和数字
+     * "+" 或数字开头
+     * 后面内容仅含 "-" 和数字
      */
     private final static String MOBILE_NUMBER_CHARS = "^[+0-9][-0-9]+$";
     /**
@@ -56,12 +56,12 @@ public class ExampleKit {
     }
 
     /**
-     * Tag和Alias有效否
+     * Tag 和 Alias 有效否
      * <p>
-     * Tag和Alias仅数字、英文和中文。
+     * Tag 和 Alias 仅数字、英文和中文。
      *
      * @param string 字符串
-     * @return Tag和Alias有效否
+     * @return Tag 和 Alias 有效否
      */
     public static boolean isValidTagAndAlias(String string) {
         Matcher m = P1.matcher(string);

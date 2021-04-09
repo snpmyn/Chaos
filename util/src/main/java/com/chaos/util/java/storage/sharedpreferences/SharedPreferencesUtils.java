@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * Created on 2017/11/24.
  * getSharedPreferences()
- * Fragment内访通资源字符串R.string.preference_file_key识别共享首选项文件并专用模式打开，仅允许您应用访文件。
- * 命名您共享首选项文件应使用对您应用唯一可识别名称，如"com.example.myapp.PREFERENCE_FILE_KEY"。
+ * Fragment 内访通资源字符串 R.string.preference_file_key 识别共享首选项文件并专用模式打开，仅允许您应用访文件。
+ * 命名您共享首选项文件应使用对您应用唯一可识别名称，如 "com.example.myapp.PREFERENCE_FILE_KEY"。
  * <p>
  * getPreferences()
- * 仅需Activity一共享首选项，从Activity调此法，该法无需提供名称并检索属该Activity默认共享首选项文件。
+ * 仅需 Activity 一共享首选项，从 Activity 调此法，该法无需提供名称并检索属该 Activity 默认共享首选项文件。
  * <p>
  * getDefaultSharedPreferences()
  * 默应用包名

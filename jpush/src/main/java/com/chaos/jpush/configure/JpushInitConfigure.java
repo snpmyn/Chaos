@@ -13,6 +13,12 @@ import timber.log.Timber;
  * @desc 极光推送初始化配置
  */
 public class JpushInitConfigure {
+    /**
+     * 初始化极光推送
+     *
+     * @param application 应用
+     * @param debug       调试否
+     */
     public static void initJpush(Application application, boolean debug) {
         // 调试模式
         JpushKit.setDebugMode(debug);

@@ -16,9 +16,9 @@ import java.util.Map;
  */
 public class MapUtils {
     /**
-     * Map自List
+     * Map 自 List
      * <p>
-     * List示例：
+     * List 示例：
      * keyOne, valueOne, keyTwo, valueTwo ...
      *
      * @param list List

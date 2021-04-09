@@ -33,8 +33,8 @@ public class JanalyticsKit {
     /**
      * 调试模式
      * <p>
-     * true打印更多日志。
-     * 建于init前调。
+     * true 打印更多日志。
+     * 建于 init 前调。
      *
      * @param enable 调试开关
      */
@@ -45,7 +45,7 @@ public class JanalyticsKit {
     /**
      * 初始
      * <p>
-     * 建于Application之onCreate调。
+     * 建于 Application 之 onCreate 调。
      *
      * @param context 应用上下文
      */
@@ -54,7 +54,7 @@ public class JanalyticsKit {
     }
 
     /**
-     * 开CrashLog日志上报
+     * 开 CrashLog 日志上报
      *
      * @param context 应用上下文
      */
@@ -63,7 +63,7 @@ public class JanalyticsKit {
     }
 
     /**
-     * 关CrashLog日志上报
+     * 关 CrashLog 日志上报
      *
      * @param context 应用上下文
      */
@@ -72,12 +72,12 @@ public class JanalyticsKit {
     }
 
     /**
-     * 动配channel
+     * 动配 channel
      * <p>
-     * 优先级较AndroidManifest高。
+     * 优先级较 AndroidManifest 高。
      *
      * @param context 应用上下文
-     * @param channel 希望配的channel（null表仍用AndroidManifest配的channel）
+     * @param channel 希望配的 channel（null 表仍用 AndroidManifest 配的 channel）
      */
     public static void setChannel(Context context, String channel) {
         JAnalyticsInterface.setChannel(context, channel);
@@ -86,15 +86,15 @@ public class JanalyticsKit {
     /**
      * 页面启动
      * <p>
-     * 页面（Activity和Fragment）相关生命周期内同onPageEnd成对调。
-     * Activity和Fragment不同况对生命周期影响详见说明。
+     * 页面（Activity 和 Fragment）相关生命周期内同 onPageEnd 成对调。
+     * Activity 和 Fragment 不同况对生命周期影响详见说明。
      * <p>
-     * android 4.0及以上默上报Activity页面流。android 4.0以下需调onPageStart和onPageEnd上报页面流。
-     * 开发者自定Activity和Fragment同页面否。于相应法成对调onPageStart和onPageEnd。
-     * Activity含多Fragment，每Fragment都需作页面统计时，基于Fragment切换模式如下建议：
-     * 1.replace模式切Fragment于onResume和onPause生命周期成对调；
-     * 2.ViewPager含Fragment切换，需Fragment监听setUserVisibleHint接口，通返参成对调；
-     * 3.show/hide模式切Fragment需监听onHiddenChanged接口确认Fragment显否，且onResume亦需调onPageStart（onPause无需调onPageEnd）。
+     * android 4.0 及以上默上报 Activity 页面流。android 4.0 以下需调 onPageStart 和 onPageEnd上 报页面流。
+     * 开发者自定 Activity 和 Fragment 同页面否。于相应法成对调 onPageStart 和 onPageEnd。
+     * Activity 含多 Fragment，每 Fragment 都需作页面统计时，基于 Fragment 切换模式如下建议：
+     * 1.replace 模式切 Fragment 于 onResume 和 onPause 生命周期成对调；
+     * 2.ViewPager 含 Fragment 切换，需 Fragment 监听 setUserVisibleHint 接口，通返参成对调；
+     * 3.show / hide 模式切 Fragment 需监听 onHiddenChanged 接口确认 Fragment 显否，且 onResume 亦需调 onPageStart（onPause 无需调 onPageEnd）。
      *
      * @param context  Activity上下文
      * @param pageName 页面名
@@ -106,17 +106,17 @@ public class JanalyticsKit {
     /**
      * 页面结束
      * <p>
-     * 页面（Activity和Fragment）相关生命周期内同onPageEnd成对调。
-     * Activity和Fragment不同况对生命周期影响详见说明。
+     * 页面（Activity 和 Fragment）相关生命周期内同 onPageEnd 成对调。
+     * Activity 和 Fragment 不同况对生命周期影响详见说明。
      * <p>
-     * android 4.0及以上默上报Activity页面流。android 4.0以下需调onPageStart和onPageEnd上报页面流。
-     * 开发者自定Activity和Fragment同页面否。于相应法成对调onPageStart和onPageEnd。
-     * Activity含多Fragment，每Fragment都需作页面统计时，基于Fragment切换模式如下建议：
-     * 1.replace模式切Fragment于onResume和onPause生命周期成对调；
-     * 2.ViewPager含Fragment切换，需Fragment监听setUserVisibleHint接口，通返参成对调；
-     * 3.show/hide模式切Fragment需监听onHiddenChanged接口确认Fragment显否，且onResume亦需调onPageStart（onPause无需调onPageEnd）。
+     * android 4.0 及以上默上报 Activity 页面流。android 4.0 以下需调 onPageStart 和 onPageEnd 上报页面流。
+     * 开发者自定 Activity 和 Fragment 同页面否。于相应法成对调 onPageStart 和 onPageEnd。
+     * Activity 含多 Fragment，每 Fragment 都需作页面统计时，基于 Fragment 切换模式如下建议：
+     * 1.replace 模式切 Fragment 于 onResume 和 onPause 生命周期成对调；
+     * 2.ViewPager 含 Fragment 切换，需 Fragment 监听 setUserVisibleHint 接口，通返参成对调；
+     * 3.show / hide 模式切 Fragment 需监听 onHiddenChanged 接口确认 Fragment 显否，且 onResume 亦需调 onPageStart（onPause 无需调 onPageEnd）。
      *
-     * @param context  Activity上下文
+     * @param context  Activity 上下文
      * @param pageName 页面名
      */
     public static void onPageEnd(Context context, String pageName) {
@@ -144,11 +144,11 @@ public class JanalyticsKit {
     /**
      * 计数事件
      * <p>
-     * 自定计数事件模型扩展参数不可用key值event_id。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定计数事件模型扩展参数不可用 key 值 event_id。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context 上下文
-     * @param eventId 事件ID（非空）
+     * @param eventId 事件 ID（非空）
      * @param extMap  扩展参数
      */
     public static void onCountEvent(Context context, String eventId, Map<String, String> extMap) {
@@ -160,11 +160,11 @@ public class JanalyticsKit {
     /**
      * 计数事件
      * <p>
-     * 自定计数事件模型扩展参数不可用key值event_id。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定计数事件模型扩展参数不可用 key 值 event_id。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context             上下文
-     * @param eventId             事件ID（非空）
+     * @param eventId             事件 ID（非空）
      * @param extMapKeysAndValues 扩展参数键值
      */
     public static void onCountEvent(Context context, String eventId, String... extMapKeysAndValues) {
@@ -177,11 +177,11 @@ public class JanalyticsKit {
     /**
      * 计算事件
      * <p>
-     * 自定计算事件模型扩展参数不可用key值event_id、event_value。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定计算事件模型扩展参数不可用 key 值 event_id、event_value。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context    上下文
-     * @param eventId    事件ID（非空）
+     * @param eventId    事件 ID（非空）
      * @param eventValue 事件值（非空）
      * @param extMap     扩展参数
      */
@@ -194,11 +194,11 @@ public class JanalyticsKit {
     /**
      * 计算事件
      * <p>
-     * 自定计算事件模型扩展参数不可用key值event_id、event_value。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定计算事件模型扩展参数不可用 key 值 event_id、event_value。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context             上下文
-     * @param eventId             事件ID（非空）
+     * @param eventId             事件 ID（非空）
      * @param eventValue          事件值（非空）
      * @param extMapKeysAndValues 扩展参数键值
      */
@@ -212,8 +212,8 @@ public class JanalyticsKit {
     /**
      * 登录事件
      * <p>
-     * 自定登录事件模型扩展参数不可用key值login_method、login_success。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定登录事件模型扩展参数不可用 key 值 login_method、login_success。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context      上下文
      * @param loginMethod  登录方式（非空）
@@ -229,8 +229,8 @@ public class JanalyticsKit {
     /**
      * 登录事件
      * <p>
-     * 自定登录事件模型扩展参数不可用key值login_method、login_success。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定登录事件模型扩展参数不可用 key 值 login_method、login_success。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context             上下文
      * @param loginMethod         登录方式（非空）
@@ -247,8 +247,8 @@ public class JanalyticsKit {
     /**
      * 注册事件
      * <p>
-     * 自定注册事件模型扩展参数不可用key值register_method、register_success。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定注册事件模型扩展参数不可用 key 值 register_method、register_success。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context         上下文
      * @param registerMethod  注册方式（非空）
@@ -264,8 +264,8 @@ public class JanalyticsKit {
     /**
      * 注册事件
      * <p>
-     * 自定注册事件模型扩展参数不可用key值register_method、register_success。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定注册事件模型扩展参数不可用 key 值 register_method、register_success。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context             上下文
      * @param registerMethod      注册方式（非空）
@@ -282,11 +282,11 @@ public class JanalyticsKit {
     /**
      * 浏览事件
      * <p>
-     * 自定浏览事件模型扩展参数不可用key值browse_content_id、browse_name、browse_type、browse_duration。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定浏览事件模型扩展参数不可用 key 值 browse_content_id、browse_name、browse_type、browse_duration。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context        上下文
-     * @param browseId       浏览内容ID（自定）
+     * @param browseId       浏览内容 ID（自定）
      * @param browseName     浏览内容名（标题等，非空）
      * @param browseType     浏览内容类型（如热点、汽车、财经等）
      * @param browseDuration 浏览时长（单位秒）
@@ -301,11 +301,11 @@ public class JanalyticsKit {
     /**
      * 浏览事件
      * <p>
-     * 自定浏览事件模型扩展参数不可用key值browse_content_id、browse_name、browse_type、browse_duration。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定浏览事件模型扩展参数不可用 key 值 browse_content_id、browse_name、browse_type、browse_duration。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context        上下文
-     * @param browseId       浏览内容ID（自定）
+     * @param browseId       浏览内容 ID（自定）
      * @param browseName     浏览内容名（标题等，非空）
      * @param browseType     浏览内容类型（如热点、汽车、财经等）
      * @param browseDuration 浏览时长（单位秒）
@@ -329,15 +329,15 @@ public class JanalyticsKit {
     /**
      * 购买事件
      * <p>
-     * 自定购买事件模型扩展参数不可用key值purchase_goods_id、purchase_goods_name、purchase_price、purchase_currency、purchase_goods_type、purchase_quantity。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定购买事件模型扩展参数不可用 key 值 purchase_goods_id、purchase_goods_name、purchase_price、purchase_currency、purchase_goods_type、purchase_quantity。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context            上下文
-     * @param purchaseGoodsId    购买商品ID（自定）
+     * @param purchaseGoodsId    购买商品 ID（自定）
      * @param purchaseGoodsName  购买商品名
      * @param purchasePrice      购买价格（非空）
      * @param purchaseSuccess    购买成功（非空）
-     * @param purchaseCurrency   购买货币类型（人民币CNY、美元USD。详参枚举类Currency）
+     * @param purchaseCurrency   购买货币类型（人民币 CNY、美元 USD。详参枚举类 Currency）
      * @param purchaseGoodsType  购买商品类型（如衣服、手表等）
      * @param purchaseGoodsCount 购买商品数量
      * @param extMap             扩展参数
@@ -359,15 +359,15 @@ public class JanalyticsKit {
     /**
      * 购买事件
      * <p>
-     * 自定购买事件模型扩展参数不可用key值purchase_goods_id、purchase_goods_name、purchase_price、purchase_currency、purchase_goods_type、purchase_quantity。
-     * 此类key已被模型用，用致统计数据不准确。
+     * 自定购买事件模型扩展参数不可用 key 值 purchase_goods_id、purchase_goods_name、purchase_price、purchase_currency、purchase_goods_type、purchase_quantity。
+     * 此类 key 已被模型用，用致统计数据不准确。
      *
      * @param context            上下文
-     * @param purchaseGoodsId    购买商品ID（自定）
+     * @param purchaseGoodsId    购买商品 ID（自定）
      * @param purchaseGoodsName  购买商品名
      * @param purchasePrice      购买价格（非空）
      * @param purchaseSuccess    购买成功（非空）
-     * @param purchaseCurrency   购买货币类型（人民币CNY、美元USD。详参枚举类Currency）
+     * @param purchaseCurrency   购买货币类型（人民币 CNY、美元 USD。详参枚举类 Currency）
      * @param purchaseGoodsType  购买商品类型（如衣服、手表等）
      * @param purchaseGoodsCount 购买商品数量
      * @param extMapKey          扩展参数键
@@ -397,9 +397,9 @@ public class JanalyticsKit {
      *
      * @param context 应用上下文
      * @param period  周期（单位秒）
-     *                最小10秒，最大1天。
+     *                最小 10 秒，最大 1 天。
      *                超范打印调失败日志。
-     *                0表统计数据即时上报。
+     *                0 表统计数据即时上报。
      */
     public static void setAnalyticsReportPeriod(Context context, int period) {
         JAnalyticsInterface.setAnalyticsReportPeriod(context, period);
@@ -409,21 +409,21 @@ public class JanalyticsKit {
      * 鉴定账户
      *
      * @param context            应用上下文
-     * @param accountId          账户ID
+     * @param accountId          账户 ID
      * @param creationTime       账户创时（时间戳）
      * @param name               姓名
-     * @param sex                性别（0未知、1男、2女。默0，不可其它数字）
-     * @param paid               是否付费（0未知、1是、2否。默0，不可其它数字）
-     * @param birthday           出生年月（yyyyMMdd格式校验）
+     * @param sex                性别（0 未知、1 男、2 女。默 0，不可其它数字）
+     * @param paid               是否付费（0 未知、1 是、2 否。默 0，不可其它数字）
+     * @param birthday           出生年月（yyyyMMdd 格式校验）
      * @param phone              手机号码
      * @param email              电子邮件
-     * @param weiBoId            新浪微博ID
-     * @param weChatId           微信ID
+     * @param weiBoId            新浪微博 ID
+     * @param weChatId           微信 ID
      * @param qqId               QQ ID
      * @param key                自定维度（只可字符串）
      * @param value              自定维度
      *                           只可字符串、数字类型、null。
-     *                           value空从服务器删key，key不可用极光内namespace（符号$）
+     *                           value 空从服务器删key，key 不可用极光内 namespace（符号 $）
      * @param jAnalyticsListener 极光统计监听
      */
     public static void identifyAccount(final Context context,

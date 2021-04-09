@@ -78,7 +78,7 @@ public class SupportHelper {
     }
 
     /**
-     * 栈顶SupportFragment
+     * 栈顶 SupportFragment
      *
      * @param fragmentManager 碎片管理器
      * @return ISupportFragment
@@ -105,9 +105,9 @@ public class SupportHelper {
     }
 
     /**
-     * 目标Fragment前一SupportFragment
+     * 目标 Fragment 前一 SupportFragment
      *
-     * @param fragment 目标Fragment
+     * @param fragment 目标 Fragment
      */
     public static @Nullable ISupportFragment getPreFragment(@NotNull Fragment fragment) {
         FragmentManager fragmentManager = fragment.getFragmentManager();
@@ -144,7 +144,7 @@ public class SupportHelper {
     }
 
     /**
-     * 栈顶开始找FragmentManager及其所有子栈，直至找到状show & userVisible的Fragment
+     * 栈顶开始找 FragmentManager 及其所有子栈，直至找到状 show & userVisible 的 Fragment
      *
      * @param fragmentManager 碎片管理器
      * @return ISupportFragment

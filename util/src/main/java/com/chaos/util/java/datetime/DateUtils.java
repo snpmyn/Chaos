@@ -81,7 +81,7 @@ public class DateUtils {
     }
 
     /**
-     * 指定格式当前时（为空格式为yyyy-mm-dd HH:mm:ss）
+     * 指定格式当前时（为空格式为 yyyy-mm-dd HH:mm:ss）
      *
      * @param format 格式
      * @return Date
@@ -165,7 +165,7 @@ public class DateUtils {
     }
 
     /**
-     * 当前时（格式yyyy-MM-dd HH:mm:ss）
+     * 当前时（格式 yyyy-MM-dd HH:mm:ss）
      *
      * @return Date
      */
@@ -192,7 +192,7 @@ public class DateUtils {
      *
      * @param year   年份 正加负减
      * @param date   空默当前时
-     * @param format 默格式yyyy-MM-dd HH:mm:ss
+     * @param format 默格式 yyyy-MM-dd HH:mm:ss
      * @return String
      */
     private static @NotNull String addYearToDate(int year, Date date, String format) {
@@ -207,7 +207,7 @@ public class DateUtils {
      *
      * @param year   年份 正加负减
      * @param date   空默当前时
-     * @param format 默格式yyyy-MM-dd HH:mm:ss
+     * @param format 默格式 yyyy-MM-dd HH:mm:ss
      * @return String
      */
     public static @NotNull String addYearToDate(int year, String date, String format) {
@@ -223,7 +223,7 @@ public class DateUtils {
      *
      * @param month  增加月份 正加负减
      * @param date   指定时
-     * @param format 指定格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 指定格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     private static @NotNull String addMothToDate(int month, Date date, String format) {
@@ -238,7 +238,7 @@ public class DateUtils {
      *
      * @param month  增加月份 正加负减
      * @param date   指定时
-     * @param format 指定格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 指定格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     public static @NotNull String addMothToDate(int month, String date, String format) {
@@ -254,7 +254,7 @@ public class DateUtils {
      *
      * @param day    加天数 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     private static @NotNull String addDayToDate(int day, Date date, String format) {
@@ -269,7 +269,7 @@ public class DateUtils {
      *
      * @param day    加天数 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     public static @NotNull String addDayToDate(int day, String date, String format) {
@@ -285,7 +285,7 @@ public class DateUtils {
      *
      * @param hour   加小时 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     private static @NotNull String addHourToDate(int hour, Date date, String format) {
@@ -300,7 +300,7 @@ public class DateUtils {
      *
      * @param hour   加小时 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     public static @NotNull String addHourToDate(int hour, String date, String format) {
@@ -316,7 +316,7 @@ public class DateUtils {
      *
      * @param minute 加分钟 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     private static @NotNull String addMinuteToDate(int minute, Date date, String format) {
@@ -331,7 +331,7 @@ public class DateUtils {
      *
      * @param minute 加分钟 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     public static @NotNull String addMinuteToDate(int minute, String date, String format) {
@@ -347,7 +347,7 @@ public class DateUtils {
      *
      * @param second 加秒 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     private static @NotNull String addSecondToDate(int second, Date date, String format) {
@@ -362,7 +362,7 @@ public class DateUtils {
      *
      * @param second 加秒 正加负减
      * @param date   指定日期
-     * @param format 日期格式（空默yyyy-mm-dd HH:mm:ss）
+     * @param format 日期格式（空默 yyyy-mm-dd HH:mm:ss）
      * @return String
      */
     public static @NotNull String addSecondToDate(int second, String date, String format) {
@@ -433,7 +433,7 @@ public class DateUtils {
     }
 
     /**
-     * 日期格式转String
+     * 日期格式转 String
      *
      * @param value  需转日期
      * @param format 日期格式
@@ -606,9 +606,9 @@ public class DateUtils {
      * compareDate("2009-09-12", null, 1) 月
      * compareDate("2009-09-12", null, 2) 年
      *
-     * @param startDay 需比较时间 不能为空，正确日期格式如2009-09-12
+     * @param startDay 需比较时间 不能为空，正确日期格式如 2009-09-12
      * @param endDay   被比较时间 为空则为当前时间
-     * @param type     返回值类型 0天数 1月数 2年数
+     * @param type     返回值类型 0 天数、1 月数、2 年数
      * @return int
      */
     public static int compareDate(String startDay, String endDay, int type) {
@@ -632,13 +632,13 @@ public class DateUtils {
             e.printStackTrace();
         }
         while (!c1.after(c2)) {
-            // 循环对比至相等，n即所要结果
+            // 循环对比至相等，n 即所要结果
             n++;
             if (type == 1) {
-                // 比月（月+1）
+                // 比月（月 + 1）
                 c1.add(Calendar.MONTH, 1);
             } else {
-                // 比天数（日+1）
+                // 比天数（日 + 1）
                 c1.add(Calendar.DATE, 1);
             }
         }
@@ -652,13 +652,13 @@ public class DateUtils {
     /**
      * 较两时间差（时、分、秒）
      *
-     * @param oldTime 需比时间 不能为空且符正确格式2012-12-12 12:12
+     * @param oldTime 需比时间 不能为空且符正确格式 2012-12-12 12:12
      * @param newTime 需被比时间 空默当前时
-     * @param type    1小时2分钟3秒
+     * @param type    1 小时 2 分钟 3 秒
      * @return int
      */
     public static int compareTime(String oldTime, String newTime, int type) {
-        // newTime空默当前时
+        // newTime 空默当前时
         if (newTime == null || "".equals(newTime)) {
             newTime = getCurrentTimeYearMonthDayHourMinuteSecond();
         }
@@ -689,9 +689,9 @@ public class DateUtils {
     /**
      * 较两日期大小
      * <p>
-     * date1 > date2 返1
-     * date1 = date2 返0
-     * date1 < date2 返-1
+     * date1 > date2 返 1
+     * date1 = date2 返 0
+     * date1 < date2 返 -1
      *
      * @param date1  date1
      * @param date2  date2
@@ -778,7 +778,7 @@ public class DateUtils {
      * @param strPositive 主动日期时间
      * @param strNegative 被动日期时间
      * @param pattern     模式
-     * @return 0等1大-1小-2无效
+     * @return 0 等、1 大、-1 小、-2 无效
      */
     public static int dateCompare(String strPositive, String strNegative, String pattern) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, Locale.US);
@@ -818,7 +818,7 @@ public class DateUtils {
     /**
      * 当前日
      * <p>
-     * 安卓系统月份从0-11计算（故真实月份加一）
+     * 安卓系统月份从 0-11 计算（故真实月份加 1）
      *
      * @return 当前日
      */
@@ -844,7 +844,7 @@ public class DateUtils {
      */
     public static long secondSeparate(String oldTime, String newTime) {
         long seconds = 0;
-        // newTime空默当前时
+        // newTime 空默当前时
         if (newTime == null || "".equals(newTime)) {
             newTime = getCurrentTimeYearMonthDayHourMinuteSecond();
         }
@@ -899,7 +899,7 @@ public class DateUtils {
      * 格式化时间
      *
      * @param num 时间毫秒
-     * @return 格式化后的str
+     * @return 格式化后 str
      */
     public static @NotNull String formatDate(Long num) {
         String tem;
@@ -953,7 +953,7 @@ public class DateUtils {
     private static SimpleDateFormat simpleDateFormat = null;
 
     /**
-     * 格式化UTC
+     * 格式化 UTC
      *
      * @param l          long
      * @param strPattern String

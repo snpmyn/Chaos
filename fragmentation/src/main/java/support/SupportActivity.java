@@ -36,7 +36,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      * extraTransaction
      * <p>
      * Perform some extra transactions.
-     * 自定Tag添SharedElement动画，操作非回退栈Fragment。
+     * 自定 Tag 添 SharedElement 动画，操作非回退栈 Fragment。
      *
      * @return BaseExtraTransaction
      */
@@ -77,7 +77,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * onBackPressed
      * <p>
-     * 不建复写该方法，{@link #onBackPressedSupport}替。
+     * 不建复写该方法，{@link #onBackPressedSupport} 替。
      */
     @Override
     final public void onBackPressed() {
@@ -87,8 +87,8 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * onBackPressedSupport
      * <p>
-     * 回调时机为Activity回退栈内Fragment数小等1时默finish Activity。
-     * 尽量复写该法而非onBackPress()保SupportFragment内onBackPressedSupport()回退事件正常执行。
+     * 回调时机为 Activity 回退栈内 Fragment 数小等 1 时默 finish Activity。
+     * 尽量复写该法而非 onBackPress() 保 SupportFragment 内 onBackPressedSupport() 回退事件正常执行。
      */
     @Override
     public void onBackPressedSupport() {
@@ -118,10 +118,10 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * onCreateFragmentAnimator
      * <p>
-     * 构建Fragment转场动画。
+     * 构建 Fragment 转场动画。
      * <p>
-     * Activity内实现构建Activity内所有Fragment转场动画。
-     * Fragment内实现构建该Fragment转场动画，此时优先Activity之onCreateFragmentAnimator()。
+     * Activity 内实现构建 Activity 内所有 Fragment 转场动画。
+     * Fragment 内实现构建该 Fragment 转场动画，此时优先 Activity 之 onCreateFragmentAnimator()。
      *
      * @return FragmentAnimator
      */
@@ -135,7 +135,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      * <p>
      * The runnable will be run after all the previous action has been run.
      * <p>
-     * 前面事务全执行后执行该Action。
+     * 前面事务全执行后执行该 Action。
      *
      * @param runnable 线程
      */
@@ -149,12 +149,12 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      */
 
     /**
-     * 加载根Fragment
+     * 加载根 Fragment
      * <p>
-     * Activity内头Fragment或Fragment内头子Fragment。
+     * Activity 内头 Fragment 或 Fragment 内头子 Fragment。
      *
-     * @param containerId 容器ID
-     * @param toFragment  目标Fragment
+     * @param containerId 容器 ID
+     * @param toFragment  目标 Fragment
      */
     public void loadRootFragment(int containerId, @NonNull ISupportFragment toFragment) {
         supportActivityDelegate.loadRootFragment(containerId, toFragment);
@@ -165,13 +165,13 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * 加载多同级根Fragment
+     * 加载多同级根 Fragment
      * <p>
-     * 似Wechat、QQ主页场景。
+     * 似 Wechat、QQ 主页场景。
      *
-     * @param containerId  容器ID
+     * @param containerId  容器 ID
      * @param showPosition 显位
-     * @param toFragments  目标Fragment
+     * @param toFragments  目标 Fragment
      */
     public void loadMultipleRootFragment(int containerId, int showPosition, ISupportFragment... toFragments) {
         supportActivityDelegate.loadMultipleRootFragment(containerId, showPosition, toFragments);
@@ -180,12 +180,12 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * showHideFragment
      * <p>
-     * 显一Fragment，隐其它同栈所有Fragment。
-     * 用该法时保同级栈内无多余Fragment（仅通loadMultipleRootFragment()载入的Fragment）。
+     * 显一 Fragment，隐其它同栈所有 Fragment。
+     * 用该法时保同级栈内无多余 Fragment（仅通 loadMultipleRootFragment() 载入的 Fragment）。
      * <p>
-     * 建用更明确{@link #showHideFragment(ISupportFragment, ISupportFragment)}。
+     * 建用更明确 {@link #showHideFragment(ISupportFragment, ISupportFragment)}。
      *
-     * @param showFragment 需显Fragment
+     * @param showFragment 需显 Fragment
      */
     public void showHideFragment(ISupportFragment showFragment) {
         supportActivityDelegate.showHideFragment(showFragment);
@@ -194,11 +194,11 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * showHideFragment
      * <p>
-     * 显一Fragment，隐一Fragment。
-     * 主于似微信主页切tab场景。
+     * 显一 Fragment，隐一 Fragment。
+     * 主于似微信主页切 tab 场景。
      *
-     * @param showFragment 需显Fragment
-     * @param hideFragment 需隐Fragment
+     * @param showFragment 需显 Fragment
+     * @param hideFragment 需隐 Fragment
      */
     public void showHideFragment(ISupportFragment showFragment, ISupportFragment hideFragment) {
         supportActivityDelegate.showHideFragment(showFragment, hideFragment);
@@ -251,7 +251,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      * <p>
      * It is recommended to use {@link SupportFragment#replaceFragment(ISupportFragment, boolean)}.
      *
-     * @param toFragment     目标Fragment
+     * @param toFragment     目标 Fragment
      * @param addToBackStack 添至回退栈否
      */
     public void replaceFragment(ISupportFragment toFragment, boolean addToBackStack) {
@@ -270,10 +270,10 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * Pop the last fragment transition from the manager's fragment back stack.
      * <p>
-     * 出栈至目标Fragment。
+     * 出栈至目标 Fragment。
      *
-     * @param targetFragmentClass   目标Fragment
-     * @param includeTargetFragment 含目标Fragment否
+     * @param targetFragmentClass   目标 Fragment
+     * @param includeTargetFragment 含目标 Fragment 否
      */
     public void popTo(Class<?> targetFragmentClass, boolean includeTargetFragment) {
         supportActivityDelegate.popTo(targetFragmentClass, includeTargetFragment);
@@ -283,10 +283,10 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      * popTo
      * <p>
      * If you want to begin another FragmentTransaction immediately after popTo(), use this method.
-     * 若你想出栈后立刻FragmentTransaction操作，用该法。
+     * 若你想出栈后立刻 FragmentTransaction 操作，用该法。
      *
-     * @param targetFragmentClass         目标Fragment
-     * @param includeTargetFragment       含目标Fragment否
+     * @param targetFragmentClass         目标 Fragment
+     * @param includeTargetFragment       含目标 Fragment 否
      * @param afterPopTransactionRunnable afterPopTransactionRunnable
      */
     public void popTo(Class<?> targetFragmentClass, boolean includeTargetFragment, Runnable afterPopTransactionRunnable) {
@@ -296,8 +296,8 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     /**
      * popTo
      *
-     * @param targetFragmentClass         目标Fragment
-     * @param includeTargetFragment       含目标Fragment否
+     * @param targetFragmentClass         目标 Fragment
+     * @param includeTargetFragment       含目标 Fragment 否
      * @param afterPopTransactionRunnable afterPopTransactionRunnable
      * @param popAnim                     popAnim
      */
@@ -306,10 +306,10 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * Fragment默背景
+     * Fragment 默背景
      * <p>
-     * Fragment根布局没设background属性时背景默Theme之android:windowBackground。
-     * 通该法可改其内所有Fragment默背景。
+     * Fragment 根布局没设 background 属性时背景默 Theme 之 android:windowBackground。
+     * 通该法可改其内所有 Fragment 默背景。
      *
      * @param backgroundRes 背景资源
      */
@@ -318,7 +318,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * 栈顶SupportFragment
+     * 栈顶 SupportFragment
      *
      * @return ISupportFragment
      */

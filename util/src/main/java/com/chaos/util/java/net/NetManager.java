@@ -44,7 +44,7 @@ public class NetManager {
      * 连接（即存网络连接否，可建套接字并传数据否）
      *
      * @param context 上下文
-     * @return 可用true
+     * @return 可用 true
      */
     public static boolean isNetConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
@@ -56,7 +56,7 @@ public class NetManager {
      * 移动数据否
      *
      * @param context 上下文
-     * @return 移动数据true
+     * @return 移动数据 true
      */
     public static boolean isMobileConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
@@ -65,7 +65,7 @@ public class NetManager {
     }
 
     /**
-     * 2G否
+     * 2G 否
      *
      * @param context 上下文
      * @return 2G true
@@ -91,7 +91,7 @@ public class NetManager {
     }
 
     /**
-     * 3G否
+     * 3G 否
      *
      * @param context 上下文
      * @return 3G true
@@ -121,7 +121,7 @@ public class NetManager {
     }
 
     /**
-     * 4G否
+     * 4G 否
      *
      * @param context 上下文
      * @return 4G true
@@ -161,9 +161,9 @@ public class NetManager {
      * 移动终端类型
      * <ul>
      * <li>{@link TelephonyManager#PHONE_TYPE_NONE } : 0 手机制式未知</li>
-     * <li>{@link TelephonyManager#PHONE_TYPE_GSM  } : 1 手机制式GSM（移动和联通）</li>
-     * <li>{@link TelephonyManager#PHONE_TYPE_CDMA } : 2 手机制式CDMA（电信）</li>
-     * <li>{@link TelephonyManager#PHONE_TYPE_SIP  } : 3</li>
+     * <li>{@link TelephonyManager#PHONE_TYPE_GSM  } : 1 手机制式 GSM（移动和联通）</li>
+     * <li>{@link TelephonyManager#PHONE_TYPE_CDMA } : 2 手机制式 CDMA（电信）</li>
+     * <li>{@link TelephonyManager#PHONE_TYPE_SIP  } : 3 </li>
      * </ul>
      *
      * @param context 上下文
@@ -176,10 +176,10 @@ public class NetManager {
     }
 
     /**
-     * Wifi连否
+     * Wifi 连否
      *
      * @param context 上下文
-     * @return wifi连true
+     * @return wifi 连 true
      */
     public static boolean isWifiConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
@@ -188,7 +188,7 @@ public class NetManager {
     }
 
     /**
-     * 连WIFI
+     * 连 WIFI
      *
      * @param context 上下文
      */
