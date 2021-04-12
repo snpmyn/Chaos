@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dp_16"
+    app:cardElevation="@dimen/dp_0">
+
+    <com.chaos.widget.progressbar.MultiProgressBar
+        android:id="@+id/downloadProgressDialogMpb"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_32"
+        android:progress="0"
+        app:multiProgressBarIsCapRounded="true"
+        app:multiProgressBarMode="circle"
+        app:multiProgressBarRadius="@dimen/dp_48"
+        app:multiProgressBarReachedColor="@color/purple_500"
+        app:multiProgressBarReachedHeight="@dimen/dp_8"
+        app:multiProgressBarTextColor="@color/purple_500"
+        app:multiProgressBarTextSize="@dimen/sp_16"
+        app:multiProgressBarUnReachedColor="@color/gray"
+        app:multiProgressBarUnReachedHeight="@dimen/dp_4"
+        tools:targetApi="lollipop" />
+</com.google.android.material.card.MaterialCardView>
