@@ -129,7 +129,7 @@ public class UpgradeKit {
                         }).setCancelable(false).show();
             }
         } else if (noUpgradeHint) {
-            ToastKit.showShort(weakReference.get().getString(R.string.alreadyTheLatestVersion) + AppManager.versionName(weakReference.get()));
+            ToastKit.showShort(String.format(weakReference.get().getString(R.string.alreadyTheLatestVersionHint), AppManager.versionName(weakReference.get())));
         }
     }
 
