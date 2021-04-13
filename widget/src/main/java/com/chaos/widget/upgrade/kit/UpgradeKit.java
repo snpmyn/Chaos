@@ -60,33 +60,31 @@ public class UpgradeKit {
      * @param path            路径
      * @param upgradeBean     更新
      * @param upgradeListener 更新监听
-     * @param restart         重启否
+     * @param noUpgradeHint   无更新提示
      */
-    public void upgrade(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean restart) {
+    public void upgrade(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean noUpgradeHint) {
         final int newVersionCode = upgradeBean.getNewVersionCode();
-        String lastVersionCode = MmkvKit.defaultMmkv().decodeString(WidgetConstant.NO_REMIND_ANY_MORE);
-        boolean flag = TextUtils.isEmpty(lastVersionCode) || (Integer.parseInt(lastVersionCode) != newVersionCode);
-        // 无不再提示
-        // 有不再提示且不再提示版不等当前服务器最新版
-        // 重启
-        if (flag || restart) {
-            judge(applicationId, path, upgradeBean, upgradeListener, restart);
+        String noRemindAnyMoreVersionCode = MmkvKit.defaultMmkv().decodeString(WidgetConstant.NO_REMIND_ANY_MORE);
+        // 场景一：无不再提示
+        // 场景二：有不再提示且不再提示版不等当前服务器最新版
+        if (TextUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode)) {
+            judge(applicationId, path, upgradeBean, upgradeListener, noUpgradeHint);
         }
     }
 
     /**
      * 判断
      * <p>
-     * 有更新且强制更新。
-     * 有更新且选择更新。
+     * 场景一：有更新且强制更新。
+     * 场景二：有更新且选择更新。
      *
      * @param applicationId   应用 ID
      * @param path            路径
      * @param upgradeBean     更新
      * @param upgradeListener 更新监听
-     * @param restart         重启否
+     * @param noUpgradeHint   无更新提示
      */
-    private void judge(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean restart) {
+    private void judge(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean noUpgradeHint) {
         int newVersionCode = upgradeBean.getNewVersionCode();
         if (AppManager.versionCode(weakReference.get()) < newVersionCode) {
             CharSequence charSequence;
@@ -128,7 +126,7 @@ public class UpgradeKit {
                             MmkvKit.defaultMmkv().encode(WidgetConstant.NO_REMIND_ANY_MORE, String.valueOf(newVersionCode));
                         }).setCancelable(false).show();
             }
-        } else if (restart) {
+        } else if (noUpgradeHint) {
             ToastKit.showShort(weakReference.get().getString(R.string.alreadyTheLatestVersion) + AppManager.versionName(weakReference.get()));
         }
     }

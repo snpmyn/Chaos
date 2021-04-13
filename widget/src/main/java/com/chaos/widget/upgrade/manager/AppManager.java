@@ -19,21 +19,21 @@ class AppManager {
     }
 
     static {
-        Application app = null;
+        Application application = null;
         try {
-            app = (Application) Class.forName("android.app.AppGlobals").getMethod("getInitialApplication").invoke(null);
-            if (null == app) {
+            application = (Application) Class.forName("android.app.AppGlobals").getMethod("getInitialApplication").invoke(null);
+            if (null == application) {
                 throw new IllegalStateException("Static initialization of Applications must be on main thread.");
             }
         } catch (final Exception e) {
             Timber.e("Failed to get current application from AppGlobals.");
             try {
-                app = (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null);
+                application = (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null);
             } catch (final Exception ex) {
                 Timber.e(AppManager.class.getSimpleName(), "Failed to get current application from ActivityThread.%s", e.getMessage());
             }
         } finally {
-            APPLICATION = app;
+            APPLICATION = application;
         }
     }
 }

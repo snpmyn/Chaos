@@ -47,6 +47,17 @@ public class IntentOther {
     }
 
     /**
+     * 调用浏览器
+     *
+     * @param context 上下文
+     * @param uri     统一资源标识符
+     */
+    public static void callBrowser(@NotNull Context context, Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        context.startActivity(intent);
+    }
+
+    /**
      * 装 APK
      *
      * @param context 上下文
