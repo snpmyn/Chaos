@@ -60,14 +60,16 @@ public class UpgradeKit {
      * @param path            路径
      * @param upgradeBean     更新
      * @param upgradeListener 更新监听
-     * @param noUpgradeHint   无更新提示
+     * @param restart         重启否
+     * @param noUpgradeHint   无更新提示否
      */
-    public void upgrade(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean noUpgradeHint) {
+    public void upgrade(String applicationId, String path, final @NotNull UpgradeBean upgradeBean, UpgradeListener upgradeListener, boolean restart, boolean noUpgradeHint) {
         final int newVersionCode = upgradeBean.getNewVersionCode();
         String noRemindAnyMoreVersionCode = MmkvKit.defaultMmkv().decodeString(WidgetConstant.NO_REMIND_ANY_MORE);
         // 场景一：无不再提示
         // 场景二：有不再提示且不再提示版不等当前服务器最新版
-        if (TextUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode)) {
+        // 场景三：重启
+        if (TextUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode) || restart) {
             judge(applicationId, path, upgradeBean, upgradeListener, noUpgradeHint);
         }
     }
