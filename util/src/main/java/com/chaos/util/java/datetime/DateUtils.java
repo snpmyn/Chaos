@@ -1002,4 +1002,31 @@ public class DateUtils {
         }
         return datesBeforeCurrentDate;
     }
+
+    /**
+     * 年月日转化年月日
+     *
+     * @param originalDate 原始日期 格式：2021年4月4日
+     * @return 转化后日期 2021-04-04
+     */
+    public static @NotNull String yearMonthDateConversionToYearMonthDate(@NotNull String originalDate) {
+        String date = originalDate.replace("年", "-").replace("月", "-").replace("日", "");
+        int index = date.indexOf("-");
+        int lastIndex = date.lastIndexOf("-");
+        String yearString = date.substring(0, index);
+        String monthString = date.substring(index + 1, lastIndex);
+        String dateString = date.substring(lastIndex + 1);
+        StringBuilder stringBuilder = new StringBuilder(yearString);
+        if (monthString.length() == 1) {
+            stringBuilder.append("-").append("0").append(monthString);
+        } else {
+            stringBuilder.append("-").append(monthString);
+        }
+        if (dateString.length() == 1) {
+            stringBuilder.append("-").append("0").append(dateString);
+        } else {
+            stringBuilder.append("-").append(dateString);
+        }
+        return stringBuilder.toString();
+    }
 }

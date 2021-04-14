@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--format-->
-    <string name="earlyLateDiffer" formatted="true">%1$s秒</string>
+    <string name="earlyLateDiffer" formatted="true">%1$s 秒</string>
 </resources>
