@@ -24,10 +24,10 @@ import java.util.List;
  */
 public class ListUtils {
     /**
-     * 排序去重
+     * 按序去重
      *
      * @param inputStringList 输入集合
-     * @return 去重后集合
+     * @return 按序去重后集合
      */
     @Contract("_ -> param1")
     public static List<String> removeDuplicationWithSort(@NotNull List<String> inputStringList) {
@@ -42,10 +42,10 @@ public class ListUtils {
     }
 
     /**
-     * 不排序去重
+     * 无序去重
      *
      * @param inputStringList 输入集合
-     * @return 去重后集合
+     * @return 无序去重后集合
      */
     @Contract("_ -> new")
     public static @NotNull List<String> removeDuplicationWithoutSort(List<String> inputStringList) {
@@ -60,7 +60,7 @@ public class ListUtils {
      * @param list     集合
      * @param fileName 文件名
      */
-    public static void saveListToData(Context context, List list, String fileName) {
+    public static void saveListToData(Context context, List<Object> list, String fileName) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
