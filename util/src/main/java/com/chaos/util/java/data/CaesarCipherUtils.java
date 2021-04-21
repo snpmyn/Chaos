@@ -56,7 +56,7 @@ public class CaesarCipherUtils {
      * @return 解密后结果
      */
     public static String decrypt(String string, int offsetValue) {
-        if (string == null) {
+        if (null == string) {
             return null;
         }
         StringBuilder stringBuilder = new StringBuilder();
@@ -144,7 +144,7 @@ public class CaesarCipherUtils {
      */
     private static char encrypt(char c, int offsetValue) {
         // 如果字符串中某字符是小写字母
-        if (c >= UtilMagic.CHAR_SMALL_A && c <= UtilMagic.CHAR_SMALL_Z) {
+        if ((c >= UtilMagic.CHAR_SMALL_A) && (c <= UtilMagic.CHAR_SMALL_Z)) {
             // 移动 key%26 位
             c += offsetValue % 26;
             if (c < UtilMagic.CHAR_SMALL_A) {
@@ -156,7 +156,7 @@ public class CaesarCipherUtils {
             }
         }
         // 如果字符串中某字符是大写字母
-        else if (c >= UtilMagic.CHAR_BIG_A && c <= UtilMagic.CHAR_BIG_Z) {
+        else if ((c >= UtilMagic.CHAR_BIG_A) && (c <= UtilMagic.CHAR_BIG_Z)) {
             // 移动 key%26 位
             c += offsetValue % 26;
             if (c < UtilMagic.CHAR_BIG_A) {

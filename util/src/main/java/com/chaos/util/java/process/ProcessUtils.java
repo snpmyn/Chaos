@@ -2,14 +2,14 @@ package com.chaos.util.java.process;
 
 import android.text.TextUtils;
 
-import com.chaos.util.java.log.LogUtils;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import timber.log.Timber;
 
 /**
  * Created on 2021/1/11
@@ -43,14 +43,14 @@ public class ProcessUtils {
             }
             return processName;
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            Timber.e(throwable);
         } finally {
             try {
                 if (null != bufferedReader) {
                     bufferedReader.close();
                 }
             } catch (IOException exception) {
-                LogUtils.exception(exception);
+                Timber.e(exception);
             }
         }
         return null;

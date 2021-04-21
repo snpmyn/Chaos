@@ -24,7 +24,7 @@ public class VibratorUtils {
      */
     public static void oneShotVibration(@NotNull Context context, long milliseconds, int amplitude) {
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        if (vibrator != null) {
+        if (null != vibrator) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createOneShot(milliseconds, amplitude);
                 vibrator.vibrate(vibrationEffect);
@@ -43,7 +43,7 @@ public class VibratorUtils {
      */
     public static void waveformVibration(@NotNull Context context, long[] timings, int[] amplitudes, int repeat) {
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        if (vibrator != null) {
+        if (null != vibrator) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createWaveform(timings, amplitudes, repeat);
                 vibrator.vibrate(vibrationEffect);

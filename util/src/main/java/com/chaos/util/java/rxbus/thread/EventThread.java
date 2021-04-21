@@ -47,8 +47,7 @@ public enum EventThread {
      */
     COMPUTATION,
     /**
-     * Creates and returns a {@link Scheduler} that queues work on the current thread to be executed after the
-     * current work completes.
+     * Creates and returns a {@link Scheduler} that queues work on the current thread to be executed after the current work completes.
      */
     TRAMPOLINE,
     /**

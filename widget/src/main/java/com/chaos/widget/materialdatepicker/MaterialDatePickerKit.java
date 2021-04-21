@@ -1,0 +1,66 @@
+package com.chaos.widget.materialdatepicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.chaos.widget.R;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
+import java.lang.ref.WeakReference;
+
+import static com.chaos.util.java.datetime.DateUtils.yearMonthDateConversionToYearMonthDate;
+
+/**
+ * Created on 2021/2/28 0028
+ *
+ * @author zsp
+ * @desp 材料日期选择器配套原件
+ */
+public class MaterialDatePickerKit {
+    private static MaterialDatePickerKit instance;
+
+    public static MaterialDatePickerKit getInstance() {
+        if (null == instance) {
+            synchronized (MaterialDatePickerKit.class) {
+                if (null == instance) {
+                    instance = new MaterialDatePickerKit();
+                }
+            }
+        }
+        return instance;
+    }
+
+    /**
+     * 显示
+     *
+     * @param appCompatActivity              活动
+     * @param materialDatePickerKitInterface 材料日期选择器配套原件接口
+     */
+    public void show(AppCompatActivity appCompatActivity, MaterialDatePickerKitInterface materialDatePickerKitInterface) {
+        WeakReference<AppCompatActivity> weakReference = new WeakReference<>(appCompatActivity);
+        MaterialDatePicker<?> materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(R.string.pleaseSelectDate)
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build();
+        materialDatePicker.addOnPositiveButtonClickListener((MaterialPickerOnPositiveButtonClickListener<Object>) selection -> materialDatePickerKitInterface.onPositiveButtonClick(yearMonthDateConversionToYearMonthDate(materialDatePicker.getHeaderText())));
+        materialDatePicker.addOnNegativeButtonClickListener(v -> materialDatePickerKitInterface.onNegativeButtonClick());
+        materialDatePicker.show(weakReference.get().getSupportFragmentManager(), weakReference.get().getClass().getName());
+    }
+
+    /**
+     * 材料日期选择器配套原件接口
+     */
+    public interface MaterialDatePickerKitInterface {
+        /**
+         * 积极按钮点击
+         *
+         * @param date 日期
+         */
+        void onPositiveButtonClick(String date);
+
+        /**
+         * 消极按钮点击
+         */
+        void onNegativeButtonClick();
+    }
+}

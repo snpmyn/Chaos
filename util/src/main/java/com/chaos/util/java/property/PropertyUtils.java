@@ -3,8 +3,6 @@ package com.chaos.util.java.property;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.chaos.util.java.log.LogUtils;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
@@ -17,6 +15,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
+import timber.log.Timber;
 
 /**
  * Created on 2020-09-11
@@ -57,7 +57,7 @@ public class PropertyUtils {
             Map<String, String> keyValueMap = getKeyValueMap();
             for (String key : getKeysList()) {
                 String value = keyValueMap.get(key);
-                if (value != null) {
+                if (null != value) {
                     stringList.add(value);
                 }
             }
@@ -78,13 +78,13 @@ public class PropertyUtils {
             load(inputStream);
             inputStream.close();
         } catch (Exception e) {
-            LogUtils.exception(e);
+            Timber.e(e);
         } finally {
-            if (inputStream != null) {
+            if (null != inputStream) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    LogUtils.exception(e);
+                    Timber.e(e);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class PropertyUtils {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         List<String> linesList = new ArrayList<>();
-        while (read(bufferedReader) != null) {
+        while (null != read(bufferedReader)) {
             linesList.add(line);
         }
         bufferedReader.close();
@@ -148,13 +148,13 @@ public class PropertyUtils {
             properties.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             inputStream.close();
         } catch (Exception e) {
-            LogUtils.exception(e);
+            Timber.e(e);
         } finally {
-            if (inputStream != null) {
+            if (null != inputStream) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    LogUtils.exception(e);
+                    Timber.e(e);
                 }
             }
         }

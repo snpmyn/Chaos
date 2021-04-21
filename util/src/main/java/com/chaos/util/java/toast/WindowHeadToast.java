@@ -117,7 +117,7 @@ public class WindowHeadToast implements View.OnTouchListener {
      * 动画消失
      */
     private void animationDismiss() {
-        if (null == linearLayout || null == linearLayout.getParent()) {
+        if ((null == linearLayout) || (null == linearLayout.getParent())) {
             return;
         }
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(linearLayout, "translationY", linearLayout.getTranslationY(), -linearLayout.getMeasuredHeight());
@@ -133,7 +133,7 @@ public class WindowHeadToast implements View.OnTouchListener {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 // 须动画结束时移除视图从而避免下次因窗体管理器中已存在视图而导致卡死
-                if (null != linearLayout && null != linearLayout.getParent()) {
+                if ((null != linearLayout) && (null != linearLayout.getParent())) {
                     windowManager.removeViewImmediate(linearLayout);
                 }
             }
@@ -196,13 +196,13 @@ public class WindowHeadToast implements View.OnTouchListener {
             case MotionEvent.ACTION_MOVE:
                 int currentX = (int) event.getRawX();
                 int currentY = (int) event.getRawY();
-                if (Math.abs(currentX - downX) > UtilMagic.INT_FIFTY || Math.abs(currentY - downY) > UtilMagic.INT_FORTY) {
+                if ((Math.abs(currentX - downX) > UtilMagic.INT_FIFTY) || (Math.abs(currentY - downY) > UtilMagic.INT_FORTY)) {
                     animationDismiss();
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 // 到一定比例后松开手指关闭
-                if (Math.abs(linearLayout.getTranslationY()) > linearLayout.getMeasuredHeight() / UtilMagic.FLOAT_ONE_DOT_FIVE) {
+                if (Math.abs(linearLayout.getTranslationY()) > (linearLayout.getMeasuredHeight() / UtilMagic.FLOAT_ONE_DOT_FIVE)) {
                     animationDismiss();
                 } else {
                     linearLayout.setTranslationY(0);

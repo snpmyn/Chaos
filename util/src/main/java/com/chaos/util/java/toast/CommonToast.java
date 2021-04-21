@@ -8,10 +8,9 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationManagerCompat;
 
-import com.chaos.util.java.log.LogUtils;
-
 import org.jetbrains.annotations.NotNull;
 
+import timber.log.Timber;
 import value.UtilMagic;
 
 /**
@@ -21,8 +20,6 @@ import value.UtilMagic;
  * @desc 普通吐司
  */
 public class CommonToast extends Toast {
-    private final static String TAG = "CommonToast";
-
     private CommonToast(Context context) {
         super(context);
     }
@@ -69,7 +66,7 @@ public class CommonToast extends Toast {
         try {
             super.show();
         } catch (Exception e) {
-            LogUtils.e(TAG, " toast 显示异常 ", e);
+            Timber.e(e);
         }
     }
 }

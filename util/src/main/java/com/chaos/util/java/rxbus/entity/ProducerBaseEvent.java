@@ -41,10 +41,10 @@ public class ProducerBaseEvent extends BaseEvent {
     private boolean valid = true;
 
     public ProducerBaseEvent(Object target, Method method, EventThread thread) {
-        if (target == null) {
+        if (null == target) {
             throw new NullPointerException("EventProducer target cannot be null.");
         }
-        if (method == null) {
+        if (null == method) {
             throw new NullPointerException("EventProducer method cannot be null.");
         }
         this.target = target;
@@ -53,7 +53,7 @@ public class ProducerBaseEvent extends BaseEvent {
         method.setAccessible(true);
         // Compute hash code eagerly since we know it will be used frequently and we cannot estimate the runtime of the target's hashCode call.
         final int prime = 31;
-        hashCode = (prime + method.hashCode()) * prime + target.hashCode();
+        hashCode = ((prime + method.hashCode()) * prime + target.hashCode());
     }
 
     public boolean isValid() {
@@ -121,14 +121,14 @@ public class ProducerBaseEvent extends BaseEvent {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (null == obj) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final ProducerBaseEvent other = (ProducerBaseEvent) obj;
-        return method.equals(other.method) && target == other.target;
+        return method.equals(other.method) && (target == other.target);
     }
 
     public Object getTarget() {

@@ -152,7 +152,7 @@ public class LogUtils {
         }
         if (!Builder.logSystem) {
             try {
-                if (method == methodDebugWithThrowable || method == methodInfoWithThrowable || method == methodErrorWithThrowable || method == methodWarnWithThrowable || method == methodVerboseWithThrowable) {
+                if ((method == methodDebugWithThrowable) || (method == methodInfoWithThrowable) || (method == methodErrorWithThrowable) || (method == methodWarnWithThrowable) || (method == methodVerboseWithThrowable)) {
                     method.invoke(c, tag, info, throwable);
                 } else {
                     method.invoke(c, tag, info + (throwable == null ? "" : "\n" + getStackTraceString(throwable)));
@@ -174,9 +174,8 @@ public class LogUtils {
         StackTraceElement stackTraceElement;
         boolean start = false;
         for (int index = 0; index < stackTraceElements.length; index++) {
-            if (!start && index < stackTraceElements.length - 1) {
-                if (stackTraceElements[index].getClassName().equals(LogUtils.class.getName()) &&
-                        !stackTraceElements[index + 1].getClassName().equals(LogUtils.class.getName())) {
+            if (!start && (index < stackTraceElements.length - 1)) {
+                if (stackTraceElements[index].getClassName().equals(LogUtils.class.getName()) && !stackTraceElements[index + 1].getClassName().equals(LogUtils.class.getName())) {
                     start = true;
                 }
             }
@@ -203,7 +202,7 @@ public class LogUtils {
         }
         // This is to reduce the amount of log spew that apps do in the non-error condition of the network being unavailable.
         Throwable throwable = e;
-        while (throwable != null) {
+        while (null != throwable) {
             if (throwable instanceof UnknownHostException) {
                 return "";
             }

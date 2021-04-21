@@ -22,10 +22,10 @@ public class EventType {
     private final int hashCode;
 
     public EventType(String tag, Class<?> clazz) {
-        if (tag == null) {
+        if (null == tag) {
             throw new NullPointerException("EventType Tag cannot be null.");
         }
-        if (clazz == null) {
+        if (null == clazz) {
             throw new NullPointerException("EventType Clazz cannot be null.");
         }
         this.tag = tag;
@@ -52,14 +52,14 @@ public class EventType {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (null == obj) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final EventType other = (EventType) obj;
-        return tag.equals(other.tag) && clazz == other.clazz;
+        return tag.equals(other.tag) && (clazz == other.clazz);
     }
 
     /**

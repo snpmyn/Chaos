@@ -27,7 +27,7 @@ public class IntentOther {
      */
     public static void restart(@NotNull Application application) {
         Intent intent = application.getPackageManager().getLaunchIntentForPackage(application.getPackageName());
-        if (intent != null) {
+        if (null != intent) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         application.startActivity(intent);

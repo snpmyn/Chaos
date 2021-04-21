@@ -173,7 +173,7 @@ public class RegularUtils {
      * @return true 匹 / false 不匹
      */
     private static boolean isMatch(String regex, CharSequence input) {
-        return input != null && input.length() > 0 && Pattern.matches(regex, input);
+        return (null != input) && (input.length() > 0) && Pattern.matches(regex, input);
     }
 
     /**
@@ -184,7 +184,7 @@ public class RegularUtils {
      * @return 正则匹配部分
      */
     public static List<String> getMatches(String regex, CharSequence input) {
-        if (input == null) {
+        if (null == input) {
             return null;
         }
         List<String> matches = new ArrayList<>();
@@ -204,7 +204,7 @@ public class RegularUtils {
      * @return 正则匹配分组
      */
     public static String[] getSplits(String input, String regex) {
-        if (input == null) {
+        if (null == input) {
             return null;
         }
         return input.split(regex);
@@ -219,7 +219,7 @@ public class RegularUtils {
      * @return 替正则匹配第一部分
      */
     public static String getReplaceFirst(String input, String regex, String replacement) {
-        if (input == null) {
+        if (null == input) {
             return null;
         }
         return Pattern.compile(regex).matcher(input).replaceFirst(replacement);
@@ -234,7 +234,7 @@ public class RegularUtils {
      * @return 替所有正则匹配部分
      */
     public static String getReplaceAll(String input, String regex, String replacement) {
-        if (input == null) {
+        if (null == input) {
             return null;
         }
         return Pattern.compile(regex).matcher(input).replaceAll(replacement);

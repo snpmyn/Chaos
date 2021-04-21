@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author 郑少鹏
  * @desc CurrentTimeMillisClock
- * 调 CurrentTimeMillisClock.getInstance().now()
+ * 调 {@link CurrentTimeMillisClock#getInstance()#now()}
  */
 public class CurrentTimeMillisClock {
     private volatile long now;

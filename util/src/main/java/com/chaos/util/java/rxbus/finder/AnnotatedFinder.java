@@ -81,11 +81,11 @@ public final class AnnotatedFinder {
                 }
                 Subscribe annotation = method.getAnnotation(Subscribe.class);
                 EventThread thread = null;
-                if (annotation != null) {
+                if (null != annotation) {
                     thread = annotation.thread();
                 }
                 Tag[] tags = new Tag[0];
-                if (annotation != null) {
+                if (null != annotation) {
                     tags = annotation.tags();
                 }
                 int tagLength = tags.length;
@@ -96,7 +96,7 @@ public final class AnnotatedFinder {
                     }
                     EventType type = new EventType(tag, parameterClazz);
                     Set<SourceMethod> methods = subscriberMethods.get(type);
-                    if (methods == null) {
+                    if (null == methods) {
                         methods = new HashSet<>();
                         subscriberMethods.put(type, methods);
                     }
@@ -122,12 +122,12 @@ public final class AnnotatedFinder {
                     throw new IllegalArgumentException("Method " + method + " has @Produce annotation on " + parameterClazz + " but is not 'public'.");
                 }
                 Produce annotation = method.getAnnotation(Produce.class);
-                EventThread thread = null;
-                if (annotation != null) {
-                    thread = annotation.thread();
+                EventThread eventThread = null;
+                if (null != annotation) {
+                    eventThread = annotation.thread();
                 }
                 Tag[] tags = new Tag[0];
-                if (annotation != null) {
+                if (null != annotation) {
                     tags = annotation.tags();
                 }
                 int tagLength = tags.length;
@@ -140,7 +140,7 @@ public final class AnnotatedFinder {
                     if (producerMethods.containsKey(type)) {
                         throw new IllegalArgumentException("Producer for type " + type + " has already been registered.");
                     }
-                    producerMethods.put(type, new SourceMethod(thread, method));
+                    producerMethods.put(type, new SourceMethod(eventThread, method));
                     tagLength--;
                 } while (tagLength > 0);
             }
@@ -189,8 +189,8 @@ public final class AnnotatedFinder {
         if (!methods.isEmpty()) {
             for (Map.Entry<EventType, Set<SourceMethod>> e : methods.entrySet()) {
                 Set<SubscriberBaseEvent> subscribers = new HashSet<>();
-                for (SourceMethod m : e.getValue()) {
-                    subscribers.add(new SubscriberBaseEvent(listener, m.method, m.thread));
+                for (SourceMethod sourceMethod : e.getValue()) {
+                    subscribers.add(new SubscriberBaseEvent(listener, sourceMethod.method, sourceMethod.thread));
                 }
                 subscribersInMethod.put(e.getKey(), subscribers);
             }

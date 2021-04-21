@@ -72,7 +72,7 @@ public class FileUtils {
         String[] pro = {MediaStore.Images.Media.DATA};
         try (Cursor cursor = context.getContentResolver().query(contentUri, pro, null, null, null)) {
             int columnIndex;
-            if (cursor != null) {
+            if (null != cursor) {
                 columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                 cursor.moveToFirst();
                 return cursor.getString(columnIndex);
@@ -99,7 +99,7 @@ public class FileUtils {
      * @return 文件存否
      */
     private static boolean isFileExist(final File file) {
-        return file != null && file.exists();
+        return (file != null) && file.exists();
     }
 
     /**
@@ -175,7 +175,7 @@ public class FileUtils {
     private static boolean deleteDirectory(@NotNull String dir) {
         // dir 不以文件分隔符结尾则自动添文件分隔符
         if (!dir.endsWith(File.separator)) {
-            dir = dir + File.separator;
+            dir = (dir + File.separator);
         }
         File dirFile = new File(dir);
         // dir 对应文件不存或非目录则退出
@@ -186,7 +186,7 @@ public class FileUtils {
         boolean flag = true;
         // 删文件夹所有文件（含子目录）
         File[] files = dirFile.listFiles();
-        if (files != null) {
+        if (null != files) {
             for (File file : files) {
                 // 删子文件
                 if (file.isFile()) {
@@ -224,12 +224,12 @@ public class FileUtils {
      */
     public static void deleteFile(File file) {
         try {
-            if (file == null || !file.exists()) {
+            if ((null == file) || !file.exists()) {
                 return;
             }
             if (file.isDirectory()) {
                 File[] files = file.listFiles();
-                if (files != null && files.length > 0) {
+                if ((null != files) && (files.length > 0)) {
                     for (File f : files) {
                         if (f.exists()) {
                             if (f.isDirectory()) {
@@ -244,7 +244,7 @@ public class FileUtils {
                 file.delete();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
     }
 
@@ -267,10 +267,10 @@ public class FileUtils {
             os.flush();
             return true;
         } catch (Exception e) {
-            if (file != null && file.exists()) {
+            Timber.e(e);
+            if ((null != file) && file.exists()) {
                 file.deleteOnExit();
             }
-            e.printStackTrace();
         } finally {
             closeStream(os);
             closeStream(inputStream);
@@ -284,11 +284,11 @@ public class FileUtils {
      * @param closeable closeable
      */
     private static void closeStream(Closeable closeable) {
-        if (closeable != null) {
+        if ((null != closeable)) {
             try {
                 closeable.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
     }
@@ -302,14 +302,14 @@ public class FileUtils {
     public static @NotNull StringBuilder fileToString(String filePath) {
         StringBuilder result = new StringBuilder();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
             String s;
-            while ((s = br.readLine()) != null) {
+            while (null != (s = bufferedReader.readLine())) {
                 result.append(System.lineSeparator()).append(s);
             }
-            br.close();
+            bufferedReader.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
         return result;
     }
@@ -323,7 +323,7 @@ public class FileUtils {
      * @throws IOException 输入/出流异常
      */
     public static boolean copy(File newFile, File destFile) throws IOException {
-        if (newFile != null && destFile != null) {
+        if ((null != newFile) && (null != destFile)) {
             if (!newFile.exists()) {
                 return false;
             } else {
@@ -346,14 +346,14 @@ public class FileUtils {
                     var3.flush();
                     return true;
                 } finally {
-                    if (var2 != null) {
+                    if ((null != var2)) {
                         try {
                             var2.close();
                         } catch (IOException var19) {
                             var19.printStackTrace();
                         }
                     }
-                    if (var3 != null) {
+                    if ((null != var3)) {
                         try {
                             var3.close();
                         } catch (IOException var18) {
@@ -374,7 +374,7 @@ public class FileUtils {
      * @return Extension including the dot("."); "" if there is no extension; null if uri was null.
      */
     private static String getExtension(String uri) {
-        if (uri == null) {
+        if ((null == uri)) {
             return null;
         }
         int dot = uri.lastIndexOf(".");
@@ -413,7 +413,7 @@ public class FileUtils {
      * @return File
      */
     public static File getPathWithoutFilename(File file) {
-        if (file != null) {
+        if (null != file) {
             if (file.isDirectory()) {
                 // no file to be split off. Return everything
                 return file;
@@ -421,7 +421,7 @@ public class FileUtils {
                 String filename = file.getName();
                 String filepath = file.getAbsolutePath();
                 // Construct path without file name.
-                String pathWithoutName = filepath.substring(0, filepath.length() - filename.length());
+                String pathWithoutName = (filepath.substring(0, filepath.length() - filename.length()));
                 if (pathWithoutName.endsWith(UtilMagic.STRING_BACKSLASH)) {
                     pathWithoutName = pathWithoutName.substring(0, pathWithoutName.length() - 1);
                 }
@@ -456,7 +456,7 @@ public class FileUtils {
     public static @org.jetbrains.annotations.Nullable String getMimeType(Context context, String authority, Uri uri) {
         String path = getPath(context, authority, uri);
         File file;
-        if (path != null) {
+        if (null != path) {
             file = new File(path);
             return getMimeType(file);
         } else {
@@ -530,7 +530,7 @@ public class FileUtils {
         final String[] projection = {column
         };
         try (Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null)) {
-            if (cursor != null && cursor.moveToFirst()) {
+            if ((null != cursor) && cursor.moveToFirst()) {
                 final int columnIndex = cursor.getColumnIndexOrThrow(column);
                 return cursor.getString(columnIndex);
             }
@@ -571,7 +571,7 @@ public class FileUtils {
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {
                 final String id = DocumentsContract.getDocumentId(uri);
-                if (id != null && id.startsWith(UtilMagic.STRING_RAW_COLON)) {
+                if ((null != id) && id.startsWith(UtilMagic.STRING_RAW_COLON)) {
                     return id.substring(4);
                 }
                 String[] contentUriPrefixesToTry = new String[]{
@@ -580,12 +580,12 @@ public class FileUtils {
                 };
                 for (String contentUriPrefix : contentUriPrefixesToTry) {
                     Uri contentUri = null;
-                    if (id != null) {
+                    if (null != id) {
                         contentUri = ContentUris.withAppendedId(Uri.parse(contentUriPrefix), Long.parseLong(id));
                     }
                     try {
                         String path = getDataColumn(context, contentUri, null, null);
-                        if (path != null) {
+                        if (null != path) {
                             return path;
                         }
                     } catch (Exception e) {
@@ -597,7 +597,7 @@ public class FileUtils {
                 File cacheDir = getDocumentCacheDir(context);
                 File file = generateFileName(fileName, cacheDir);
                 String destinationPath = null;
-                if (file != null) {
+                if (null != file) {
                     destinationPath = file.getAbsolutePath();
                     saveFileFromUri(context, uri, destinationPath);
                 }
@@ -646,7 +646,7 @@ public class FileUtils {
      * @return File
      */
     public static File getFile(Context context, String authority, Uri uri) {
-        if (uri != null) {
+        if (null != uri) {
             String path = getPath(context, authority, uri);
             if (UrlUtils.isLocal(path)) {
                 return new File(path);
@@ -733,24 +733,24 @@ public class FileUtils {
             inputStream = context.getContentResolver().openInputStream(uri);
             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(destinationPath, false));
             byte[] buf = new byte[1024];
-            if (inputStream != null) {
+            if (null != inputStream) {
                 inputStream.read(buf);
                 do {
                     bufferedOutputStream.write(buf);
                 } while (inputStream.read(buf) != -1);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Timber.e(e);
         } finally {
             try {
-                if (inputStream != null) {
+                if (null != inputStream) {
                     inputStream.close();
                 }
-                if (bufferedOutputStream != null) {
+                if (null != bufferedOutputStream) {
                     bufferedOutputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
     }
@@ -765,13 +765,13 @@ public class FileUtils {
             fileInputStream = new FileInputStream(file);
             fileInputStream.read(bytesArray);
         } catch (IOException e) {
-            e.printStackTrace();
+            Timber.e(e);
         } finally {
-            if (fileInputStream != null) {
+            if (null != fileInputStream) {
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Timber.e(e);
                 }
             }
         }
@@ -787,9 +787,9 @@ public class FileUtils {
     private static String getFileName(@NonNull Context context, String authority, Uri uri) {
         String mimeType = context.getContentResolver().getType(uri);
         String filename = null;
-        if (mimeType == null) {
+        if (null == mimeType) {
             String path = getPath(context, authority, uri);
-            if (path == null) {
+            if (null == path) {
                 filename = getName(uri.toString());
             } else {
                 File file = new File(path);
@@ -797,7 +797,7 @@ public class FileUtils {
             }
         } else {
             Cursor returnCursor = context.getContentResolver().query(uri, null, null, null, null);
-            if (returnCursor != null) {
+            if (null != returnCursor) {
                 int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
                 returnCursor.moveToFirst();
                 filename = returnCursor.getString(nameIndex);
@@ -808,7 +808,7 @@ public class FileUtils {
     }
 
     private static String getName(String filename) {
-        if (filename == null) {
+        if (null == filename) {
             return null;
         }
         int index = filename.lastIndexOf('/');
@@ -841,7 +841,7 @@ public class FileUtils {
                 inputStream.close();
                 files.add(file);
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
         return files;

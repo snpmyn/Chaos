@@ -49,7 +49,7 @@ public class NetManager {
     public static boolean isNetConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        return (activeInfo != null && activeInfo.isConnected());
+        return ((null != activeInfo) && activeInfo.isConnected());
     }
 
     /**
@@ -61,7 +61,7 @@ public class NetManager {
     public static boolean isMobileConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        return (activeInfo != null && activeInfo.isConnected() && activeInfo.getType() == ConnectivityManager.TYPE_MOBILE);
+        return ((null != activeInfo) && activeInfo.isConnected() && (activeInfo.getType() == ConnectivityManager.TYPE_MOBILE));
     }
 
     /**
@@ -73,7 +73,7 @@ public class NetManager {
     public static boolean is2gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        if (activeInfo == null || !activeInfo.isConnected()) {
+        if ((null == activeInfo) || !activeInfo.isConnected()) {
             return false;
         }
         int subtype = activeInfo.getSubtype();
@@ -99,7 +99,7 @@ public class NetManager {
     public static boolean is3gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        if (activeInfo == null || !activeInfo.isConnected()) {
+        if ((null == activeInfo) || !activeInfo.isConnected()) {
             return false;
         }
         int subtype = activeInfo.getSubtype();
@@ -129,7 +129,7 @@ public class NetManager {
     public static boolean is4gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        if (activeInfo == null || !activeInfo.isConnected()) {
+        if ((null == activeInfo) || !activeInfo.isConnected()) {
             return false;
         }
         int subtype = activeInfo.getSubtype();
@@ -153,8 +153,8 @@ public class NetManager {
      */
     public static @Nullable String getNetworkOperatorName(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
-        TelephonyManager tm = (TelephonyManager) context.getApplicationContext().getSystemService(TELEPHONY_SERVICE);
-        return tm != null ? tm.getNetworkOperatorName() : null;
+        TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(TELEPHONY_SERVICE);
+        return (null != telephonyManager) ? telephonyManager.getNetworkOperatorName() : null;
     }
 
     /**
@@ -171,8 +171,8 @@ public class NetManager {
      */
     public static int getPhoneType(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
-        TelephonyManager tm = (TelephonyManager) context.getApplicationContext().getSystemService(TELEPHONY_SERVICE);
-        return tm != null ? tm.getPhoneType() : 0;
+        TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(TELEPHONY_SERVICE);
+        return (null != telephonyManager) ? telephonyManager.getPhoneType() : 0;
     }
 
     /**
@@ -184,7 +184,7 @@ public class NetManager {
     public static boolean isWifiConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
-        return (activeInfo != null && activeInfo.isConnected() && activeInfo.getType() == ConnectivityManager.TYPE_WIFI);
+        return ((null != activeInfo) && activeInfo.isConnected() && (activeInfo.getType() == ConnectivityManager.TYPE_WIFI));
     }
 
     /**
@@ -194,7 +194,7 @@ public class NetManager {
      */
     public static void wifiConnect(@NotNull Context context) {
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getApplicationContext().getSystemService(WIFI_SERVICE);
-        if (wifiManager != null && !wifiManager.isWifiEnabled()) {
+        if ((null != wifiManager) && !wifiManager.isWifiEnabled()) {
             wifiManager.setWifiEnabled(true);
         }
     }
@@ -206,9 +206,9 @@ public class NetManager {
      */
     public static void registerNetConnChangedReceiver(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        context.getApplicationContext().registerReceiver(S_NET_CONN_CHANGED_RECEIVER, filter);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        context.getApplicationContext().registerReceiver(S_NET_CONN_CHANGED_RECEIVER, intentFilter);
     }
 
     /**
@@ -229,8 +229,7 @@ public class NetManager {
      */
     public static void addNetConnChangedListener(NetConnChangedListener listener) {
         checkNonNull(listener, "listener == null");
-        boolean result = S_NET_CONN_CHANGED_LISTENERS.add(listener);
-        log("addNetConnChangedListener: " + result);
+        log("addNetConnChangedListener: " + S_NET_CONN_CHANGED_LISTENERS.add(listener));
     }
 
     /**
@@ -240,8 +239,7 @@ public class NetManager {
      */
     public static void removeNetConnChangedListener(NetConnChangedListener listener) {
         checkNonNull(listener, "listener == null");
-        boolean result = S_NET_CONN_CHANGED_LISTENERS.remove(listener);
-        log("removeNetConnChangedListener: " + result);
+        log("removeNetConnChangedListener: " + S_NET_CONN_CHANGED_LISTENERS.remove(listener));
     }
 
     private static void broadcastConnStatus(ConnectStatus connectStatus) {
@@ -261,12 +259,12 @@ public class NetManager {
      * @return 网络信息
      */
     private static @Nullable NetworkInfo getActiveNetworkInfo(@NotNull Context context) {
-        ConnectivityManager connMgr = (ConnectivityManager) context.getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
-        return connMgr != null ? connMgr.getActiveNetworkInfo() : null;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
+        return (null != connectivityManager) ? connectivityManager.getActiveNetworkInfo() : null;
     }
 
     private static void checkNonNull(Object object, String message) {
-        if (object == null) {
+        if (null == object) {
             throw new IllegalArgumentException(message);
         }
     }
@@ -304,7 +302,7 @@ public class NetManager {
         public void onReceive(Context context, Intent intent) {
             log("onReceive");
             NetworkInfo activeInfo = getActiveNetworkInfo(context);
-            if (activeInfo == null) {
+            if (null == activeInfo) {
                 broadcastConnStatus(ConnectStatus.NO_NETWORK);
             } else if (activeInfo.isConnected()) {
                 int networkType = activeInfo.getType();

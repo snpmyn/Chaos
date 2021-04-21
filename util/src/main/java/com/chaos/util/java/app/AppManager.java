@@ -12,7 +12,7 @@ import timber.log.Timber;
  * Created on 2019/4/19.
  *
  * @author 郑少鹏
- * @desc App 管理器
+ * @desc 应用管理器
  */
 public class AppManager {
     /**
@@ -24,11 +24,10 @@ public class AppManager {
     public static int versionCode(Context context) {
         int versionCode = 0;
         try {
-            PackageManager manager = context.getApplicationContext().getPackageManager();
-            PackageInfo info = manager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
-            versionCode = info.versionCode;
+            PackageManager packageManager = context.getApplicationContext().getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
+            versionCode = packageInfo.versionCode;
         } catch (Exception e) {
-            e.printStackTrace();
             Timber.e(e);
         }
         return versionCode;
@@ -43,11 +42,10 @@ public class AppManager {
     public static String versionName(Context context) {
         String versionName = null;
         try {
-            PackageManager manager = context.getApplicationContext().getPackageManager();
-            PackageInfo info = manager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
-            versionName = info.versionName;
+            PackageManager packageManager = context.getApplicationContext().getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
+            versionName = packageInfo.versionName;
         } catch (Exception e) {
-            e.printStackTrace();
             Timber.e(e);
         }
         return versionName;
@@ -71,9 +69,9 @@ public class AppManager {
             packageName = context.getPackageName();
         }
         PackageInfo packageInfo = null;
-        PackageManager manager = context.getPackageManager();
+        PackageManager packageManager = context.getPackageManager();
         try {
-            packageInfo = manager.getPackageInfo(packageName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
+            packageInfo = packageManager.getPackageInfo(packageName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
         } catch (PackageManager.NameNotFoundException e) {
             Timber.e(e);
         }

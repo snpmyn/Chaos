@@ -166,7 +166,7 @@ public class Bus {
      * @throws NullPointerException If the object is null.
      */
     public void register(Object object) {
-        if (object == null) {
+        if (null == object) {
             throw new NullPointerException("Object to register must not be null.");
         }
         enforcer.enforce(this);
@@ -175,17 +175,17 @@ public class Bus {
             final ProducerBaseEvent producer = foundProducers.get(type);
             ProducerBaseEvent previousProducer = producersByType.putIfAbsent(type, producer);
             //checking if the previous producer existed
-            if (previousProducer != null) {
-                if (producer != null) {
+            if (null != previousProducer) {
+                if (null != producer) {
                     throw new IllegalArgumentException("Producer method for type " + type
                             + " found on type " + producer.getTarget().getClass()
                             + ", but already registered by type " + previousProducer.getTarget().getClass() + ".");
                 }
             }
             Set<SubscriberBaseEvent> subscribers = subscribersByType.get(type);
-            if (subscribers != null && !subscribers.isEmpty()) {
+            if ((null != subscribers) && !subscribers.isEmpty()) {
                 for (SubscriberBaseEvent subscriber : subscribers) {
-                    if (producer != null) {
+                    if (null != producer) {
                         dispatchProducerResult(subscriber, producer);
                     }
                 }
@@ -194,23 +194,23 @@ public class Bus {
         Map<EventType, Set<SubscriberBaseEvent>> foundSubscribersMap = finder.findAllSubscribers(object);
         for (EventType type : foundSubscribersMap.keySet()) {
             Set<SubscriberBaseEvent> subscribers = subscribersByType.get(type);
-            if (subscribers == null) {
+            if (null == subscribers) {
                 //concurrent put if absent
                 Set<SubscriberBaseEvent> subscribersCreation = new CopyOnWriteArraySet<>();
                 subscribers = subscribersByType.putIfAbsent(type, subscribersCreation);
-                if (subscribers == null) {
+                if (null == subscribers) {
                     subscribers = subscribersCreation;
                 }
             }
             final Set<SubscriberBaseEvent> foundSubscribers = foundSubscribersMap.get(type);
-            if (foundSubscribers != null && !subscribers.addAll(foundSubscribers)) {
+            if ((null != foundSubscribers) && !subscribers.addAll(foundSubscribers)) {
                 throw new IllegalArgumentException("Object already registered.");
             }
         }
         for (Map.Entry<EventType, Set<SubscriberBaseEvent>> entry : foundSubscribersMap.entrySet()) {
             EventType type = entry.getKey();
             ProducerBaseEvent producer = producersByType.get(type);
-            if (producer != null && producer.isValid()) {
+            if ((null != producer) && producer.isValid()) {
                 Set<SubscriberBaseEvent> subscriberEvents = entry.getValue();
                 for (SubscriberBaseEvent subscriberEvent : subscriberEvents) {
                     if (!producer.isValid()) {
@@ -226,7 +226,7 @@ public class Bus {
 
     private void dispatchProducerResult(final SubscriberBaseEvent subscriberEvent, @NotNull ProducerBaseEvent producer) {
         producer.produce().subscribe((Action1<Object>) event -> {
-            if (event != null) {
+            if (null != event) {
                 dispatch(event, subscriberEvent);
             }
         });
@@ -242,13 +242,13 @@ public class Bus {
      */
     @Deprecated
     public boolean hasRegistered(Object object) {
-        if (object == null) {
+        if (null == object) {
             throw new NullPointerException("Object to register must not be null.");
         }
         boolean hasProducerRegistered = false, hasSubscriberRegistered = false;
         Map<EventType, ProducerBaseEvent> foundProducers = finder.findAllProducers(object);
-        for (EventType type : foundProducers.keySet()) {
-            final ProducerBaseEvent producer = foundProducers.get(type);
+        for (EventType eventType : foundProducers.keySet()) {
+            final ProducerBaseEvent producer = foundProducers.get(eventType);
             hasProducerRegistered = producersByType.containsValue(producer);
             if (hasProducerRegistered) {
                 break;
@@ -258,11 +258,11 @@ public class Bus {
             Map<EventType, Set<SubscriberBaseEvent>> foundSubscribersMap = finder.findAllSubscribers(object);
             for (EventType type : foundSubscribersMap.keySet()) {
                 Set<SubscriberBaseEvent> subscribers = subscribersByType.get(type);
-                if (subscribers != null && subscribers.size() > 0) {
+                if ((null != subscribers) && (subscribers.size() > 0)) {
                     final Set<SubscriberBaseEvent> foundSubscribers = foundSubscribersMap.get(type);
                     // check the first subscriber...
                     SubscriberBaseEvent foundSubscriber = null;
-                    if (foundSubscribers != null) {
+                    if (null != foundSubscribers) {
                         foundSubscriber = !foundSubscribers.isEmpty() ? foundSubscribers.iterator().next() : null;
                     }
                     hasSubscriberRegistered = subscribers.contains(foundSubscriber);
@@ -283,7 +283,7 @@ public class Bus {
      * @throws NullPointerException     If the object is null.
      */
     public void unregister(Object object) {
-        if (object == null) {
+        if (null == object) {
             throw new NullPointerException("Object to unregister must not be null.");
         }
         enforcer.enforce(this);
@@ -292,7 +292,7 @@ public class Bus {
             final EventType key = entry.getKey();
             ProducerBaseEvent producer = getProducerForEventType(key);
             ProducerBaseEvent value = entry.getValue();
-            if (value == null || !value.equals(producer)) {
+            if ((null == value) || !value.equals(producer)) {
                 throw new IllegalArgumentException("Missing event producer for an annotated method. Is " + object.getClass() + " registered?");
             }
             Objects.requireNonNull(producersByType.remove(key), "key must not be null").invalidate();
@@ -301,7 +301,7 @@ public class Bus {
         for (Map.Entry<EventType, Set<SubscriberBaseEvent>> entry : subscribersInListener.entrySet()) {
             Set<SubscriberBaseEvent> currentSubscribers = getSubscribersForEventType(entry.getKey());
             Collection<SubscriberBaseEvent> eventMethodsInListener = entry.getValue();
-            if (currentSubscribers == null || !currentSubscribers.containsAll(eventMethodsInListener)) {
+            if ((null == currentSubscribers) || !currentSubscribers.containsAll(eventMethodsInListener)) {
                 throw new IllegalArgumentException("Missing event subscriber for an annotated method. Is " + object.getClass() + " registered?");
             }
             for (SubscriberBaseEvent subscriber : currentSubscribers) {
@@ -337,7 +337,7 @@ public class Bus {
      * @throws NullPointerException If the event is null.
      */
     public void post(String tag, Object event) {
-        if (event == null) {
+        if (null == event) {
             throw new NullPointerException("Event to post must not be null.");
         }
         enforcer.enforce(this);
@@ -345,7 +345,7 @@ public class Bus {
         boolean dispatched = false;
         for (Class<?> clazz : dispatchClasses) {
             Set<SubscriberBaseEvent> wrappers = getSubscribersForEventType(new EventType(tag, clazz));
-            if (wrappers != null && !wrappers.isEmpty()) {
+            if ((null != wrappers) && !wrappers.isEmpty()) {
                 dispatched = true;
                 for (SubscriberBaseEvent wrapper : wrappers) {
                     dispatch(event, wrapper);
@@ -401,10 +401,10 @@ public class Bus {
      */
     private @NotNull Set<Class<?>> flattenHierarchy(Class<?> concreteClass) {
         Set<Class<?>> classes = flattenHierarchyCache.get(concreteClass);
-        if (classes == null) {
+        if (null == classes) {
             Set<Class<?>> classesCreation = getClassesFor(concreteClass);
             classes = flattenHierarchyCache.putIfAbsent(concreteClass, classesCreation);
-            if (classes == null) {
+            if (null == classes) {
                 classes = classesCreation;
             }
         }
@@ -419,7 +419,7 @@ public class Bus {
             Class<?> clazz = parents.remove(0);
             classes.add(clazz);
             Class<?> parent = clazz.getSuperclass();
-            if (parent != null) {
+            if (null != parent) {
                 parents.add(parent);
             }
         }

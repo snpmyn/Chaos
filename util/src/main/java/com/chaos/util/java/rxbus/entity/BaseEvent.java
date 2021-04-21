@@ -30,9 +30,9 @@ abstract class BaseEvent {
      * @param e   Throwable
      */
     private void throwRuntimeException(String msg, @NotNull Throwable e) {
-        Throwable cause = e.getCause();
-        if (cause != null) {
-            throw new RuntimeException(msg + ": " + cause.getMessage(), cause);
+        Throwable throwable = e.getCause();
+        if (null != throwable) {
+            throw new RuntimeException(msg + ": " + throwable.getMessage(), throwable);
         } else {
             throw new RuntimeException(msg + ": " + e.getMessage(), e);
         }

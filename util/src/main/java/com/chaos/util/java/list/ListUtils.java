@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import timber.log.Timber;
+
 /**
  * Created on 2020/12/28
  *
@@ -70,20 +72,20 @@ public class ListUtils {
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(list);
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
-        if (objectOutputStream != null) {
+        if (null != objectOutputStream) {
             try {
                 objectOutputStream.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
-        if (fileOutputStream != null) {
+        if (null != fileOutputStream) {
             try {
                 fileOutputStream.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
     }
@@ -105,21 +107,21 @@ public class ListUtils {
             objectInputStream = new ObjectInputStream(fileInputStream);
             saveList = (List<?>) objectInputStream.readObject();
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         } finally {
             try {
-                if (objectInputStream != null) {
+                if (null != objectInputStream) {
                     objectInputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
             try {
-                if (fileInputStream != null) {
+                if (null != fileInputStream) {
                     fileInputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                Timber.e(e);
             }
         }
         return saveList;

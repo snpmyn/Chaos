@@ -50,13 +50,13 @@ public class SubscriberBaseEvent extends BaseEvent {
     private boolean valid = true;
 
     public SubscriberBaseEvent(Object target, Method method, EventThread thread) {
-        if (target == null) {
+        if (null == target) {
             throw new NullPointerException("SubscriberBaseEvent target cannot be null.");
         }
-        if (method == null) {
+        if (null == method) {
             throw new NullPointerException("SubscriberBaseEvent method cannot be null.");
         }
-        if (thread == null) {
+        if (null == thread) {
             throw new NullPointerException("SubscriberBaseEvent thread cannot be null.");
         }
         this.target = target;
@@ -142,13 +142,13 @@ public class SubscriberBaseEvent extends BaseEvent {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (null == obj) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final SubscriberBaseEvent other = (SubscriberBaseEvent) obj;
-        return method.equals(other.method) && target == other.target;
+        return method.equals(other.method) && (target == other.target);
     }
 }

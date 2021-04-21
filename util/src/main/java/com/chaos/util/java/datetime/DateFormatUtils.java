@@ -82,7 +82,7 @@ public class DateFormatUtils {
      */
     public static String formatString(String value) {
         String sReturn = "";
-        if (value == null || "".equals(value)) {
+        if ((null == value) || "".equals(value)) {
             return sReturn;
         }
         if (value.length() == UtilMagic.INT_FOURTEEN) {
@@ -117,7 +117,7 @@ public class DateFormatUtils {
     }
 
     static String formatDate(String date, String format) {
-        if (date == null || "".equals(date)) {
+        if ((null == date) || "".equals(date)) {
             return "";
         }
         Date dt;
@@ -159,10 +159,10 @@ public class DateFormatUtils {
                 default:
                     return date;
             }
-            if ((dt = inFmt.parse(date, pos)) == null) {
+            if (null == (dt = inFmt.parse(date, pos))) {
                 return date;
             }
-            if ((format == null) || ("".equals(format.trim()))) {
+            if ((null == format) || ("".equals(format.trim()))) {
                 outFmt = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
             } else {
                 outFmt = new SimpleDateFormat(format, Locale.CHINA);
@@ -213,7 +213,7 @@ public class DateFormatUtils {
      */
     @Contract("_ -> new")
     static @NotNull SimpleDateFormat getFormat(String format) {
-        if (format == null || "".equals(format)) {
+        if ((null == format) || "".equals(format)) {
             format = DATE_FORMAT_FIVE;
         }
         return new SimpleDateFormat(format, Locale.CHINA);

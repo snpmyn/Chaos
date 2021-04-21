@@ -35,7 +35,7 @@ public class StringUtils {
         // 指定部分长
         int appointLength = appoint.length();
         // for 循环找合适范围
-        for (int i = 0; i < str.length() - appointLength; i++) {
+        for (int i = 0; i < (str.length() - appointLength); i++) {
             if (str.substring(i, i + appointLength).equals(appoint)) {
                 result = str.substring(0, i);
             }
@@ -55,7 +55,7 @@ public class StringUtils {
         // 指定部分长
         int appointLength = appoint.length();
         // for 循环找合适范围
-        for (int i = 0; i < str.length() - appointLength; i++) {
+        for (int i = 0; i < (str.length() - appointLength); i++) {
             if (str.substring(i, i + appointLength).equals(appoint)) {
                 result = str.substring(i + appointLength);
             }
@@ -71,7 +71,7 @@ public class StringUtils {
      * @return 指定部分前内容
      */
     public static String appointForward(String str, String appoint) {
-        return str != null ? str.substring(0, str.indexOf(appoint)) : null;
+        return (str != null) ? str.substring(0, str.indexOf(appoint)) : null;
     }
 
     /**
@@ -85,12 +85,12 @@ public class StringUtils {
      * @return 字符串
      */
     private static String doubleToString(double d, int num) {
-        NumberFormat nf = NumberFormat.getNumberInstance();
+        NumberFormat numberFormat = NumberFormat.getNumberInstance();
         // 留两位小数
-        nf.setMaximumFractionDigits(num);
+        numberFormat.setMaximumFractionDigits(num);
         // 去掉数值中千位分隔符
-        nf.setGroupingUsed(false);
-        String temp = nf.format(d);
+        numberFormat.setGroupingUsed(false);
+        String temp = numberFormat.format(d);
         if (temp.contains(UtilMagic.STRING_DOT)) {
             String s1 = temp.split("\\.")[0];
             String s2 = temp.split("\\.")[1];
@@ -115,10 +115,7 @@ public class StringUtils {
      * @return 字符串
      */
     public static String doubleToString(Double d, int num, String defValue) {
-        if (d == null) {
-            return defValue;
-        }
-        return doubleToString(d, num);
+        return (null == d) ? defValue : doubleToString(d, num);
     }
 
     /**
@@ -140,10 +137,10 @@ public class StringUtils {
      * @return 贴后字符串
      */
     public static String attachStart(String currentString, String attachString) {
-        if (currentString == null) {
+        if (null == currentString) {
             return attachString;
         } else {
-            return currentString.startsWith(attachString) ? currentString : attachString + currentString;
+            return currentString.startsWith(attachString) ? currentString : (attachString + currentString);
         }
     }
 
@@ -155,10 +152,10 @@ public class StringUtils {
      * @return 贴后字符串
      */
     public static String attachEnd(String currentString, String attachString) {
-        if (currentString == null) {
+        if (null == currentString) {
             return attachString;
         } else {
-            return currentString.endsWith(attachString) ? currentString : currentString + attachString;
+            return currentString.endsWith(attachString) ? currentString : (currentString + attachString);
         }
     }
 
@@ -170,11 +167,11 @@ public class StringUtils {
      * @return 贴后字符串
      */
     public static String attachAround(String currentString, String attachString) {
-        if (currentString == null) {
+        if (null == currentString) {
             return attachString;
         } else {
-            currentString = currentString.endsWith(attachString) ? currentString : currentString + attachString;
-            currentString = currentString.startsWith(attachString) ? currentString : attachString + currentString;
+            currentString = currentString.endsWith(attachString) ? currentString : (currentString + attachString);
+            currentString = currentString.startsWith(attachString) ? currentString : (attachString + currentString);
             return currentString;
         }
     }
@@ -205,20 +202,20 @@ public class StringUtils {
      * @return 字符串
      */
     public static @NotNull String readFromFile(Context context, String fileName) {
-        if (context != null && !isEmpty(fileName)) {
-            AssetManager am = context.getAssets();
-            InputStream input;
+        if ((null != context) && !isEmpty(fileName)) {
+            AssetManager assetManager = context.getAssets();
+            InputStream inputStream;
             try {
-                input = am.open(fileName);
-                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                inputStream = assetManager.open(fileName);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
                 int len;
-                while ((len = input.read(buffer)) != -1) {
-                    output.write(buffer, 0, len);
+                while ((len = inputStream.read(buffer)) != -1) {
+                    byteArrayOutputStream.write(buffer, 0, len);
                 }
-                output.close();
-                input.close();
-                return output.toString();
+                byteArrayOutputStream.close();
+                inputStream.close();
+                return byteArrayOutputStream.toString();
             } catch (IOException var7) {
                 return "";
             }
@@ -302,13 +299,13 @@ public class StringUtils {
      * @return 字符串
      */
     public static @NotNull String replace(String originalString, String searchString, String replaceString) {
-        StringBuilder sb = new StringBuilder(originalString);
-        int index = sb.indexOf(searchString);
+        StringBuilder stringBuilder = new StringBuilder(originalString);
+        int index = stringBuilder.indexOf(searchString);
         while (index != -1) {
-            sb.replace(index, index + searchString.length(), replaceString);
+            stringBuilder.replace(index, index + searchString.length(), replaceString);
             index += replaceString.length();
-            index = sb.indexOf(searchString, index);
+            index = stringBuilder.indexOf(searchString, index);
         }
-        return sb.toString();
+        return stringBuilder.toString();
     }
 }

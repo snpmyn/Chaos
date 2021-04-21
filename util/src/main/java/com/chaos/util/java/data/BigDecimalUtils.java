@@ -26,7 +26,7 @@ public class BigDecimalUtils {
      * @return boolean
      */
     private static boolean bigDecimalCanConvertToString(BigDecimal bigDecimal) {
-        if (bigDecimal == null) {
+        if (null == bigDecimal) {
             return false;
         }
         boolean result = false;
@@ -47,7 +47,7 @@ public class BigDecimalUtils {
      * @return String
      */
     public static String bigDecimalToString(BigDecimal bigDecimal) {
-        if (bigDecimal == null) {
+        if (null == bigDecimal) {
             return null;
         }
         DecimalFormat decimalFormat = new DecimalFormat();

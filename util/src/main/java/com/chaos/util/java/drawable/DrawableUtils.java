@@ -3,12 +3,12 @@ package com.chaos.util.java.drawable;
 import android.app.Application;
 import android.graphics.drawable.Drawable;
 
-import com.chaos.util.java.log.LogUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
+import timber.log.Timber;
 
 /**
  * Created on 2019/6/21.
@@ -37,7 +37,7 @@ public class DrawableUtils {
             inputStream = urlConnection.getInputStream();
             drawable = Drawable.createFromStream(inputStream, imageName + ".jpg");
         } catch (IOException e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
         return drawable;
     }
@@ -53,9 +53,9 @@ public class DrawableUtils {
     public static int getDrawableResIdByName(Application application, String name, int defaultResId) {
         try {
             int drawableResId = application.getResources().getIdentifier(name, "drawable", application.getPackageName());
-            return drawableResId > 0 ? drawableResId : defaultResId;
+            return (drawableResId > 0) ? drawableResId : defaultResId;
         } catch (Exception e) {
-            LogUtils.exception(e);
+            Timber.e(e);
             return defaultResId;
         }
     }

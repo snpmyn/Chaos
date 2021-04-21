@@ -27,9 +27,9 @@ import static android.content.Context.ACTIVITY_SERVICE;
  * @desc ActivitySuperviseManager
  * Application：
  * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} 之 onActivityCreated 当 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
- * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} onActivityDestroyed 当 {@link AppCompatActivity#finish()(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
+ * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} 之 onActivityDestroyed 当 {@link AppCompatActivity#finish()(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
  * 基类：
- * 基类之 onCreate 推当前 Activity 至 Activity 管理容器，需时遍历容器并 finish 所有 Activity。
+ * 基类之 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 推当前 Activity 至 Activity 管理容器，需时遍历容器并 finish 所有 Activity。
  */
 public class ActivitySuperviseManager {
     private static final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
@@ -94,7 +94,7 @@ public class ActivitySuperviseManager {
     public static @Nullable Activity getTopActivityInstance() {
         Activity topActivityInstance;
         synchronized (ACTIVITIES) {
-            final int size = ACTIVITIES.size() - 1;
+            final int size = (ACTIVITIES.size() - 1);
             if (size < 0) {
                 return null;
             }

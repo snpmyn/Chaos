@@ -18,7 +18,7 @@ public interface ThreadHandler {
 
         @Override
         public Executor getExecutor() {
-            if (executor == null) {
+            if (null == executor) {
                 executor = Executors.newCachedThreadPool();
             }
             return executor;
@@ -26,7 +26,7 @@ public interface ThreadHandler {
 
         @Override
         public Handler getHandler() {
-            if (handler == null) {
+            if (null == handler) {
                 handler = new Handler(Looper.getMainLooper());
             }
             return handler;

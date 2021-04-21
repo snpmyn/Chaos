@@ -267,7 +267,7 @@ public class AnimationManager {
         // 播放次数（infinite 无限重复）
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         // 播放模式
-        // ValueAnimator.RESTART（默）正序重放
+        // ValueAnimator.RESTART (默) 正序重放
         // ValueAnimator.REVERSE 倒序回放
         objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
         objectAnimator.setDuration(duration);

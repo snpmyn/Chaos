@@ -244,7 +244,7 @@ public class StatusBarUtils {
             contentLayout.addView(createStatusBarView(activity, color), 0);
         }
         // 内容布局非 LinearLayout 时设 PaddingTop
-        if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
+        if (!(contentLayout instanceof LinearLayout) && (null != contentLayout.getChildAt(1))) {
             contentLayout.getChildAt(1).setPadding(contentLayout.getPaddingLeft(),
                     getStatusBarHeight(activity) + contentLayout.getPaddingTop(),
                     contentLayout.getPaddingRight(),
@@ -282,7 +282,7 @@ public class StatusBarUtils {
         // 生一状态栏大小矩形
         ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
         View fakeStatusBarView = contentLayout.findViewById(FAKE_STATUS_BAR_VIEW_ID);
-        if (fakeStatusBarView != null) {
+        if (null != fakeStatusBarView) {
             if (fakeStatusBarView.getVisibility() == View.GONE) {
                 fakeStatusBarView.setVisibility(View.VISIBLE);
             }
@@ -292,7 +292,7 @@ public class StatusBarUtils {
             contentLayout.addView(createStatusBarView(activity, color), 0);
         }
         // 内容布局非 LinearLayout 时设 PaddingTop
-        if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
+        if (!(contentLayout instanceof LinearLayout) && (null != contentLayout.getChildAt(1))) {
             contentLayout.getChildAt(1).setPadding(0, getStatusBarHeight(activity), 0, 0);
         }
         // 属性
@@ -332,7 +332,7 @@ public class StatusBarUtils {
         activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
         ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
         // 内容布局非 LinearLayout 时设 PaddingTop
-        if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
+        if (!(contentLayout instanceof LinearLayout) && (null != contentLayout.getChildAt(1))) {
             contentLayout.getChildAt(1).setPadding(0, getStatusBarHeight(activity), 0, 0);
         }
         // 属性
@@ -582,14 +582,14 @@ public class StatusBarUtils {
         if (alpha == 0) {
             return color;
         }
-        float a = 1 - alpha / 255f;
-        int red = color >> 16 & 0xff;
-        int green = color >> 8 & 0xff;
-        int blue = color & 0xff;
+        float a = (1 - alpha / 255f);
+        int red = (color >> 16 & 0xff);
+        int green = (color >> 8 & 0xff);
+        int blue = (color & 0xff);
         red = (int) (red * a + 0.5);
         green = (int) (green * a + 0.5);
         blue = (int) (blue * a + 0.5);
-        return 0xff << 24 | red << 16 | green << 8 | blue;
+        return (0xff << 24) | (red << 16) | (green << 8) | blue;
     }
 
     /**
@@ -608,7 +608,7 @@ public class StatusBarUtils {
             Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
             extraFlagField.invoke(activity.getWindow(), mode ? darkModeFlag : 0, darkModeFlag);
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
     }
 
@@ -693,7 +693,7 @@ public class StatusBarUtils {
         int navigationBarHeight = 0;
         Resources resources = activity.getResources();
         int resourceId = resources.getIdentifier(resources.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT ? "navigation_bar_height" : "navigation_bar_height_landscape", "dimen", "android");
-        if (resourceId > 0 && checkDeviceHasNavigationBar(activity)) {
+        if ((resourceId > 0) && checkDeviceHasNavigationBar(activity)) {
             navigationBarHeight = resources.getDimensionPixelSize(resourceId);
         }
         return navigationBarHeight;
@@ -748,6 +748,6 @@ public class StatusBarUtils {
         display.getMetrics(displayMetrics);
         int displayHeight = displayMetrics.heightPixels;
         int displayWidth = displayMetrics.widthPixels;
-        return (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+        return ((realWidth - displayWidth) > 0) || ((realHeight - displayHeight) > 0);
     }
 }

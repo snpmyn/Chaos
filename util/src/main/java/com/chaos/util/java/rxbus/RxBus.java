@@ -21,7 +21,7 @@ public class RxBus {
      * @return Bus
      */
     public static synchronized Bus get() {
-        if (sBus == null) {
+        if (null == sBus) {
             sBus = new Bus(ThreadEnforcer.ANY);
         }
         return sBus;

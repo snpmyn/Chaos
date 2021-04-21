@@ -15,6 +15,6 @@ public class FloatUtils {
      * @return 相等
      */
     public static boolean equal(float a, float b) {
-        return Math.abs(a - b) == 0 || (Math.abs(a - b) < 0.00000001);
+        return (Math.abs(a - b) == 0) || (Math.abs(a - b) < 0.00000001);
     }
 }

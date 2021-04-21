@@ -24,7 +24,7 @@ public class ViewUtils {
      */
     public static void showView(@NotNull View view) {
         int visibility = view.getVisibility();
-        if (visibility == View.GONE || visibility == View.INVISIBLE) {
+        if ((visibility == View.GONE) || (visibility == View.INVISIBLE)) {
             view.setVisibility(View.VISIBLE);
         }
     }
@@ -88,7 +88,7 @@ public class ViewUtils {
     public static void doubleClickCheck(@NotNull View view, final OnDoubleClickListener onDoubleClickListener) {
         view.setOnClickListener(view1 -> {
             if (alreadyClick) {
-                if (((System.currentTimeMillis() - clickTime) < UtilMagic.INT_TWO_HUNDRED) && null != onDoubleClickListener) {
+                if (((System.currentTimeMillis() - clickTime) < UtilMagic.INT_TWO_HUNDRED) && (null != onDoubleClickListener)) {
                     onDoubleClickListener.onDoubleClick();
                 }
                 alreadyClick = false;

@@ -151,7 +151,7 @@ public class SharedPreferencesUtils {
      */
     public void clearListString(String key) {
         int size = getInt(key + "size");
-        if (0 == size) {
+        if (size == 0) {
             return;
         }
         clearValueByKey(key + "size");
@@ -168,7 +168,7 @@ public class SharedPreferencesUtils {
      */
     public void clearListStringOne(String key, String str) {
         int size = getInt(key + "size");
-        if (0 == size) {
+        if (size == 0) {
             return;
         }
         List<String> list = getListString(key);

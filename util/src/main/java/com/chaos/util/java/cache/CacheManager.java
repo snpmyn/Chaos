@@ -3,12 +3,12 @@ package com.chaos.util.java.cache;
 import android.content.Context;
 import android.os.Environment;
 
-import com.chaos.util.java.log.LogUtils;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.math.BigDecimal;
+
+import timber.log.Timber;
 
 /**
  * 缓存管理器
@@ -44,7 +44,7 @@ public class CacheManager {
     }
 
     private static boolean deleteDir(File dir) {
-        if (dir != null && dir.isDirectory()) {
+        if ((null != dir) && dir.isDirectory()) {
             String[] children = dir.list();
             if (null != children) {
                 for (String aChildren : children) {
@@ -78,15 +78,11 @@ public class CacheManager {
             if (null != fileList) {
                 for (File aFileList : fileList) {
                     // 下面还有文件
-                    if (aFileList.isDirectory()) {
-                        size = size + folderSize(aFileList);
-                    } else {
-                        size = size + aFileList.length();
-                    }
+                    size = aFileList.isDirectory() ? (size + folderSize(aFileList)) : (size + aFileList.length());
                 }
             }
         } catch (Exception e) {
-            LogUtils.exception(e);
+            Timber.e(e);
         }
         return size;
     }
@@ -98,21 +94,21 @@ public class CacheManager {
      * @return 格式化大小
      */
     private static @NotNull String formatSize(double size) {
-        double kiloByte = size / 1024;
+        double kiloByte = (size / 1024);
         if (kiloByte < 1) {
             return "0K";
         }
-        double megaByte = kiloByte / 1024;
+        double megaByte = (kiloByte / 1024);
         if (megaByte < 1) {
             BigDecimal result1 = BigDecimal.valueOf(kiloByte);
             return result1.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "KB";
         }
-        double gigaByte = megaByte / 1024;
+        double gigaByte = (megaByte / 1024);
         if (gigaByte < 1) {
             BigDecimal result2 = new BigDecimal(megaByte);
             return result2.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "MB";
         }
-        double teraBytes = gigaByte / 1024;
+        double teraBytes = (gigaByte / 1024);
         if (teraBytes < 1) {
             BigDecimal result3 = new BigDecimal(gigaByte);
             return result3.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "GB";

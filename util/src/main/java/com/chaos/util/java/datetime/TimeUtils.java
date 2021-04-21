@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import timber.log.Timber;
+
 /**
  * Created on 2019/3/1.
  *
@@ -38,7 +40,7 @@ public class TimeUtils {
             calendar.setTimeInMillis(ld);
             netTime = formatter.format(calendar.getTime());
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
         return netTime;
     }
@@ -56,7 +58,7 @@ public class TimeUtils {
             calendar.setTimeInMillis(System.currentTimeMillis());
             systemTime = formatter.format(calendar.getTime());
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
         return systemTime;
     }

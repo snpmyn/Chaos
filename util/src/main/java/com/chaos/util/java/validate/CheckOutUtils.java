@@ -130,7 +130,7 @@ public class CheckOutUtils {
      * 邮件 email 格式正确否
      */
     public static boolean isEmail(String email) {
-        if (null == email || "".equals(email)) {
+        if ((null == email) || "".equals(email)) {
             return false;
         }
         Matcher m = P0.matcher(email);
@@ -272,7 +272,7 @@ public class CheckOutUtils {
      * @return 合规否
      */
     public static boolean isIdentityCard(String identityCode) {
-        if (identityCode != null) {
+        if (null != identityCode) {
             String identityCardRegex = "(^\\d{18}$)|(^\\d{17}(\\d|X|x|Y|y)$)";
             return identityCode.matches(identityCardRegex);
         }
@@ -316,7 +316,7 @@ public class CheckOutUtils {
             String sexString = ids.trim().substring(ids.length() - 2, ids.length() - 1);
             // 转数字
             int sexNum = Integer.parseInt(sexString);
-            if (sexNum % UtilMagic.INT_TWO != 0) {
+            if ((sexNum % UtilMagic.INT_TWO) != 0) {
                 sexShow = "男";
             } else {
                 sexShow = "女";
@@ -326,7 +326,7 @@ public class CheckOutUtils {
             String sexString = ids.trim().substring(ids.length() - 1, ids.length());
             // 转数字
             int sexNum = Integer.parseInt(sexString);
-            if (sexNum % UtilMagic.INT_TWO != 0) {
+            if ((sexNum % UtilMagic.INT_TWO) != 0) {
                 sexShow = "男";
             } else {
                 sexShow = "女";

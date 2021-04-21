@@ -14,6 +14,6 @@ public class UrlUtils {
      * @return boolean
      */
     public static boolean isLocal(String url) {
-        return url != null && !url.startsWith("http://") && !url.startsWith("https://");
+        return (null != url) && !url.startsWith("http://") && !url.startsWith("https://");
     }
 }

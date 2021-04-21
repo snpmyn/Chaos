@@ -10,6 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+import timber.log.Timber;
+
 /**
  * Created on 2019/2/28.
  *
@@ -36,7 +38,7 @@ public class MediaPlayerUtils {
             // 准备播放
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            LogUtils.exception(e);
+            Timber.e(e);
         }
     }
 
@@ -80,7 +82,7 @@ public class MediaPlayerUtils {
             // 准备播放
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            LogUtils.exception(e);
+            Timber.e(e);
         }
     }
 }

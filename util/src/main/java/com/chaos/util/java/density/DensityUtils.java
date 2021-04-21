@@ -20,7 +20,7 @@ public class DensityUtils {
      * @return 像素
      */
     public static int dipToPxByFloat(@NotNull Context context, float dip) {
-        return (int) (dip * context.getResources().getDisplayMetrics().density + 0.5f);
+        return (int) ((dip * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     /**
@@ -41,7 +41,7 @@ public class DensityUtils {
      * @return 设备独立像素
      */
     public static int pxToDip(@NotNull Context context, float px) {
-        return (int) (px / context.getResources().getDisplayMetrics().density + 0.5f);
+        return (int) ((px / context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     /**
@@ -52,7 +52,7 @@ public class DensityUtils {
      * @return sp
      */
     public static int pxToSp(@NotNull Context context, float px) {
-        return (int) (px / context.getResources().getDisplayMetrics().scaledDensity + 0.5f);
+        return (int) ((px / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
     /**
@@ -63,6 +63,6 @@ public class DensityUtils {
      * @return px
      */
     public static int spToPx(@NotNull Context context, float sp) {
-        return (int) (sp * context.getResources().getDisplayMetrics().scaledDensity + 0.5f);
+        return (int) ((sp * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 }

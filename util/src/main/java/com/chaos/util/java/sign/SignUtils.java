@@ -61,7 +61,7 @@ public class SignUtils {
      */
     @SuppressLint("PackageManagerGetSignatures")
     private static byte[] getSign(Context context, String packageName) {
-        if (null == context || null == packageName) {
+        if ((null == context) || (null == packageName)) {
             return null;
         }
         PackageInfo packageInfo = null;

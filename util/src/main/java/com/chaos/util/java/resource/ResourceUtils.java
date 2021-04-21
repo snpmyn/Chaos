@@ -1,8 +1,8 @@
 package com.chaos.util.java.resource;
 
-import com.chaos.util.java.log.LogUtils;
-
 import java.lang.reflect.Field;
+
+import timber.log.Timber;
 
 /**
  * Created on 2020-09-23
@@ -23,7 +23,7 @@ public class ResourceUtils {
             Field field = c.getDeclaredField(name);
             return field.getInt(field);
         } catch (Exception e) {
-            LogUtils.exception(e);
+            Timber.e(e);
             return -1;
         }
     }

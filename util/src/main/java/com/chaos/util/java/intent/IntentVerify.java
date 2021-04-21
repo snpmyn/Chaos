@@ -27,7 +27,7 @@ public class IntentVerify {
             return false;
         }
         try {
-            intent.putExtra(KEY, "x");
+            intent.putExtra(KEY, "c");
             intent.removeExtra(KEY);
             return false;
         } catch (Exception e) {
