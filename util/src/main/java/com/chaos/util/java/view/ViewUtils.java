@@ -1,7 +1,8 @@
 package com.chaos.util.java.view;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -74,9 +75,16 @@ public class ViewUtils {
      * @param height 高
      */
     public static void setViewHeight(@NotNull View view, int height) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        marginLayoutParams.height = height;
-        view.setLayoutParams(marginLayoutParams);
+        if (view.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
+            layoutParams.height = height;
+            view.setLayoutParams(layoutParams);
+        }
+        if (view.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+            layoutParams.height = height;
+            view.setLayoutParams(layoutParams);
+        }
     }
 
     /**
