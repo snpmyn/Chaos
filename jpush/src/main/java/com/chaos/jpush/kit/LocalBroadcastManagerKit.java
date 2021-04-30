@@ -49,7 +49,7 @@ public final class LocalBroadcastManagerKit {
 
     public static LocalBroadcastManagerKit getInstance(Context context) {
         synchronized (M_LOCK) {
-            if (mInstance == null) {
+            if (null == mInstance) {
                 mInstance = new LocalBroadcastManagerKit(context.getApplicationContext());
             }
             return mInstance;
@@ -61,7 +61,7 @@ public final class LocalBroadcastManagerKit {
         synchronized (this.mReceivers) {
             ReceiverRecord entry = new ReceiverRecord(filter, receiver);
             ArrayList filters = this.mReceivers.get(receiver);
-            if (filters == null) {
+            if (null == filters) {
                 filters = new ArrayList(1);
                 this.mReceivers.put(receiver, filters);
             }
@@ -69,7 +69,7 @@ public final class LocalBroadcastManagerKit {
             for (int i = 0; i < filter.countActions(); ++i) {
                 String action = filter.getAction(i);
                 ArrayList entries = this.mActions.get(action);
-                if (entries == null) {
+                if (null == entries) {
                     entries = new ArrayList(1);
                     this.mActions.put(action, entries);
                 }
@@ -82,13 +82,13 @@ public final class LocalBroadcastManagerKit {
     public void unregisterReceiver(BroadcastReceiver receiver) {
         synchronized (this.mReceivers) {
             ArrayList filters = this.mReceivers.remove(receiver);
-            if (filters != null) {
+            if (null != filters) {
                 for (int i = 0; i < filters.size(); ++i) {
                     IntentFilter filter = (IntentFilter) filters.get(i);
                     for (int j = 0; j < filter.countActions(); ++j) {
                         String action = filter.getAction(j);
                         ArrayList receivers = this.mActions.get(action);
-                        if (receivers != null) {
+                        if (null != receivers) {
                             for (int k = 0; k < receivers.size(); ++k) {
                                 if (((ReceiverRecord) receivers.get(k)).receiver == receiver) {
                                     receivers.remove(k);
@@ -118,7 +118,7 @@ public final class LocalBroadcastManagerKit {
                 Timber.d("Resolving type %s scheme %s of intent %s", type, scheme, intent);
             }
             ArrayList entries = this.mActions.get(intent.getAction());
-            if (entries != null) {
+            if (null != entries) {
                 if (debug) {
                     Timber.d("Action list: %s", entries);
                 }
@@ -139,7 +139,7 @@ public final class LocalBroadcastManagerKit {
                             if (debug) {
                                 Timber.d("Filter matched! match=0x %s", Integer.toHexString(match));
                             }
-                            if (receivers == null) {
+                            if (null == receivers) {
                                 receivers = new ArrayList();
                             }
                             receivers.add(receiver);
@@ -166,7 +166,7 @@ public final class LocalBroadcastManagerKit {
                         }
                     }
                 }
-                if (receivers != null) {
+                if (null != receivers) {
                     for (i = 0; i < receivers.size(); ++i) {
                         ((ReceiverRecord) receivers.get(i)).broadcasting = false;
                     }

@@ -92,7 +92,7 @@ public class DebugStackDelegate implements SensorEventListener {
         float[] values = event.values;
         if (sensorType == Sensor.TYPE_ACCELEROMETER) {
             int value = 12;
-            if ((Math.abs(values[0]) >= value || Math.abs(values[1]) >= value || Math.abs(values[FragmentationMagic.INT_TWO]) >= value)) {
+            if ((Math.abs(values[0]) >= value) || (Math.abs(values[1]) >= value) || (Math.abs(values[FragmentationMagic.INT_TWO]) >= value)) {
                 showFragmentStackHierarchyView();
             }
         }
@@ -109,7 +109,7 @@ public class DebugStackDelegate implements SensorEventListener {
      * Dialog 形式显栈视图。
      */
     public void showFragmentStackHierarchyView() {
-        if (mStackDialog != null && mStackDialog.isShowing()) {
+        if ((null != mStackDialog) && mStackDialog.isShowing()) {
             return;
         }
         DebugHierarchyViewContainer container = new DebugHierarchyViewContainer(mActivity);
@@ -130,13 +130,13 @@ public class DebugStackDelegate implements SensorEventListener {
      */
     public void logFragmentRecords() {
         List<DebugFragmentRecord> fragmentRecordList = getFragmentRecords();
-        if (fragmentRecordList == null) {
+        if (null == fragmentRecordList) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = fragmentRecordList.size() - 1; i >= 0; i--) {
+        for (int i = (fragmentRecordList.size() - 1); i >= 0; i--) {
             DebugFragmentRecord fragmentRecord = fragmentRecordList.get(i);
-            if (i == fragmentRecordList.size() - 1) {
+            if (i == (fragmentRecordList.size() - 1)) {
                 sb.append("═══════════════════════════════════════════════════════════════════════════════════\n");
                 if (i == 0) {
                     sb.append("\t栈顶\t\t\t").append(fragmentRecord.fragmentName).append("\n");
@@ -170,7 +170,7 @@ public class DebugStackDelegate implements SensorEventListener {
     }
 
     private void processChildLog(List<DebugFragmentRecord> fragmentRecordList, StringBuilder sb, int childHierarchy) {
-        if (fragmentRecordList == null || fragmentRecordList.size() == 0) {
+        if ((null == fragmentRecordList) || (fragmentRecordList.size() == 0)) {
             return;
         }
         for (int j = 0; j < fragmentRecordList.size(); j++) {
@@ -197,7 +197,7 @@ public class DebugStackDelegate implements SensorEventListener {
         if (fragmentList.size() < 1) {
             return null;
         }
-        for (int i = fragmentList.size() - 1; i >= 0; i--) {
+        for (int i = (fragmentList.size() - 1); i >= 0; i--) {
             Fragment fragment = fragmentList.get(i);
             addDebugFragmentRecord(fragmentRecords, fragment);
         }
@@ -207,7 +207,7 @@ public class DebugStackDelegate implements SensorEventListener {
     private void addDebugFragmentRecord(List<DebugFragmentRecord> fragmentRecords, Fragment fragment) {
         if (null != fragment) {
             int backStackCount = 0;
-            if (fragment.getFragmentManager() != null) {
+            if (null != fragment.getFragmentManager()) {
                 backStackCount = fragment.getFragmentManager().getBackStackEntryCount();
             }
             CharSequence name = fragment.getClass().getSimpleName();
@@ -216,11 +216,11 @@ public class DebugStackDelegate implements SensorEventListener {
             } else {
                 for (int j = 0; j < backStackCount; j++) {
                     FragmentManager.BackStackEntry entry = fragment.getFragmentManager().getBackStackEntryAt(j);
-                    boolean flag = (entry.getName() != null && entry.getName().equals(fragment.getTag())) || (entry.getName() == null && fragment.getTag() == null);
+                    boolean flag = ((null != entry.getName()) && entry.getName().equals(fragment.getTag())) || ((null == entry.getName()) && (null == fragment.getTag()));
                     if (flag) {
                         break;
                     }
-                    if (j == backStackCount - 1) {
+                    if (j == (backStackCount - 1)) {
                         name = span(name, " *");
                     }
                 }
@@ -234,7 +234,7 @@ public class DebugStackDelegate implements SensorEventListener {
 
     @NonNull
     private CharSequence span(CharSequence name, String str) {
-        name = name + str;
+        name = (name + str);
         return name;
     }
 
@@ -259,11 +259,11 @@ public class DebugStackDelegate implements SensorEventListener {
                     isClickState = true;
                     xDown = x;
                     yDown = y;
-                    dx = stackView.getX() - event.getRawX();
-                    dy = stackView.getY() - event.getRawY();
+                    dx = (stackView.getX() - event.getRawX());
+                    dy = (stackView.getY() - event.getRawY());
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    if (Math.abs(x - xDown) < clickLimitValue && Math.abs(y - yDown) < clickLimitValue && isClickState) {
+                    if ((Math.abs(x - xDown) < clickLimitValue) && (Math.abs(y - yDown) < clickLimitValue) && isClickState) {
                         Timber.d("isClickState = true");
                     } else {
                         isClickState = false;
@@ -273,7 +273,7 @@ public class DebugStackDelegate implements SensorEventListener {
                     break;
                 case MotionEvent.ACTION_CANCEL:
                 case MotionEvent.ACTION_UP:
-                    if (x - xDown < clickLimitValue && isClickState) {
+                    if (((x - xDown) < clickLimitValue) && isClickState) {
                         stackView.performClick();
                     }
                     break;

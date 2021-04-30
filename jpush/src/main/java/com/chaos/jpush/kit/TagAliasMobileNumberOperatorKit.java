@@ -64,7 +64,7 @@ public class TagAliasMobileNumberOperatorKit {
                         sequence++;
                         TagAliasBean tagAliasBean = (TagAliasBean) msg.obj;
                         setActionCache.put(sequence, tagAliasBean);
-                        if (context != null) {
+                        if (null != context) {
                             handleAction(context, sequence, tagAliasBean);
                         } else {
                             Timber.d("#unexcepted - context was null");
@@ -79,7 +79,7 @@ public class TagAliasMobileNumberOperatorKit {
                         sequence++;
                         String mobileNumber = (String) msg.obj;
                         setActionCache.put(sequence, mobileNumber);
-                        if (context != null) {
+                        if (null != context) {
                             handleAction(context, sequence, mobileNumber);
                         } else {
                             Timber.d("#unexcepted - context was null");
@@ -99,9 +99,9 @@ public class TagAliasMobileNumberOperatorKit {
     }
 
     public static TagAliasMobileNumberOperatorKit getInstance() {
-        if (mInstance == null) {
+        if (null == mInstance) {
             synchronized (TagAliasMobileNumberOperatorKit.class) {
-                if (mInstance == null) {
+                if (null == mInstance) {
                     mInstance = new TagAliasMobileNumberOperatorKit();
                 }
             }
@@ -110,7 +110,7 @@ public class TagAliasMobileNumberOperatorKit {
     }
 
     private void init(Context context) {
-        if (context != null) {
+        if (null != context) {
             this.context = context.getApplicationContext();
         }
     }
@@ -142,7 +142,7 @@ public class TagAliasMobileNumberOperatorKit {
      */
     private void handleAction(Context context, int sequence, TagAliasBean tagAliasBean) {
         init(context);
-        if (tagAliasBean == null) {
+        if (null == tagAliasBean) {
             Timber.d("tagAliasBean was null");
             return;
         }
@@ -200,9 +200,9 @@ public class TagAliasMobileNumberOperatorKit {
         // 错误码 6002 超时
         // 错误码 6014 服务器繁忙
         // 建延迟重试
-        if (errorCode == JpushMagic.INT_SIX_THOUSAND_TWO || errorCode == JpushMagic.INT_SIX_THOUSAND_FOURTEEN) {
+        if ((errorCode == JpushMagic.INT_SIX_THOUSAND_TWO) || (errorCode == JpushMagic.INT_SIX_THOUSAND_FOURTEEN)) {
             Timber.d("need retry");
-            if (tagAliasBean != null) {
+            if (null != tagAliasBean) {
                 Message message = new Message();
                 message.what = DELAY_SEND_ACTION;
                 message.obj = tagAliasBean;
@@ -223,7 +223,7 @@ public class TagAliasMobileNumberOperatorKit {
         // 错误码 6002 超时
         // 错误码 6024 服务器内错
         // 建稍后重试
-        if (errorCode == JpushMagic.INT_SIX_THOUSAND_TWO || errorCode == JpushMagic.INT_SIX_THOUSAND_TWENTY_FOUR) {
+        if ((errorCode == JpushMagic.INT_SIX_THOUSAND_TWO) || (errorCode == JpushMagic.INT_SIX_THOUSAND_TWENTY_FOUR)) {
             Timber.d("need retry");
             Message message = new Message();
             message.what = DELAY_SET_MOBILE_NUMBER_ACTION;
@@ -271,7 +271,7 @@ public class TagAliasMobileNumberOperatorKit {
         init(context);
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
-        if (tagAliasBean == null) {
+        if (null == tagAliasBean) {
             ExampleKit.showToast("获缓存记录失败", context);
             return;
         }
@@ -301,7 +301,7 @@ public class TagAliasMobileNumberOperatorKit {
         init(context);
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
-        if (tagAliasBean == null) {
+        if (null == tagAliasBean) {
             ExampleKit.showToast("获缓存记录失败", context);
             return;
         }
@@ -326,7 +326,7 @@ public class TagAliasMobileNumberOperatorKit {
         init(context);
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
-        if (tagAliasBean == null) {
+        if (null == tagAliasBean) {
             ExampleKit.showToast("获缓存记录失败", context);
             return;
         }

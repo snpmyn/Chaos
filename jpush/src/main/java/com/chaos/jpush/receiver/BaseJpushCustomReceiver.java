@@ -44,7 +44,7 @@ public class BaseJpushCustomReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         try {
             Bundle bundle = intent.getExtras();
-            if (bundle != null) {
+            if (null != bundle) {
                 Timber.d("[JpushCustomReceiver] onReceive - %s, extras: %s", intent.getAction(), printBundle(bundle));
                 message = Message.obtain();
                 message.obj = bundle;

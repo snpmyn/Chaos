@@ -89,7 +89,7 @@ public class SupportHelper {
 
     static @Nullable ISupportFragment getTopFragment(FragmentManager fragmentManager, int containerId) {
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
-        for (int i = fragmentList.size() - 1; i >= 0; i--) {
+        for (int i = (fragmentList.size() - 1); i >= 0; i--) {
             Fragment fragment = fragmentList.get(i);
             if (fragment instanceof ISupportFragment) {
                 ISupportFragment iFragment = (ISupportFragment) fragment;
@@ -116,7 +116,7 @@ public class SupportHelper {
         }
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
         int index = fragmentList.indexOf(fragment);
-        for (int i = index - 1; i >= 0; i--) {
+        for (int i = (index - 1); i >= 0; i--) {
             Fragment preFragment = fragmentList.get(i);
             if (preFragment instanceof ISupportFragment) {
                 return (ISupportFragment) preFragment;
@@ -159,7 +159,7 @@ public class SupportHelper {
         if (null == toFragmentTag) {
             List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
             int sizeChildFrgList = fragmentList.size();
-            for (int i = sizeChildFrgList - 1; i >= 0; i--) {
+            for (int i = (sizeChildFrgList - 1); i >= 0; i--) {
                 Fragment brotherFragment = fragmentList.get(i);
                 if (brotherFragment instanceof ISupportFragment && brotherFragment.getClass().getName().equals(fragmentClass.getName())) {
                     fragment = brotherFragment;
@@ -177,7 +177,7 @@ public class SupportHelper {
 
     private static ISupportFragment getActiveFragment(FragmentManager fragmentManager, ISupportFragment parentFragment) {
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
-        for (int i = fragmentList.size() - 1; i >= 0; i--) {
+        for (int i = (fragmentList.size() - 1); i >= 0; i--) {
             Fragment fragment = fragmentList.get(i);
             if (fragment instanceof ISupportFragment) {
                 if (fragment.isResumed() && !fragment.isHidden() && fragment.getUserVisibleHint()) {
@@ -200,7 +200,7 @@ public class SupportHelper {
      */
     private static @Nullable ISupportFragment getBackStackTopFragment(@NotNull FragmentManager fragmentManager, int containerId) {
         int count = fragmentManager.getBackStackEntryCount();
-        for (int i = count - 1; i >= 0; i--) {
+        for (int i = (count - 1); i >= 0; i--) {
             FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(i);
             Fragment fragment = fragmentManager.findFragmentByTag(entry.getName());
             if (fragment instanceof ISupportFragment) {
@@ -222,7 +222,7 @@ public class SupportHelper {
         if (null == toFragmentTag) {
             toFragmentTag = fragmentClass.getName();
         }
-        for (int i = count - 1; i >= 0; i--) {
+        for (int i = (count - 1); i >= 0; i--) {
             FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(i);
             if (toFragmentTag.equals(entry.getName())) {
                 Fragment fragment = fragmentManager.findFragmentByTag(entry.getName());
@@ -240,12 +240,12 @@ public class SupportHelper {
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fm);
         int size = fragmentList.size();
         int startIndex = -1;
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = (size - 1); i >= 0; i--) {
             if (target == fragmentList.get(i)) {
                 if (includeTarget) {
                     startIndex = i;
-                } else if (i + 1 < size) {
-                    startIndex = i + 1;
+                } else if ((i + 1) < size) {
+                    startIndex = (i + 1);
                 }
                 break;
             }
@@ -253,7 +253,7 @@ public class SupportHelper {
         if (startIndex == -1) {
             return willPopFragments;
         }
-        for (int i = size - 1; i >= startIndex; i--) {
+        for (int i = (size - 1); i >= startIndex; i--) {
             Fragment fragment = fragmentList.get(i);
             if ((null != fragment) && (null != fragment.getView())) {
                 willPopFragments.add(fragment);

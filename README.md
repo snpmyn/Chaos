@@ -33,11 +33,11 @@ api 'com.squareup.retrofit2:retrofit:2.6.1'
 api 'com.squareup.retrofit2:adapter-rxjava:2.6.1'
 api 'com.squareup.retrofit2:converter-gson:2.6.1'
 api 'com.jakewharton.timber:timber:4.7.1'
-api 'com.tencent:mmkv-static:1.0.23'
-api 'com.getkeepsafe.relinker:relinker:1.3.1'
+api 'com.tencent:mmkv-static:1.2.7'
+api 'com.getkeepsafe.relinker:relinker:1.4.3'
 api 'org.apache.commons:commons-lang3:3.12.0'
-api 'com.squareup.okio:okio:3.0.0-alpha.1'
-api 'org.greenrobot:eventbus:3.1.1'
+api 'com.squareup.okio:okio:3.0.0-alpha.5'
+api 'org.greenrobot:eventbus:3.2.0'
 api 'com.permissionx.guolindev:permissionx:1.4.0'
 ```
 #### util
@@ -71,14 +71,14 @@ implementation project(path: ':util')
 #### jpush
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.6.0'
-api 'cn.jiguang.sdk:jpush:3.9.0'
+implementation 'cn.jiguang.sdk:jcore:2.7.6'
+api 'cn.jiguang.sdk:jpush:4.0.6'
 ```
 #### janalytics
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.6.0'
-api 'cn.jiguang.sdk:janalytics:2.1.2'
+implementation 'cn.jiguang.sdk:jcore:2.7.6'
+api 'cn.jiguang.sdk:janalytics:2.1.4'
 ```
 #### bugly
 ```
@@ -168,14 +168,19 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        // Mob Maven 仓库地址
+        maven {
+            url "http://mvn.mob.com/android"
+        }
     }
     dependencies {
 
         // [MobTech]
         // 注册 MobSDK
-        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+        classpath 'com.mob.sdk:MobSDK:2018.0319.1724'
 
-        // NOTE: Do not place your com.zsp.clicktonote.application dependencies here; they belong
+        // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
@@ -184,11 +189,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        // [Ucrop]
         maven { url "https://jitpack.io" }
         // [Bmob]
         // Bmob maven 仓库地址
         maven { url 'https://dl.bintray.com/chaozhouzhang/maven' }
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
 ```
 gradle(config)

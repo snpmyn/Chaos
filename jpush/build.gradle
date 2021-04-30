@@ -42,8 +42,8 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    implementation 'cn.jiguang.sdk:jcore:2.6.0'
+    implementation 'cn.jiguang.sdk:jcore:2.7.6'
     /*JCore*/
-    api 'cn.jiguang.sdk:jpush:3.9.0'
+    api 'cn.jiguang.sdk:jpush:4.0.6'
     /*极光推送*/
 }

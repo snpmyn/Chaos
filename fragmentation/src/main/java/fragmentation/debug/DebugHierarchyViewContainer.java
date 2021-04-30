@@ -105,7 +105,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
     }
 
     private void setView(final @NotNull List<DebugFragmentRecord> fragmentRecordList, final int hierarchy, final TextView tvItem) {
-        for (int i = fragmentRecordList.size() - 1; i >= 0; i--) {
+        for (int i = (fragmentRecordList.size() - 1); i >= 0; i--) {
             DebugFragmentRecord child = fragmentRecordList.get(i);
             int tempHierarchy = hierarchy;
             final TextView childTvItem;
@@ -149,7 +149,7 @@ public class DebugHierarchyViewContainer extends ScrollView {
 
     private void removeView(int hierarchy) {
         int size = mLinearLayout.getChildCount();
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = (size - 1); i >= 0; i--) {
             View view = mLinearLayout.getChildAt(i);
             if ((null != view.getTag(R.id.hierarchy)) && ((int) view.getTag(R.id.hierarchy) >= hierarchy)) {
                 mLinearLayout.removeView(view);

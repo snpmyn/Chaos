@@ -145,8 +145,8 @@ public abstract class BaseActivity extends SupportActivity {
             view.getLocationOnScreen(location);
             int x = location[0];
             int y = location[1];
-            if (ev.getX() > x && ev.getX() < (x + view.getWidth())
-                    && ev.getY() > y && ev.getY() < (y + view.getHeight())) {
+            boolean flag = ((ev.getX() > x) && (ev.getX() < (x + view.getWidth())) && (ev.getY() > y && ev.getY() < (y + view.getHeight())));
+            if (flag) {
                 return true;
             }
         }
@@ -170,7 +170,8 @@ public abstract class BaseActivity extends SupportActivity {
             view.getLocationOnScreen(location);
             int x = location[0];
             int y = location[1];
-            if (ev.getX() > x && ev.getX() < (x + view.getWidth()) && ev.getY() > y && ev.getY() < (y + view.getHeight())) {
+            boolean flag = ((ev.getX() > x) && (ev.getX() < (x + view.getWidth())) && (ev.getY() > y && ev.getY() < (y + view.getHeight())));
+            if (flag) {
                 return true;
             }
         }

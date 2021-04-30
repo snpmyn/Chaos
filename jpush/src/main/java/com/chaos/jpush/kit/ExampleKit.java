@@ -94,7 +94,7 @@ public class ExampleKit {
 
     static void showToast(final String toast, final Context context) {
         ThreadManager.stepScheduledExecutorService().execute(() -> {
-            if (Looper.myLooper() == null) {
+            if (null == Looper.myLooper()) {
                 Looper.prepare();
             }
             Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();

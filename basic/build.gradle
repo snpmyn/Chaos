@@ -47,15 +47,15 @@ dependencies {
     /*官方*/
     api 'com.jakewharton.timber:timber:4.7.1'
     /*timber*/
-    api 'com.tencent:mmkv-static:1.0.23'
+    api 'com.tencent:mmkv-static:1.2.7'
     /*MMKV*/
-    api 'com.getkeepsafe.relinker:relinker:1.3.1'
+    api 'com.getkeepsafe.relinker:relinker:1.4.3'
     /*ReLinker*/
     api 'org.apache.commons:commons-lang3:3.12.0'
     /*BasicThreadFactory*/
-    api 'com.squareup.okio:okio:3.0.0-alpha.1'
+    api 'com.squareup.okio:okio:3.0.0-alpha.5'
     /*okio*/
-    api 'org.greenrobot:eventbus:3.1.1'
+    api 'org.greenrobot:eventbus:3.2.0'
     /*eventbus*/
     api 'com.permissionx.guolindev:permissionx:1.4.0'
     /*PermissionX*/

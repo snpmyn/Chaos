@@ -108,7 +108,7 @@ public class VisibleDelegate {
     }
 
     public void setUserVisibleHint(boolean isVisibleToUser) {
-        boolean flag = mFragment.isResumed() || (!mFragment.isAdded() && isVisibleToUser);
+        boolean flag = (mFragment.isResumed() || (!mFragment.isAdded() && isVisibleToUser));
         if (flag) {
             if (!mIsSupportVisible && isVisibleToUser) {
                 safeDispatchUserVisibleHint(true);
