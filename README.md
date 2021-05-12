@@ -104,8 +104,12 @@ api 'org.litepal.guolindev:core:3.2.3'
 #### doraemonkit
 ```
 implementation project(path: ':util')
-debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
-releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+// 核心模块
+debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
+debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
+debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
+debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
+releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
 ```
 #### tbs
 ```
@@ -137,27 +141,35 @@ MobSDK {
 
 android {
 
-    defaultConfig {
-
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: applicationId,
-                // JPush 注册包名对应 AppKey
-                JPUSH_APPKEY : "00067aa741beb793e0ddc000",
-                // 暂默值即可
-                JPUSH_CHANNEL: "developer-default",
-        ]
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
 }
 
 dependencies {
 
+    implementation 'com.github.snpmyn.Chaos:util:xxx'
+    ...
+    /*chaos*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
-    debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+    // 核心模块
+    debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
+    // 文件同步模块
+    debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
+    // 一机多控模块
+    debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
+    // weex 模块
+    debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
+    // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
-    releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
-    /*DoraemonKit*/
+    releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
+    /*DoKit*/
 }
 ```
 gradle(project)
@@ -175,12 +187,29 @@ buildscript {
         }
     }
     dependencies {
-
+        classpath 'com.android.tools.build:gradle:4.2.0'
+        // [极光统计]
+        // 动态圈选插件（可选）
+        /*classpath 'cn.jiguang.android:janalytics-gradle-plugin:3.0.0'*/
+        // [Bugly]
+        // 自动上传符号表插件
+        // 快准定用户 Crash 代码位
+        // 通符号表解析还原 Crash 程序堆栈
+        /*classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'*/
         // [MobTech]
         // 注册 MobSDK
-        classpath 'com.mob.sdk:MobSDK:2018.0319.1724'
+        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+        // [DoraemonKit]
+        // 流量监控及其它 AOP 功能（可选）
+        // AOP 包括以下功能：
+        // 1. 百度、腾讯、高德地图经纬度模拟
+        // 2. UrlConnection、OkHttp 抓包及后续的接口 hook 功能
+        // 3. App 启动耗时统计
+        // 4. 慢函数
+        // 5. 大图
+        /*classpath 'io.github.didi.dokit:dokitx-plugin:3.4.0-alpha02'*/
 
-        // NOTE: Do not place your application dependencies here; they belong
+        // NOTE: Do not place your com.zsp.clicktonote.application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
@@ -190,7 +219,6 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        // [Ucrop]
         maven { url "https://jitpack.io" }
         // [Bmob]
         // Bmob maven 仓库地址
@@ -198,6 +226,9 @@ allprojects {
     }
 }
 
+// 运行 gradle clean 时执行此处所定 task 任务（继承 Delete）删根目录 build 目录
+// 相当执行 Delete.delete(rootProject.buildDir)
+// gradle 用 groovy语言调 method 可不加 ()
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -207,7 +238,7 @@ gradle(config)
 ext {
     android = [
             compileSdkVersion: 30,
-            applicationId    : "com.zsp.clicktonote",
+            applicationId    : "xxx",
             minSdkVersion    : 23,
             targetSdkVersion : 30,
             versionCode      : 1,
@@ -219,13 +250,13 @@ ext {
     ]
     /*jpush = [
             // JPush 注册包名对应 AppKey
-            jpushAppKey : "86067aa741beb793e0ddc1a5",
+            jpushAppKey : "xxx",
             // 暂默值即可
             jpushChannel: "developer-default",
     ]*/
     bugly = [
-            appId : '26162df435',
-            appKey: '52339694-ce7d-4857-903f-e6112afc19b4',
+            appId : 'xxx',
+            appKey: 'xxx',
     ]
     /*mobsms = [
             // 严格模式

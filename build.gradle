@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:4.2.0'
         // [极光统计]
         // 动态圈选插件（可选）
         classpath 'cn.jiguang.android:janalytics-gradle-plugin:3.0.0'
@@ -31,7 +31,7 @@ buildscript {
         // 3. App 启动耗时统计
         // 4. 慢函数
         // 5. 大图
-        classpath 'com.didichuxing.doraemonkit:dokitx-plugin:3.3.5'
+        classpath 'io.github.didi.dokit:dokitx-plugin:3.4.0-alpha02'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

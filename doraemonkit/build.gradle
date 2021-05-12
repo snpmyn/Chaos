@@ -69,9 +69,17 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+    // 核心模块
+    debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
+    // 文件同步模块
+    debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
+    // 一机多控模块
+    debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
+    // weex 模块
+    debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
+    // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
-    releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
-    /*DoraemonKit*/
+    releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
+    /*DoKit*/
 }
