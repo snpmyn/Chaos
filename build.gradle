@@ -45,9 +45,6 @@ allprojects {
         mavenCentral()
         // [Ucrop]
         maven { url "https://jitpack.io" }
-        // [Bmob]
-        // Bmob maven 仓库地址
-        maven { url 'https://dl.bintray.com/chaozhouzhang/maven' }
     }
 }
 

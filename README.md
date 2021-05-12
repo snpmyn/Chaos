@@ -71,13 +71,13 @@ implementation project(path: ':util')
 #### jpush
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.7.6'
+implementation 'cn.jiguang.sdk:jcore:2.8.0'
 api 'cn.jiguang.sdk:jpush:4.0.6'
 ```
 #### janalytics
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.7.6'
+implementation 'cn.jiguang.sdk:jcore:2.8.0'
 api 'cn.jiguang.sdk:janalytics:2.1.4'
 ```
 #### bugly
@@ -94,7 +94,7 @@ implementation project(path: ':util')
 #### bmob
 ```
 implementation project(path: ':util')
-api 'cn.bmob.android:bmob-sdk:3.7.8'
+api 'io.github.bmob:android-sdk:3.8.4'
 ```
 #### litepal
 ```
@@ -220,9 +220,6 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        // [Bmob]
-        // Bmob maven 仓库地址
-        maven { url 'https://dl.bintray.com/chaozhouzhang/maven' }
     }
 }
 
