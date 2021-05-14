@@ -59,10 +59,10 @@ public class Transition {
         mDuration = duration;
         mInterpolator = interpolator;
         // Pre computes a few variables to avoid doing it in onDraw().
-        mWidthDiff = dstRect.width() - srcRect.width();
-        mHeightDiff = dstRect.height() - srcRect.height();
-        xCenterDiff = dstRect.centerX() - srcRect.centerX();
-        yCenterDiff = dstRect.centerY() - srcRect.centerY();
+        mWidthDiff = (dstRect.width() - srcRect.width());
+        mHeightDiff = (dstRect.height() - srcRect.height());
+        xCenterDiff = (dstRect.centerX() - srcRect.centerX());
+        yCenterDiff = (dstRect.centerY() - srcRect.centerY());
     }
 
     /**
@@ -89,17 +89,17 @@ public class Transition {
      * @param elapsedTime The elapsed time since this transition started.
      */
     public RectF getInterpolatedRect(long elapsedTime) {
-        float elapsedTimeFraction = elapsedTime / (float) mDuration;
+        float elapsedTimeFraction = (elapsedTime / (float) mDuration);
         float interpolationProgress = Math.min(elapsedTimeFraction, 1);
         float interpolation = mInterpolator.getInterpolation(interpolationProgress);
-        float currentWidth = mSrcRect.width() + (interpolation * mWidthDiff);
-        float currentHeight = mSrcRect.height() + (interpolation * mHeightDiff);
-        float xCurrentCenter = mSrcRect.centerX() + (interpolation * xCenterDiff);
-        float yCurrentCenter = mSrcRect.centerY() + (interpolation * yCenterDiff);
-        float left = xCurrentCenter - (currentWidth / 2);
-        float top = yCurrentCenter - (currentHeight / 2);
-        float right = left + currentWidth;
-        float bottom = top + currentHeight;
+        float currentWidth = (mSrcRect.width() + (interpolation * mWidthDiff));
+        float currentHeight = (mSrcRect.height() + (interpolation * mHeightDiff));
+        float xCurrentCenter = (mSrcRect.centerX() + (interpolation * xCenterDiff));
+        float yCurrentCenter = (mSrcRect.centerY() + (interpolation * yCenterDiff));
+        float left = (xCurrentCenter - (currentWidth / 2));
+        float top = (yCurrentCenter - (currentHeight / 2));
+        float right = (left + currentWidth);
+        float bottom = (top + currentHeight);
         mCurrentRect.set(left, top, right, bottom);
         return mCurrentRect;
     }
