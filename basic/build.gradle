@@ -56,7 +56,7 @@ dependencies {
     api 'com.squareup.okio:okio:3.0.0-alpha.5'
     /*okio*/
     api 'org.greenrobot:eventbus:3.2.0'
-    /*eventbus*/
+    /*EventBus*/
     api 'com.permissionx.guolindev:permissionx:1.4.0'
     /*PermissionX*/
 }
