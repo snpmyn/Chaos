@@ -71,7 +71,7 @@ public class StringUtils {
      * @return 指定部分前内容
      */
     public static String appointForward(String str, String appoint) {
-        return (str != null) ? str.substring(0, str.indexOf(appoint)) : null;
+        return (null != str) ? str.substring(0, str.indexOf(appoint)) : null;
     }
 
     /**
@@ -96,7 +96,7 @@ public class StringUtils {
             String s2 = temp.split("\\.")[1];
             for (int i = s2.length(); i > 0; --i) {
                 if (!"0".equals(s2.substring(i - 1, i))) {
-                    return s1 + "." + s2.substring(0, i);
+                    return (s1 + "." + s2.substring(0, i));
                 }
             }
             return s1;
@@ -126,7 +126,7 @@ public class StringUtils {
      * @return 关联否
      */
     public static boolean relate(@NotNull String oneString, String twoString) {
-        return oneString.contains(twoString) || twoString.contains(oneString);
+        return (oneString.contains(twoString) || twoString.contains(oneString));
     }
 
     /**

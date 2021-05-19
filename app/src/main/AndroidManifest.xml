@@ -23,13 +23,16 @@
         tools:targetApi="n">
         <activity
             android:name="widget.dialog.BocDialogActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.WidgetActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
