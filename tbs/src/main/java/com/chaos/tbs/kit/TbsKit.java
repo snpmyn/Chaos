@@ -64,7 +64,7 @@ public class TbsKit {
     /**
      * 关闭文件阅读器
      * <p>
-     * 主动关文件打开 ui 并清相应内存占用。
+     * 主动关文件打开 UI 并清相应内存占用。
      *
      * @param context 上下文
      */

@@ -70,7 +70,7 @@ public class ActionQueue {
     private boolean isThrottleBack(@NotNull BaseAction baseAction) {
         if (baseAction.action == BaseAction.ACTION_BACK) {
             BaseAction head = mQueue.peek();
-            return (null != head) && (head.action == BaseAction.ACTION_POP);
+            return ((null != head) && (head.action == BaseAction.ACTION_POP));
         }
         return false;
     }

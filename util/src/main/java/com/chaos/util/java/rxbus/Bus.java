@@ -272,7 +272,7 @@ public class Bus {
                 }
             }
         }
-        return hasProducerRegistered || hasSubscriberRegistered;
+        return (hasProducerRegistered || hasSubscriberRegistered);
     }
 
     /**

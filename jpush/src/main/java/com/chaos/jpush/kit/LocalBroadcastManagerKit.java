@@ -24,7 +24,7 @@ import timber.log.Timber;
  * @date: 2019/5/31 16:54
  */
 public final class LocalBroadcastManagerKit {
-    private static final String TAG = "LocalBroadcastManager";
+    private final String TAG = this.getClass().getSimpleName();
     private static final Object M_LOCK = new Object();
     private static LocalBroadcastManagerKit mInstance;
     private final Context mAppContext;

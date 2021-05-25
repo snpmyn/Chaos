@@ -110,10 +110,10 @@ public abstract class BaseActivity extends SupportActivity {
     }
 
     /**
-     * 传 EditText 的 id
+     * 传 EditText 的 ID
      * 没传入 EditText 不处理
      *
-     * @return id 数组
+     * @return ID 数组
      */
     protected int[] hideSoftByEditViewIds() {
         return null;
@@ -123,7 +123,7 @@ public abstract class BaseActivity extends SupportActivity {
      * 传需过滤 View
      * 过滤后点无隐软键盘操作
      *
-     * @return id 数组
+     * @return ID 数组
      */
     protected View[] filterViewByIds() {
         return null;

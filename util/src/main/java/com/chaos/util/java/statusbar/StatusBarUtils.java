@@ -726,9 +726,9 @@ public class StatusBarUtils {
             @SuppressLint("PrivateApi") Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
             Method method = systemPropertiesClass.getMethod("get", String.class);
             String navBarOverride = (String) method.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
-            if (UtilMagic.STRING_L.equals(navBarOverride)) {
+            if (UtilMagic.STRING_ZERO.equals(navBarOverride)) {
                 hasNavigationBar = false;
-            } else if (UtilMagic.STRING_Y.equals(navBarOverride)) {
+            } else if (UtilMagic.STRING_ONE.equals(navBarOverride)) {
                 hasNavigationBar = true;
             }
         } catch (Exception e) {

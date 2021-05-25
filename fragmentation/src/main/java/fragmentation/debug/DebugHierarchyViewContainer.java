@@ -51,11 +51,11 @@ public class DebugHierarchyViewContainer extends ScrollView {
 
     private void initView(Context context) {
         mContext = context;
-        HorizontalScrollView hScrollView = new HorizontalScrollView(context);
+        HorizontalScrollView horizontalScrollView = new HorizontalScrollView(context);
         mLinearLayout = new LinearLayout(context);
         mLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        hScrollView.addView(mLinearLayout);
-        addView(hScrollView);
+        horizontalScrollView.addView(mLinearLayout);
+        addView(horizontalScrollView);
         mItemHeight = dip2px(50);
         mPadding = dip2px(16);
     }
@@ -67,8 +67,8 @@ public class DebugHierarchyViewContainer extends ScrollView {
 
     public void bindFragmentRecords(List<DebugFragmentRecord> fragmentRecords) {
         mLinearLayout.removeAllViews();
-        LinearLayout ll = getTitleLayout();
-        mLinearLayout.addView(ll);
+        LinearLayout linearLayout = getTitleLayout();
+        mLinearLayout.addView(linearLayout);
         if (null == fragmentRecords) {
             return;
         }

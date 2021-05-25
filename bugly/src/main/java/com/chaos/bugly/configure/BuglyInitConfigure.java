@@ -18,7 +18,7 @@ import java.util.Map;
  *
  * @author 郑少鹏
  * @desc Bugly 初始化配置
- * Bugly2.0+ 还支持通 AndroidManifest.xml 配 APP 信息，同于代码配 APP 信息终以代码配为准。
+ * Bugly 2.0+ 还支持通 AndroidManifest.xml 配 APP 信息，同于代码配 APP 信息终以代码配为准。
  */
 public class BuglyInitConfigure {
     /**
@@ -70,7 +70,7 @@ public class BuglyInitConfigure {
     private static void betaSet(Class<? extends Activity> canShowUpgradeActivity, int upgradeDialogLayoutId, int tipsDialogLayoutId) {
         // true 表 app 启时自动初始升级模块（默 true）
         // false 表不自动初始
-        // 考虑 SDK 初始影 app 启速设 false（后面某时刻手调 Beta.init(getApplicationContext(),false)）
+        // 考虑 SDK 初始影 app 启速设 false（后面某时刻手调 Beta.init(getApplicationContext(), false)）
         Beta.autoInit = true;
         // true 表初始时自检升级（默 true）
         // false 表不自检升级（需手调 Beta.checkUpgrade()）

@@ -145,7 +145,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /*
-     ****************************************以下为可选法（Optional methods）****************************************
+     ****************************************以下为可选法(Optional methods)****************************************
      */
 
     /**

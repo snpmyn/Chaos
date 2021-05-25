@@ -236,10 +236,10 @@ public class SupportFragmentDelegate {
             view.setClickable(true);
             setBackground(view);
         }
-        boolean flag = (null != savedInstanceState)
+        boolean flag = ((null != savedInstanceState)
                 || (mRootStatus == STATUS_ROOT_ANIM_DISABLE)
                 || ((null != mFragment.getTag()) && mFragment.getTag().startsWith("android:switcher:"))
-                || (mReplaceMode && !mFirstCreateView);
+                || (mReplaceMode && !mFirstCreateView));
         if (flag) {
             notifyEnterAnimEnd();
         } else if (mCustomEnterAnim != Integer.MIN_VALUE) {

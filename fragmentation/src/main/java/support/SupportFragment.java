@@ -364,7 +364,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
     }
 
     /*
-     ****************************************以下为可选法（Optional methods）****************************************
+     ****************************************以下为可选法(Optional methods)****************************************
      */
 
     /**

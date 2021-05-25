@@ -54,8 +54,8 @@ public final class AnimatorHelper {
 
     @Nullable
     public Animation compatChildFragmentExitAnim(@NotNull Fragment fragment) {
-        boolean flag = ((null != fragment.getTag()) && fragment.getTag().startsWith("android:switcher:") && fragment.getUserVisibleHint()) ||
-                ((null != fragment.getParentFragment()) && fragment.getParentFragment().isRemoving() && !fragment.isHidden());
+        boolean flag = (((null != fragment.getTag()) && fragment.getTag().startsWith("android:switcher:") && fragment.getUserVisibleHint()) ||
+                ((null != fragment.getParentFragment()) && fragment.getParentFragment().isRemoving() && !fragment.isHidden()));
         if (flag) {
             Animation animation = new Animation() {
             };
