@@ -35,7 +35,7 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    implementation 'cn.jiguang.sdk:jcore:2.8.0'
+    implementation 'cn.jiguang.sdk:jcore:2.8.6'
     /*JCore*/
     api 'cn.jiguang.sdk:janalytics:2.1.4'
     /*极光统计*/

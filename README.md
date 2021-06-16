@@ -22,25 +22,27 @@
 ## 依赖
 #### basic
 ```
-api 'androidx.appcompat:appcompat:1.2.0'
-api 'com.google.android.material:material:1.3.0'
-api 'com.github.bumptech.glide:glide:4.12.0'
-api 'io.reactivex:rxandroid:1.2.1'
-api 'io.reactivex:rxjava:1.3.8'
-api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-api 'io.reactivex.rxjava2:rxjava:2.2.14'
-api 'io.reactivex.rxjava3:rxandroid:3.0.0'
-api 'io.reactivex.rxjava3:rxjava:3.0.13-RC4'
-api 'com.squareup.retrofit2:retrofit:2.9.0'
-api 'com.squareup.retrofit2:adapter-rxjava:2.9.0'
-api 'com.squareup.retrofit2:converter-gson:2.9.0'
-api 'com.jakewharton.timber:timber:4.7.1'
-api 'com.tencent:mmkv-static:1.2.7'
-api 'com.getkeepsafe.relinker:relinker:1.4.3'
-api 'org.apache.commons:commons-lang3:3.12.0'
-api 'com.squareup.okio:okio:3.0.0-alpha.5'
-api 'org.greenrobot:eventbus:3.2.0'
-api 'com.permissionx.guolindev:permissionx:1.4.0'
+api 'androidx.appcompat:appcompat:xxx'
+api 'com.google.android.material:material:xxx'
+api 'com.github.bumptech.glide:glide:xxx'
+api 'io.reactivex:rxandroid:xxx'
+api 'io.reactivex:rxjava:xxx'
+api 'io.reactivex.rxjava2:rxandroid:xxx1'
+api 'io.reactivex.rxjava2:rxjava:xxx'
+api 'io.reactivex.rxjava3:rxandroid:xxx'
+api 'io.reactivex.rxjava3:rxjava:xxx'
+api 'com.squareup.retrofit2:retrofit:xxx'
+api 'com.squareup.retrofit2:adapter-rxjava:xxx'
+api 'com.squareup.retrofit2:converter-gson:xxx'
+api 'com.jakewharton.timber:timber:xxx'
+api 'com.tencent:mmkv-static:xxx'
+api 'com.getkeepsafe.relinker:relinker:xxx'
+api 'org.apache.commons:commons-lang3:xxx'
+api 'com.squareup.okio:okio:xxx'
+api 'org.greenrobot:eventbus:xxx'
+api 'com.permissionx.guolindev:permissionx:xxx'
+api 'com.jakewharton:butterknife:xxx'
+annotationProcessor 'com.jakewharton:butterknife-compiler:xxx'
 ```
 #### util
 ```
@@ -49,22 +51,22 @@ api project(path: ':basic')
 #### widget
 ```
 implementation project(path: ':util')
-implementation 'com.willowtreeapps.spruce:spruce-android:1.0.1'
+implementation 'com.willowtreeapps.spruce:spruce-android:xxx'
 ```
 #### banner
 ```
 implementation project(path: ':basic')
-implementation 'com.youth.banner:banner:1.4.10'
+implementation 'com.youth.banner:banner:xxx'
 ```
 #### matisse
 ```
 implementation project(path: ':basic')
-api 'com.zhihu.android:matisse:0.5.3-beta3'
+api 'com.zhihu.android:matisse:xxx'
 ```
 #### ucrop
 ```
 implementation project(path: ':basic')
-api 'com.github.yalantis:ucrop:2.2.6-native'
+api 'com.github.yalantis:ucrop:xxx'
 ```
 #### fragmentation
 ```
@@ -73,21 +75,21 @@ implementation project(path: ':util')
 #### jpush
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.8.0'
-api 'cn.jiguang.sdk:jpush:4.0.6'
+implementation 'cn.jiguang.sdk:jcore:xxx'
+api 'cn.jiguang.sdk:jpush:xxx'
 ```
 #### janalytics
 ```
 implementation project(path: ':util')
-implementation 'cn.jiguang.sdk:jcore:2.8.0'
-api 'cn.jiguang.sdk:janalytics:2.1.4'
+implementation 'cn.jiguang.sdk:jcore:xxx'
+api 'cn.jiguang.sdk:janalytics:xxx'
 ```
 #### bugly
 ```
 implementation project(path: ':basic')
 implementation project(path: ':tbs')
-api 'com.tencent.bugly:crashreport_upgrade:1.5.1'
-implementation 'com.tencent.bugly:nativecrashreport:3.9.1'
+api 'com.tencent.bugly:crashreport_upgrade:xxx'
+implementation 'com.tencent.bugly:nativecrashreport:xxx'
 ```
 #### mobsms
 ```
@@ -96,26 +98,26 @@ implementation project(path: ':util')
 #### bmob
 ```
 implementation project(path: ':util')
-api 'io.github.bmob:android-sdk:3.8.4'
+api 'io.github.bmob:android-sdk:xxx'
 ```
 #### litepal
 ```
 implementation project(path: ':util')
-api 'org.litepal.guolindev:core:3.2.3'
+api 'org.litepal.guolindev:core:xxx'
 ```
 #### doraemonkit
 ```
 implementation project(path: ':util')
 // 核心模块
-debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
-debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
-debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
-debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
-releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
+debugImplementation "io.github.didi.dokit:dokitx:xxx"
+debugImplementation "io.github.didi.dokit:dokitx-ft:xxx"
+debugImplementation "io.github.didi.dokit:dokitx-mc:xxx"
+debugImplementation "io.github.didi.dokit:dokitx-weex:xxx"
+releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
 ```
 #### tbs
 ```
-api 'com.tencent.tbs.tbssdk:sdk:43939'
+api 'com.tencent.tbs.tbssdk:sdk:xxx'
 ```
 ## 使用
 gradle(app)
@@ -157,20 +159,20 @@ dependencies {
     implementation 'com.github.snpmyn.Chaos:util:xxx'
     ...
     /*chaos*/
-    debugImplementation 'com.glance.guolindev:glance:1.0.0'
+    debugImplementation 'com.glance.guolindev:glance:xxx'
     /*glance*/
     // 核心模块
-    debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
+    debugImplementation "io.github.didi.dokit:dokitx:xxx"
     // 文件同步模块
-    debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
+    debugImplementation "io.github.didi.dokit:dokitx-ft:xxx"
     // 一机多控模块
-    debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
+    debugImplementation "io.github.didi.dokit:dokitx-mc:xxx"
     // weex 模块
-    debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
+    debugImplementation "io.github.didi.dokit:dokitx-weex:xxx"
     // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
-    releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
+    releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
     /*DoKit*/
 }
 ```
@@ -189,18 +191,18 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:xxx'
         // [极光统计]
         // 动态圈选插件（可选）
-        /*classpath 'cn.jiguang.android:janalytics-gradle-plugin:3.0.0'*/
+        /*classpath 'cn.jiguang.android:janalytics-gradle-plugin:xxx'*/
         // [Bugly]
         // 自动上传符号表插件
         // 快准定用户 Crash 代码位
         // 通符号表解析还原 Crash 程序堆栈
-        /*classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'*/
+        /*classpath 'com.tencent.bugly:symtabfileuploader:xxx'*/
         // [MobTech]
         // 注册 MobSDK
-        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+        classpath "com.mob.sdk:MobSDK:xxx"
         // [DoraemonKit]
         // 流量监控及其它 AOP 功能（可选）
         // AOP 包括以下功能：
@@ -209,7 +211,7 @@ buildscript {
         // 3. App 启动耗时统计
         // 4. 慢函数
         // 5. 大图
-        /*classpath 'io.github.didi.dokit:dokitx-plugin:3.4.0-alpha02'*/
+        /*classpath 'io.github.didi.dokit:dokitx-plugin:xxx'*/
 
         // NOTE: Do not place your com.zsp.clicktonote.application dependencies here; they belong
         // in the individual module build.gradle files

@@ -22,8 +22,7 @@ MobSDK {
 android {
     signingConfigs {
         debug {
-            /*storeFile file('C:\\Users\\Administrator\\.android/debug.keystore')*/
-            storeFile file('/Users/zhengshaopeng/.android/debug.keystore')
+            storeFile file('../SignatureFile/debug.keystore')
             storePassword 'android'
             keyPassword 'android'
             keyAlias = 'androiddebugkey'
@@ -95,18 +94,18 @@ dependencies {
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
     // 核心模块
-    debugImplementation "io.github.didi.dokit:dokitx:3.4.0-alpha02"
+    debugImplementation 'io.github.didi.dokit:dokitx:3.4.0-alpha04'
     // 文件同步模块
-    debugImplementation "io.github.didi.dokit:dokitx-ft:3.4.0-alpha02"
+    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.4.0-alpha04'
     // 一机多控模块
-    debugImplementation "io.github.didi.dokit:dokitx-mc:3.4.0-alpha02"
+    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.4.0-alpha04'
     // weex 模块
-    debugImplementation "io.github.didi.dokit:dokitx-weex:3.4.0-alpha02"
+    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.4.0-alpha04'
     // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
-    releaseImplementation "io.github.didi.dokit:dokitx-no-op:3.4.0-alpha02"
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.4.0-alpha04'
     /*DoKit*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
     /*LeakCanary*/
 }
