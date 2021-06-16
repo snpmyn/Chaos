@@ -35,7 +35,7 @@ public abstract class BaseFragment extends SupportFragment {
     /**
      * 第一 Fragment 否
      */
-    private boolean firstFragment;
+    private boolean areFirstFragment;
     /**
      * 等时
      */
@@ -63,7 +63,7 @@ public abstract class BaseFragment extends SupportFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(layoutResId(), container, false);
         unbinder = ButterKnife.bind(this, view);
-        firstFragment = firstFragment();
+        areFirstFragment = areFirstFragment();
         eventBusRegister();
         stepUi(view);
         return view;
@@ -151,7 +151,7 @@ public abstract class BaseFragment extends SupportFragment {
      *
      * @return 第一 Fragment 否
      */
-    protected abstract boolean firstFragment();
+    protected abstract boolean areFirstFragment();
 
     /**
      * EventBus 注册
@@ -210,7 +210,7 @@ public abstract class BaseFragment extends SupportFragment {
     public boolean onBackPressedSupport() {
         if (getChildFragmentManager().getBackStackEntryCount() > 1) {
             popChild();
-        } else if (firstFragment) {
+        } else if (areFirstFragment) {
             // 第一 Fragment 时退
             appExit();
         } else {

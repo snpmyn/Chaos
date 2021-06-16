@@ -11,6 +11,7 @@ import com.chaos.util.java.keyboard.KeyboardUtils;
 
 import org.jetbrains.annotations.NotNull;
 
+import butterknife.ButterKnife;
 import support.SupportActivity;
 
 /**
@@ -34,6 +35,7 @@ public abstract class BaseActivity extends SupportActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         // 加载视图
         initContentView(savedInstanceState);
         // 初始控件
