@@ -24,11 +24,11 @@ import support.SupportActivity;
  * 提代码可读性，显井井有条、优美。
  * <p>
  * 下抽象法子类须实现：
- * {{@link #initContentView(Bundle)}}
- * {{@link #stepUi()}}
- * {{@link #initConfiguration()}}
- * {{@link #setListener()}}
- * {{@link #startLogic()}}
+ * {@link #initContentView(Bundle, int)}
+ * {@link #stepUi()}
+ * {@link #initConfiguration()}
+ * {@link #setListener()}
+ * {@link #startLogic()}
  */
 public abstract class BaseActivity extends SupportActivity {
     @Override
