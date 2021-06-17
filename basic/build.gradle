@@ -1,9 +1,6 @@
 plugins {
     id 'com.android.library'
 }
-// To use Butter Knife in a library.
-apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 30
@@ -64,7 +61,4 @@ dependencies {
     /*EventBus*/
     api 'com.permissionx.guolindev:permissionx:1.4.0'
     /*PermissionX*/
-    api 'com.jakewharton:butterknife:10.2.3'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
-    /*ButterKnife*/
 }

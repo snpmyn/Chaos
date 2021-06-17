@@ -13,8 +13,6 @@ import androidx.annotation.Nullable;
 import com.chaos.util.java.datetime.CurrentTimeMillisClock;
 import com.chaos.util.java.toast.ToastKit;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import support.SupportFragment;
 
 /**
@@ -28,10 +26,6 @@ public abstract class BaseFragment extends SupportFragment {
      * 视图
      */
     private View view;
-    /**
-     * Unbinder
-     */
-    private Unbinder unbinder;
     /**
      * 第一 Fragment 否
      */
@@ -62,7 +56,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(layoutResId(), container, false);
-        unbinder = ButterKnife.bind(this, view);
         areFirstFragment = areFirstFragment();
         eventBusRegister();
         stepUi(view);
@@ -73,9 +66,6 @@ public abstract class BaseFragment extends SupportFragment {
     public void onDetach() {
         super.onDetach();
         onBackToFirstListener = null;
-        if (null != unbinder) {
-            unbinder.unbind();
-        }
     }
 
     /**

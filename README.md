@@ -41,8 +41,6 @@ api 'org.apache.commons:commons-lang3:xxx'
 api 'com.squareup.okio:okio:xxx'
 api 'org.greenrobot:eventbus:xxx'
 api 'com.permissionx.guolindev:permissionx:xxx'
-api 'com.jakewharton:butterknife:xxx'
-annotationProcessor 'com.jakewharton:butterknife-compiler:xxx'
 ```
 #### util
 ```

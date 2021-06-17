@@ -12,8 +12,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
-        // To use Butter Knife in a library.
-        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
         // [极光统计]
         // 动态圈选插件（可选）
         classpath 'cn.jiguang.android:janalytics-gradle-plugin:3.0.0'
