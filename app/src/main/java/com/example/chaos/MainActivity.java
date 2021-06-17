@@ -2,7 +2,6 @@ package com.example.chaos;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,6 @@ import com.google.android.material.button.MaterialButton;
 
 import base.BaseActivity;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import value.ChaosMagic;
 
@@ -43,14 +41,13 @@ public class MainActivity extends BaseActivity {
     private MainActivityKit mainActivityKit;
 
     /**
-     * 加载视图
+     * 布局资源 ID
      *
-     * @param savedInstanceState 状态保存
+     * @return 布局资源 ID
      */
     @Override
-    protected void initContentView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    protected int layoutResId() {
+        return R.layout.activity_main;
     }
 
     /**

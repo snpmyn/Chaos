@@ -1,13 +1,11 @@
 package widget.dialog;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.view.View;
 
 import com.example.chaos.R;
 
 import base.BaseActivity;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import widget.dialog.kit.BocDialogActivityKit;
 
@@ -20,14 +18,13 @@ public class BocDialogActivity extends BaseActivity {
     private BocDialogActivityKit bocDialogActivityKit;
 
     /**
-     * 加载视图
+     * 布局资源 ID
      *
-     * @param savedInstanceState 状态保存
+     * @return 布局资源 ID
      */
     @Override
-    protected void initContentView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_boc_dialog);
-        ButterKnife.bind(this);
+    protected int layoutResId() {
+        return R.layout.activity_boc_dialog;
     }
 
     /**

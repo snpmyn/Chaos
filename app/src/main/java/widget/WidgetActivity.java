@@ -1,13 +1,11 @@
 package widget;
 
-import android.os.Bundle;
 import android.view.View;
 
 import com.chaos.util.java.intent.IntentJump;
 import com.example.chaos.R;
 
 import base.BaseActivity;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import widget.dialog.BocDialogActivity;
 
@@ -18,14 +16,13 @@ import widget.dialog.BocDialogActivity;
  */
 public class WidgetActivity extends BaseActivity {
     /**
-     * 加载视图
+     * 布局资源 ID
      *
-     * @param savedInstanceState 状态保存
+     * @return 布局资源 ID
      */
     @Override
-    protected void initContentView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_widget);
-        ButterKnife.bind(this);
+    protected int layoutResId() {
+        return R.layout.activity_widget;
     }
 
     /**

@@ -35,7 +35,7 @@ public abstract class BaseActivity extends SupportActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 加载视图
-        initContentView(savedInstanceState);
+        initContentView(savedInstanceState, layoutResId());
         // 初始控件
         stepUi();
         // 初始配置
@@ -57,8 +57,9 @@ public abstract class BaseActivity extends SupportActivity {
      * 加载视图
      *
      * @param savedInstanceState 状态保存
+     * @param layoutResId        布局资源 ID
      */
-    protected abstract void initContentView(Bundle savedInstanceState);
+    protected abstract void initContentView(Bundle savedInstanceState, int layoutResId);
 
     /**
      * 初始控件
