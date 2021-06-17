@@ -47,6 +47,13 @@ public abstract class BaseActivity extends SupportActivity {
     }
 
     /**
+     * 布局资源 ID
+     *
+     * @return 布局资源 ID
+     */
+    protected abstract int layoutResId();
+
+    /**
      * 加载视图
      *
      * @param savedInstanceState 状态保存
