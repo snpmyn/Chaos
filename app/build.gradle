@@ -72,20 +72,7 @@ dependencies {
     /*implementation 'com.google.android.material:material:1.3.0'*/
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     /*自带*/
-    api project(path: ':basic')
-    api project(path: ':util')
-    api project(path: ':widget')
-    api project(path: ':matisse')
-    api project(path: ':ucrop')
-    api project(path: ':fragmentation')
-    api project(path: ':jpush')
-    api project(path: ':janalytics')
-    api project(path: ':bugly')
-    api project(path: ':mobsms')
-    api project(path: ':bmob')
-    api project(path: ':litepal')
-    api project(path: ':doraemonkit')
-    api project(path: ':tbs')
+    implementation project(path: ':pool')
     /*chaos*/
     implementation 'com.jakewharton:butterknife:10.2.3'
     implementation 'androidx.appcompat:appcompat:1.2.0'

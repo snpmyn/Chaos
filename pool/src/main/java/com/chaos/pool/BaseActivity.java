@@ -1,4 +1,4 @@
-package com.chaos.fragmentation;
+package com.chaos.pool;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -7,7 +7,15 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
+import com.chaos.janalytics.kit.JanalyticsKit;
+import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.keyboard.KeyboardUtils;
+import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
+import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
+import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;
+import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
+import com.chaos.widget.dialog.bocdialog.loading.listener.OnClickToCloseListener;
+import com.chaos.widget.dialog.bocdialog.loading.listener.OnDialogCloseListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -31,6 +39,8 @@ import support.SupportActivity;
  * {@link #startLogic()}
  */
 public abstract class BaseActivity extends SupportActivity {
+    private BaseInstanceDialog baseInstanceDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +90,50 @@ public abstract class BaseActivity extends SupportActivity {
      * 开始逻辑
      */
     protected abstract void startLogic();
+
+    /**
+     * 普通加载
+     *
+     * @param hint                  提示
+     * @param onBackPressedListener 回退按压监听
+     */
+    public void commonLoading(String hint, OnBackPressedListener onBackPressedListener) {
+        baseInstanceDialog = new CommonLoadingDialog.Builder(this, 0)
+                .setHint(hint)
+                .setOnBackPressedListener(onBackPressedListener).build();
+        baseInstanceDialog.setCancelable(false);
+        baseInstanceDialog.show();
+    }
+
+    /**
+     * 可取消加载
+     *
+     * @param hint                   提示
+     * @param onClickToCloseListener 点击关闭监听
+     * @param onDialogCloseListener  对话框关闭监听
+     * @param onBackPressedListener  回退按压监听
+     */
+    public void canCancelLoading(String hint, OnClickToCloseListener onClickToCloseListener, OnDialogCloseListener onDialogCloseListener, OnBackPressedListener onBackPressedListener) {
+        baseInstanceDialog = new CanCancelLoadingDialog.Builder(this, 0)
+                .setHint(hint)
+                .setOnClickToCloseListener(onClickToCloseListener)
+                .setOnDialogCloseListener(onDialogCloseListener)
+                .setOnBackPressedListener(onBackPressedListener).build();
+        baseInstanceDialog.setCancelable(false);
+        baseInstanceDialog.show();
+    }
+
+    /**
+     * 取消加载
+     */
+    public void dismissLoading() {
+        if (null != baseInstanceDialog) {
+            if (baseInstanceDialog.isShowing()) {
+                baseInstanceDialog.dismiss();
+            }
+            baseInstanceDialog = null;
+        }
+    }
 
     /**
      * 清 EditText 焦点
@@ -212,6 +266,20 @@ public abstract class BaseActivity extends SupportActivity {
             }
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JpushKit.onResume(this);
+        JanalyticsKit.onPageStart(this, this.getClass().getCanonicalName());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JpushKit.onPause(this);
+        JanalyticsKit.onPageEnd(this, this.getClass().getCanonicalName());
     }
 }
 
