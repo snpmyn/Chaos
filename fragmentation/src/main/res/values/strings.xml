@@ -2,5 +2,4 @@
 <resources>
     <string name="stackView">栈视图（Stack）</string>
     <string name="stackHelp">*: Not in backStack\n☀: Visible</string>
-    <string name="exitAppHint">再按一次退出</string>
 </resources>

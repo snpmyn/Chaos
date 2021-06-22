@@ -14,13 +14,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: rootProject.ext.android["applicationId"],
-                // JPush 注册包名对应 AppKey
-                JPUSH_APPKEY : rootProject.ext.jpush["jpushAppKey"],
-                // 暂默值即可
-                JPUSH_CHANNEL: rootProject.ext.jpush["jpushChannel"],
-        ]
     }
 
     buildTypes {
@@ -28,9 +21,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [JPUSH_CHANNEL: name]
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -40,10 +30,18 @@ android {
 
 dependencies {
 
-    implementation project(path: ':util')
-    /*util*/
-    implementation 'cn.jiguang.sdk:jcore:2.8.6'
-    /*JCore*/
-    api 'cn.jiguang.sdk:jpush:4.1.5'
-    /*极光推送*/
+    api project(path: ':bmob')
+    api project(path: ':doraemonkit')
+    api project(path: ':banner')
+    api project(path: ':jpush')
+    api project(path: ':matisse')
+    api project(path: ':janalytics')
+    api project(path: ':ucrop')
+    api project(path: ':tbs')
+    api project(path: ':litepal')
+    api project(path: ':fragmentation')
+    api project(path: ':bugly')
+    api project(path: ':mobsms')
+    api project(path: ':widget')
+    api project(path: ':util')
 }

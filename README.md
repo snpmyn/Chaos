@@ -19,6 +19,7 @@
 | litepal | LitePal | 无 |
 | doraemonkit | DoraemonKit | 无 |
 | tbs | 腾讯浏览服务 | 无 |
+| pool | 水池 | 无 |
 ## 依赖
 #### basic
 ```
@@ -117,6 +118,23 @@ releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
 ```
 api 'com.tencent.tbs.tbssdk:sdk:xxx'
 ```
+#### pool
+```
+api project(path: ':bmob')
+api project(path: ':doraemonkit')
+api project(path: ':banner')
+api project(path: ':jpush')
+api project(path: ':matisse')
+api project(path: ':janalytics')
+api project(path: ':ucrop')
+api project(path: ':tbs')
+api project(path: ':litepal')
+api project(path: ':fragmentation')
+api project(path: ':bugly')
+api project(path: ':mobsms')
+api project(path: ':widget')
+api project(path: ':util')
+```
 ## 使用
 gradle(app)
 ```
@@ -154,8 +172,7 @@ android {
 
 dependencies {
 
-    implementation 'com.github.snpmyn.Chaos:util:xxx'
-    ...
+    implementation 'com.github.snpmyn.Chaos:pool:xxx'
     /*chaos*/
     debugImplementation 'com.glance.guolindev:glance:xxx'
     /*glance*/
