@@ -49,7 +49,7 @@ dependencies {
     /*官方*/
     api 'com.jakewharton.timber:timber:4.7.1'
     /*timber*/
-    api 'com.tencent:mmkv-static:1.2.9'
+    api 'com.tencent:mmkv-static:1.2.10'
     /*MMKV*/
     api 'com.getkeepsafe.relinker:relinker:1.4.3'
     /*ReLinker*/
