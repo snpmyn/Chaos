@@ -25,7 +25,7 @@ public class KeyboardUtils {
      * @param context  上下文
      * @param editText 软键盘
      */
-    public static void openKeyboardThree(@NotNull Context context, @NotNull EditText editText) {
+    public static void openKeyboard(@NotNull Context context, @NotNull EditText editText) {
         // 获焦
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
