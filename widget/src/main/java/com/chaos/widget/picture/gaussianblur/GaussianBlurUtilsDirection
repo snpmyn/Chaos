@@ -1,0 +1,6 @@
+// 打开图像缓存
+nfcFragmentRlRoot.setDrawingCacheEnabled(true);
+// 获取可视组件截图
+nfcFragmentIv.setImageBitmap(GaussianBlurUtils.gaussianBlur(mActivity, nfcFragmentRlRoot.getDrawingCache(), 25.0f));
+// 关闭图像缓存
+nfcFragmentRlRoot.setDrawingCacheEnabled(false);

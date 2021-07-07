@@ -26,6 +26,28 @@ import timber.log.Timber;
  */
 public class ListUtils {
     /**
+     * 集合为空
+     *
+     * @param list 集合
+     * @param <T>  <T>
+     * @return 集合为空否
+     */
+    public static <T> boolean listIsEmpty(List<T> list) {
+        return ((null == list) || (list.size() == 0));
+    }
+
+    /**
+     * 集合不为空
+     *
+     * @param list 集合
+     * @param <T>  <T>
+     * @return 集合不为空否
+     */
+    public static <T> boolean listIsNotEmpty(List<T> list) {
+        return ((null != list) && (list.size() > 0));
+    }
+
+    /**
      * 按序去重
      *
      * @param inputStringList 输入集合

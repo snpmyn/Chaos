@@ -41,66 +41,66 @@ public class BaseJpushMessageReceiver extends JPushMessageReceiver {
     @Override
     public void onMessage(Context context, CustomMessage customMessage) {
         super.onMessage(context, customMessage);
-        Timber.d("【onMessage】收自定消息回调");
+        Timber.d("[onMessage] 收自定消息回调");
     }
 
     @Override
     public void onNotifyMessageOpened(Context context, NotificationMessage notificationMessage) {
         super.onNotifyMessageOpened(context, notificationMessage);
-        Timber.d("【onNotifyMessageOpened】点通知回调");
+        Timber.d("[onNotifyMessageOpened] 点通知回调");
     }
 
     @Override
     public void onNotifyMessageArrived(Context context, NotificationMessage notificationMessage) {
         super.onNotifyMessageArrived(context, notificationMessage);
-        Timber.d("【onNotifyMessageArrived】收通知回调");
+        Timber.d("[onNotifyMessageArrived] 收通知回调");
     }
 
     @Override
     public void onNotifyMessageDismiss(Context context, NotificationMessage notificationMessage) {
         super.onNotifyMessageDismiss(context, notificationMessage);
-        Timber.d("【onNotifyMessageDismiss】清通知回调");
+        Timber.d("[onNotifyMessageDismiss] 清通知回调");
     }
 
     @Override
     public void onRegister(Context context, String s) {
         super.onRegister(context, s);
-        Timber.d("【onRegister】注册成功回调");
+        Timber.d("[onRegister] 注册成功回调");
     }
 
     @Override
     public void onConnected(Context context, boolean b) {
         super.onConnected(context, b);
-        Timber.d("【onConnected】长连接状回调");
+        Timber.d("[onConnected] 长连接状回调");
     }
 
     @Override
     public void onCommandResult(Context context, CmdMessage cmdMessage) {
         super.onCommandResult(context, cmdMessage);
-        Timber.d("【onCommandResult】注册失败回调");
+        Timber.d("[onCommandResult] 注册失败回调");
     }
 
     @Override
     public void onTagOperatorResult(Context context, JPushMessage jPushMessage) {
         super.onTagOperatorResult(context, jPushMessage);
-        Timber.d("【onTagOperatorResult】tag 增删查改于此法回调结果");
+        Timber.d("[onTagOperatorResult] tag 增删查改于此法回调结果");
     }
 
     @Override
     public void onCheckTagOperatorResult(Context context, JPushMessage jPushMessage) {
         super.onCheckTagOperatorResult(context, jPushMessage);
-        Timber.d("【onCheckTagOperatorResult】查某 tag 与当前用户绑状于此法回调结果");
+        Timber.d("[onCheckTagOperatorResult] 查某 tag 与当前用户绑状于此法回调结果");
     }
 
     @Override
     public void onAliasOperatorResult(Context context, JPushMessage jPushMessage) {
         super.onAliasOperatorResult(context, jPushMessage);
-        Timber.d("【onAliasOperatorResult】alias 相关操作于此法回调结果");
+        Timber.d("[onAliasOperatorResult] alias 相关操作于此法回调结果");
     }
 
     @Override
     public void onMobileNumberOperatorResult(Context context, JPushMessage jPushMessage) {
         super.onMobileNumberOperatorResult(context, jPushMessage);
-        Timber.d("【onMobileNumberOperatorResult】设手机号于此法回调结果");
+        Timber.d("[onMobileNumberOperatorResult] 设手机号于此法回调结果");
     }
 }
