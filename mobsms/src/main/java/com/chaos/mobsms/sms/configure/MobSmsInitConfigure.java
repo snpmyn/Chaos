@@ -15,6 +15,15 @@ public class MobSmsInitConfigure {
      * 初始化 MobSMS
      *
      * @param application 应用
+     */
+    public static void initMobSms(Application application) {
+        MobSDK.init(application);
+    }
+
+    /**
+     * 初始化 MobSMS
+     *
+     * @param application 应用
      * @param appKey      AppKey
      * @param appSecret   AppSecret
      */

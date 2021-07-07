@@ -1,13 +1,17 @@
 plugins {
     id 'com.android.library'
 }
+
 // MobSDK 插件
 apply plugin: 'com.mob.sdk'
 // MobSDK 扩展
 MobSDK {
-    // 严格模式
-    // 终端用户接受隐私条款前 MobSDK 不进行任何操作
-    fp rootProject.ext.mobsms["fp"]
+    // Mob 官方申请 AppKey
+    appKey rootProject.ext.mobsms["appKey"]
+    // Mob 官方申请 AppKey 所对应 AppSecret
+    appSecret rootProject.ext.mobsms["appSecret"]
+    // 设 MobSDK 为隐私协议适配版
+    mmccs rootProject.ext.mobsms["mmccs"]
     // 注册 SMSSDK 相关信息
     SMSSDK {
         // 默用 GUI（不用下关）
