@@ -27,7 +27,7 @@ public class BmobInitConfiguration {
                 .setApplicationId(applicationId)
                 // 请求超时时间（默 15s）
                 .setConnectTimeout(connectTimeout)
-                // 文件分片上传每片大小（默 512*1024 字节）
+                // 文件分片上传每片大小（默 512 * 1024 字节）
                 .setUploadBlockSize(blockSize)
                 // 文件过期时间（默 1800s）
                 .setFileExpiration(expiration)

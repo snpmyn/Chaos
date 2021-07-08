@@ -527,8 +527,7 @@ public class FileUtils {
      */
     private static @org.jetbrains.annotations.Nullable String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
         final String column = MediaStore.Files.FileColumns.DATA;
-        final String[] projection = {column
-        };
+        final String[] projection = {column};
         try (Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null)) {
             if ((null != cursor) && cursor.moveToFirst()) {
                 final int columnIndex = cursor.getColumnIndexOrThrow(column);
@@ -574,10 +573,7 @@ public class FileUtils {
                 if ((null != id) && id.startsWith(UtilMagic.STRING_RAW_COLON)) {
                     return id.substring(4);
                 }
-                String[] contentUriPrefixesToTry = new String[]{
-                        "content://downloads/public_downloads",
-                        "content://downloads/my_downloads"
-                };
+                String[] contentUriPrefixesToTry = new String[]{"content://downloads/public_downloads", "content://downloads/my_downloads"};
                 for (String contentUriPrefix : contentUriPrefixesToTry) {
                     Uri contentUri = null;
                     if (null != id) {

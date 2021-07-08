@@ -42,7 +42,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性 XY 缩放（1-0）
+     * 属性 XY 缩放（1 - 0）
      *
      * @param view             视图
      * @param duration         时长
@@ -61,7 +61,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性 XY 缩放（0-1）
+     * 属性 XY 缩放（0 - 1）
      *
      * @param view              视图
      * @param duration          时长
@@ -80,7 +80,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性 XY 缩放（1-0-1）
+     * 属性 XY 缩放（1 - 0 - 1）
      *
      * @param view             视图
      * @param duration         时长
@@ -223,7 +223,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性透变（1-0）
+     * 属性透变（1 - 0）
      *
      * @param view             视图
      * @param duration         时长
@@ -239,7 +239,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性透变（0-1）
+     * 属性透变（0 - 1）
      *
      * @param view             视图
      * @param duration         时长
@@ -278,7 +278,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性 XY 缩透（1-0）
+     * 属性 XY 缩透（1 - 0）
      *
      * @param view             视图
      * @param duration         时长
@@ -298,7 +298,7 @@ public class AnimationManager {
     }
 
     /**
-     * 属性 XY 缩透（0-1）
+     * 属性 XY 缩透（0 - 1）
      *
      * @param view             视图
      * @param duration         duration

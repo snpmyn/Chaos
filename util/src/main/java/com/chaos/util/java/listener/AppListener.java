@@ -19,7 +19,7 @@ import java.util.Set;
  * @desc 应用监听
  */
 public class AppListener {
-    private static final String TAG = "AppListener";
+    private final String TAG = this.getClass().getSimpleName();
     private static AppListener appListener;
     private boolean hasInitConfiguration = false;
     private boolean areForeground = false;

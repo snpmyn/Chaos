@@ -27,8 +27,8 @@ public class TimeUtils {
             // 获资源对象
             URL url = new URL("http://www.baidu.com");
             // 中国科学院国家授时中心
-            /*url = new URL("http://www.ntsc.ac.cn");
-            url = new URL("http://www.bjtime.cn");*/
+            /*url = new URL("http://www.ntsc.ac.cn");*/
+            /*url = new URL("http://www.bjtime.cn");*/
             // 生成连接对象
             URLConnection uc = url.openConnection();
             // 发出连接

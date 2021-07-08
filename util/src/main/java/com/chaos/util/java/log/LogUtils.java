@@ -140,7 +140,7 @@ public class LogUtils {
                 levelTag = "[WARN]: ";
                 break;
             default:
-                levelTag = "  ";
+                levelTag = "    ";
                 break;
         }
         System.out.println(levelTag + "  [" + tag + "]  " + info);
@@ -181,7 +181,7 @@ public class LogUtils {
             }
             if (start) {
                 stackTraceElement = stackTraceElements[index];
-                stringBuilder.append("   ")
+                stringBuilder.append("    ")
                         .append(stackTraceElement.getClassName())
                         .append(".")
                         .append(stackTraceElement.getMethodName())

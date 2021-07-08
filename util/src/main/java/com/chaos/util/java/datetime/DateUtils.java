@@ -411,7 +411,7 @@ public class DateUtils {
     }
 
     /**
-     * 字符串（格式符合规范）转Date
+     * 字符串（格式符合规范）转 Date
      *
      * @param value  需转字符串
      * @param format 日期格式
@@ -678,7 +678,7 @@ public class DateUtils {
             } else if (type == UtilMagic.INT_TWO) {
                 value = (int) (between % 3600 / 60);
             } else {
-                value = (int) (between % 60 / 60);
+                value = 0;
             }
         } catch (ParseException e) {
             Timber.e(e);

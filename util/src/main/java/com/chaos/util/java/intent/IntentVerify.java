@@ -14,7 +14,7 @@ import okio.ByteString;
  * 防止服务攻击。
  */
 public class IntentVerify {
-    private final static String KEY = ByteString.encodeUtf8("FairyKey").md5().hex();
+    private final static String KEY = ByteString.encodeUtf8("UtilKey").md5().hex();
 
     /**
      * 是否是坏意图
@@ -36,18 +36,18 @@ public class IntentVerify {
     }
 
     /**
-     * 获取 String 类型额外信息
+     * 获取 int 类型额外信息
      *
-     * @param intent 意图
-     * @param key    键
-     * @return String 类型额外信息
+     * @param intent       意图
+     * @param key          键
+     * @param defaultValue 默值
+     * @return int 类型额外信息
      */
-    @Nullable
-    public static String getStringExtra(Intent intent, String key) {
+    public static int getIntExtra(Intent intent, String key, int defaultValue) {
         if (badIntent(intent)) {
-            return null;
+            return 0;
         }
-        return intent.getStringExtra(key);
+        return intent.getIntExtra(key, defaultValue);
     }
 
     /**
@@ -63,5 +63,20 @@ public class IntentVerify {
             return 0.0;
         }
         return intent.getDoubleExtra(key, defaultValue);
+    }
+
+    /**
+     * 获取 String 类型额外信息
+     *
+     * @param intent 意图
+     * @param key    键
+     * @return String 类型额外信息
+     */
+    @Nullable
+    public static String getStringExtra(Intent intent, String key) {
+        if (badIntent(intent)) {
+            return null;
+        }
+        return intent.getStringExtra(key);
     }
 }

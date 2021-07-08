@@ -82,7 +82,7 @@ public class ScreenUtils {
      */
     public static void hideNavigationWithCanShowInScroll(@NotNull AppCompatActivity appCompatActivity) {
         View decorView = appCompatActivity.getWindow().getDecorView();
-        int visibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int visibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
         decorView.setSystemUiVisibility(visibility);
     }
 
@@ -95,7 +95,7 @@ public class ScreenUtils {
         WeakReference<Activity> weakReference = new WeakReference<>(appCompatActivity);
         Window window = weakReference.get().getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
-        layoutParams.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
+        layoutParams.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
         window.setAttributes(layoutParams);
     }
 }

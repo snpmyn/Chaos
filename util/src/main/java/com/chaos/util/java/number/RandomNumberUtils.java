@@ -149,9 +149,10 @@ public class RandomNumberUtils {
      */
     public String generateHexRandomValue(int length) {
         StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
         for (int i = 0; i < length; i++) {
             char temp = 0;
-            int key = (int) (Math.random() * 2);
+            int key = (int) (random.nextDouble() * 2);
             switch (key) {
                 case 0:
                     // 生成随机数字

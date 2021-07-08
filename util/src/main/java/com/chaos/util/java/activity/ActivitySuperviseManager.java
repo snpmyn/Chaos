@@ -112,7 +112,7 @@ public class ActivitySuperviseManager {
         if (ACTIVITIES.isEmpty()) {
             return;
         }
-        if (activity != null) {
+        if (null != activity) {
             Timber.d("结束：%s", activity.getClass().getSimpleName());
             ACTIVITIES.remove(activity);
             activity.finish();
