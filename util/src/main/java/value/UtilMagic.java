@@ -12,6 +12,7 @@ public class UtilMagic {
      */
     public static final int INT_TWO = 2;
     public static final int INT_THREE = 3;
+    public static final int INT_FOUR = 4;
     public static final int INT_EIGHT = 8;
     public static final int INT_TEN = 10;
     public static final int INT_FOURTEEN = 14;
@@ -35,7 +36,6 @@ public class UtilMagic {
     /**
      * String
      */
-    public static final String STRING_SHOW = "show";
     public static final String STRING_ZERO = "0";
     public static final String STRING_ONE = "1";
     public static final String STRING_DOT = ".";
@@ -63,6 +63,7 @@ public class UtilMagic {
     public static final String STRING_DOT_MP4 = ".mp4";
     public static final String STRING_DOT_AVI = ".avi";
     public static final String STRING_BACKSLASH = "/";
+    public static final String STRING_SHOW = "show";
     public static final String STRING_FILE = "file";
     public static final String STRING_CONTENT = "content";
     public static final String STRING_PRIMARY = "primary";

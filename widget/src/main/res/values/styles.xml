@@ -42,4 +42,19 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
+    <!--MoneyInputDialogStyle-->
+    <style name="MoneyInputDialogStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/MoneyInputDialogWindowAnimationStyle</item>
+    </style>
+
+    <style name="MoneyInputDialogWindowAnimationStyle" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/money_input_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/money_input_dialog_out</item>
+    </style>
 </resources>

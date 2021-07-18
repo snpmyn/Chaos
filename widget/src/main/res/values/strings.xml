@@ -10,6 +10,19 @@
     <string name="cancel">取消</string>
     <string name="noRemindAnyMore">不再提醒</string>
     <string name="pleaseSelectDate">请选择日期</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="dot">.</string>
+    <string name="zero">0</string>
+    <string name="doubleZero">00</string>
+    <string name="complete">完成</string>
     <!--format-->
     <string name="alreadyTheLatestVersionHint">已是最新版本 %1$s</string>
     <string name="findNewVersionHint">发现新版本 %1$s</string>

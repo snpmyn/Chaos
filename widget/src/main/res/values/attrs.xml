@@ -2,7 +2,7 @@
 <resources>
     <!--MultiProgressBar-->
     <declare-styleable name="MultiProgressBar">
-        <!--样式（默system）-->
+        <!--样式（默 system）-->
         <attr name="multiProgressBarMode" format="enum">
             <!--系统-->
             <enum name="system" value="0" />
@@ -15,25 +15,25 @@
             <!--波浪-->
             <enum name="wave" value="4" />
         </attr>
-        <!--文本色（默#70A800）-->
+        <!--文本色（默 #70A800）-->
         <attr name="multiProgressBarTextColor" format="reference|color" />
-        <!--文本大小（默10sp）-->
+        <!--文本大小（默 10sp）-->
         <attr name="multiProgressBarTextSize" format="dimension" />
-        <!--文本同进度条间距（默4dp）-->
+        <!--文本同进度条间距（默 4dp）-->
         <attr name="multiProgressBarTextMargin" format="dimension" />
-        <!--已完成进度色（默#70A800）-->
+        <!--已完成进度色（默 #70A800）-->
         <attr name="multiProgressBarReachedColor" format="reference|color" />
-        <!--已完成进度高（默2dp）-->
+        <!--已完成进度高（默 2dp）-->
         <attr name="multiProgressBarReachedHeight" format="dimension" />
-        <!--未完成进度色（默#CCCCCC）-->
+        <!--未完成进度色（默 #CCCCCC）-->
         <attr name="multiProgressBarUnReachedColor" format="reference|color" />
-        <!--未完成进度高（默1dp）-->
+        <!--未完成进度高（默 1dp）-->
         <attr name="multiProgressBarUnReachedHeight" format="dimension" />
-        <!--圆角否（默false）-->
+        <!--圆角否（默 false）-->
         <attr name="multiProgressBarIsCapRounded" format="boolean" />
-        <!--隐文本否（默false）-->
+        <!--隐文本否（默 false）-->
         <attr name="multiProgressBarIsHiddenText" format="boolean" />
-        <!--圆进度条半径（默16dp）-->
+        <!--圆进度条半径（默 16dp）-->
         <attr name="multiProgressBarRadius" format="dimension" />
     </declare-styleable>
     <!--ProgressWheel-->
@@ -48,5 +48,11 @@
         <attr name="ProgressWheelFillRadius" format="boolean" />
         <attr name="ProgressWheelBarWidth" format="dimension" />
         <attr name="ProgressWheelLinearProgress" format="boolean" />
+    </declare-styleable>
+    <!--MoneyInputEditText-->
+    <declare-styleable name="MoneyInputEditText">
+        <attr name="currency" format="string" />
+        <attr name="maxLeftNum" format="integer" />
+        <attr name="maxRightNum" format="integer" />
     </declare-styleable>
 </resources>

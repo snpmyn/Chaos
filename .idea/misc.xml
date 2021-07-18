@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.39427083333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.36770833333333336" />
+        <entry key="app/src/main/res/layout/activity_money.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_widget.xml" value="0.27219202898550726" />
+        <entry key="widget/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.3225" />
+        <entry key="widget/src/main/res/drawable/ic_backspace_gray_24dp.xml" value="0.3225" />
+        <entry key="widget/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.3225" />
+        <entry key="widget/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.3225" />
+        <entry key="widget/src/main/res/drawable/purple_500_dot.xml" value="0.3225" />
+        <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
+      </map>
+    </option>
+  </component>
   <component name="EntryPointsManager">
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="butterknife.OnClick" />
@@ -10,5 +26,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36770833333333336" />
+      </ProjectState>
+    </option>
   </component>
 </project>

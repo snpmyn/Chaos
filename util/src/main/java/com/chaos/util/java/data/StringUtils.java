@@ -2,6 +2,9 @@ package com.chaos.util.java.data;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,8 +15,6 @@ import java.text.NumberFormat;
 
 import value.UtilMagic;
 
-import static android.text.TextUtils.isEmpty;
-
 /**
  * Created on 2018/3/30.
  *
@@ -22,6 +23,61 @@ import static android.text.TextUtils.isEmpty;
  */
 public class StringUtils {
     private static final char[] DIGITS = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+    /**
+     * 空
+     *
+     * @param content 内容
+     * @return 空否
+     */
+    public static boolean isEmpty(String content) {
+        return (null == content) || content.isEmpty();
+    }
+
+    /**
+     * 空或 null
+     *
+     * @param content 内容
+     * @return 空或 null 否
+     */
+    public static boolean isEmptyOrNull(String content) {
+        return isEmpty(content) || TextUtils.equals("null", content.toLowerCase());
+    }
+
+    /**
+     * 截取零和点
+     *
+     * @param content 内容
+     * @return 截取零和点后内容
+     */
+    @NonNull
+    public static String subZeroAndDot(String content) {
+        if (isEmpty(content)) {
+            return "";
+        }
+        if (content.indexOf(UtilMagic.STRING_DOT) > 0) {
+            // 替换 0
+            content = content.replaceAll("0+?$", "");
+            // 末位 . 去掉
+            content = content.replaceAll("[.]$", "");
+        }
+        return content;
+    }
+
+    /**
+     * 格式化
+     *
+     * @param content 内容
+     * @return 格式化后内容
+     */
+    @NonNull
+    public static String format(@NonNull String content) {
+        if (content.length() > UtilMagic.INT_FOUR) {
+            return content.replaceAll("\\d{4}(?!$)", "$0 ");
+        } else {
+            return content;
+        }
+    }
 
     /**
      * 指定部分前内容（指定内容仅一份）

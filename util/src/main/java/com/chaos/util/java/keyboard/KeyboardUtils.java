@@ -12,6 +12,8 @@ import java.util.Objects;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created on 2017/8/22.
  *
@@ -64,5 +66,14 @@ public class KeyboardUtils {
         }
         ((InputMethodManager) Objects.requireNonNull(activityUse.getSystemService(INPUT_METHOD_SERVICE), "must not be null")).
                 hideSoftInputFromWindow(activityUse.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    /**
+     * 隐藏下划线
+     *
+     * @param editText 软键盘
+     */
+    public static void hideUnderline(@NonNull EditText editText) {
+        editText.setBackground(null);
     }
 }

@@ -1,5 +1,6 @@
 package widget;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 
 import com.chaos.util.java.intent.IntentJump;
@@ -8,6 +9,7 @@ import com.example.chaos.R;
 import base.BaseActivity;
 import butterknife.OnClick;
 import widget.dialog.BocDialogActivity;
+import widget.money.MoneyActivity;
 
 /**
  * @desc: 组件页
@@ -57,10 +59,18 @@ public class WidgetActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.widgetActivityBtnBocDialog})
+    @SuppressLint("NonConstantResourceId")
+    @OnClick({R.id.widgetActivityBtnBocDialog, R.id.widgetActivityBtnMoney})
     public void onViewClicked(View view) {
-        if (view.getId() == R.id.widgetActivityBtnBocDialog) {
-            IntentJump.getInstance().jump(null, this, false, BocDialogActivity.class);
+        switch (view.getId()) {
+            case R.id.widgetActivityBtnBocDialog:
+                IntentJump.getInstance().jump(null, this, false, BocDialogActivity.class);
+                break;
+            case R.id.widgetActivityBtnMoney:
+                IntentJump.getInstance().jump(null, this, false, MoneyActivity.class);
+                break;
+            default:
+                break;
         }
     }
 }

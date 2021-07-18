@@ -51,11 +51,11 @@ dependencies {
     /*timber*/
     api 'com.tencent:mmkv-static:1.2.10'
     /*MMKV*/
-    api 'com.getkeepsafe.relinker:relinker:1.4.3'
+    api 'com.getkeepsafe.relinker:relinker:1.4.4'
     /*ReLinker*/
     api 'org.apache.commons:commons-lang3:3.12.0'
     /*BasicThreadFactory*/
-    api 'com.squareup.okio:okio:3.0.0-alpha.6'
+    api 'com.squareup.okio:okio:3.0.0-alpha.8'
     /*okio*/
     api 'org.greenrobot:eventbus:3.2.0'
     /*EventBus*/

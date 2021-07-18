@@ -14,6 +14,7 @@ public class WidgetMagic {
     public static final int INT_EIGHT = 8;
     public static final int INT_TEN = 10;
     public static final int INT_TWELVE = 12;
+    public static final int INT_ONE_HUNDRED_FIFTY = 360;
     public static final int INT_THREE_HUNDRED_SIXTY = 360;
     public static final int INT_FIVE_HUNDRED = 500;
     public static final int INT_ONE_THOUSAND_SIX_HUNDRED_SIXTY_FOUR = 1664;
@@ -23,6 +24,10 @@ public class WidgetMagic {
     public static final int INT_ZERO_X_FOUR_D_FOUR_D_ZERO_ZERO_TWO_A = 0x4D4D002A;
     public static final int INT_ZERO_X_FOUR_NINE_FOUR_NINE_TWO_A_ZERO_ZERO = 0x49492A00;
     /**
+     * char
+     */
+    public static final char CHAR_SMALL_DOT = '.';
+    /**
      * float
      */
     public static final float FLOAT_ZERO_DOT_FIVE = 0.5f;
@@ -31,5 +36,7 @@ public class WidgetMagic {
     /**
      * String
      */
+    public static final String STRING_DOT = ".";
+    public static final String STRING_ZERO = "0";
     public static final String STRING_OBJECTS_REQUIRE_NON_NULL_MESSAGE = "must not be null";
 }

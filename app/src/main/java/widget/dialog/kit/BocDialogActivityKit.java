@@ -138,8 +138,8 @@ public class BocDialogActivityKit {
     public void commonLoadingDialog(AppCompatActivity appCompatActivity) {
         CommonLoadingDialog commonLoadingDialog = new CommonLoadingDialog.Builder(appCompatActivity, 0)
                 .setHint(appCompatActivity.getString(R.string.loading))
-                .setOnBackPressedListener(() -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.myapplication") + "||" +
-                        SignUtils.getSignSha256Hex(appCompatActivity, "com.example.myapplication"))).build();
+                .setOnBackPressedListener(() -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+                        SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"))).build();
         commonLoadingDialog.setCancelable(false);
         commonLoadingDialog.show();
     }

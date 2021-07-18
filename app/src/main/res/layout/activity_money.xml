@@ -7,23 +7,21 @@
     android:background="@color/pageBackground"
     android:clipToPadding="false"
     android:padding="@dimen/dp_12"
-    tools:context="widget.WidgetActivity">
+    tools:context="widget.money.MoneyActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnBocDialog"
+    <com.chaos.widget.keyboard.MoneyInputEditText
+        android:id="@+id/preAuthorizationHomeFragmentMiet"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/bocDialog"
+        android:layout_height="?actionBarSize"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="@string/moneyHint"
+        android:inputType="number"
+        android:textColor="@color/fontInput"
+        android:textColorHint="@color/fontHint"
+        android:textSize="@dimen/sp_16"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnMoney"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/money"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnBocDialog" />
 </androidx.constraintlayout.widget.ConstraintLayout>
