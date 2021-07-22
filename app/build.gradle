@@ -28,15 +28,15 @@ android {
             keyAlias = 'androiddebugkey'
         }
     }
-    compileSdkVersion 30
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.chaos"
-        minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
@@ -61,8 +61,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
+        targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
 }
 
