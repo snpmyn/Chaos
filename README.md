@@ -55,7 +55,7 @@ implementation 'com.willowtreeapps.spruce:spruce-android:xxx'
 #### banner
 ```
 implementation project(path: ':basic')
-implementation 'com.youth.banner:banner:xxx'
+api 'com.youth.banner:banner:xxx'
 ```
 #### matisse
 ```
