@@ -70,16 +70,16 @@ dependencies {
     implementation project(path: ':util')
     /*util*/
     // 核心模块
-    debugImplementation 'io.github.didi.dokit:dokitx:3.4.2.1'
+    debugImplementation 'io.github.didi.dokit:dokitx:3.4.3.1'
     // 文件同步模块
-    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.4.2.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.4.3.1'
     // 一机多控模块
-    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.4.2.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.4.3.1'
     // weex 模块
-    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.4.2.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.4.3.1'
     // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class
-    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.4.2.1'
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.4.3.1'
     /*DoKit*/
 }

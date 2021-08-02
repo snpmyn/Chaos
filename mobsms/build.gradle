@@ -11,7 +11,7 @@ MobSDK {
     // Mob 官方申请 AppKey 所对应 AppSecret
     appSecret rootProject.ext.mobsms["appSecret"]
     // 设 MobSDK 为隐私协议适配版
-    mmccs rootProject.ext.mobsms["mmccs"]
+    spEdition rootProject.ext.mobsms["spEdition"]
     // 注册 SMSSDK 相关信息
     SMSSDK {
         // 默用 GUI（不用下关）
