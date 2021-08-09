@@ -42,7 +42,7 @@ dependencies {
 
     implementation project(path: ':util')
     /*util*/
-    implementation 'cn.jiguang.sdk:jcore:2.9.0'
+    implementation 'cn.jiguang.sdk:jcore:2.9.2'
     /*JCore*/
     api 'cn.jiguang.sdk:jpush:4.2.8'
     /*极光推送*/
