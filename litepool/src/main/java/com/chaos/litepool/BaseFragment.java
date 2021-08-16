@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.chaos.janalytics.kit.JanalyticsKit;
 import com.chaos.util.java.datetime.CurrentTimeMillisClock;
 import com.chaos.util.java.toast.ToastKit;
 
@@ -80,7 +79,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportVisible() {
         visibleToUser();
-        JanalyticsKit.onPageStart(getContext(), this.getClass().getCanonicalName());
     }
 
     /**
@@ -129,7 +127,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportInvisible() {
         invisibleToUser();
-        JanalyticsKit.onPageEnd(getContext(), this.getClass().getCanonicalName());
     }
 
     /**

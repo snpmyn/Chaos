@@ -7,8 +7,6 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
-import com.chaos.janalytics.kit.JanalyticsKit;
-import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.keyboard.KeyboardUtils;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
@@ -266,20 +264,6 @@ public abstract class BaseActivity extends SupportActivity {
             }
         }
         return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        JpushKit.onResume(this);
-        JanalyticsKit.onPageStart(this, this.getClass().getCanonicalName());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JpushKit.onPause(this);
-        JanalyticsKit.onPageEnd(this, this.getClass().getCanonicalName());
     }
 }
 
