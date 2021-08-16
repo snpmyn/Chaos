@@ -20,6 +20,7 @@
 | doraemonkit | DoraemonKit | 无 |
 | tbs | 腾讯浏览服务 | 无 |
 | pool | 水池 | 无 |
+| litepool | 轻量水池 | 无 |
 ## 依赖
 #### basic
 ```
@@ -132,6 +133,22 @@ api project(path: ':litepal')
 api project(path: ':fragmentation')
 api project(path: ':bugly')
 api project(path: ':mobsms')
+api project(path: ':widget')
+api project(path: ':util')
+```
+#### litepool
+```
+api project(path: ':bmob')
+api project(path: ':doraemonkit')
+api project(path: ':banner')
+api project(path: ':jpush')
+api project(path: ':matisse')
+api project(path: ':janalytics')
+api project(path: ':ucrop')
+api project(path: ':tbs')
+api project(path: ':litepal')
+api project(path: ':fragmentation')
+api project(path: ':bugly')
 api project(path: ':widget')
 api project(path: ':util')
 ```
