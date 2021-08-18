@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -647,39 +648,36 @@ public class StatusBarUtils {
      * @param activity 活动
      * @param isDark   暗否
      */
-    private static void statusBarTextColorDark(Activity activity, boolean isDark) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            View decorView = activity.getWindow().getDecorView();
-            int vis = decorView.getSystemUiVisibility();
-            if (isDark) {
-                vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            } else {
-                vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            }
-            decorView.setSystemUiVisibility(vis);
+    private static void statusBarTextColorDark(@NonNull Activity activity, boolean isDark) {
+        View decorView = activity.getWindow().getDecorView();
+        int vis = decorView.getSystemUiVisibility();
+        if (isDark) {
+            vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         } else {
-            setMiUiStatusBarDarkMode(activity, isDark);
-            setMeiZuStatusBarDarkIcon(activity, isDark);
+            vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         }
+        decorView.setSystemUiVisibility(vis);
     }
 
     /**
      * 状态栏亮
      *
-     * @param activity 活动
+     * @param activity   活动
+     * @param colorResId 颜色资源 ID
      */
-    public static void statusBarLight(Activity activity) {
-        StatusBarUtils.setColorNoTranslucent(activity, ContextCompat.getColor(activity, R.color.pageBackground));
+    public static void statusBarLight(Activity activity, int colorResId) {
+        StatusBarUtils.setColorNoTranslucent(activity, ContextCompat.getColor(activity, (colorResId == 0) ? R.color.white : colorResId));
         StatusBarUtils.statusBarTextColorDark(activity, true);
     }
 
     /**
      * 状态栏暗
      *
-     * @param activity 活动
+     * @param activity   活动
+     * @param colorResId 颜色资源 ID
      */
-    public static void statusBarDark(Activity activity) {
-        StatusBarUtils.setColorNoTranslucent(activity, ContextCompat.getColor(activity, R.color.purple_500));
+    public static void statusBarDark(Activity activity, int colorResId) {
+        StatusBarUtils.setColorNoTranslucent(activity, ContextCompat.getColor(activity, (colorResId == 0) ? R.color.purple_500 : colorResId));
         StatusBarUtils.statusBarTextColorDark(activity, false);
     }
 
@@ -738,8 +736,12 @@ public class StatusBarUtils {
     }
 
     private static boolean newCheckDeviceHasNavigationBar(@NotNull Activity activity) {
-        WindowManager windowManager = activity.getWindowManager();
-        Display display = windowManager.getDefaultDisplay();
+        Display display;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            display = activity.getDisplay();
+        } else {
+            display = activity.getWindowManager().getDefaultDisplay();
+        }
         DisplayMetrics realDisplayMetrics = new DisplayMetrics();
         display.getRealMetrics(realDisplayMetrics);
         int realHeight = realDisplayMetrics.heightPixels;
