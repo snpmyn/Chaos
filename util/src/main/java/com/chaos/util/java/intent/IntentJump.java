@@ -52,14 +52,18 @@ public class IntentJump {
 
     /**
      * 携动画跳转
+     * <p>
+     * 默淡入淡出
      *
      * @param withValueIntent     携值意图
      * @param activity            活动
      * @param finish              是否关闭
      * @param targetActivityClass 目标活动
+     * @param enterAnim           进动画
+     * @param exitAnim            出动画
      */
-    public void jumpWithAnimation(Intent withValueIntent, Activity activity, boolean finish, Class<?> targetActivityClass) {
+    public void jumpWithAnimation(Intent withValueIntent, Activity activity, boolean finish, Class<?> targetActivityClass, int enterAnim, int exitAnim) {
         jump(withValueIntent, activity, finish, targetActivityClass);
-        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        activity.overridePendingTransition((enterAnim == 0) ? android.R.anim.fade_in : enterAnim, (exitAnim == 0) ? android.R.anim.fade_out : exitAnim);
     }
 }

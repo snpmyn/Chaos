@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
 }
+
 // 流量监控及其它 AOP 功能（可选）
 apply plugin: 'com.didi.dokit'
 
@@ -11,8 +12,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode rootProject.ext.android["versionCode"]
-        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

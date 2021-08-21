@@ -4,9 +4,6 @@
     package="com.example.chaos">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
 
     <application
         android:name="application.App"
@@ -23,7 +20,8 @@
         tools:targetApi="n">
         <activity
             android:name="widget.money.MoneyActivity"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.dialog.BocDialogActivity"
             android:screenOrientation="portrait"

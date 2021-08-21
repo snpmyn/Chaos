@@ -45,7 +45,7 @@ public class StatusBarUtils {
     private static final int FAKE_STATUS_BAR_VIEW_ID = 1000;
     private static final int FAKE_TRANSLUCENT_VIEW_ID = 1001;
     private static final int TAG_KEY_HAVE_SET_OFFSET = -123;
-    private static final Set<String> NO_NAVIGATION_BAR_MODEL_SET = new HashSet<>();
+    private static final Set<String> NO_NAVIGATION_BAR_MODEL_SET = new HashSet<>(4);
 
     static {
         NO_NAVIGATION_BAR_MODEL_SET.add("Nexus 4");
@@ -661,6 +661,8 @@ public class StatusBarUtils {
 
     /**
      * 状态栏亮
+     * <p>
+     * 默 white
      *
      * @param activity   活动
      * @param colorResId 颜色资源 ID
@@ -672,6 +674,8 @@ public class StatusBarUtils {
 
     /**
      * 状态栏暗
+     * <p>
+     * 默 purple_500
      *
      * @param activity   活动
      * @param colorResId 颜色资源 ID

@@ -9,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode rootProject.ext.android["versionCode"]
-        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -44,6 +42,6 @@ dependencies {
     /*util*/
     implementation 'cn.jiguang.sdk:jcore:2.9.2'
     /*JCore*/
-    api 'cn.jiguang.sdk:jpush:4.2.8'
+    api 'cn.jiguang.sdk:jpush:4.3.0'
     /*极光推送*/
 }
