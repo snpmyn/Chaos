@@ -3,10 +3,10 @@ package com.chaos.widget.upgrade.kit;
 import android.content.Context;
 import android.os.Build;
 import android.text.Html;
-import android.text.TextUtils;
 
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.app.AppManager;
+import com.chaos.util.java.data.StringUtils;
 import com.chaos.util.java.storage.mmkv.MmkvKit;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.R;
@@ -69,7 +69,7 @@ public class UpgradeKit {
         // 场景一：无不再提示
         // 场景二：有不再提示且不再提示版不等当前服务器最新版
         // 场景三：重启
-        if (TextUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode) || restart) {
+        if (StringUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode) || restart) {
             judge(applicationId, path, upgradeBean, upgradeListener, noUpgradeHint);
         }
     }
@@ -196,7 +196,7 @@ public class UpgradeKit {
      * 隐下载进度框
      */
     private void dismissDownloadProgressDialog() {
-        if ((null != downloadProgressDialog) && downloadProgressDialog.isShowing() && (null != ActivitySuperviseManager.getTopActivityInstance())) {
+        if ((null != downloadProgressDialog) && downloadProgressDialog.isShowing() && (null != ActivitySuperviseManager.getInstance().getTopActivityInstance())) {
             downloadProgressDialog.dismiss();
         }
     }

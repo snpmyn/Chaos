@@ -4,15 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.39427083333333335" />
+        <entry key="../../../.gradle/caches/transforms-2/files-2.1/8ca2dd6b236acc108ba9473f8964608f/material-1.3.0/res/layout/test_toolbar.xml" value="0.25407608695652173" />
+        <entry key="app/src/main/res/drawable/gray_solid_r6.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/drawable/page_background_solid_r6.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/drawable/purple_500_solid_r8.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36770833333333336" />
         <entry key="app/src/main/res/layout/activity_money.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.16523713420787084" />
         <entry key="app/src/main/res/layout/activity_widget.xml" value="0.27219202898550726" />
         <entry key="widget/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.3225" />
         <entry key="widget/src/main/res/drawable/ic_backspace_gray_24dp.xml" value="0.3225" />
         <entry key="widget/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.3225" />
         <entry key="widget/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.3225" />
         <entry key="widget/src/main/res/drawable/purple_500_dot.xml" value="0.3225" />
+        <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
+        <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/pickerview_options.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/pickerview_time.xml" value="0.2817028985507246" />
       </map>
     </option>
   </component>

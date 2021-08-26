@@ -103,7 +103,7 @@ public class CrashManagerInitConfigure implements Thread.UncaughtExceptionHandle
         } else {
             SystemClock.sleep(200);
             // 退应用
-            ActivitySuperviseManager.appExit();
+            ActivitySuperviseManager.getInstance().appExit();
             // 杀已崩进程
             android.os.Process.killProcess(android.os.Process.myPid());
         }
@@ -181,8 +181,7 @@ public class CrashManagerInitConfigure implements Thread.UncaughtExceptionHandle
         String result = writer.toString();
         stringBuilder.append(result);
         try {
-            String time = dateFormat.format(new Date());
-            String fileName = "crash" + time + ".log";
+            String fileName = ("crash" + dateFormat.format(new Date()) + ".log");
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 FileOutputStream fileOutputStream = new FileOutputStream(path + fileName);
                 fileOutputStream.write(stringBuilder.toString().getBytes());

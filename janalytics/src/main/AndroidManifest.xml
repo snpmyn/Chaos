@@ -18,6 +18,7 @@
         <!--动态圈选（可选）必要 Activity-->
         <activity
             android:name="cn.jiguang.analytics.android.view.BuryWebActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
     </application>

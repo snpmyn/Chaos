@@ -21,6 +21,7 @@ public class UtilMagic {
     public static final int INT_NINETEEN = 19;
     public static final int INT_FORTY = 40;
     public static final int INT_FIFTY = 50;
+    public static final int INT_ONE_HUNDRED_SIXTY = 160;
     public static final int INT_TWO_HUNDRED = 200;
     /**
      * char

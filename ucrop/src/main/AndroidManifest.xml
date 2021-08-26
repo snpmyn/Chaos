@@ -5,6 +5,7 @@
     <application>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>

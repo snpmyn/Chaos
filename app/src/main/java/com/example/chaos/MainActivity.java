@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.mainActivityMb})
-    public void onViewClicked(View view) {
+    public void onViewClicked(@NonNull View view) {
         if (view.getId() == R.id.mainActivityMb) {
             mainActivityKit.display(this, mainActivityMlv, mainActivityRv, mainActivityMb);
         }

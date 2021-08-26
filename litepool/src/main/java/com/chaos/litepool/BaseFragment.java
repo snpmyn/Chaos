@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.chaos.util.java.datetime.CurrentTimeMillisClock;
-import com.chaos.util.java.toast.ToastKit;
+import com.chaos.util.java.activity.ActivitySuperviseManager;
 
 import support.SupportFragment;
 
@@ -30,14 +29,6 @@ public abstract class BaseFragment extends SupportFragment {
      * 第一 Fragment 否
      */
     private boolean areFirstFragment;
-    /**
-     * 等时
-     */
-    private static final long WAIT_TIME = 2000L;
-    /**
-     * 双击退出
-     */
-    private long touchDownTime = 0L;
     /**
      * OnBackToFirstListener
      */
@@ -202,24 +193,12 @@ public abstract class BaseFragment extends SupportFragment {
             popChild();
         } else if (areFirstFragment) {
             // 第一 Fragment 时退
-            appExit();
+            ActivitySuperviseManager.getInstance().twoClickToExit(getString(R.string.exitAppHint));
         } else {
             // 非第一则回第一 Fragment
             onBackToFirstListener.onBackToFirstFragment();
         }
         return true;
-    }
-
-    /**
-     * APP 退出
-     */
-    private void appExit() {
-        if ((CurrentTimeMillisClock.getInstance().now() - touchDownTime) < WAIT_TIME) {
-            fragmentationSupportActivity.finish();
-        } else {
-            touchDownTime = CurrentTimeMillisClock.getInstance().now();
-            ToastKit.showShort(getString(R.string.exitAppHint));
-        }
     }
 
     public interface OnBackToFirstListener {

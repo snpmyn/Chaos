@@ -39,6 +39,7 @@
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/MyDialogStyle"
             tools:node="replace">
             <intent-filter>
@@ -52,6 +53,7 @@
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             tools:node="replace">
             <intent-filter>

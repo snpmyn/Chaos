@@ -3,6 +3,8 @@ package widget.dialog;
 import android.annotation.SuppressLint;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.example.chaos.R;
 
 import base.BaseActivity;
@@ -66,7 +68,7 @@ public class BocDialogActivity extends BaseActivity {
             R.id.bocDialogActivityBtnRoundCornerMessageDialogWithTitle,
             R.id.bocDialogActivityBtnCommonLoadingDialog,
             R.id.bocDialogActivityBtnCanCancelLoadingDialog})
-    public void onViewClicked(View view) {
+    public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 直角消息对话框（无标题）
             case R.id.bocDialogActivityBtnRightAngleMessageDialogWithNoTitle:

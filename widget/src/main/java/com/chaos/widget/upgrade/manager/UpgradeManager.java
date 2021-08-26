@@ -1,5 +1,6 @@
 package com.chaos.widget.upgrade.manager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
@@ -87,6 +88,7 @@ public class UpgradeManager {
      * @param applicationId 应用 ID
      * @param apkFile       APK 文件
      */
+    @SuppressLint("QueryPermissionsNeeded")
     public static void installApk(String applicationId, File apkFile) {
         Intent installApkIntent = new Intent();
         installApkIntent.setAction(Intent.ACTION_VIEW);
@@ -134,10 +136,10 @@ public class UpgradeManager {
         }
         FileUtils.deleteFile(apkDir);
         // 内部存储删
-        /*File apkDir = StorageManager.getApkDir();
-        if (apkDir == null || apkDir.listFiles() == null || apkDir.listFiles().length == 0) {
-            return;
-        }
-        FileUtils.deleteFile(apkDir);*/
+        /*File apkDir = StorageManager.getApkDir();*/
+        /*if ( (null==apkDir) ||  (null==apkDir.listFiles()) || (apkDir.listFiles().length == 0)) {*/
+        /*return;*/
+        /*}*/
+        /*FileUtils.deleteFile(apkDir);*/
     }
 }

@@ -20,6 +20,9 @@ import timber.log.Timber;
 
 import static android.content.Context.ACTIVITY_SERVICE;
 
+import com.chaos.util.java.datetime.CurrentTimeMillisClock;
+import com.chaos.util.java.toast.ToastKit;
+
 /**
  * Created on 2017/9/19.
  *
@@ -32,14 +35,28 @@ import static android.content.Context.ACTIVITY_SERVICE;
  * 基类之 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 推当前 Activity 至 Activity 管理容器，需时遍历容器并 finish 所有 Activity。
  */
 public class ActivitySuperviseManager {
-    private static final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
+    private static ActivitySuperviseManager instance;
+    private final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
+    private static final long WAIT_TIME = 2000L;
+    private long touchDownTime = 0L;
+
+    public static ActivitySuperviseManager getInstance() {
+        if (null == instance) {
+            synchronized (ActivitySuperviseManager.class) {
+                if (null == instance) {
+                    instance = new ActivitySuperviseManager();
+                }
+            }
+        }
+        return instance;
+    }
 
     /**
      * 推 Activity 至堆栈
      *
      * @param activity Activity
      */
-    public static void pushActivity(Activity activity) {
+    public void pushActivity(Activity activity) {
         ACTIVITIES.add(activity);
         Timber.d("推入：%s", activity.getClass().getSimpleName());
         Timber.d("活动数：%s", ACTIVITIES.size());
@@ -53,7 +70,7 @@ public class ActivitySuperviseManager {
      *
      * @param activity Activity
      */
-    public static void removeActivity(Activity activity) {
+    public void removeActivity(Activity activity) {
         ACTIVITIES.remove(activity);
         Timber.d("去除：%s", activity.getClass().getSimpleName());
         Timber.d("活动数：%s", ACTIVITIES.size());
@@ -73,11 +90,11 @@ public class ActivitySuperviseManager {
      * @param context 上下文
      * @return 当前 Activity 名
      */
-    public static String getCurrentRunningActivityName(@NotNull Context context) {
+    public String getCurrentRunningActivityName(@NotNull Context context) {
         ActivityManager activityManager = (ActivityManager) context.getApplicationContext().getSystemService(ACTIVITY_SERVICE);
-        ActivityManager.RunningTaskInfo runningTaskInfo = activityManager != null ? activityManager.getRunningTasks(1).get(0) : null;
+        ActivityManager.RunningTaskInfo runningTaskInfo = ((null != activityManager) ? activityManager.getRunningTasks(1).get(0) : null);
         String currentRunningActivityName;
-        if (null != runningTaskInfo && null != runningTaskInfo.topActivity) {
+        if ((null != runningTaskInfo) && (null != runningTaskInfo.topActivity)) {
             currentRunningActivityName = runningTaskInfo.topActivity.getShortClassName();
         } else {
             currentRunningActivityName = null;
@@ -91,7 +108,7 @@ public class ActivitySuperviseManager {
      *
      * @return 栈顶 Activity 实例
      */
-    public static @Nullable Activity getTopActivityInstance() {
+    public @Nullable Activity getTopActivityInstance() {
         Activity topActivityInstance;
         synchronized (ACTIVITIES) {
             final int size = (ACTIVITIES.size() - 1);
@@ -108,7 +125,7 @@ public class ActivitySuperviseManager {
      *
      * @param activity Activity
      */
-    private static void finishActivity(Activity activity) {
+    private void finishActivity(Activity activity) {
         if (ACTIVITIES.isEmpty()) {
             return;
         }
@@ -124,7 +141,7 @@ public class ActivitySuperviseManager {
      *
      * @param cls Class<?>
      */
-    public static void finishActivity(Class<?> cls) {
+    public void finishActivity(Class<?> cls) {
         if (ACTIVITIES.isEmpty()) {
             return;
         }
@@ -138,7 +155,7 @@ public class ActivitySuperviseManager {
     /**
      * 结束所有 Activity
      */
-    private static void finishAllActivity() {
+    private void finishAllActivity() {
         for (Activity activity : ACTIVITIES) {
             activity.finish();
         }
@@ -146,9 +163,23 @@ public class ActivitySuperviseManager {
     }
 
     /**
+     * 双击退出
+     *
+     * @param exitHint 退出提示
+     */
+    public void twoClickToExit(String exitHint) {
+        if ((CurrentTimeMillisClock.getInstance().now() - touchDownTime) < WAIT_TIME) {
+            appExit();
+        } else {
+            touchDownTime = CurrentTimeMillisClock.getInstance().now();
+            ToastKit.showShort(exitHint);
+        }
+    }
+
+    /**
      * 退应用
      */
-    public static void appExit() {
+    public void appExit() {
         try {
             finishAllActivity();
         } catch (Exception e) {
