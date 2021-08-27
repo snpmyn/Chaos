@@ -3,11 +3,12 @@ package com.chaos.litepool;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
+import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
+import com.chaos.util.java.myview.ViewUtils;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;
@@ -134,42 +135,6 @@ public abstract class BaseActivity extends SupportActivity {
     }
 
     /**
-     * 清 EditText 焦点
-     *
-     * @param v   焦点所在 View
-     * @param ids 输入框
-     */
-    protected void clearViewFocus(View v, int... ids) {
-        if ((null != v) && (null != ids) && (ids.length > 0)) {
-            for (int id : ids) {
-                if (v.getId() == id) {
-                    v.clearFocus();
-                    break;
-                }
-            }
-        }
-    }
-
-    /**
-     * 隐键盘
-     *
-     * @param v   焦点所在 View
-     * @param ids 输入框
-     * @return true 表焦点在 EditText
-     */
-    protected boolean isFocusEditText(View v, int... ids) {
-        if (v instanceof EditText) {
-            EditText editText = (EditText) v;
-            for (int id : ids) {
-                if (editText.getId() == id) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
      * 传 EditText 的 ID
      * 没传入 EditText 不处理
      *
@@ -190,55 +155,6 @@ public abstract class BaseActivity extends SupportActivity {
     }
 
     /**
-     * 触摸指定 View 否（过滤控件）
-     *
-     * @param views 视图
-     * @param ev    手势事件
-     * @return boolean
-     */
-    protected boolean isTouchView(View[] views, MotionEvent ev) {
-        if ((null == views) || (views.length == 0)) {
-            return false;
-        }
-        int[] location = new int[2];
-        for (View view : views) {
-            view.getLocationOnScreen(location);
-            int x = location[0];
-            int y = location[1];
-            boolean flag = ((ev.getX() > x) && (ev.getX() < (x + view.getWidth())) && (ev.getY() > y && ev.getY() < (y + view.getHeight())));
-            if (flag) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 触摸指定 View 否（过滤控件）
-     *
-     * @param ids 控件数组
-     * @param ev  手势事件
-     * @return boolean
-     */
-    protected boolean isTouchView(int @NotNull [] ids, MotionEvent ev) {
-        int[] location = new int[2];
-        for (int id : ids) {
-            View view = findViewById(id);
-            if (null == view) {
-                continue;
-            }
-            view.getLocationOnScreen(location);
-            int x = location[0];
-            int y = location[1];
-            boolean flag = ((ev.getX() > x) && (ev.getX() < (x + view.getWidth())) && (ev.getY() > y && ev.getY() < (y + view.getHeight())));
-            if (flag) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Note: return supportActivityDelegate.dispatchTouchEvent(ev) || super.dispatchTouchEvent(ev);
      *
      * @param ev 手势事件
@@ -247,20 +163,20 @@ public abstract class BaseActivity extends SupportActivity {
     @Override
     public boolean dispatchTouchEvent(@NotNull MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            if (isTouchView(filterViewByIds(), ev)) {
+            if (ViewUtils.isTouchView(filterViewByIds(), ev)) {
                 return super.dispatchTouchEvent(ev);
             }
             if ((null == hideSoftByEditViewIds()) || (hideSoftByEditViewIds().length == 0)) {
                 return super.dispatchTouchEvent(ev);
             }
             View view = getCurrentFocus();
-            if (isFocusEditText(view, hideSoftByEditViewIds())) {
-                if (isTouchView(hideSoftByEditViewIds(), ev)) {
+            if (EditTextUtils.isFocusEditText(view, hideSoftByEditViewIds())) {
+                if (ViewUtils.isTouchView(this, hideSoftByEditViewIds(), ev)) {
                     return super.dispatchTouchEvent(ev);
                 }
                 // 隐键盘
                 KeyboardUtils.closeKeyboardInActivity(this);
-                clearViewFocus(view, hideSoftByEditViewIds());
+                EditTextUtils.clearViewFocus(view, hideSoftByEditViewIds());
             }
         }
         return super.dispatchTouchEvent(ev);
