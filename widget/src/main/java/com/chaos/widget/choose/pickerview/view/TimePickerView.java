@@ -95,7 +95,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
                 }
             });
         }
-        wheelTime.setLunarMode(pickerOptions.areLunarCalendar);
+        wheelTime.setAreLunarMode(pickerOptions.areLunarCalendar);
         if ((pickerOptions.startYear != 0) && (pickerOptions.endYear != 0) && (pickerOptions.startYear <= pickerOptions.endYear)) {
             setRange();
         }
@@ -135,7 +135,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         wheelTime.setTextColorOut(ContextCompat.getColor(context, R.color.fontHint));
         // 自定
         wheelTime.setTextColorCenter(ContextCompat.getColor(context, R.color.fontInput));
-        wheelTime.areCenterLabel(pickerOptions.areCenterLabel);
+        wheelTime.setAreCenterLabel(pickerOptions.areCenterLabel);
     }
 
     /**
@@ -234,7 +234,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         }
     }
 
-    public boolean areLunarCalendar() {
+    public boolean setAreLunarCalendar() {
         return wheelTime.areLunarMode();
     }
 
@@ -257,7 +257,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
             hour = calendar.get(Calendar.HOUR_OF_DAY);
             minute = calendar.get(Calendar.MINUTE);
             second = calendar.get(Calendar.SECOND);
-            wheelTime.setLunarMode(lunar);
+            wheelTime.setAreLunarMode(lunar);
             wheelTime.setLabels(pickerOptions.labelYear, pickerOptions.labelMonth, pickerOptions.labelDay, pickerOptions.labelHour, pickerOptions.labelMinute, pickerOptions.labelSecond);
             wheelTime.setPicker(year, month, day, hour, minute, second);
         } catch (ParseException e) {

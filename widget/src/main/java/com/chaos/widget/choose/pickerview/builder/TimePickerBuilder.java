@@ -64,7 +64,7 @@ public class TimePickerBuilder {
         return this;
     }
 
-    public TimePickerBuilder areDialog(boolean areDialog) {
+    public TimePickerBuilder setAreDialog(boolean areDialog) {
         pickerOptions.areDialog = areDialog;
         return this;
     }
@@ -230,7 +230,7 @@ public class TimePickerBuilder {
         return this;
     }
 
-    public TimePickerBuilder areCyclic(boolean cyclic) {
+    public TimePickerBuilder setCyclic(boolean cyclic) {
         pickerOptions.cyclic = cyclic;
         return this;
     }
@@ -245,13 +245,13 @@ public class TimePickerBuilder {
         return this;
     }
 
-    public TimePickerBuilder setLabel(String labelYear, String labelMonth, String labelDay, String labelHours, String labelMinutes, String labelSeconds) {
+    public TimePickerBuilder setLabel(String labelYear, String labelMonth, String labelDay, String labelHour, String labelMinute, String labelSecond) {
         pickerOptions.labelYear = labelYear;
         pickerOptions.labelMonth = labelMonth;
         pickerOptions.labelDay = labelDay;
-        pickerOptions.labelHour = labelHours;
-        pickerOptions.labelMinute = labelMinutes;
-        pickerOptions.labelSecond = labelSeconds;
+        pickerOptions.labelHour = labelHour;
+        pickerOptions.labelMinute = labelMinute;
+        pickerOptions.labelSecond = labelSecond;
         return this;
     }
 
@@ -276,7 +276,7 @@ public class TimePickerBuilder {
         return this;
     }
 
-    public TimePickerBuilder areCenterLabel(boolean areCenterLabel) {
+    public TimePickerBuilder setAreCenterLabel(boolean areCenterLabel) {
         pickerOptions.areCenterLabel = areCenterLabel;
         return this;
     }

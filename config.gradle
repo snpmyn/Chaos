@@ -13,19 +13,19 @@ ext {
     ]
     jpush = [
             // JPush 注册包名对应 AppKey
-            jpushAppKey : "00067aa741beb793e0ddc000",
+            jpushAppKey : "00067aa741beb793e0ddcxxx",
             // 暂默值即可
             jpushChannel: "developer-default",
     ]
     bugly = [
-            appId : '00062df000',
-            appKey: '00039694-ce7d-4857-903f-e6112afc1000',
+            appId : '00062dfxxx',
+            appKey: '00039694-ce7d-4857-903f-e6112afc1xxx',
     ]
     mobsms = [
             // Mob 官方申请 AppKey
-            appKey    : "2cb50b4f17000",
+            appKey    : "2cb50b4f17xxx",
             // Mob 官方申请 AppKey 所对应 AppSecret
-            appSecret : "f1465c7ea52ef8edecd625a5cfd53000",
+            appSecret : "f1465c7ea52ef8edecd625a5cfd53xxx",
             // 设 MobSDK 为隐私协议适配版
             spEdition : "FP",
             // 默用 GUI（不用下关）

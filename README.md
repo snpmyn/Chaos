@@ -146,15 +146,15 @@ api project(path: ':util')
 ## 使用
 gradle(app)
 ```
-xxx
+省略
 ```
 gradle(project)
 ```
-xxx
+省略
 ```
 gradle(config)
 ``` 
-xxx
+省略
 ```
 ## TODO
 #### 持续优化

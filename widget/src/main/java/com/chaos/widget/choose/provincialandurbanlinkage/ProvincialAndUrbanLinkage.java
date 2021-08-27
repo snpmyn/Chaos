@@ -63,7 +63,7 @@ public class ProvincialAndUrbanLinkage {
             } else if (!"".equals(first)) {
                 location.location(first);
             }
-        }).areDialog(true).build();
+        }).setAreDialog(true).build();
     }
 
     /**

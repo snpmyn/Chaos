@@ -96,7 +96,7 @@ public class WheelView extends View {
      * 条目间距倍数
      */
     private float lineSpacingMultiplier = 2.0f;
-    private boolean loop;
+    private boolean areLoop;
     /**
      * 第一条线 Y 坐标
      */
@@ -211,7 +211,7 @@ public class WheelView extends View {
         this.handler = new MessageHandler(context.getMainLooper(), this);
         this.gestureDetector = new GestureDetector(context, new LoopViewGestureListener(this));
         this.gestureDetector.setIsLongpressEnabled(false);
-        this.loop = true;
+        this.areLoop = true;
         this.yTotalScroll = 0;
         this.initPosition = -1;
         initPaints();
@@ -256,7 +256,7 @@ public class WheelView extends View {
         yCenter = (ySecondLine - (itemHeight - maxTextHeight) / 2.0f - centerContentOffset);
         // 初始化所显 Item 之 position
         if (initPosition == -1) {
-            if (loop) {
+            if (areLoop) {
                 initPosition = (wheelAdapter.getItemsCount() + 1) / 2;
             } else {
                 initPosition = 0;
@@ -320,7 +320,7 @@ public class WheelView extends View {
      * @param cyclic 循环
      */
     public final void setCyclic(boolean cyclic) {
-        loop = cyclic;
+        areLoop = cyclic;
     }
 
     public final void setTypeface(Typeface font) {
@@ -388,7 +388,7 @@ public class WheelView extends View {
         } catch (ArithmeticException e) {
             Timber.e("出错了！adapter.getItemsCount() == 0，联动数据不匹配。");
         }
-        if (!loop) {
+        if (!areLoop) {
             // 不循环
             if (preCurrentIndex < 0) {
                 preCurrentIndex = 0;
@@ -415,7 +415,7 @@ public class WheelView extends View {
             // 索引值，即当前在控件中间 Item 看作数据源中间，算出相对源数据源 index 值
             int index = (preCurrentIndex - (itemsVisible / 2 - counter));
             // 判循环否，循环数据源则用相对循环 position 获对应 Item 值；非循环则超数据源范围用 "" 空白字符串填充，在界面形成空白无数据 Item 项
-            if (loop) {
+            if (areLoop) {
                 index = getLoopMappingIndex(index);
                 visible[counter] = wheelAdapter.getItem(index);
             } else if (index < 0) {
@@ -685,7 +685,7 @@ public class WheelView extends View {
                 yPrevious = event.getRawY();
                 yTotalScroll = (yTotalScroll + dy);
                 // 非循环模式边界处理
-                if (!loop) {
+                if (!areLoop) {
                     if (((yTotalScroll - itemHeight * ratio) < top) || ((yTotalScroll + itemHeight * ratio) > bottom)) {
                         // 快滑到边界，设已滑到边界标志
                         yTotalScroll -= dy;
@@ -750,7 +750,7 @@ public class WheelView extends View {
         this.label = label;
     }
 
-    public void areCenterLabel(boolean areCenterLabel) {
+    public void setAreCenterLabel(boolean areCenterLabel) {
         this.areCenterLabel = areCenterLabel;
     }
 
@@ -772,8 +772,8 @@ public class WheelView extends View {
         return iRet;
     }
 
-    public void setIsOptions(boolean options) {
-        areOptions = options;
+    public void setAreOptions(boolean areOptions) {
+        this.areOptions = areOptions;
     }
 
     public void setTextColorOut(int textColorOut) {
@@ -816,7 +816,7 @@ public class WheelView extends View {
     }
 
     public boolean areLoop() {
-        return !loop;
+        return !areLoop;
     }
 
     public float getyTotalScroll() {

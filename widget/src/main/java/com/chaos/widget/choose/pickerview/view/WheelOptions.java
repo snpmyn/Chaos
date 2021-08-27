@@ -87,9 +87,9 @@ public class WheelOptions<T> {
             wvOption3.setWheelAdapter(new ArrayWheelAdapter<>(mOptions3Items.get(0).get(0)));
         }
         wvOption3.setCurrentItem(wvOption3.getCurrentItem());
-        wvOption1.setIsOptions(true);
-        wvOption2.setIsOptions(true);
-        wvOption3.setIsOptions(true);
+        wvOption1.setAreOptions(true);
+        wvOption2.setAreOptions(true);
+        wvOption3.setAreOptions(true);
         if (null == this.mOptions2Items) {
             wvOption2.setVisibility(View.GONE);
         } else {
@@ -192,9 +192,9 @@ public class WheelOptions<T> {
             wvOption3.setWheelAdapter(new ArrayWheelAdapter<>(options3Items));
         }
         wvOption3.setCurrentItem(wvOption3.getCurrentItem());
-        wvOption1.setIsOptions(true);
-        wvOption2.setIsOptions(true);
-        wvOption3.setIsOptions(true);
+        wvOption1.setAreOptions(true);
+        wvOption2.setAreOptions(true);
+        wvOption3.setAreOptions(true);
         if (null != onOptionsSelectChangeListener) {
             wvOption1.setOnItemSelectedListener(index -> onOptionsSelectChangeListener.onOptionsSelectChanged(index, wvOption2.getCurrentItem(), wvOption3.getCurrentItem()));
         }
@@ -422,10 +422,10 @@ public class WheelOptions<T> {
      *
      * @param areCenterLabel 仅显中间选中项 Label 否
      */
-    void areCenterLabel(boolean areCenterLabel) {
-        this.wvOption1.areCenterLabel(areCenterLabel);
-        this.wvOption2.areCenterLabel(areCenterLabel);
-        this.wvOption3.areCenterLabel(areCenterLabel);
+    void setAreCenterLabel(boolean areCenterLabel) {
+        this.wvOption1.setAreCenterLabel(areCenterLabel);
+        this.wvOption2.setAreCenterLabel(areCenterLabel);
+        this.wvOption3.setAreCenterLabel(areCenterLabel);
     }
 
     void setOnOptionsSelectChangeListener(OnOptionsSelectChangeListener onOptionsSelectChangeListener) {

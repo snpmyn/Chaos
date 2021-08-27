@@ -90,7 +90,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         wheelOptions.setTextColorOut(ContextCompat.getColor(context, R.color.fontHint));
         // 自定
         wheelOptions.setTextColorCenter(ContextCompat.getColor(context, R.color.fontInput));
-        wheelOptions.areCenterLabel(pickerOptions.areCenterLabel);
+        wheelOptions.setAreCenterLabel(pickerOptions.areCenterLabel);
     }
 
     /**

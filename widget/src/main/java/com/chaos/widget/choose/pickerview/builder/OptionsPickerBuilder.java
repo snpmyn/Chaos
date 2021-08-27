@@ -55,7 +55,7 @@ public class OptionsPickerBuilder {
         return this;
     }
 
-    public OptionsPickerBuilder areDialog(boolean areDialog) {
+    public OptionsPickerBuilder setAreDialog(boolean areDialog) {
         pickerOptions.areDialog = areDialog;
         return this;
     }
@@ -233,7 +233,7 @@ public class OptionsPickerBuilder {
         return this;
     }
 
-    public OptionsPickerBuilder areCenterLabel(boolean areCenterLabel) {
+    public OptionsPickerBuilder setAreCenterLabel(boolean areCenterLabel) {
         pickerOptions.areCenterLabel = areCenterLabel;
         return this;
     }
@@ -244,7 +244,7 @@ public class OptionsPickerBuilder {
      * @param areRestoreItem true 还原 / false 保上选项
      * @return OptionsPickerBuilder
      */
-    public OptionsPickerBuilder areRestoreItem(boolean areRestoreItem) {
+    public OptionsPickerBuilder setAreRestoreItem(boolean areRestoreItem) {
         pickerOptions.areRestoreItem = areRestoreItem;
         return this;
     }

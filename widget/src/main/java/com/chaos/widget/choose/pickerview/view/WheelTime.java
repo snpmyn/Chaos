@@ -78,7 +78,7 @@ public class WheelTime {
         return areLunarCalendar;
     }
 
-    void setLunarMode(boolean areLunarCalendar) {
+    void setAreLunarMode(boolean areLunarCalendar) {
         this.areLunarCalendar = areLunarCalendar;
     }
 
@@ -851,13 +851,13 @@ public class WheelTime {
      *
      * @param areCenterLabel 仅显中间选中项 Label
      */
-    void areCenterLabel(boolean areCenterLabel) {
-        this.wvDay.areCenterLabel(areCenterLabel);
-        this.wvMonth.areCenterLabel(areCenterLabel);
-        this.wvYear.areCenterLabel(areCenterLabel);
-        this.wvHours.areCenterLabel(areCenterLabel);
-        this.wvMinutes.areCenterLabel(areCenterLabel);
-        this.wvSeconds.areCenterLabel(areCenterLabel);
+    void setAreCenterLabel(boolean areCenterLabel) {
+        this.wvDay.setAreCenterLabel(areCenterLabel);
+        this.wvMonth.setAreCenterLabel(areCenterLabel);
+        this.wvYear.setAreCenterLabel(areCenterLabel);
+        this.wvHours.setAreCenterLabel(areCenterLabel);
+        this.wvMinutes.setAreCenterLabel(areCenterLabel);
+        this.wvSeconds.setAreCenterLabel(areCenterLabel);
     }
 
     void setSelectChangeCallback(ISelectTimeCallback iSelectTimeCallback) {
