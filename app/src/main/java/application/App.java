@@ -1,6 +1,6 @@
 package application;
 
-import com.chaos.basic.BasicApp;
+import com.chaos.pool.application.PoolApp;
 
 /**
  * Created on 2021/4/1
@@ -8,6 +8,6 @@ import com.chaos.basic.BasicApp;
  * @author zsp
  * @desc 应用
  */
-public class App extends BasicApp {
+public class App extends PoolApp {
 
 }

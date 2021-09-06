@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pageBackground"
+    tools:context="widget.picture.PictureActivity">
+
+    <com.chaos.widget.picture.pulse.PulseView
+        android:id="@+id/pictureActivityPv"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pulseViewAlpha="70"
+        app:pulseViewColor="#000"
+        app:pulseViewCount="8"
+        app:pulseViewIcon="@drawable/pulse_view"
+        app:pulseViewInterpolator="@android:anim/decelerate_interpolator"
+        app:pulseViewMeasure="width"
+        app:pulseViewSpawnPeriod="700" />
+</androidx.constraintlayout.widget.ConstraintLayout>

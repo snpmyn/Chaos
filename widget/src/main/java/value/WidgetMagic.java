@@ -54,16 +54,16 @@ public class WidgetMagic {
     /**
      * float
      */
-    public static final float FLOAT_ZERO_DOT_ZERO = 0.0f;
-    public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25f;
-    public static final float FLOAT_ZERO_DOT_FIVE = 0.5f;
-    public static final float FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE = 0.5625f;
-    public static final float FLOAT_ONE_DOT_ZERO = 1.0f;
-    public static final float FLOAT_TWO_DOT_ZERO = 2.0f;
-    public static final float FLOAT_THREE_DOT_ZERO = 3.0f;
-    public static final float FLOAT_FOUR_DOT_ZERO = 4.0f;
-    public static final float FLOAT_TWENTY_DOT_ZERO = 20.0f;
-    public static final float FLOAT_TWO_THOUSAND_DOT_ZERO = 2000.0f;
+    public static final float FLOAT_ZERO_DOT_ZERO = 0.0F;
+    public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25F;
+    public static final float FLOAT_ZERO_DOT_FIVE = 0.5F;
+    public static final float FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE = 0.5625F;
+    public static final float FLOAT_ONE_DOT_ZERO = 1.0F;
+    public static final float FLOAT_TWO_DOT_ZERO = 2.0F;
+    public static final float FLOAT_THREE_DOT_ZERO = 3.0F;
+    public static final float FLOAT_FOUR_DOT_ZERO = 4.0F;
+    public static final float FLOAT_TWENTY_DOT_ZERO = 20.0F;
+    public static final float FLOAT_TWO_THOUSAND_DOT_ZERO = 2000.0F;
     /**
      * String
      */

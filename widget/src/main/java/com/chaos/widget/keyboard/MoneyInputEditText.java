@@ -57,9 +57,9 @@ public class MoneyInputEditText extends androidx.appcompat.widget.AppCompatEditT
         moneyInputDialog.setCanceledOnTouchOutside(false);
         moneyInputDialog.setOnKeyboardListener(this);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MoneyInputEditText);
-        int left = typedArray.getInt(R.styleable.MoneyInputEditText_maxLeftNum, 10 + 1 + 1);
-        int right = typedArray.getInt(R.styleable.MoneyInputEditText_maxRightNum, 2);
-        currency = typedArray.getString(R.styleable.MoneyInputEditText_currency);
+        int left = typedArray.getInt(R.styleable.MoneyInputEditText_moneyInputEditTextMaxLeftNum, 10 + 1 + 1);
+        int right = typedArray.getInt(R.styleable.MoneyInputEditText_moneyInputEditTextMaxRightNum, 2);
+        currency = typedArray.getString(R.styleable.MoneyInputEditText_moneyInputEditTextCurrency);
         // 去光标
         setCursorVisible(false);
         moneyInputDialog.setMaxLeftNumber(left);
@@ -160,7 +160,7 @@ public class MoneyInputEditText extends androidx.appcompat.widget.AppCompatEditT
     }
 
     private boolean isDialog() {
-        return dialog != null;
+        return null != dialog;
     }
 
     private void scrollUp() {

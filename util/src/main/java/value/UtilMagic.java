@@ -33,7 +33,7 @@ public class UtilMagic {
     /**
      * float
      */
-    public static final float FLOAT_ONE_DOT_FIVE = 1.5f;
+    public static final float FLOAT_ONE_DOT_FIVE = 1.5F;
     /**
      * String
      */

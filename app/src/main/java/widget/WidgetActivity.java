@@ -13,6 +13,7 @@ import butterknife.OnClick;
 import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
 import widget.money.MoneyActivity;
+import widget.picture.PictureActivity;
 import widget.search.SearchActivity;
 
 /**
@@ -64,7 +65,11 @@ public class WidgetActivity extends BaseActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    @OnClick({R.id.widgetActivityBtnBocDialog, R.id.widgetActivityBtnMoney, R.id.widgetActivityBtnChoose, R.id.widgetActivityBtnSearch})
+    @OnClick({R.id.widgetActivityBtnBocDialog,
+            R.id.widgetActivityBtnMoney,
+            R.id.widgetActivityBtnChoose,
+            R.id.widgetActivityBtnSearch,
+            R.id.widgetActivityBtnPicture})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -82,6 +87,10 @@ public class WidgetActivity extends BaseActivity {
             // 搜索页
             case R.id.widgetActivityBtnSearch:
                 IntentJump.getInstance().jump(null, this, false, SearchActivity.class);
+                break;
+            // 图片页
+            case R.id.widgetActivityBtnPicture:
+                IntentJump.getInstance().jump(null, this, false, PictureActivity.class);
                 break;
             default:
                 break;

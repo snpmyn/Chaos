@@ -26,4 +26,7 @@
     <string name="provincialAndUrbanLinkage">省市区联动</string>
     <string name="search">搜索</string>
     <string name="pleaseInput">请输入</string>
+    <string name="picture">图片</string>
+    <string name="startPulse">Start Pulse</string>
+    <string name="finshPulse">Finish Pulse</string>
 </resources>

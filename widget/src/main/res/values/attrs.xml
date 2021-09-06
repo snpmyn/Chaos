@@ -38,22 +38,22 @@
     </declare-styleable>
     <!--ProgressWheel-->
     <declare-styleable name="ProgressWheel">
-        <attr name="ProgressWheelProgressIndeterminate" format="boolean" />
-        <attr name="ProgressWheelBarColor" format="color" />
-        <attr name="ProgressWheelRimColor" format="color" />
-        <attr name="ProgressWheelRimWidth" format="dimension" />
-        <attr name="ProgressWheelSpinSpeed" format="float" />
-        <attr name="ProgressWheelBarSpinCycleTime" format="integer" />
-        <attr name="ProgressWheelCircleRadius" format="dimension" />
-        <attr name="ProgressWheelFillRadius" format="boolean" />
-        <attr name="ProgressWheelBarWidth" format="dimension" />
-        <attr name="ProgressWheelLinearProgress" format="boolean" />
+        <attr name="progressWheelProgressIndeterminate" format="boolean" />
+        <attr name="progressWheelBarColor" format="color" />
+        <attr name="progressWheelRimColor" format="color" />
+        <attr name="progressWheelRimWidth" format="dimension" />
+        <attr name="progressWheelSpinSpeed" format="float" />
+        <attr name="progressWheelBarSpinCycleTime" format="integer" />
+        <attr name="progressWheelCircleRadius" format="dimension" />
+        <attr name="progressWheelFillRadius" format="boolean" />
+        <attr name="progressWheelBarWidth" format="dimension" />
+        <attr name="progressWheelLinearProgress" format="boolean" />
     </declare-styleable>
     <!--MoneyInputEditText-->
     <declare-styleable name="MoneyInputEditText">
-        <attr name="currency" format="string" />
-        <attr name="maxLeftNum" format="integer" />
-        <attr name="maxRightNum" format="integer" />
+        <attr name="moneyInputEditTextCurrency" format="string" />
+        <attr name="moneyInputEditTextMaxLeftNum" format="integer" />
+        <attr name="moneyInputEditTextMaxRightNum" format="integer" />
     </declare-styleable>
     <!--WheelView-->
     <declare-styleable name="WheelView">
@@ -67,5 +67,20 @@
         <attr name="wheelViewTextColorCenter" format="color" />
         <attr name="wheelViewDividerColor" format="color" />
         <attr name="wheelViewLineSpacingMultiplier" format="float" />
+    </declare-styleable>
+    <!--PulseView-->
+    <declare-styleable name="PulseView">
+        <attr name="pulseViewIcon" format="reference" />
+        <attr name="pulseViewIconWidth" format="dimension" />
+        <attr name="pulseViewIconHeight" format="dimension" />
+        <attr name="pulseViewSpawnPeriod" format="integer" />
+        <attr name="pulseViewCount" format="integer" />
+        <attr name="pulseViewAlpha" format="integer" />
+        <attr name="pulseViewColor" format="color" />
+        <attr name="pulseViewInterpolator" format="reference" />
+        <attr name="pulseViewMeasure" format="enum">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
     </declare-styleable>
 </resources>
