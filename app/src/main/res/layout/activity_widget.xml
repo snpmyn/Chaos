@@ -53,4 +53,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnSearch" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/widgetActivityBtnScan"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:text="@string/scan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnPicture" />
 </androidx.constraintlayout.widget.ConstraintLayout>

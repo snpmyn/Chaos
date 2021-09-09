@@ -44,8 +44,8 @@ public class DebugStackDelegate implements SensorEventListener {
     private SensorManager mSensorManager;
     private AlertDialog mStackDialog;
 
-    public DebugStackDelegate(FragmentActivity activity) {
-        this.mActivity = activity;
+    public DebugStackDelegate(FragmentActivity fragmentActivity) {
+        this.mActivity = fragmentActivity;
     }
 
     public void onCreate(int mode) {
@@ -112,11 +112,11 @@ public class DebugStackDelegate implements SensorEventListener {
         if ((null != mStackDialog) && mStackDialog.isShowing()) {
             return;
         }
-        DebugHierarchyViewContainer container = new DebugHierarchyViewContainer(mActivity);
-        container.bindFragmentRecords(getFragmentRecords());
-        container.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        DebugHierarchyViewContainer debugHierarchyViewContainer = new DebugHierarchyViewContainer(mActivity);
+        debugHierarchyViewContainer.bindFragmentRecords(getFragmentRecords());
+        debugHierarchyViewContainer.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mStackDialog = new AlertDialog.Builder(mActivity)
-                .setView(container)
+                .setView(debugHierarchyViewContainer)
                 .setPositiveButton(android.R.string.cancel, null)
                 .setCancelable(true)
                 .create();
@@ -133,27 +133,27 @@ public class DebugStackDelegate implements SensorEventListener {
         if (null == fragmentRecordList) {
             return;
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = (fragmentRecordList.size() - 1); i >= 0; i--) {
             DebugFragmentRecord fragmentRecord = fragmentRecordList.get(i);
             if (i == (fragmentRecordList.size() - 1)) {
-                sb.append("═══════════════════════════════════════════════════════════════════════════════════\n");
+                stringBuilder.append("═══════════════════════════════════════════════════════════════════════════════════\n");
                 if (i == 0) {
-                    sb.append("\t栈顶\t\t\t").append(fragmentRecord.fragmentName).append("\n");
-                    sb.append("═══════════════════════════════════════════════════════════════════════════════════");
+                    stringBuilder.append("\t栈顶\t\t\t").append(fragmentRecord.fragmentName).append("\n");
+                    stringBuilder.append("═══════════════════════════════════════════════════════════════════════════════════");
                 } else {
-                    sb.append("\t栈顶\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
+                    stringBuilder.append("\t栈顶\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
                 }
             } else if (i == 0) {
-                sb.append("\t栈底\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
-                processChildLog(fragmentRecord.childFragmentRecord, sb, 1);
-                sb.append("═══════════════════════════════════════════════════════════════════════════════════");
-                Timber.d(sb.toString());
+                stringBuilder.append("\t栈底\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
+                processChildLog(fragmentRecord.debugFragmentRecords, stringBuilder, 1);
+                stringBuilder.append("═══════════════════════════════════════════════════════════════════════════════════");
+                Timber.d(stringBuilder.toString());
                 return;
             } else {
-                sb.append("\t↓\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
+                stringBuilder.append("\t↓\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
             }
-            processChildLog(fragmentRecord.childFragmentRecord, sb, 1);
+            processChildLog(fragmentRecord.debugFragmentRecords, stringBuilder, 1);
         }
     }
 
@@ -182,12 +182,12 @@ public class DebugStackDelegate implements SensorEventListener {
                 sb.append("\t子栈顶\t\t").append(childFragmentRecord.fragmentName).append("\n\n");
             } else if (j == fragmentRecordList.size() - 1) {
                 sb.append("\t子栈底\t\t").append(childFragmentRecord.fragmentName).append("\n\n");
-                processChildLog(childFragmentRecord.childFragmentRecord, sb, ++childHierarchy);
+                processChildLog(childFragmentRecord.debugFragmentRecords, sb, ++childHierarchy);
                 return;
             } else {
                 sb.append("\t↓\t\t\t").append(childFragmentRecord.fragmentName).append("\n\n");
             }
-            processChildLog(childFragmentRecord.childFragmentRecord, sb, childHierarchy);
+            processChildLog(childFragmentRecord.debugFragmentRecords, sb, childHierarchy);
         }
     }
 
@@ -215,8 +215,8 @@ public class DebugStackDelegate implements SensorEventListener {
                 name = span(name, " *");
             } else {
                 for (int j = 0; j < backStackCount; j++) {
-                    FragmentManager.BackStackEntry entry = fragment.getFragmentManager().getBackStackEntryAt(j);
-                    boolean flag = ((null != entry.getName()) && entry.getName().equals(fragment.getTag())) || ((null == entry.getName()) && (null == fragment.getTag()));
+                    FragmentManager.BackStackEntry backStackEntry = fragment.getFragmentManager().getBackStackEntryAt(j);
+                    boolean flag = ((null != backStackEntry.getName()) && backStackEntry.getName().equals(fragment.getTag())) || ((null == backStackEntry.getName()) && (null == fragment.getTag()));
                     if (flag) {
                         break;
                     }
@@ -225,7 +225,7 @@ public class DebugStackDelegate implements SensorEventListener {
                     }
                 }
             }
-            if (fragment instanceof ISupportFragment && ((ISupportFragment) fragment).isSupportVisible()) {
+            if ((fragment instanceof ISupportFragment) && ((ISupportFragment) fragment).isSupportVisible()) {
                 name = span(name, " ☀");
             }
             fragmentRecords.add(new DebugFragmentRecord(name, getChildFragmentRecords(fragment)));
@@ -240,10 +240,10 @@ public class DebugStackDelegate implements SensorEventListener {
 
     private static class StackViewTouchListener implements View.OnTouchListener {
         private final View stackView;
-        private float dx, dy = 0.0f;
-        private float xDown, yDown = 0.0f;
-        private boolean isClickState;
         private final int clickLimitValue;
+        private float dx, dy = 0.0F;
+        private float xDown, yDown = 0.0F;
+        private boolean isClickState;
 
         StackViewTouchListener(View stackView, int clickLimitValue) {
             this.stackView = stackView;
@@ -264,7 +264,7 @@ public class DebugStackDelegate implements SensorEventListener {
                     break;
                 case MotionEvent.ACTION_MOVE:
                     if ((Math.abs(x - xDown) < clickLimitValue) && (Math.abs(y - yDown) < clickLimitValue) && isClickState) {
-                        Timber.d("isClickState = true");
+                        Timber.d("areClickState = true");
                     } else {
                         isClickState = false;
                         stackView.setX(event.getRawX() + dx);

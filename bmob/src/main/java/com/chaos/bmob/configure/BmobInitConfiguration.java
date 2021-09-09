@@ -23,7 +23,7 @@ public class BmobInitConfiguration {
      * @param expiration     过期时间
      */
     public static void initBmob(Application application, String applicationId, long connectTimeout, int blockSize, long expiration) {
-        BmobConfig config = new BmobConfig.Builder(application)
+        BmobConfig bmobConfig = new BmobConfig.Builder(application)
                 .setApplicationId(applicationId)
                 // 请求超时时间（默 15s）
                 .setConnectTimeout(connectTimeout)
@@ -32,6 +32,6 @@ public class BmobInitConfiguration {
                 // 文件过期时间（默 1800s）
                 .setFileExpiration(expiration)
                 .build();
-        Bmob.initialize(config);
+        Bmob.initialize(bmobConfig);
     }
 }

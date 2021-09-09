@@ -46,7 +46,7 @@ public class MatisseKit {
                 .maxSelectable(maxCount)
                 .gridExpectedSize(activityUse.getResources().getDimensionPixelSize(R.dimen.dp_130))
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                .thumbnailScale(0.85f)
+                .thumbnailScale(0.85F)
                 // for glide-V3
                 // .imageEngine(new GlideEngine())
                 // for glide-V4
@@ -60,7 +60,7 @@ public class MatisseKit {
                 .autoHideToolbarOnSingleTap(true)
                 .setOnCheckedListener(isChecked -> {
                     // DO SOMETHING IMMEDIATELY HERE
-                    Timber.d("onCheck: isChecked = %s", isChecked);
+                    Timber.d("onCheck: areChecked = %s", isChecked);
                 })
                 .theme(darkTheme ? R.style.Matisse_Dracula : R.style.Matisse_Zhihu)
                 .forResult(REQUEST_CODE);
@@ -84,7 +84,7 @@ public class MatisseKit {
                 .maxSelectable(maxCount)
                 .gridExpectedSize(weakReference.get().getResources().getDimensionPixelSize(R.dimen.dp_130))
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                .thumbnailScale(0.85f)
+                .thumbnailScale(0.85F)
                 // for glide-V3
                 // .imageEngine(new GlideEngine())
                 // for glide-V4
@@ -98,7 +98,7 @@ public class MatisseKit {
                 .autoHideToolbarOnSingleTap(true)
                 .setOnCheckedListener(isChecked -> {
                     // DO SOMETHING IMMEDIATELY HERE
-                    Timber.d("onCheck: isChecked = %s", isChecked);
+                    Timber.d("onCheck: areChecked = %s", isChecked);
                 })
                 .theme(darkTheme ? R.style.Matisse_Dracula : R.style.Matisse_Zhihu)
                 .forResult(REQUEST_CODE);

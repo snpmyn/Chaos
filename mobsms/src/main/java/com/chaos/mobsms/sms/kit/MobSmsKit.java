@@ -14,7 +14,7 @@ public class MobSmsKit {
     /**
      * DCL（Double Check Lock）式单例
      */
-    private static MobSmsKit dclInstance;
+    private static MobSmsKit instance;
 
     /**
      * constructor
@@ -36,10 +36,10 @@ public class MobSmsKit {
      * 两次判空避多次同步。
      * <p>
      * 缺点：
-     * {@link #dclInstance}、{@link #MobSmsKit()}、getInstanceByDcl() 因 jvm 允乱序执行。该三句代码顺序不定，或现 DCL 失效。
+     * {@link #instance}、{@link #MobSmsKit()}、getInstanceByDcl() 因 jvm 允乱序执行。该三句代码顺序不定，或现 DCL 失效。
      * 步骤一：A 线程执行 getInstanceByDcl() 时还没执行构造方法 {@link #MobSmsKit()}。
-     * 步骤二：此时 B 线程调 getInstanceByDcl()，因 A 已执行 getInstanceByDcl()，故 {@link #dclInstance} 不为空就直获。
-     * 步骤三：因 B 直获，而真实情况 A 线程构造方法还未执行，故 {@link #dclInstance} 为空。
+     * 步骤二：此时 B 线程调 getInstanceByDcl()，因 A 已执行 getInstanceByDcl()，故 {@link #instance} 不为空就直获。
+     * 步骤三：因 B 直获，而真实情况 A 线程构造方法还未执行，故 {@link #instance} 为空。
      * <p>
      * 解决：
      * 此况概率较小。但为解决，Java1.6 加 volatile 关键字避 DCL 方式失效。虽 volatile 消耗一些性能，但为 DCL 最佳写法。
@@ -48,14 +48,14 @@ public class MobSmsKit {
      * @return 单例
      */
     public static MobSmsKit getInstanceByDcl() {
-        if (dclInstance == null) {
+        if (instance == null) {
             synchronized (MobSmsKit.class) {
-                if (dclInstance == null) {
-                    dclInstance = new MobSmsKit();
+                if (instance == null) {
+                    instance = new MobSmsKit();
                 }
             }
         }
-        return dclInstance;
+        return instance;
     }
 
     /**

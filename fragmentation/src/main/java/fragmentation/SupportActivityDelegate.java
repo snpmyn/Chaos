@@ -22,19 +22,19 @@ import fragmentation.queue.BaseAction;
 public class SupportActivityDelegate {
     private final ISupportActivity mSupport;
     private final FragmentActivity mActivity;
+    private final DebugStackDelegate mDebugStackDelegate;
     boolean mPopMultipleNoAnim = false;
     boolean mFragmentClickable = true;
     private TransactionDelegate mTransactionDelegate;
     private FragmentAnimator mFragmentAnimator;
     private int mDefaultFragmentBackground = 0;
-    private final DebugStackDelegate mDebugStackDelegate;
 
-    public SupportActivityDelegate(ISupportActivity support) {
-        if (!(support instanceof FragmentActivity)) {
+    public SupportActivityDelegate(ISupportActivity iSupportActivity) {
+        if (!(iSupportActivity instanceof FragmentActivity)) {
             throw new RuntimeException("Must extends FragmentActivity/AppCompatActivity");
         }
-        this.mSupport = support;
-        this.mActivity = (FragmentActivity) support;
+        this.mSupport = iSupportActivity;
+        this.mActivity = (FragmentActivity) iSupportActivity;
         this.mDebugStackDelegate = new DebugStackDelegate(this.mActivity);
     }
 
@@ -86,11 +86,11 @@ public class SupportActivityDelegate {
         for (Fragment fragment : FragmentationMagician.getActiveFragments(getSupportFragmentManager())) {
             if (fragment instanceof ISupportFragment) {
                 ISupportFragment iSupportFragment = (ISupportFragment) fragment;
-                SupportFragmentDelegate delegate = iSupportFragment.getSupportDelegate();
-                if (delegate.mAnimByActivity) {
-                    delegate.mFragmentAnimator = fragmentAnimator.copy();
-                    if (null != delegate.mAnimHelper) {
-                        delegate.mAnimHelper.notifyChanged(delegate.mFragmentAnimator);
+                SupportFragmentDelegate supportDelegate = iSupportFragment.getSupportDelegate();
+                if (supportDelegate.mAnimByActivity) {
+                    supportDelegate.mFragmentAnimator = fragmentAnimator.copy();
+                    if (null != supportDelegate.mAnimHelper) {
+                        supportDelegate.mAnimHelper.notifyChanged(supportDelegate.mFragmentAnimator);
                     }
                 }
             }

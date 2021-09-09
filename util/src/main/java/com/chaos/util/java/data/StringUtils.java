@@ -58,7 +58,7 @@ public class StringUtils {
         if (content.indexOf(UtilMagic.STRING_DOT) > 0) {
             // 替换 0
             content = content.replaceAll("0+?$", "");
-            // 末位 . 去掉
+            // 去末位 .
             content = content.replaceAll("[.]$", "");
         }
         return content;
@@ -127,7 +127,7 @@ public class StringUtils {
      * @return 指定部分前内容
      */
     public static String appointForward(String str, String appoint) {
-        return (null != str) ? str.substring(0, str.indexOf(appoint)) : null;
+        return ((null != str) ? str.substring(0, str.indexOf(appoint)) : null);
     }
 
     /**
@@ -196,7 +196,7 @@ public class StringUtils {
         if (null == currentString) {
             return attachString;
         } else {
-            return currentString.startsWith(attachString) ? currentString : (attachString + currentString);
+            return (currentString.startsWith(attachString) ? currentString : (attachString + currentString));
         }
     }
 
@@ -211,7 +211,7 @@ public class StringUtils {
         if (null == currentString) {
             return attachString;
         } else {
-            return currentString.endsWith(attachString) ? currentString : (currentString + attachString);
+            return (currentString.endsWith(attachString) ? currentString : (currentString + attachString));
         }
     }
 
@@ -226,8 +226,8 @@ public class StringUtils {
         if (null == currentString) {
             return attachString;
         } else {
-            currentString = currentString.endsWith(attachString) ? currentString : (currentString + attachString);
-            currentString = currentString.startsWith(attachString) ? currentString : (attachString + currentString);
+            currentString = (currentString.endsWith(attachString) ? currentString : (currentString + attachString));
+            currentString = (currentString.startsWith(attachString) ? currentString : (attachString + currentString));
             return currentString;
         }
     }
@@ -335,11 +335,11 @@ public class StringUtils {
         if (input.length() > size) {
             throw new IllegalArgumentException("input must be shorter than or equal to the number of spaces: " + size);
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = input.length(); i < size; i++) {
-            sb.append(" ");
+            stringBuilder.append(" ");
         }
-        return sb.append(input).toString();
+        return stringBuilder.append(input).toString();
     }
 
     /**

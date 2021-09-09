@@ -100,8 +100,8 @@ public class BuglyInitConfigure {
         // 注意：保持接口统一，需于指定控件以下方式设 tag，否影响正常使用。
         // 特性图片：beta_upgrade_banner，如：android:tag="beta_upgrade_banner"
         // 标题：beta_title，如：android:tag="beta_title"
-        // 升级信息：beta_upgrade_info 如： android:tag="beta_upgrade_info"
-        // 更新属性：beta_upgrade_feature 如： android:tag="beta_upgrade_feature"
+        // 升级信息：beta_upgrade_info 如：android:tag="beta_upgrade_info"
+        // 更新属性：beta_upgrade_feature 如：android:tag="beta_upgrade_feature"
         // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
         // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
         if (upgradeDialogLayoutId != 0) {
@@ -110,7 +110,7 @@ public class BuglyInitConfigure {
         // 自定 tip 弹窗 UI 布局
         // 注意：保持接口统一，需于指定控件以下方式设 tag，否影响正常使用。
         // 标题：beta_title，如：android:tag="beta_title"
-        // 提示信息：beta_tip_message 如： android:tag="beta_tip_message"
+        // 提示信息：beta_tip_message 如：android:tag="beta_tip_message"
         // 取消按钮：beta_cancel_button 如：android:tag="beta_cancel_button"
         // 确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
         if (tipsDialogLayoutId != 0) {

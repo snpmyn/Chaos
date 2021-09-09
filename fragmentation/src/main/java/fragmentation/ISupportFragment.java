@@ -28,12 +28,6 @@ public interface ISupportFragment {
     int RESULT_CANCELED = 0;
     int RESULT_OK = -1;
 
-    @IntDef({STANDARD, SINGLE_TOP, SINGLE_TASK})
-    @Retention(RetentionPolicy.SOURCE)
-    @interface LaunchMode {
-
-    }
-
     /**
      * getSupportDelegate
      *
@@ -151,4 +145,10 @@ public interface ISupportFragment {
      * @return 支持回退否
      */
     boolean onBackPressedSupport();
+
+    @IntDef({STANDARD, SINGLE_TOP, SINGLE_TASK})
+    @Retention(RetentionPolicy.SOURCE)
+    @interface LaunchMode {
+
+    }
 }

@@ -63,9 +63,9 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
             // 默空
             tvTitle.setText(TextUtils.isEmpty(pickerOptions.textContentTitle) ? "" : pickerOptions.textContentTitle);
             // 自定
-            btnSubmit.setTextColor(ContextCompat.getColor(context, R.color.purple_200));
+            btnSubmit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
             // 自定
-            btnCancel.setTextColor(ContextCompat.getColor(context, R.color.purple_200));
+            btnCancel.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
             // 自定
             tvTitle.setTextColor(ContextCompat.getColor(context, R.color.fontInput));
             // 自定
@@ -108,13 +108,13 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
             }
         } else if (null != pickerOptions.startDate) {
             if (pickerOptions.startDate.get(Calendar.YEAR) < WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED) {
-                throw new IllegalArgumentException("The startDate can not as early as 1900");
+                throw new IllegalArgumentException("The startDate can not as early as 1900.");
             } else {
                 setRangDate();
             }
         } else if (null != pickerOptions.endDate) {
             if (pickerOptions.endDate.get(Calendar.YEAR) > WidgetMagic.INT_TWO_THOUSAND) {
-                throw new IllegalArgumentException("The endDate should not be later than 2100");
+                throw new IllegalArgumentException("The endDate should not be later than 2100.");
             } else {
                 setRangDate();
             }

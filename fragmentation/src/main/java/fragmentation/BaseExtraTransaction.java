@@ -299,7 +299,7 @@ public abstract class BaseExtraTransaction {
 
         @Override
         public BaseExtraTransaction addSharedElement(View sharedElement, String sharedName) {
-            if (mRecord.sharedElementList == null) {
+            if (null == mRecord.sharedElementList) {
                 mRecord.sharedElementList = new ArrayList<>();
             }
             mRecord.sharedElementList.add(new TransactionRecord.SharedElement(sharedElement, sharedName));

@@ -4,7 +4,6 @@ plugins {
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -37,11 +36,10 @@ android {
 }
 
 dependencies {
-
     implementation project(path: ':util')
     /*util*/
     implementation 'cn.jiguang.sdk:jcore:2.9.2'
-    /*JCore*/
+    /*jCore*/
     api 'cn.jiguang.sdk:jpush:4.3.0'
     /*极光推送*/
 }

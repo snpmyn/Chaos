@@ -46,13 +46,13 @@ class TransactionDelegate {
     static final String FRAGMENTATION_ARG_CUSTOM_POP_EXIT_ANIM = "fragmentation_arg_custom_pop_exit_anim";
     static final String FRAGMENTATION_STATE_SAVE_ANIMATOR = "fragmentation_state_save_animator";
     static final String FRAGMENTATION_STATE_SAVE_IS_HIDDEN = "fragmentation_state_save_status";
-    private static final String FRAGMENTATION_STATE_SAVE_RESULT = "fragmentation_state_save_result";
     static final int TYPE_ADD = 0;
     static final int TYPE_ADD_RESULT = 1;
     static final int TYPE_ADD_WITHOUT_HIDE = 2;
     static final int TYPE_ADD_RESULT_WITHOUT_HIDE = 3;
     static final int TYPE_REPLACE = 10;
     static final int TYPE_REPLACE_DO_NOT_BACK = 11;
+    private static final String FRAGMENTATION_STATE_SAVE_RESULT = "fragmentation_state_save_result";
     private final ISupportActivity mSupport;
     private final FragmentActivity mActivity;
     private final Handler mHandler;
@@ -63,6 +63,12 @@ class TransactionDelegate {
         this.mActivity = (FragmentActivity) support;
         mHandler = new Handler(Looper.getMainLooper());
         mActionQueue = new ActionQueue(mHandler);
+    }
+
+    private static <T> void checkNotNull(T value) {
+        if (null == value) {
+            throw new NullPointerException("toFragment == null");
+        }
     }
 
     void post(final Runnable runnable) {
@@ -134,12 +140,6 @@ class TransactionDelegate {
                 doShowHideFragment(fragmentManager, showFragment, hideFragment);
             }
         });
-    }
-
-    private static <T> void checkNotNull(T value) {
-        if (null == value) {
-            throw new NullPointerException("toFragment == null");
-        }
     }
 
     /**
@@ -649,8 +649,8 @@ class TransactionDelegate {
         boolean stateSaved = FragmentationMagician.isStateSaved(fragmentManager);
         if (stateSaved) {
             AfterSaveStateTransactionWarningException e = new AfterSaveStateTransactionWarningException(action);
-            if (null != Fragmentation.getDefault().getHandler()) {
-                Fragmentation.getDefault().getHandler().onException(e);
+            if (null != Fragmentation.getDefault().getExceptionHandler()) {
+                Fragmentation.getDefault().getExceptionHandler().onException(e);
             }
         }
     }

@@ -8,14 +8,14 @@ import androidx.fragment.app.FragmentManager;
  * @date: 2019/5/20 9:36
  */
 public abstract class BaseAction {
-    static final long DEFAULT_POP_TIME = 300L;
     public static final int ACTION_NORMAL = 0;
     public static final int ACTION_POP = 1;
     public static final int ACTION_POP_MOCK = 2;
     public static final int ACTION_BACK = 3;
     public static final int ACTION_LOAD = 4;
-    FragmentManager fragmentManager;
+    static final long DEFAULT_POP_TIME = 300L;
     public long duration = 0;
+    FragmentManager fragmentManager;
     int action = ACTION_NORMAL;
 
     protected BaseAction() {

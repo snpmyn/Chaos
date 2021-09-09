@@ -13,20 +13,6 @@ import org.jetbrains.annotations.NotNull;
  * @date: 2019/5/20 9:33
  */
 public final class ResultRecord implements Parcelable {
-    public int requestCode;
-    public int resultCode = 0;
-    public Bundle resultBundle;
-
-    public ResultRecord() {
-
-    }
-
-    private ResultRecord(@NotNull Parcel in) {
-        requestCode = in.readInt();
-        resultCode = in.readInt();
-        resultBundle = in.readBundle(getClass().getClassLoader());
-    }
-
     public static final Creator<ResultRecord> CREATOR = new Creator<ResultRecord>() {
         @Contract("_ -> new")
         @Override
@@ -40,6 +26,19 @@ public final class ResultRecord implements Parcelable {
             return new ResultRecord[size];
         }
     };
+    public int requestCode;
+    public int resultCode = 0;
+    public Bundle resultBundle;
+
+    public ResultRecord() {
+
+    }
+
+    private ResultRecord(@NotNull Parcel in) {
+        requestCode = in.readInt();
+        resultCode = in.readInt();
+        resultBundle = in.readBundle(getClass().getClassLoader());
+    }
 
     @Override
     public int describeContents() {

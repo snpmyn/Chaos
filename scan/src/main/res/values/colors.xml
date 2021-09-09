@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_scan_line">#56B847</color>
+    <color name="color_scan_flash_on_off">#4888C8</color>
+    <color name="color_scan_photo_library">#FEBC10</color>
+</resources>

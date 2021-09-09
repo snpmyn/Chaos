@@ -14,7 +14,7 @@ public class FragmentationInitConfig {
      *
      * @param debug 调试否
      */
-    public static void initFragmentation(boolean debug) {
+    public static void initFragmentation(Boolean debug) {
         // 建于 Application 初始化
         // 更多查看 wiki 或 demo
         Fragmentation.builder()

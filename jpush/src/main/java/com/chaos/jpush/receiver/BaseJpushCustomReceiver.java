@@ -40,6 +40,49 @@ public class BaseJpushCustomReceiver extends BroadcastReceiver {
      */
     public Message message;
 
+    /**
+     * 打印数据
+     *
+     * @param bundle 数据
+     * @return 字符串
+     */
+    private static @NotNull String printBundle(@NotNull Bundle bundle) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String key : bundle.keySet()) {
+            switch (key) {
+                case JPushInterface.EXTRA_NOTIFICATION_ID:
+                    stringBuilder.append("\nkey: ").append(key).append(", value: ").append(bundle.getInt(key));
+                    break;
+                case JPushInterface.EXTRA_CONNECTION_CHANGE:
+                    stringBuilder.append("\nkey: ").append(key).append(", value: ").append(bundle.getBoolean(key));
+                    break;
+                case JPushInterface.EXTRA_EXTRA:
+                    if (TextUtils.isEmpty(bundle.getString(JPushInterface.EXTRA_EXTRA))) {
+                        Timber.d("This message has no Extra data");
+                        continue;
+                    }
+                    try {
+                        String extra = bundle.getString(JPushInterface.EXTRA_EXTRA);
+                        if (!TextUtils.isEmpty(extra)) {
+                            JSONObject json = new JSONObject(extra);
+                            Iterator<String> iterator = json.keys();
+                            while (iterator.hasNext()) {
+                                String myKey = iterator.next();
+                                stringBuilder.append("\nkey: ").append(key).append(", value: [").append(myKey).append(" - ").append(json.optString(myKey)).append("]");
+                            }
+                        }
+                    } catch (JSONException e) {
+                        Timber.e(e);
+                    }
+                    break;
+                default:
+                    stringBuilder.append("\nkey: ").append(key).append(", value: ").append(bundle.get(key));
+                    break;
+            }
+        }
+        return stringBuilder.toString();
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         try {
@@ -74,48 +117,5 @@ public class BaseJpushCustomReceiver extends BroadcastReceiver {
         } catch (Exception e) {
             Timber.e(e);
         }
-    }
-
-    /**
-     * 打印数据
-     *
-     * @param bundle 数据
-     * @return 字符串
-     */
-    private static @NotNull String printBundle(@NotNull Bundle bundle) {
-        StringBuilder sb = new StringBuilder();
-        for (String key : bundle.keySet()) {
-            switch (key) {
-                case JPushInterface.EXTRA_NOTIFICATION_ID:
-                    sb.append("\nkey:").append(key).append(", value:").append(bundle.getInt(key));
-                    break;
-                case JPushInterface.EXTRA_CONNECTION_CHANGE:
-                    sb.append("\nkey:").append(key).append(", value:").append(bundle.getBoolean(key));
-                    break;
-                case JPushInterface.EXTRA_EXTRA:
-                    if (TextUtils.isEmpty(bundle.getString(JPushInterface.EXTRA_EXTRA))) {
-                        Timber.d("This message has no Extra data");
-                        continue;
-                    }
-                    try {
-                        String extra = bundle.getString(JPushInterface.EXTRA_EXTRA);
-                        if (!TextUtils.isEmpty(extra)) {
-                            JSONObject json = new JSONObject(extra);
-                            Iterator<String> it = json.keys();
-                            while (it.hasNext()) {
-                                String myKey = it.next();
-                                sb.append("\nkey:").append(key).append(", value: [").append(myKey).append(" - ").append(json.optString(myKey)).append("]");
-                            }
-                        }
-                    } catch (JSONException e) {
-                        Timber.e(e);
-                    }
-                    break;
-                default:
-                    sb.append("\nkey:").append(key).append(", value:").append(bundle.get(key));
-                    break;
-            }
-        }
-        return sb.toString();
     }
 }

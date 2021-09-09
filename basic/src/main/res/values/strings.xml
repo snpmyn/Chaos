@@ -2,4 +2,5 @@
 <resources>
     <string name="toDo">TODO</string>
     <string name="exitAppHint">再按一次退出</string>
+    <string name="fileProviderAuthorities">com.chaos.basic.fileprovider</string>
 </resources>

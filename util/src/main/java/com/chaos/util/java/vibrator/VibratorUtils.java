@@ -1,12 +1,12 @@
 package com.chaos.util.java.vibrator;
 
+import static android.content.Context.VIBRATOR_SERVICE;
+
 import android.content.Context;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
 import org.jetbrains.annotations.NotNull;
-
-import static android.content.Context.VIBRATOR_SERVICE;
 
 /**
  * Created on 2019/8/31.
@@ -37,7 +37,7 @@ public class VibratorUtils {
      * 波形振动
      *
      * @param context    上下文
-     * @param timings    交替开关定时模式（从关闭开始，0 忽略时序/幅度序列）
+     * @param timings    交替开关定时模式（从关闭开始，0 忽略时序 / 幅度序列）
      * @param amplitudes 振幅值（0（断开）到 255 间或 DEFAULT_AMPLITUDE）
      * @param repeat     振动重复模式（-1 不重复、0 一直重复、1 从数组下标 1 开始重复振动后结束、2 从数组下标 2 开始重复振动后结束）
      */

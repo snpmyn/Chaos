@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
  * 官方：
  * Base class for those who need to maintain global application state.
  * You can provide your own implementation by specifying its name in your AndroidManifest.xml's <application> tag,
- * which will cause that class to be instantiated for you when the process for your application/package is created.
+ * which will cause that class to be instantiated for you when the process for your application / package is created.
  * Application 类（基础类）用于维护应用程序全局状态。
  * 你可提供自己的实现，在 AndroidManifest.xml 文件 <application> 标签指定它的名字，
  * 这将引起你的应用进程被创建时 Application 类为你被实例化。
@@ -25,6 +25,10 @@ import androidx.annotation.NonNull;
  */
 public class BasicApp extends Application {
     private static Application instance;
+
+    public static Application getInstance() {
+        return instance;
+    }
 
     /**
      * 应用程序创调
@@ -39,10 +43,8 @@ public class BasicApp extends Application {
     }
 
     /**
-     * This method is for use in emulated process environments.  It will
-     * never be called on a production Android device, where processes are
-     * removed by simply killing them; no user code (including this callback)
-     * is executed when doing so.
+     * This method is for use in emulated process environments.
+     * It will never be called on a production Android device, where processes are removed by simply killing them; no user code (including this callback) is executed when doing so.
      * <p>
      * 应用程序对象终止调
      * <p>
@@ -81,10 +83,6 @@ public class BasicApp extends Application {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-    }
-
-    public static Application getInstance() {
-        return instance;
     }
 }
 

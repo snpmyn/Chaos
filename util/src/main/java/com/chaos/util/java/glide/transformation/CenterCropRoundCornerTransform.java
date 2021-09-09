@@ -46,7 +46,7 @@ public class CenterCropRoundCornerTransform extends CenterCrop {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-        RectF fRect = new RectF(0.0f, 0.0f, Integer.valueOf(bitmap.getWidth()).floatValue(), Integer.valueOf(bitmap.getHeight()).floatValue());
+        RectF fRect = new RectF(0.0F, 0.0F, Integer.valueOf(bitmap.getWidth()).floatValue(), Integer.valueOf(bitmap.getHeight()).floatValue());
         canvas.drawRoundRect(fRect, Integer.valueOf(radius).floatValue(), Integer.valueOf(radius).floatValue(), paint);
         return bitmapResult;
     }

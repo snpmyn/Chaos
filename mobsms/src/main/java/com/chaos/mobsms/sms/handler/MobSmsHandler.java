@@ -66,7 +66,6 @@ public class MobSmsHandler extends Handler {
         } else {
             mobSmsListener.resultError();
             try {
-                ((Throwable) data).printStackTrace();
                 Throwable throwable = (Throwable) data;
                 String message = throwable.getMessage();
                 if (null != message) {

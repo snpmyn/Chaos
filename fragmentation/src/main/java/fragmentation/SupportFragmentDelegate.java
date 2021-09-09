@@ -31,33 +31,33 @@ import fragmentation.helper.internal.VisibleDelegate;
  * @date: 2019/5/20 9:52
  */
 public class SupportFragmentDelegate {
-    private static final long NOT_FOUND_ANIM_TIME = 300L;
-    private static final int STATUS_UN_ROOT = 0;
     static final int STATUS_ROOT_ANIM_DISABLE = 1;
     static final int STATUS_ROOT_ANIM_ENABLE = 2;
+    private static final long NOT_FOUND_ANIM_TIME = 300L;
+    private static final int STATUS_UN_ROOT = 0;
+    private final Fragment mFragment;
+    private final ISupportFragment iSupportFragment;
     int mContainerId;
     TransactionRecord mTransactionRecord;
     FragmentAnimator mFragmentAnimator;
     AnimatorHelper mAnimHelper;
     boolean mLockAnim;
+    Bundle mNewBundle;
+    boolean mAnimByActivity = true;
+    EnterAnimListener mEnterAnimListener;
     private int mCustomEnterAnim = Integer.MIN_VALUE, mCustomExitAnim = Integer.MIN_VALUE, mCustomPopExitAnim = Integer.MIN_VALUE;
     private Handler mHandler;
     private boolean mFirstCreateView = true;
     private boolean mReplaceMode;
-    Bundle mNewBundle;
     private TransactionDelegate mTransactionDelegate;
-    boolean mAnimByActivity = true;
-    EnterAnimListener mEnterAnimListener;
     private int mRootStatus = STATUS_UN_ROOT;
     private Bundle mSaveInstanceState;
-    private boolean mIsSharedElement;
-    private final Fragment mFragment;
+    private boolean mAreSharedElement;
     /**
      * SupportVisible
      */
     private VisibleDelegate mVisibleDelegate;
     private ISupportActivity mSupport;
-    private final ISupportFragment iSupportFragment;
     private FragmentActivity mFragmentActivity;
     private boolean mRootViewClickable;
     private final Runnable mNotifyEnterAnimEndRunnable = new Runnable() {
@@ -122,7 +122,7 @@ public class SupportFragmentDelegate {
         Bundle bundle = mFragment.getArguments();
         if (null != bundle) {
             mRootStatus = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_ROOT_STATUS, STATUS_UN_ROOT);
-            mIsSharedElement = bundle.getBoolean(TransactionDelegate.FRAGMENTATION_ARG_IS_SHARED_ELEMENT, false);
+            mAreSharedElement = bundle.getBoolean(TransactionDelegate.FRAGMENTATION_ARG_IS_SHARED_ELEMENT, false);
             mContainerId = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_CONTAINER);
             mReplaceMode = bundle.getBoolean(TransactionDelegate.FRAGMENTATION_ARG_REPLACE, false);
             mCustomEnterAnim = bundle.getInt(TransactionDelegate.FRAGMENTATION_ARG_CUSTOM_ENTER_ANIM, Integer.MIN_VALUE);
@@ -192,7 +192,7 @@ public class SupportFragmentDelegate {
         } else if (transit == FragmentTransaction.TRANSIT_FRAGMENT_CLOSE) {
             return enter ? mAnimHelper.popEnterAnimation : mAnimHelper.exitAnimation;
         } else {
-            if (mIsSharedElement && enter) {
+            if (mAreSharedElement && enter) {
                 compatSharedElements();
             }
             if (!enter) {
@@ -307,7 +307,7 @@ public class SupportFragmentDelegate {
      * Return true if the fragment has been supportVisible.
      */
     final public boolean isSupportVisible() {
-        return getVisibleDelegate().isSupportVisible();
+        return getVisibleDelegate().areSupportVisible();
     }
 
     /**
@@ -379,7 +379,7 @@ public class SupportFragmentDelegate {
     /**
      * onFragmentResult
      * <p>
-     * 似 {@link Activity#onActivityResult(int, int, Intent)}。
+     * 似 {@link App#onActivityResult(int, int, Intent)}。
      *
      * @see #startForResult(ISupportFragment, int)
      */

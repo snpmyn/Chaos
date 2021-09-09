@@ -96,6 +96,41 @@ public class CaesarCipherUtils {
     }
 
     /**
+     * 加密
+     *
+     * @param c           字节
+     * @param offsetValue 偏移量（1 - 25）
+     * @return 加密结果
+     */
+    private static char encrypt(char c, int offsetValue) {
+        // 如果字符串中某字符是小写字母
+        if ((c >= UtilMagic.CHAR_SMALL_A) && (c <= UtilMagic.CHAR_SMALL_Z)) {
+            // 移动 key % 26 位
+            c += offsetValue % 26;
+            if (c < UtilMagic.CHAR_SMALL_A) {
+                // 向左超界
+                c += 26;
+            } else if (c > UtilMagic.CHAR_SMALL_Z) {
+                // 向右超界
+                c -= 26;
+            }
+        }
+        // 如果字符串中某字符是大写字母
+        else if ((c >= UtilMagic.CHAR_BIG_A) && (c <= UtilMagic.CHAR_BIG_Z)) {
+            // 移动 key % 26 位
+            c += offsetValue % 26;
+            if (c < UtilMagic.CHAR_BIG_A) {
+                // 向左超界
+                c += 26;
+            } else if (c > UtilMagic.CHAR_BIG_Z) {
+                // 向右超界
+                c -= 26;
+            }
+        }
+        return c;
+    }
+
+    /**
      * 解密输入流
      */
     private static class DecryptInputStream extends InputStream {
@@ -133,40 +168,5 @@ public class CaesarCipherUtils {
         public void write(int b) throws IOException {
             outputStream.write(encrypt((char) b, k));
         }
-    }
-
-    /**
-     * 加密
-     *
-     * @param c           字节
-     * @param offsetValue 偏移量（1 - 25）
-     * @return 加密结果
-     */
-    private static char encrypt(char c, int offsetValue) {
-        // 如果字符串中某字符是小写字母
-        if ((c >= UtilMagic.CHAR_SMALL_A) && (c <= UtilMagic.CHAR_SMALL_Z)) {
-            // 移动 key % 26 位
-            c += offsetValue % 26;
-            if (c < UtilMagic.CHAR_SMALL_A) {
-                // 向左超界
-                c += 26;
-            } else if (c > UtilMagic.CHAR_SMALL_Z) {
-                // 向右超界
-                c -= 26;
-            }
-        }
-        // 如果字符串中某字符是大写字母
-        else if ((c >= UtilMagic.CHAR_BIG_A) && (c <= UtilMagic.CHAR_BIG_Z)) {
-            // 移动 key % 26 位
-            c += offsetValue % 26;
-            if (c < UtilMagic.CHAR_BIG_A) {
-                // 向左超界
-                c += 26;
-            } else if (c > UtilMagic.CHAR_BIG_Z) {
-                // 向右超界
-                c -= 26;
-            }
-        }
-        return c;
     }
 }

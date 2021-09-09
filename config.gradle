@@ -1,6 +1,7 @@
 ext {
     android = [
             compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3",
             applicationId    : "com.example.chaos",
             minSdkVersion    : 23,
             targetSdkVersion : 30,

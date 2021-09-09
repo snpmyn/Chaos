@@ -64,8 +64,8 @@ public class SupportHelper {
      * <p>
      * 调试用。
      */
-    public static void showFragmentStackHierarchyView(@NotNull ISupportActivity support) {
-        support.getSupportDelegate().showFragmentStackHierarchyView();
+    public static void showFragmentStackHierarchyView(@NotNull ISupportActivity iSupportActivity) {
+        iSupportActivity.getSupportDelegate().showFragmentStackHierarchyView();
     }
 
     /**
@@ -73,8 +73,8 @@ public class SupportHelper {
      * <p>
      * 调试用。
      */
-    public static void logFragmentStackHierarchy(@NotNull ISupportActivity support) {
-        support.getSupportDelegate().logFragmentStackHierarchy();
+    public static void logFragmentStackHierarchy(@NotNull ISupportActivity iSupportActivity) {
+        iSupportActivity.getSupportDelegate().logFragmentStackHierarchy();
     }
 
     /**
@@ -92,12 +92,12 @@ public class SupportHelper {
         for (int i = (fragmentList.size() - 1); i >= 0; i--) {
             Fragment fragment = fragmentList.get(i);
             if (fragment instanceof ISupportFragment) {
-                ISupportFragment iFragment = (ISupportFragment) fragment;
+                ISupportFragment iSupportFragment = (ISupportFragment) fragment;
                 if (containerId == 0) {
-                    return iFragment;
+                    return iSupportFragment;
                 }
-                if (containerId == iFragment.getSupportDelegate().mContainerId) {
-                    return iFragment;
+                if (containerId == iSupportFragment.getSupportDelegate().mContainerId) {
+                    return iSupportFragment;
                 }
             }
         }
@@ -201,15 +201,15 @@ public class SupportHelper {
     private static @Nullable ISupportFragment getBackStackTopFragment(@NotNull FragmentManager fragmentManager, int containerId) {
         int count = fragmentManager.getBackStackEntryCount();
         for (int i = (count - 1); i >= 0; i--) {
-            FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(i);
-            Fragment fragment = fragmentManager.findFragmentByTag(entry.getName());
+            FragmentManager.BackStackEntry backStackEntry = fragmentManager.getBackStackEntryAt(i);
+            Fragment fragment = fragmentManager.findFragmentByTag(backStackEntry.getName());
             if (fragment instanceof ISupportFragment) {
-                ISupportFragment supportFragment = (ISupportFragment) fragment;
+                ISupportFragment iSupportFragment = (ISupportFragment) fragment;
                 if (containerId == 0) {
-                    return supportFragment;
+                    return iSupportFragment;
                 }
-                if (containerId == supportFragment.getSupportDelegate().mContainerId) {
-                    return supportFragment;
+                if (containerId == iSupportFragment.getSupportDelegate().mContainerId) {
+                    return iSupportFragment;
                 }
             }
         }
@@ -223,9 +223,9 @@ public class SupportHelper {
             toFragmentTag = fragmentClass.getName();
         }
         for (int i = (count - 1); i >= 0; i--) {
-            FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(i);
-            if (toFragmentTag.equals(entry.getName())) {
-                Fragment fragment = fragmentManager.findFragmentByTag(entry.getName());
+            FragmentManager.BackStackEntry backStackEntry = fragmentManager.getBackStackEntryAt(i);
+            if (toFragmentTag.equals(backStackEntry.getName())) {
+                Fragment fragment = fragmentManager.findFragmentByTag(backStackEntry.getName());
                 if (fragment instanceof ISupportFragment) {
                     return (T) fragment;
                 }
@@ -234,10 +234,10 @@ public class SupportHelper {
         return null;
     }
 
-    static @NotNull List<Fragment> getWillPopFragments(@NotNull FragmentManager fm, String targetTag, boolean includeTarget) {
-        Fragment target = fm.findFragmentByTag(targetTag);
+    static @NotNull List<Fragment> getWillPopFragments(@NotNull FragmentManager fragmentManager, String targetTag, boolean includeTarget) {
+        Fragment target = fragmentManager.findFragmentByTag(targetTag);
         List<Fragment> willPopFragments = new ArrayList<>();
-        List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fm);
+        List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
         int size = fragmentList.size();
         int startIndex = -1;
         for (int i = (size - 1); i >= 0; i--) {

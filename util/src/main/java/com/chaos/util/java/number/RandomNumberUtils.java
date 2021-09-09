@@ -1,5 +1,7 @@
 package com.chaos.util.java.number;
 
+import androidx.annotation.Nullable;
+
 import java.util.HashSet;
 import java.util.Random;
 
@@ -11,27 +13,10 @@ import java.util.Random;
  */
 public class RandomNumberUtils {
     /**
-     * 生成随机数
-     *
-     * @param length 长度
-     * @return 随机数
-     */
-    public long generateRandomNumber(int length) {
-        StringBuilder stringBuilder = new StringBuilder();
-        Random random = new Random();
-        int firstNumber = (random.nextInt(9) + 1);
-        stringBuilder.append(firstNumber);
-        for (int i = 0; i < (length - 1); ++i) {
-            stringBuilder.append(random.nextInt(10));
-        }
-        return Long.parseLong(stringBuilder.toString());
-    }
-
-    /**
      * 某范围随机数
      * <p>
      * 需获随机数范围 [2,100]，
-     * 假设返伪随机数范围 [0,N) 即 [0,N-1]，
+     * 假设返伪随机数范围 [0,N) 即 [0,N - 1]，
      * 对所得数模 99 计算所得数范围 [0,98]，
      * 结果加 2 即 [2,100]。
      *
@@ -54,6 +39,7 @@ public class RandomNumberUtils {
      * @param n   随机数个数
      * @return 随机数结果集
      */
+    @Nullable
     public static int[] randomCommon(int min, int max, int n) {
         if ((max < min) || (n > (max - min + 1))) {
             return null;
@@ -109,14 +95,15 @@ public class RandomNumberUtils {
      * 随机指定范围 N 个不重复数
      * <p>
      * 于初始化无重复待选数组随机生一数放入结果，
-     * 待选数组被随机到的数用待选数组 len-1 下标对应数替换，
-     * 然后从 len-2 随机生下一随机数（类推）。
+     * 待选数组被随机到的数用待选数组 len - 1 下标对应数替换，
+     * 然后从 len - 2 随机生下一随机数（类推）。
      *
      * @param max 指定范围最大值
      * @param min 指定范围最小值
      * @param n   随机数个数
      * @return 随机数结果集
      */
+    @Nullable
     public static int[] randomArray(int min, int max, int n) {
         int len = (max - min + 1);
         if ((max < min) || (n > len)) {
@@ -139,6 +126,23 @@ public class RandomNumberUtils {
             source[index] = source[len];
         }
         return result;
+    }
+
+    /**
+     * 生成随机数
+     *
+     * @param length 长度
+     * @return 随机数
+     */
+    public long generateRandomNumber(int length) {
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        int firstNumber = (random.nextInt(9) + 1);
+        stringBuilder.append(firstNumber);
+        for (int i = 0; i < (length - 1); ++i) {
+            stringBuilder.append(random.nextInt(10));
+        }
+        return Long.parseLong(stringBuilder.toString());
     }
 
     /**

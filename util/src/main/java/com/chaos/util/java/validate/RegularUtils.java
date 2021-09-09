@@ -42,14 +42,6 @@ public class RegularUtils {
      * Phone number + Data only number
      */
     private static final String REGEX_ALL_MOBILE_WITH_SMS = "^(?:\\+?86)?1(?:3\\d{3}|5[^4\\D]\\d{2}|8\\d{3}|7(?:[01356789]\\d{2}|4(?:0\\d|1[0-2]|9\\d))|9[189]\\d{2}|6[567]\\d{2}|4[579]\\d{2})\\d{6}$";
-
-    /**
-     * constructor
-     */
-    private RegularUtils() {
-        throw new UnsupportedOperationException("You can't instantiate me...");
-    }
-
     /**
      * 电话号码（正则）
      */
@@ -74,6 +66,13 @@ public class RegularUtils {
      * 汉字（正则）
      */
     private static final String REGEX_ZH = "^[\\u4e00-\\u9fa5]+$";
+
+    /**
+     * constructor
+     */
+    private RegularUtils() {
+        throw new UnsupportedOperationException("You can't instantiate me...");
+    }
 
     /**
      * 手机号（精确）

@@ -31,7 +31,18 @@ public class Fragmentation {
     private static volatile Fragmentation INSTANCE;
     private boolean debug;
     private int mode;
-    private ExceptionHandler handler;
+    private ExceptionHandler exceptionHandler;
+
+    @Contract(pure = true)
+    private Fragmentation(@NotNull FragmentationBuilder builder) {
+        debug = builder.debug;
+        if (debug) {
+            mode = builder.mode;
+        } else {
+            mode = NONE;
+        }
+        exceptionHandler = builder.handler;
+    }
 
     static Fragmentation getDefault() {
         if (null == INSTANCE) {
@@ -49,17 +60,6 @@ public class Fragmentation {
         return new FragmentationBuilder();
     }
 
-    @Contract(pure = true)
-    private Fragmentation(@NotNull FragmentationBuilder builder) {
-        debug = builder.debug;
-        if (debug) {
-            mode = builder.mode;
-        } else {
-            mode = NONE;
-        }
-        handler = builder.handler;
-    }
-
     public boolean isDebug() {
         return debug;
     }
@@ -68,12 +68,12 @@ public class Fragmentation {
         this.debug = debug;
     }
 
-    ExceptionHandler getHandler() {
-        return handler;
+    ExceptionHandler getExceptionHandler() {
+        return exceptionHandler;
     }
 
-    public void setHandler(ExceptionHandler handler) {
-        this.handler = handler;
+    public void setExceptionHandler(ExceptionHandler exceptionHandler) {
+        this.exceptionHandler = exceptionHandler;
     }
 
     int getMode() {

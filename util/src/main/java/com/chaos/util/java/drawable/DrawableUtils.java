@@ -53,7 +53,7 @@ public class DrawableUtils {
     public static int getDrawableResIdByName(Application application, String name, int defaultResId) {
         try {
             int drawableResId = application.getResources().getIdentifier(name, "drawable", application.getPackageName());
-            return (drawableResId > 0) ? drawableResId : defaultResId;
+            return ((drawableResId > 0) ? drawableResId : defaultResId);
         } catch (Exception e) {
             Timber.e(e);
             return defaultResId;

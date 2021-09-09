@@ -31,6 +31,7 @@ import value.UtilMagic;
  */
 public class DateUtils {
     private static final String[] WEEKS = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+    private static SimpleDateFormat simpleDateFormat = null;
 
     /**
      * 据指定格式获当前时
@@ -621,7 +622,7 @@ public class DateUtils {
         } else if (UtilMagic.INT_TWO == type) {
             formatStyle = "yyyy";
         }
-        endDay = (null == endDay) ? getCurrentTime("yyyy-MM-dd") : endDay;
+        endDay = ((null == endDay) ? getCurrentTime("yyyy-MM-dd") : endDay);
         DateFormat dateFormat = new SimpleDateFormat(formatStyle, Locale.US);
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -938,21 +939,6 @@ public class DateUtils {
     }
 
     /**
-     * 时分秒
-     *
-     * @param time 时间
-     * @return 时分秒
-     */
-    private @NotNull String hourMinuteSecond(int time) {
-        int hour = (time / 3600);
-        int min = (time % 3600 / 60);
-        int second = (time % 60);
-        return String.format(Locale.CHINA, "%02d:%02d:%02d", hour, min, second);
-    }
-
-    private static SimpleDateFormat simpleDateFormat = null;
-
-    /**
      * 格式化 UTC
      *
      * @param l          long
@@ -1028,5 +1014,18 @@ public class DateUtils {
             stringBuilder.append("-").append(dateString);
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * 时分秒
+     *
+     * @param time 时间
+     * @return 时分秒
+     */
+    private @NotNull String hourMinuteSecond(int time) {
+        int hour = (time / 3600);
+        int min = (time % 3600 / 60);
+        int second = (time % 60);
+        return String.format(Locale.CHINA, "%02d:%02d:%02d", hour, min, second);
     }
 }

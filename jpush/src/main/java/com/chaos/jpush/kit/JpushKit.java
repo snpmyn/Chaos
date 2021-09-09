@@ -77,7 +77,7 @@ public class JpushKit {
      * @param context 应用上下文
      * @return 推送被停
      */
-    public static boolean isPushStopped(Context context) {
+    public static boolean arePushStopped(Context context) {
         return JPushInterface.isPushStopped(context);
     }
 
@@ -186,6 +186,7 @@ public class JpushKit {
      * @param context 应用上下文
      * @return 连接状
      */
+    @Deprecated
     public static boolean getConnectionState(Context context) {
         return JPushInterface.getConnectionState(context);
     }

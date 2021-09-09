@@ -12,6 +12,7 @@ import org.litepal.LitePal;
  */
 public class LitePalInitConfigure {
     /**
+     * ≈
      * 初始化 LitePal
      *
      * @param application 应用

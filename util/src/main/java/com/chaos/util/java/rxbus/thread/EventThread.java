@@ -63,12 +63,12 @@ public enum EventThread {
      */
     HANDLER;
 
-    public static Scheduler getScheduler(EventThread thread) {
+    public static Scheduler getScheduler(EventThread eventThread) {
         Scheduler scheduler;
-        if (thread == MAIN_THREAD) {
+        if (eventThread == MAIN_THREAD) {
             return AndroidSchedulers.mainThread();
         }
-        switch (thread) {
+        switch (eventThread) {
             case NEW_THREAD:
                 scheduler = Schedulers.newThread();
                 break;

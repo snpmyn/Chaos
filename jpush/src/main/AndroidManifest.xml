@@ -35,6 +35,10 @@
 
     <!--Required-->
     <application>
+        <activity
+            android:name=".JpushDisplayActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <!--极光富媒体或极光早上好功能需设此 Activity 之 exported 为 true 覆盖 jcenter 上组件-->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
@@ -44,7 +48,9 @@
             tools:node="replace">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <action android:name="cn.jpush.android.ui.PopWinActivity" />
+
                 <category android:name="${applicationId}" />
             </intent-filter>
         </activity>

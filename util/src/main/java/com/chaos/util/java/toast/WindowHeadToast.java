@@ -30,6 +30,8 @@ import value.UtilMagic;
  * @desc 窗体头部吐司
  */
 public class WindowHeadToast implements View.OnTouchListener {
+    private final static int ANIMATION_DURATION = 500;
+    private final static int ANIMATION_DISMISS_DELAY = 3000;
     private final Context context;
     private final String title;
     private final String content;
@@ -39,8 +41,6 @@ public class WindowHeadToast implements View.OnTouchListener {
     private LinearLayout linearLayout;
     private WindowManager windowManager;
     private OnViewClickListener onViewClickListener;
-    private final static int ANIMATION_DURATION = 500;
-    private final static int ANIMATION_DISMISS_DELAY = 3000;
 
     /**
      * constructor
@@ -98,7 +98,7 @@ public class WindowHeadToast implements View.OnTouchListener {
         wmParams.y = 0;
         // 影响吐司中布局消失时父控件和子控件消失时机一致性，比如设置 -1 后不同步。
         wmParams.format = -3;
-        wmParams.alpha = 1.0f;
+        wmParams.alpha = 1.0F;
         wmParams.gravity = Gravity.TOP;
         wmParams.height = linearLayout.getMeasuredHeight();
         windowManager.addView(linearLayout, wmParams);

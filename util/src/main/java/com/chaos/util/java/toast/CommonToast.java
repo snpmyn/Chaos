@@ -41,6 +41,15 @@ public class CommonToast extends Toast {
         return notificationManagerCompat.areNotificationsEnabled();
     }
 
+    @Override
+    public void show() {
+        try {
+            super.show();
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
     private static class MyContextWrapper extends ContextWrapper {
         public MyContextWrapper(Context base) {
             super(base);
@@ -58,15 +67,6 @@ public class CommonToast extends Toast {
                 return "android";
             }
             return getPackageName();
-        }
-    }
-
-    @Override
-    public void show() {
-        try {
-            super.show();
-        } catch (Exception e) {
-            Timber.e(e);
         }
     }
 }

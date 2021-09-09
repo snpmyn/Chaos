@@ -17,7 +17,7 @@ import java.util.Map;
  * Android SDK 错误码都以 9 开头。
  */
 public class BmobErrorCode {
-    private static final Map<Integer, String> ERROR_CODE_MESSAGE_MAP = new HashMap<>();
+    private static final Map<Integer, String> ERROR_CODE_MESSAGE_MAP = new HashMap<>(19);
 
     static {
         ERROR_CODE_MESSAGE_MAP.put(9001, "Application Id为空");

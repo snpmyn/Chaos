@@ -9,10 +9,10 @@ import java.util.List;
  */
 class DebugFragmentRecord {
     CharSequence fragmentName;
-    List<DebugFragmentRecord> childFragmentRecord;
+    List<DebugFragmentRecord> debugFragmentRecords;
 
-    DebugFragmentRecord(CharSequence fragmentName, List<DebugFragmentRecord> childFragmentRecord) {
+    DebugFragmentRecord(CharSequence fragmentName, List<DebugFragmentRecord> debugFragmentRecords) {
         this.fragmentName = fragmentName;
-        this.childFragmentRecord = childFragmentRecord;
+        this.debugFragmentRecords = debugFragmentRecords;
     }
 }

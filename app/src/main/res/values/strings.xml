@@ -29,4 +29,12 @@
     <string name="picture">图片</string>
     <string name="startPulse">Start Pulse</string>
     <string name="finshPulse">Finish Pulse</string>
+    <string name="scan">扫描</string>
+    <string name="scanQrCode">扫描二维码</string>
+    <string name="scanBarCode">扫描条形码</string>
+    <string name="suggestToAllowThesePermissions">建议授权这些权限</string>
+    <string name="agree">同意</string>
+    <string name="youNeedToAllowNecessaryPermissionInSettingManually">你需要手动在设置中授予该权限</string>
+    <string name="ok">好的</string>
+    <string name="errorOpeningTheCamera">打开相机出错</string>
 </resources>

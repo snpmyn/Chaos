@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScanQrCodeActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/scanQrCodeActivityMt"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/scanCode"
+            android:textColor="@color/pageBackground"
+            android:textSize="@dimen/sp_16" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanQrCodeActivityMt">
+
+        <cn.bingoogolapple.qrcode.zxing.ZXingView
+            android:id="@+id/scanQrCodeActivityZxv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:qrcv_animTime="1500"
+            app:qrcv_borderSize="@dimen/px1"
+            app:qrcv_cornerColor="@color/purple_500"
+            app:qrcv_isAutoZoom="true"
+            app:qrcv_isShowDefaultScanLineDrawable="true"
+            app:qrcv_isShowLocationPoint="true"
+            app:qrcv_isShowTipBackground="true"
+            app:qrcv_qrCodeTipText="二维码放入框内，可自动扫描"
+            app:qrcv_scanLineColor="@color/color_scan_line"
+            app:qrcv_tipTextSize="@dimen/sp_12"
+            app:qrcv_toolbarHeight="?actionBarSize"
+            app:qrcv_topOffset="?actionBarSize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_180"
+            android:layout_gravity="bottom"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/scanQrCodeActivityIbFlash"
+                    style="@style/ImageButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/toDo"
+                    android:padding="@dimen/dp_12"
+                    app:srcCompat="@drawable/ic_flash_off_color_scan_flash_on_off_24dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/scanQrCodeActivityIbPhotoLibrary"
+                    style="@style/ImageButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/toDo"
+                    android:padding="@dimen/dp_12"
+                    app:srcCompat="@drawable/ic_photo_library_color_scan_photo_library_24dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

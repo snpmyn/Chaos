@@ -52,8 +52,8 @@ public class TagAliasMobileNumberOperatorKit {
     @SuppressLint("StaticFieldLeak")
     private static TagAliasMobileNumberOperatorKit mInstance;
     private static int sequence = 1;
-    private Context context;
     private final SparseArray<Object> setActionCache = new SparseArray<>();
+    private Context context;
     private final Handler delaySendHandler = new Handler(context.getMainLooper()) {
         @Override
         public void handleMessage(@NotNull Message msg) {
@@ -147,7 +147,7 @@ public class TagAliasMobileNumberOperatorKit {
             return;
         }
         put(sequence, tagAliasBean);
-        if (tagAliasBean.isAliasAction) {
+        if (tagAliasBean.areAliasAction) {
             switch (tagAliasBean.action) {
                 case ACTION_GET:
                     JPushInterface.getAlias(context, sequence);
@@ -193,9 +193,9 @@ public class TagAliasMobileNumberOperatorKit {
     }
 
     private boolean retryActionIfNeeded(int errorCode, TagAliasBean tagAliasBean) {
-        if (!ExampleKit.isConnected(context)) {
+        if (!ExampleKit.areConnected(context)) {
             Timber.d("no network");
-            return false;
+            return true;
         }
         // 错误码 6002 超时
         // 错误码 6014 服务器繁忙
@@ -207,16 +207,16 @@ public class TagAliasMobileNumberOperatorKit {
                 message.what = DELAY_SEND_ACTION;
                 message.obj = tagAliasBean;
                 delaySendHandler.sendMessageDelayed(message, 1000 * 60);
-                String logs = getRetryStr(tagAliasBean.isAliasAction, tagAliasBean.action, errorCode);
-                ExampleKit.showToast(logs, context);
-                return true;
+                String logs = getRetryStr(tagAliasBean.areAliasAction, tagAliasBean.action, errorCode);
+                ExampleKit.showToast(logs);
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     private boolean retrySetMobileNumberActionIfNeeded(int errorCode, String mobileNumber) {
-        if (ExampleKit.isConnected(context)) {
+        if (ExampleKit.areConnected(context)) {
             Timber.d("no network");
             return false;
         }
@@ -231,15 +231,15 @@ public class TagAliasMobileNumberOperatorKit {
             delaySendHandler.sendMessageDelayed(message, 1000 * 60);
             String str = "Failed to set mobile number due to %s. Try again after 60s.";
             str = String.format(Locale.ENGLISH, str, (errorCode == 6002 ? "timeout" : "server internal error”"));
-            ExampleKit.showToast(str, context);
+            ExampleKit.showToast(str);
             return true;
         }
         return false;
     }
 
-    private @NotNull String getRetryStr(boolean isAliasAction, int actionType, int errorCode) {
+    private @NotNull String getRetryStr(boolean areAliasAction, int actionType, int errorCode) {
         String str = "Failed to %s %s due to %s. Try again after 60s.";
-        str = String.format(Locale.ENGLISH, str, getActionStr(actionType), (isAliasAction ? "alias" : " tags"), (errorCode == 6002 ? "timeout" : "server too busy"));
+        str = String.format(Locale.ENGLISH, str, getActionStr(actionType), (areAliasAction ? "alias" : " tags"), (errorCode == 6002 ? "timeout" : "server too busy"));
         return str;
     }
 
@@ -272,7 +272,7 @@ public class TagAliasMobileNumberOperatorKit {
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (null == tagAliasBean) {
-            ExampleKit.showToast("获缓存记录失败", context);
+            ExampleKit.showToast("获缓存记录失败");
             return;
         }
         if (jPushMessage.getErrorCode() == 0) {
@@ -280,17 +280,17 @@ public class TagAliasMobileNumberOperatorKit {
             setActionCache.remove(sequence);
             String logs = getActionStr(tagAliasBean.action) + " tags success";
             Timber.d(logs);
-            ExampleKit.showToast(logs, context);
+            ExampleKit.showToast(logs);
         } else {
             String logs = "Failed to " + getActionStr(tagAliasBean.action) + " tags";
             if (jPushMessage.getErrorCode() == JpushMagic.INT_SIX_THOUSAND_EIGHTEEN) {
                 // tag 数超限，需先清除一部分再 add
                 logs += ", tags is exceed limit need to clean";
             }
-            logs += ", errorCode: " + jPushMessage.getErrorCode();
+            logs += (", errorCode: " + jPushMessage.getErrorCode());
             Timber.d(logs);
-            if (!retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
-                ExampleKit.showToast(logs, context);
+            if (retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
+                ExampleKit.showToast(logs);
             }
         }
     }
@@ -302,7 +302,7 @@ public class TagAliasMobileNumberOperatorKit {
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (null == tagAliasBean) {
-            ExampleKit.showToast("获缓存记录失败", context);
+            ExampleKit.showToast("获缓存记录失败");
             return;
         }
         if (jPushMessage.getErrorCode() == 0) {
@@ -310,12 +310,12 @@ public class TagAliasMobileNumberOperatorKit {
             setActionCache.remove(sequence);
             String logs = getActionStr(tagAliasBean.action) + " tag " + jPushMessage.getCheckTag() + " bind state success, state: " + jPushMessage.getTagCheckStateResult();
             Timber.d(logs);
-            ExampleKit.showToast(logs, context);
+            ExampleKit.showToast(logs);
         } else {
             String logs = "Failed to " + getActionStr(tagAliasBean.action) + " tags, errorCode: " + jPushMessage.getErrorCode();
             Timber.d(logs);
-            if (!retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
-                ExampleKit.showToast(logs, context);
+            if (retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
+                ExampleKit.showToast(logs);
             }
         }
     }
@@ -327,7 +327,7 @@ public class TagAliasMobileNumberOperatorKit {
         // 据 sequence 从之前操作缓存获缓存记录
         TagAliasBean tagAliasBean = (TagAliasBean) setActionCache.get(sequence);
         if (null == tagAliasBean) {
-            ExampleKit.showToast("获缓存记录失败", context);
+            ExampleKit.showToast("获缓存记录失败");
             return;
         }
         if (jPushMessage.getErrorCode() == 0) {
@@ -335,12 +335,12 @@ public class TagAliasMobileNumberOperatorKit {
             setActionCache.remove(sequence);
             String logs = getActionStr(tagAliasBean.action) + " alias success";
             Timber.d(logs);
-            ExampleKit.showToast(logs, context);
+            ExampleKit.showToast(logs);
         } else {
             String logs = "Failed to " + getActionStr(tagAliasBean.action) + " alias, errorCode: " + jPushMessage.getErrorCode();
             Timber.d(logs);
-            if (!retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
-                ExampleKit.showToast(logs, context);
+            if (retryActionIfNeeded(jPushMessage.getErrorCode(), tagAliasBean)) {
+                ExampleKit.showToast(logs);
             }
         }
     }
@@ -362,7 +362,7 @@ public class TagAliasMobileNumberOperatorKit {
             String logs = "Failed to set mobile number, errorCode: " + jPushMessage.getErrorCode();
             Timber.d(logs);
             if (!retrySetMobileNumberActionIfNeeded(jPushMessage.getErrorCode(), jPushMessage.getMobileNumber())) {
-                ExampleKit.showToast(logs, context);
+                ExampleKit.showToast(logs);
             }
         }
     }
@@ -371,7 +371,7 @@ public class TagAliasMobileNumberOperatorKit {
         int action;
         Set<String> tags;
         String alias;
-        boolean isAliasAction;
+        boolean areAliasAction;
 
         @NonNull
         @Override
@@ -380,7 +380,7 @@ public class TagAliasMobileNumberOperatorKit {
                     "action=" + action +
                     ", tags=" + tags +
                     ", alias='" + alias + '\'' +
-                    ", isAliasAction=" + isAliasAction +
+                    ", areAliasAction=" + areAliasAction +
                     '}';
         }
     }

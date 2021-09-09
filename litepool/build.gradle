@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-
     api project(path: ':litepal')
     api project(path: ':fragmentation')
     api project(path: ':widget')

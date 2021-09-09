@@ -1,0 +1,6 @@
+<resources>
+    <!--ImageButtonStyle-->
+    <style name="ImageButtonStyle" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">?attr/actionBarItemBackground</item>
+    </style>
+</resources>

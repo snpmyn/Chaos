@@ -9,10 +9,10 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.chaos.jpush.value.JpushMagic;
 import com.chaos.util.java.thread.ThreadManager;
+import com.chaos.util.java.toast.ToastKit;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +28,7 @@ import timber.log.Timber;
  * @date: 2019/5/31 15:05
  */
 public class ExampleKit {
-    private static final String KEY_APP_KEY = "JPUSH_APP_KEY";
+    private static final String JPUSH_APP_KEY = "JPUSH_APP_KEY";
     /**
      * "+" 或数字开头
      * 后面内容仅含 "-" 和数字
@@ -46,13 +46,13 @@ public class ExampleKit {
      * @param string 字符串
      * @return 手机号有效否
      */
-    public static boolean isValidMobileNumber(String string) {
+    public static boolean areValidMobileNumber(String string) {
         if (TextUtils.isEmpty(string)) {
             return true;
         }
-        Pattern p = Pattern.compile(MOBILE_NUMBER_CHARS);
-        Matcher m = p.matcher(string);
-        return m.matches();
+        Pattern pattern = Pattern.compile(MOBILE_NUMBER_CHARS);
+        Matcher matcher = pattern.matcher(string);
+        return matcher.matches();
     }
 
     /**
@@ -63,9 +63,9 @@ public class ExampleKit {
      * @param string 字符串
      * @return Tag 和 Alias 有效否
      */
-    public static boolean isValidTagAndAlias(String string) {
-        Matcher m = P1.matcher(string);
-        return m.matches();
+    public static boolean areValidTagAndAlias(String string) {
+        Matcher matcher = P1.matcher(string);
+        return matcher.matches();
     }
 
     /**
@@ -78,11 +78,11 @@ public class ExampleKit {
         Bundle metaData;
         String appKey = null;
         try {
-            ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            metaData = ai.metaData;
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            metaData = applicationInfo.metaData;
             if (null != metaData) {
-                appKey = metaData.getString(KEY_APP_KEY);
-                if ((null == appKey) || appKey.length() != JpushMagic.INT_TWENTY_FOUR) {
+                appKey = metaData.getString(JPUSH_APP_KEY);
+                if ((null == appKey) || (appKey.length() != JpushMagic.INT_TWENTY_FOUR)) {
                     appKey = null;
                 }
             }
@@ -92,23 +92,23 @@ public class ExampleKit {
         return appKey;
     }
 
-    static void showToast(final String toast, final Context context) {
+    static void showToast(final String toast) {
         ThreadManager.stepScheduledExecutorService().execute(() -> {
             if (null == Looper.myLooper()) {
                 Looper.prepare();
             }
-            Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
+            ToastKit.showShort(toast);
             Looper.loop();
         });
     }
 
-    static boolean isConnected(@NotNull Context context) {
+    static boolean areConnected(@NotNull Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return (networkInfo != null && networkInfo.isConnected());
+        return ((null != networkInfo) && networkInfo.isConnected());
     }
 
-    private static boolean isReadableAscii(CharSequence string) {
+    private static boolean areReadableAscii(CharSequence string) {
         if (TextUtils.isEmpty(string)) {
             return false;
         }

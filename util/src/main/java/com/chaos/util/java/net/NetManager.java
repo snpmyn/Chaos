@@ -1,5 +1,9 @@
 package com.chaos.util.java.net;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.content.Context.TELEPHONY_SERVICE;
+import static android.content.Context.WIFI_SERVICE;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,10 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
-
-import static android.content.Context.CONNECTIVITY_SERVICE;
-import static android.content.Context.TELEPHONY_SERVICE;
-import static android.content.Context.WIFI_SERVICE;
 
 /**
  * Created on 2018/6/5.
@@ -260,7 +260,7 @@ public class NetManager {
      */
     private static @Nullable NetworkInfo getActiveNetworkInfo(@NotNull Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
-        return (null != connectivityManager) ? connectivityManager.getActiveNetworkInfo() : null;
+        return ((null != connectivityManager) ? connectivityManager.getActiveNetworkInfo() : null);
     }
 
     private static void checkNonNull(Object object, String message) {

@@ -19,6 +19,7 @@
 | litepal | LitePal | 无 |
 | doraemonkit | DoraemonKit | 无 |
 | tbs | 腾讯浏览服务 | 无 |
+| scan | 扫描 | 无 |
 | pool | 水池 | 无 |
 | litepool | 轻量水池 | 无 |
 ## 依赖
@@ -108,7 +109,6 @@ api 'org.litepal.guolindev:core:xxx'
 #### doraemonkit
 ```
 implementation project(path: ':util')
-// 核心模块
 debugImplementation "io.github.didi.dokit:dokitx:xxx"
 debugImplementation "io.github.didi.dokit:dokitx-ft:xxx"
 debugImplementation "io.github.didi.dokit:dokitx-mc:xxx"
@@ -119,8 +119,15 @@ releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
 ```
 api 'com.tencent.tbs.tbssdk:sdk:xxx'
 ```
+#### scan
+```
+implementation project(path: ':util')
+implementation project(path: ':matisse')
+api 'cn.bingoogolapple:bga-qrcode-zxing:xxx'
+```
 #### pool
 ```
+api project(path: ':scan')
 api project(path: ':bmob')
 api project(path: ':doraemonkit')
 api project(path: ':banner')

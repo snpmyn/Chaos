@@ -19,7 +19,7 @@ import java.util.Map;
  * 一部分服务器返回；一部分 SDK 本地生成。
  */
 public class MobSmsErrorCode {
-    private static final Map<Integer, String> ERROR_CODE_MESSAGE_MAP = new HashMap<>();
+    private static final Map<Integer, String> ERROR_CODE_MESSAGE_MAP = new HashMap<>(74);
 
     static {
         ERROR_CODE_MESSAGE_MAP.put(206, "MobSMS 模板无效");

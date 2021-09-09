@@ -14,6 +14,7 @@ import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureActivity;
+import widget.scan.ScanActivity;
 import widget.search.SearchActivity;
 
 /**
@@ -69,7 +70,8 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnMoney,
             R.id.widgetActivityBtnChoose,
             R.id.widgetActivityBtnSearch,
-            R.id.widgetActivityBtnPicture})
+            R.id.widgetActivityBtnPicture,
+            R.id.widgetActivityBtnScan})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -91,6 +93,10 @@ public class WidgetActivity extends BaseActivity {
             // 图片页
             case R.id.widgetActivityBtnPicture:
                 IntentJump.getInstance().jump(null, this, false, PictureActivity.class);
+                break;
+            // 扫描页
+            case R.id.widgetActivityBtnScan:
+                IntentJump.getInstance().jump(null, this, false, ScanActivity.class);
                 break;
             default:
                 break;

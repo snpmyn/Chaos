@@ -14,14 +14,6 @@ import org.jetbrains.annotations.NotNull;
  * @date: 2019/5/20 9:24
  */
 public class FragmentAnimator implements Parcelable {
-    @AnimRes
-    int enter;
-    @AnimRes
-    int exit;
-    @AnimRes
-    int popEnter;
-    @AnimRes
-    int popExit;
     public static final Creator<FragmentAnimator> CREATOR = new Creator<FragmentAnimator>() {
         @Contract("_ -> new")
         @Override
@@ -35,6 +27,14 @@ public class FragmentAnimator implements Parcelable {
             return new FragmentAnimator[size];
         }
     };
+    @AnimRes
+    int enter;
+    @AnimRes
+    int exit;
+    @AnimRes
+    int popEnter;
+    @AnimRes
+    int popExit;
 
     public FragmentAnimator(int enter, int exit) {
         this.enter = enter;

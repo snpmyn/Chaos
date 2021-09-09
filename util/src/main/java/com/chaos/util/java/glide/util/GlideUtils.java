@@ -1,5 +1,7 @@
 package com.chaos.util.java.glide.util;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +17,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
-
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * Created on 2017/11/17.
@@ -80,7 +80,7 @@ public class GlideUtils {
                 .load(rId)
                 .apply(options)
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }
@@ -102,7 +102,7 @@ public class GlideUtils {
                 .load(strId)
                 .apply(options)
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }
@@ -125,7 +125,7 @@ public class GlideUtils {
                 .apply(options)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }
@@ -148,7 +148,7 @@ public class GlideUtils {
                 .apply(options)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }
@@ -172,7 +172,7 @@ public class GlideUtils {
                 .apply(options)
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(radius)))
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }
@@ -196,7 +196,7 @@ public class GlideUtils {
                 .apply(options)
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(radius)))
                 // sizeMultiplier
-                .thumbnail(0.25f)
+                .thumbnail(0.25F)
                 .transition(withCrossFade())
                 .into(iv);
     }

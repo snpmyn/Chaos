@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.io.Serializable;
+
 import okio.ByteString;
 
 /**
@@ -78,5 +80,20 @@ public class IntentVerify {
             return null;
         }
         return intent.getStringExtra(key);
+    }
+
+    /**
+     * 获取 Serializable 类型额外信息
+     *
+     * @param intent 意图
+     * @param key    键
+     * @return Serializable 类型额外信息
+     */
+    @Nullable
+    public static Serializable getSerializableExtra(Intent intent, String key) {
+        if (badIntent(intent)) {
+            return null;
+        }
+        return intent.getSerializableExtra(key);
     }
 }

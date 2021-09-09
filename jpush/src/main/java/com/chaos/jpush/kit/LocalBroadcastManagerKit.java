@@ -24,9 +24,9 @@ import timber.log.Timber;
  * @date: 2019/5/31 16:54
  */
 public final class LocalBroadcastManagerKit {
-    private final String TAG = this.getClass().getSimpleName();
     private static final Object M_LOCK = new Object();
     private static LocalBroadcastManagerKit mInstance;
+    private final String TAG = this.getClass().getSimpleName();
     private final Context mAppContext;
     private final HashMap<BroadcastReceiver, ArrayList<IntentFilter>> mReceivers = new HashMap<>();
     private final HashMap<String, ArrayList<ReceiverRecord>> mActions = new HashMap<>();
@@ -56,46 +56,44 @@ public final class LocalBroadcastManagerKit {
         }
     }
 
-    @SuppressWarnings("rawtypes")
     public void registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
         synchronized (this.mReceivers) {
-            ReceiverRecord entry = new ReceiverRecord(filter, receiver);
-            ArrayList filters = this.mReceivers.get(receiver);
-            if (null == filters) {
-                filters = new ArrayList(1);
-                this.mReceivers.put(receiver, filters);
+            ReceiverRecord receiverRecord = new ReceiverRecord(filter, receiver);
+            ArrayList<IntentFilter> intentFilters = this.mReceivers.get(receiver);
+            if (null == intentFilters) {
+                intentFilters = new ArrayList<>(1);
+                this.mReceivers.put(receiver, intentFilters);
             }
-            filters.add(filter);
+            intentFilters.add(filter);
             for (int i = 0; i < filter.countActions(); ++i) {
                 String action = filter.getAction(i);
-                ArrayList entries = this.mActions.get(action);
-                if (null == entries) {
-                    entries = new ArrayList(1);
-                    this.mActions.put(action, entries);
+                ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receiverRecords = this.mActions.get(action);
+                if (null == receiverRecords) {
+                    receiverRecords = new ArrayList<>(1);
+                    this.mActions.put(action, receiverRecords);
                 }
-                entries.add(entry);
+                receiverRecords.add(receiverRecord);
             }
         }
     }
 
-    @SuppressWarnings("rawtypes")
     public void unregisterReceiver(BroadcastReceiver receiver) {
         synchronized (this.mReceivers) {
-            ArrayList filters = this.mReceivers.remove(receiver);
-            if (null != filters) {
-                for (int i = 0; i < filters.size(); ++i) {
-                    IntentFilter filter = (IntentFilter) filters.get(i);
+            ArrayList<IntentFilter> intentFilters = this.mReceivers.remove(receiver);
+            if (null != intentFilters) {
+                for (int i = 0; i < intentFilters.size(); ++i) {
+                    IntentFilter filter = (IntentFilter) intentFilters.get(i);
                     for (int j = 0; j < filter.countActions(); ++j) {
                         String action = filter.getAction(j);
-                        ArrayList receivers = this.mActions.get(action);
-                        if (null != receivers) {
-                            for (int k = 0; k < receivers.size(); ++k) {
-                                if (((ReceiverRecord) receivers.get(k)).receiver == receiver) {
-                                    receivers.remove(k);
+                        ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receiverRecords = this.mActions.get(action);
+                        if (null != receiverRecords) {
+                            for (int k = 0; k < receiverRecords.size(); ++k) {
+                                if (((ReceiverRecord) receiverRecords.get(k)).broadcastReceiver == receiver) {
+                                    receiverRecords.remove(k);
                                     --k;
                                 }
                             }
-                            if (receivers.size() <= 0) {
+                            if (receiverRecords.size() <= 0) {
                                 this.mActions.remove(action);
                             }
                         }
@@ -105,42 +103,41 @@ public final class LocalBroadcastManagerKit {
         }
     }
 
-    @SuppressWarnings("rawtypes")
     public boolean sendBroadcast(@NotNull Intent intent) {
         synchronized (this.mReceivers) {
             String action = intent.getAction();
             String type = intent.resolveTypeIfNeeded(this.mAppContext.getContentResolver());
             Uri data = intent.getData();
             String scheme = intent.getScheme();
-            Set categories = intent.getCategories();
+            Set<String> categories = intent.getCategories();
             boolean debug = (intent.getFlags() & 8) != 0;
             if (debug) {
                 Timber.d("Resolving type %s scheme %s of intent %s", type, scheme, intent);
             }
-            ArrayList entries = this.mActions.get(intent.getAction());
-            if (null != entries) {
+            ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receiverRecords = this.mActions.get(intent.getAction());
+            if (null != receiverRecords) {
                 if (debug) {
-                    Timber.d("Action list: %s", entries);
+                    Timber.d("Action list: %s", receiverRecords);
                 }
-                ArrayList receivers = null;
+                ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receivers = null;
                 int i;
-                for (i = 0; i < entries.size(); ++i) {
-                    ReceiverRecord receiver = (ReceiverRecord) entries.get(i);
+                for (i = 0; i < receiverRecords.size(); ++i) {
+                    ReceiverRecord receiver = (ReceiverRecord) receiverRecords.get(i);
                     if (debug) {
-                        Timber.d("Matching against filter %s", receiver.filter);
+                        Timber.d("Matching against filter %s", receiver.intentFilter);
                     }
                     if (receiver.broadcasting) {
                         if (debug) {
                             Timber.d("  Filter's target already added");
                         }
                     } else {
-                        int match = receiver.filter.match(action, type, scheme, data, categories, TAG);
+                        int match = receiver.intentFilter.match(action, type, scheme, data, categories, TAG);
                         if (match >= 0) {
                             if (debug) {
                                 Timber.d("Filter matched! match=0x %s", Integer.toHexString(match));
                             }
                             if (null == receivers) {
-                                receivers = new ArrayList();
+                                receivers = new ArrayList<>();
                             }
                             receivers.add(receiver);
                             receiver.broadcasting = true;
@@ -189,19 +186,19 @@ public final class LocalBroadcastManagerKit {
 
     private void executePendingBroadcasts() {
         while (true) {
-            BroadcastRecord[] brs;
+            BroadcastRecord[] broadcastRecords;
             synchronized (this.mReceivers) {
                 int br = this.mPendingBroadcasts.size();
                 if (br <= 0) {
                     return;
                 }
-                brs = new BroadcastRecord[br];
-                this.mPendingBroadcasts.toArray(brs);
+                broadcastRecords = new BroadcastRecord[br];
+                this.mPendingBroadcasts.toArray(broadcastRecords);
                 this.mPendingBroadcasts.clear();
             }
-            for (BroadcastRecord var7 : brs) {
-                for (int j = 0; j < var7.receivers.size(); ++j) {
-                    var7.receivers.get(j).receiver.onReceive(this.mAppContext, var7.intent);
+            for (BroadcastRecord var7 : broadcastRecords) {
+                for (int j = 0; j < var7.receiverRecords.size(); ++j) {
+                    var7.receiverRecords.get(j).broadcastReceiver.onReceive(this.mAppContext, var7.intent);
                 }
             }
         }
@@ -209,32 +206,32 @@ public final class LocalBroadcastManagerKit {
 
     private static class BroadcastRecord {
         final Intent intent;
-        final ArrayList<ReceiverRecord> receivers;
+        final ArrayList<ReceiverRecord> receiverRecords;
 
         BroadcastRecord(Intent intent, ArrayList<ReceiverRecord> receiverRecords) {
             this.intent = intent;
-            this.receivers = receiverRecords;
+            this.receiverRecords = receiverRecords;
         }
     }
 
     private static class ReceiverRecord {
-        final IntentFilter filter;
-        final BroadcastReceiver receiver;
+        final IntentFilter intentFilter;
+        final BroadcastReceiver broadcastReceiver;
         boolean broadcasting;
 
         ReceiverRecord(IntentFilter intentFilter, BroadcastReceiver broadcastReceiver) {
-            this.filter = intentFilter;
-            this.receiver = broadcastReceiver;
+            this.intentFilter = intentFilter;
+            this.broadcastReceiver = broadcastReceiver;
         }
 
         @NonNull
         @Override
         public String toString() {
-            return "Receiver{" +
-                    this.receiver +
-                    " filter=" +
-                    this.filter +
-                    "}";
+            return "ReceiverRecord{" +
+                    "intentFilter=" + intentFilter +
+                    ", broadcastReceiver=" + broadcastReceiver +
+                    ", broadcasting=" + broadcasting +
+                    '}';
         }
     }
 }

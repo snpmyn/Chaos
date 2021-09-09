@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
-import com.chaos.util.java.myview.ViewUtils;
+import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;

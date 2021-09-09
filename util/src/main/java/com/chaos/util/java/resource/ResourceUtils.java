@@ -15,12 +15,12 @@ public class ResourceUtils {
      * 获取资源 ID
      *
      * @param name 名称
-     * @param c    Class<?>
+     * @param cls  Class<?>
      * @return 资源 ID
      */
-    public static int getResId(String name, Class<?> c) {
+    public static int getResId(String name, Class<?> cls) {
         try {
-            Field field = c.getDeclaredField(name);
+            Field field = cls.getDeclaredField(name);
             return field.getInt(field);
         } catch (Exception e) {
             Timber.e(e);

@@ -4,7 +4,6 @@ plugins {
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -27,7 +26,7 @@ android {
 }
 
 dependencies {
-
+    api project(path: ':scan')
     api project(path: ':bmob')
     api project(path: ':doraemonkit')
     api project(path: ':banner')

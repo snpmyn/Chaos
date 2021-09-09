@@ -5,7 +5,10 @@ import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.graphics.BlendMode;
+import android.graphics.BlendModeColorFilter;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -32,7 +35,7 @@ public class AnimationManager {
      * @return Animation
      */
     public static @NotNull Animation shake(float cycleTimes, long duration, Animation.AnimationListener animationListener) {
-        Animation translateAnimation = new TranslateAnimation(0.0f, 10.0f, 0.0f, 10.0f);
+        Animation translateAnimation = new TranslateAnimation(0.0F, 10.0F, 0.0F, 10.0F);
         translateAnimation.setInterpolator(new CycleInterpolator(cycleTimes));
         translateAnimation.setDuration(duration);
         if (null != animationListener) {
@@ -49,8 +52,8 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void xyScaleGo(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.0f);
-        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0F, 0.0F);
+        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0F, 0.0F);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(xObjectAnimator).with(yObjectAnimator);
         animatorSet.setDuration(duration);
@@ -68,8 +71,8 @@ public class AnimationManager {
      * @param animationListener 动画监听
      */
     public static void xyScaleShow(View view, long duration, Animator.AnimatorListener animationListener) {
-        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 0.0f, 1.0f);
-        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 0.0F, 1.0F);
+        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 0.0F, 1.0F);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(xObjectAnimator).with(yObjectAnimator);
         animatorSet.setDuration(duration);
@@ -87,8 +90,8 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void xyScale(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.0f, 1.0f);
-        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 0.0f, 1.0f);
+        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0F, 0.0F, 1.0F);
+        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0F, 0.0F, 1.0F);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(xObjectAnimator).with(yObjectAnimator);
         animatorSet.setDuration(duration);
@@ -118,7 +121,7 @@ public class AnimationManager {
         });
         switch (interpolator) {
             case 1:
-                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0f));
+                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0F));
                 break;
             case 2:
                 valueAnimator.setInterpolator(new BounceInterpolator());
@@ -153,7 +156,7 @@ public class AnimationManager {
         });
         switch (interpolator) {
             case 1:
-                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0f));
+                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0F));
                 break;
             case 2:
                 valueAnimator.setInterpolator(new BounceInterpolator());
@@ -189,7 +192,7 @@ public class AnimationManager {
         });
         switch (interpolator) {
             case 1:
-                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0f));
+                valueAnimator.setInterpolator(new AccelerateInterpolator(2.0F));
                 break;
             case 2:
                 valueAnimator.setInterpolator(new BounceInterpolator());
@@ -230,7 +233,7 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void alphaGone(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0F, 0.0F);
         objectAnimator.setDuration(duration);
         if (null != animatorListener) {
             objectAnimator.addListener(animatorListener);
@@ -246,7 +249,7 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void alphaShow(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 0.0F, 1.0F);
         objectAnimator.setDuration(duration);
         if (null != animatorListener) {
             objectAnimator.addListener(animatorListener);
@@ -263,7 +266,7 @@ public class AnimationManager {
      * @return ObjectAnimator
      */
     public static @NotNull ObjectAnimator alphaChangeCircle(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.1f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0F, 0.1F);
         // 播放次数（infinite 无限重复）
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         // 播放模式
@@ -285,9 +288,9 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void xyScaleAlphaGone(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f);
-        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.0f);
-        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 1.0F, 0.0F);
+        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 1.0F, 0.0F);
+        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 1.0F, 0.0F);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(objectAnimator).with(xObjectAnimator).with(yObjectAnimator);
         animatorSet.setDuration(duration);
@@ -305,9 +308,9 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void xyScaleAlphaShow(View view, long duration, Animator.AnimatorListener animatorListener) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f);
-        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 0.0f, 1.0f);
-        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 0.0F, 1.0F);
+        ObjectAnimator xObjectAnimator = ObjectAnimator.ofFloat(view, "scaleX", 0.0F, 1.0F);
+        ObjectAnimator yObjectAnimator = ObjectAnimator.ofFloat(view, "scaleY", 0.0F, 1.0F);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(objectAnimator).with(xObjectAnimator).with(yObjectAnimator);
         animatorSet.setInterpolator(new BounceInterpolator());
@@ -332,7 +335,11 @@ public class AnimationManager {
         valueAnimator.addUpdateListener(animation -> {
             int color = (int) animation.getAnimatedValue();
             // 取两图层全域（交集色加深）
-            view.getBackground().setColorFilter(color, PorterDuff.Mode.DARKEN);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                view.getBackground().setColorFilter(new BlendModeColorFilter(color, BlendMode.DARKEN));
+            } else {
+                view.getBackground().setColorFilter(color, PorterDuff.Mode.DARKEN);
+            }
         });
         valueAnimator.setDuration(duration);
         if (null != animatorListener) {
@@ -351,7 +358,7 @@ public class AnimationManager {
      * @param animatorListener 动画监听
      */
     public static void rotation(View view, int duration, Float start, Float end, Animator.AnimatorListener animatorListener) {
-        // 负逆正顺（0.0f 到 360.0f）
+        // 负逆正顺（0.0F 到 360.0F）
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, "rotation", start, end);
         objectAnimator.setDuration(duration);
         if (null != animatorListener) {

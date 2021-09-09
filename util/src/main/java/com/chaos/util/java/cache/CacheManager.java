@@ -78,7 +78,7 @@ public class CacheManager {
             if (null != fileList) {
                 for (File aFileList : fileList) {
                     // 下面还有文件
-                    size = aFileList.isDirectory() ? (size + folderSize(aFileList)) : (size + aFileList.length());
+                    size = (aFileList.isDirectory() ? (size + folderSize(aFileList)) : (size + aFileList.length()));
                 }
             }
         } catch (Exception e) {

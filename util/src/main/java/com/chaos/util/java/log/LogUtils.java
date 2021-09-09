@@ -29,30 +29,30 @@ public class LogUtils {
     private static Method methodInfoWithThrowable;
     private static Method methodVerboseWithThrowable;
     private static Method methodWarnWithThrowable;
-    private static Class<?> c;
+    private static Class<?> cls;
 
     static {
         try {
-            c = Class.forName("android.util.Log");
-            methodDebug = c.getDeclaredMethod("d", String.class, String.class);
-            methodError = c.getDeclaredMethod("e", String.class, String.class);
-            methodInfo = c.getDeclaredMethod("i", String.class, String.class);
-            methodVerbose = c.getDeclaredMethod("v", String.class, String.class);
-            methodWarn = c.getDeclaredMethod("w", String.class, String.class);
-            methodDebugWithThrowable = c.getDeclaredMethod("d", String.class, String.class, Throwable.class);
-            methodErrorWithThrowable = c.getDeclaredMethod("e", String.class, String.class, Throwable.class);
-            methodInfoWithThrowable = c.getDeclaredMethod("i", String.class, String.class, Throwable.class);
-            methodVerboseWithThrowable = c.getDeclaredMethod("v", String.class, String.class, Throwable.class);
-            methodWarnWithThrowable = c.getDeclaredMethod("w", String.class, String.class, Throwable.class);
+            cls = Class.forName("android.util.Log");
+            methodDebug = cls.getDeclaredMethod("d", String.class, String.class);
+            methodError = cls.getDeclaredMethod("e", String.class, String.class);
+            methodInfo = cls.getDeclaredMethod("i", String.class, String.class);
+            methodVerbose = cls.getDeclaredMethod("v", String.class, String.class);
+            methodWarn = cls.getDeclaredMethod("w", String.class, String.class);
+            methodDebugWithThrowable = cls.getDeclaredMethod("d", String.class, String.class, Throwable.class);
+            methodErrorWithThrowable = cls.getDeclaredMethod("e", String.class, String.class, Throwable.class);
+            methodInfoWithThrowable = cls.getDeclaredMethod("i", String.class, String.class, Throwable.class);
+            methodVerboseWithThrowable = cls.getDeclaredMethod("v", String.class, String.class, Throwable.class);
+            methodWarnWithThrowable = cls.getDeclaredMethod("w", String.class, String.class, Throwable.class);
         } catch (ClassNotFoundException | NoSuchMethodException e) {
             exception(e);
         }
-        if (null == c) {
+        if (null == cls) {
             try {
-                c = LogUtils.class;
+                cls = LogUtils.class;
                 methodDebug = methodError = methodInfo = methodVerbose = methodWarn = methodDebugWithThrowable = methodErrorWithThrowable
                         = methodInfoWithThrowable = methodVerboseWithThrowable = methodWarnWithThrowable =
-                        c.getDeclaredMethod("systemLog", int.class, String.class, String.class);
+                        cls.getDeclaredMethod("systemLog", int.class, String.class, String.class);
             } catch (NoSuchMethodException e) {
                 systemLog(INFO, "e", e.getMessage());
             }
@@ -153,9 +153,9 @@ public class LogUtils {
         if (!Builder.logSystem) {
             try {
                 if ((method == methodDebugWithThrowable) || (method == methodInfoWithThrowable) || (method == methodErrorWithThrowable) || (method == methodWarnWithThrowable) || (method == methodVerboseWithThrowable)) {
-                    method.invoke(c, tag, info, throwable);
+                    method.invoke(cls, tag, info, throwable);
                 } else {
-                    method.invoke(c, tag, info + (throwable == null ? "" : "\n" + getStackTraceString(throwable)));
+                    method.invoke(cls, tag, info + (throwable == null ? "" : "\n" + getStackTraceString(throwable)));
                 }
             } catch (Exception e) {
                 exception(e);

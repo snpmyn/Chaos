@@ -89,7 +89,7 @@ public class JanalyticsKit {
      * 页面（Activity 和 Fragment）相关生命周期内同 onPageEnd 成对调。
      * Activity 和 Fragment 不同况对生命周期影响详见说明。
      * <p>
-     * android 4.0 及以上默上报 Activity 页面流。android 4.0 以下需调 onPageStart 和 onPageEnd上 报页面流。
+     * android 4.0 及以上默上报 Activity 页面流。android 4.0 以下需调 onPageStart 和 onPageEnd 上报页面流。
      * 开发者自定 Activity 和 Fragment 同页面否。于相应法成对调 onPageStart 和 onPageEnd。
      * Activity 含多 Fragment，每 Fragment 都需作页面统计时，基于 Fragment 切换模式如下建议：
      * 1.replace 模式切 Fragment 于 onResume 和 onPause 生命周期成对调；

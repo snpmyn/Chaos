@@ -14,7 +14,7 @@
         android:layout_marginEnd="@dimen/dp_12"
         android:contentDescription="@string/toDo"
         android:scaleType="centerInside"
-        android:src="@mipmap/dialog_can_cancel_loading"
+        android:src="@drawable/dialog_can_cancel_loading"
         app:tint="@color/purple_500" />
 
     <TextView

@@ -55,9 +55,9 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
             // 默空
             tvTitle.setText(TextUtils.isEmpty(pickerOptions.textContentTitle) ? "" : pickerOptions.textContentTitle);
             // 自定
-            btnSubmit.setTextColor(ContextCompat.getColor(context, R.color.purple_200));
+            btnSubmit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
             // 自定
-            btnCancel.setTextColor(ContextCompat.getColor(context, R.color.purple_200));
+            btnCancel.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
             // 自定
             tvTitle.setTextColor(ContextCompat.getColor(context, R.color.fontInput));
             // 自定

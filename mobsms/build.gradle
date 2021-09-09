@@ -25,7 +25,6 @@ MobSDK {
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -48,7 +47,6 @@ android {
 }
 
 dependencies {
-
     implementation project(path: ':util')
     /*util*/
 }

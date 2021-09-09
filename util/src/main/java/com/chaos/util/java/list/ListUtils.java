@@ -78,7 +78,7 @@ public class ListUtils {
     }
 
     /**
-     * 存数据（data->data->包名->files）
+     * 存数据（data -> data -> 包名 -> files）
      *
      * @param context  上下文
      * @param list     集合
