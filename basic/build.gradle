@@ -53,6 +53,8 @@ dependencies {
     /*okio*/
     api 'org.greenrobot:eventbus:3.2.0'
     /*EventBus*/
+    api 'com.airbnb.android:lottie:4.1.0'
+    /*lottie*/
     api 'com.guolindev.permissionx:permissionx:1.5.1'
     /*PermissionX*/
 }

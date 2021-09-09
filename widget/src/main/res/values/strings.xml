@@ -30,6 +30,10 @@
     <string name="hours">时</string>
     <string name="minutes">分</string>
     <string name="seconds">秒</string>
+    <string name="openClickToNoteNotification">打开点记通知</string>
+    <string name="neverMissTheLatestNewsAnymore">再也不会错过最新消息了</string>
+    <string name="talkAboutItLater">以后再说</string>
+    <string name="ok">好的</string>
     <!--format-->
     <string name="alreadyTheLatestVersionHint">已是最新版本 %1$s</string>
     <string name="findNewVersionHint">发现新版本 %1$s</string>

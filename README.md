@@ -43,6 +43,7 @@ api 'com.getkeepsafe.relinker:relinker:xxx'
 api 'org.apache.commons:commons-lang3:xxx'
 api 'com.squareup.okio:okio:xxx'
 api 'org.greenrobot:eventbus:xxx'
+api 'com.airbnb.android:lottie:xxx'
 api 'com.guolindev.permissionx:permissionx:xxx'
 ```
 #### util

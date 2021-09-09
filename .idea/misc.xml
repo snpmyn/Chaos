@@ -20,6 +20,8 @@
         <entry key="app/src/main/res/layout/item_main_activity.xml" value="0.25679347826086957" />
         <entry key="basic/src/main/res/drawable/gray_dot.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/gray_solid_r6.xml" value="0.24537037037037038" />
+        <entry key="basic/src/main/res/drawable/gray_stroke_r4.xml" value="0.3453703703703704" />
+        <entry key="basic/src/main/res/drawable/ic_arrow_back_font_input_24dp.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/ic_arrow_back_white_24dp.xml" value="0.27037037037037037" />
         <entry key="basic/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.2759259259259259" />
@@ -27,13 +29,18 @@
         <entry key="basic/src/main/res/drawable/icon_background.xml" value="0.27037037037037037" />
         <entry key="basic/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/purple_500_dot.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/purple_500_solid_blr8.xml" value="0.3453703703703704" />
         <entry key="basic/src/main/res/drawable/purple_500_solid_r8.xml" value="0.2574074074074074" />
+        <entry key="basic/src/main/res/drawable/purple_500_solid_semi_circle.xml" value="0.3453703703703704" />
         <entry key="basic/src/main/res/drawable/purple_500_white_drawable_selector.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_blr12_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_brr12_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_blr12_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_brr12_selector.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/white_solid_r12.xml" value="0.35444330949948927" />
+        <entry key="basic/src/main/res/drawable/white_solid_r6.xml" value="0.35444330949948927" />
+        <entry key="basic/src/main/res/drawable/white_solid_r8.xml" value="0.3453703703703704" />
         <entry key="jpush/src/main/res/layout/activity_jpush_display.xml" value="0.2694746376811594" />
         <entry key="matisse/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="matisse/src/main/res/drawable/ic_photo_library_24dp_yellow.xml" value="0.26944444444444443" />
@@ -62,10 +69,13 @@
         <entry key="widget/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.26944444444444443" />
         <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />
+        <entry key="widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.16523713420787084" />
         <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
         <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_options.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_time.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/status_loading.xml" value="0.23324275362318841" />
+        <entry key="widget/src/main/res/layout/status_loading_two.xml" value="0.23324275362318841" />
       </map>
     </option>
   </component>
