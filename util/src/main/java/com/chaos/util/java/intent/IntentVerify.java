@@ -1,10 +1,12 @@
 package com.chaos.util.java.intent;
 
 import android.content.Intent;
+import android.os.Parcelable;
 
-import org.jetbrains.annotations.Nullable;
+import androidx.annotation.Nullable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import okio.ByteString;
 
@@ -80,6 +82,52 @@ public class IntentVerify {
             return null;
         }
         return intent.getStringExtra(key);
+    }
+
+    /**
+     * 获取 Parcelable 类型额外信息
+     *
+     * @param intent 意图
+     * @param key    键
+     * @return Parcelable 类型额外信息
+     */
+    @Nullable
+    public static String getParcelableExtra(Intent intent, String key) {
+        if (badIntent(intent)) {
+            return null;
+        }
+        return intent.getParcelableExtra(key);
+    }
+
+    /**
+     * 获取 Parcelable Array 类型额外信息
+     *
+     * @param intent 意图
+     * @param key    键
+     * @return Parcelable Array 类型额外信息
+     */
+    @Nullable
+    public static Parcelable[] getParcelableArrayExtra(Intent intent, String key) {
+        if (badIntent(intent)) {
+            return null;
+        }
+        return intent.getParcelableArrayExtra(key);
+    }
+
+    /**
+     * 获取 Parcelable ArrayList 类型额外信息
+     *
+     * @param intent 意图
+     * @param key    键
+     * @param <T>    <T>
+     * @return Parcelable ArrayList 类型额外信息
+     */
+    @Nullable
+    public static <T extends Parcelable> ArrayList<T> getParcelableArrayListExtra(Intent intent, String key) {
+        if (badIntent(intent)) {
+            return null;
+        }
+        return intent.getParcelableArrayListExtra(key);
     }
 
     /**
