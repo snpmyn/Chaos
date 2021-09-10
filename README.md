@@ -20,8 +20,8 @@
 | doraemonkit | DoraemonKit | 无 |
 | tbs | 腾讯浏览服务 | 无 |
 | scan | 扫描 | 无 |
-| pool | 水池 | 无 |
-| litepool | 轻量水池 | 无 |
+| pool | 水池 | 供外部依赖 |
+| litepool | 轻量水池 | 供外部依赖 |
 ## 依赖
 #### basic
 ```

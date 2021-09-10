@@ -26,6 +26,8 @@
         <entry key="basic/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/ic_visibility_font_input_20dp.xml" value="0.3458333333333333" />
+        <entry key="basic/src/main/res/drawable/ic_visibility_off_font_input_20dp.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/icon_background.xml" value="0.27037037037037037" />
         <entry key="basic/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/purple_500_dot.xml" value="0.2759259259259259" />

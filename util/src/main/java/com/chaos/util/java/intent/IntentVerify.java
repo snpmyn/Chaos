@@ -92,7 +92,7 @@ public class IntentVerify {
      * @return Parcelable 类型额外信息
      */
     @Nullable
-    public static String getParcelableExtra(Intent intent, String key) {
+    public static <T extends Parcelable> T getParcelableExtra(Intent intent, String key) {
         if (badIntent(intent)) {
             return null;
         }
