@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:contentDescription="@string/toDo"
+                    android:contentDescription="@string/openOnOrOpenOffFlash"
                     android:padding="@dimen/dp_12"
                     app:srcCompat="@drawable/ic_flash_off_color_scan_flash_on_off_24dp" />
             </RelativeLayout>
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:contentDescription="@string/toDo"
+                    android:contentDescription="@string/selectFromPhotoAlbum"
                     android:padding="@dimen/dp_12"
                     app:srcCompat="@drawable/ic_photo_library_color_scan_photo_library_24dp" />
             </RelativeLayout>

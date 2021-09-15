@@ -217,7 +217,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/toDo"
+                android:contentDescription="@string/delete"
                 app:srcCompat="@drawable/ic_backspace_gray_20dp" />
         </LinearLayout>
 

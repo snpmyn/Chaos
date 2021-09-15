@@ -1,12 +1,5 @@
 <resources>
     <string name="app_name">Chaos</string>
-    <string name="comeToTheForeground">来到前台</string>
-    <string name="foregroundOperation">前台操作</string>
-    <string name="goBackground">进入后台</string>
-    <string name="hint">提示</string>
-    <string name="needToAllowReadWritePermissions">需授予读写权限</string>
-    <string name="cancel">取消</string>
-    <string name="ensure">确定</string>
     <string name="useRecyclerView">使用 RecyclerView</string>
     <string name="useListView">使用 ListView</string>
     <string name="bocDialog">BOC 对话框</string>
@@ -16,25 +9,6 @@
     <string name="roundCornerMessageDialogWithTitle">圆角消息对话框（有标题）</string>
     <string name="commonLoadingDialog">普通加载对话框</string>
     <string name="canCancelLoadingDialog">可取消加载对话框</string>
-    <string name="example">示例</string>
     <string name="messageDialog">消息对话框</string>
-    <string name="loading">加载中</string>
-    <string name="money">金额</string>
     <string name="moneyHint">￥0.00</string>
-    <string name="moneyIsIllegal">金额不合法</string>
-    <string name="choose">选择</string>
-    <string name="provincialAndUrbanLinkage">省市区联动</string>
-    <string name="search">搜索</string>
-    <string name="pleaseInput">请输入</string>
-    <string name="picture">图片</string>
-    <string name="startPulse">Start Pulse</string>
-    <string name="finshPulse">Finish Pulse</string>
-    <string name="scan">扫描</string>
-    <string name="scanQrCode">扫描二维码</string>
-    <string name="scanBarCode">扫描条形码</string>
-    <string name="suggestToAllowThesePermissions">建议授权这些权限</string>
-    <string name="agree">同意</string>
-    <string name="youNeedToAllowNecessaryPermissionInSettingManually">你需要手动在设置中授予该权限</string>
-    <string name="ok">好的</string>
-    <string name="errorOpeningTheCamera">打开相机出错</string>
 </resources>

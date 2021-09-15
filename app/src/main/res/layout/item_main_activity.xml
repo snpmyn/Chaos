@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:contentDescription="@string/toDo"
+        android:contentDescription="@string/hint"
         android:padding="@dimen/dp_12"
         app:srcCompat="@drawable/ic_info_white_24dp" />
 </RelativeLayout>

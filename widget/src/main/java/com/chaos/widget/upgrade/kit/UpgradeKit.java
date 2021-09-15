@@ -98,7 +98,7 @@ public class UpgradeKit {
             if (upgradeBean.isForceUpdate()) {
                 // 强制
                 new MyMaterialAlertDialogBuilder(weakReference.get())
-                        .setTitle(String.format(weakReference.get().getString(R.string.findNewVersionHint), upgradeBean.getNewVersionName()))
+                        .setTitle(String.format(weakReference.get().getString(R.string.formatFindNewVersion), upgradeBean.getNewVersionName()))
                         .setMessage(charSequence)
                         .setPositiveButton(weakReference.get().getString(R.string.upgradeNow), (dialog, which) -> {
                             dialog.dismiss();
@@ -112,7 +112,7 @@ public class UpgradeKit {
                 // 选择
                 serverVersionName = upgradeBean.getNewVersionName();
                 new MyMaterialAlertDialogBuilder(weakReference.get())
-                        .setTitle(String.format(weakReference.get().getString(R.string.findNewVersionHint), upgradeBean.getNewVersionName()))
+                        .setTitle(String.format(weakReference.get().getString(R.string.formatFindNewVersion), upgradeBean.getNewVersionName()))
                         .setMessage(charSequence)
                         .setPositiveButton(weakReference.get().getString(R.string.upgradeNow), (dialog, which) -> {
                             dialog.dismiss();
@@ -129,7 +129,7 @@ public class UpgradeKit {
                         }).setCancelable(false).show();
             }
         } else if (noUpgradeHint) {
-            ToastKit.showShort(String.format(weakReference.get().getString(R.string.alreadyTheLatestVersionHint), AppManager.versionName(weakReference.get())));
+            ToastKit.showShort(String.format(weakReference.get().getString(R.string.formatAlreadyTheLatestVersion), AppManager.versionName(weakReference.get())));
         }
     }
 

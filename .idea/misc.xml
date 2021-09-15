@@ -72,12 +72,15 @@
         <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />
         <entry key="widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.16523713420787084" />
+        <entry key="widget/src/main/res/layout/item_grid_view.xml" value="0.18177083333333333" />
         <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
         <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_options.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_time.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/status_empty.xml" value="0.18177083333333333" />
         <entry key="widget/src/main/res/layout/status_loading.xml" value="0.23324275362318841" />
         <entry key="widget/src/main/res/layout/status_loading_two.xml" value="0.23324275362318841" />
+        <entry key="widget/src/main/res/layout/status_retry.xml" value="0.18177083333333333" />
       </map>
     </option>
   </component>

@@ -893,7 +893,7 @@ public class DateUtils {
         BigDecimal second = new BigDecimal(s);
         BigDecimal millisecond = new BigDecimal(m);
         BigDecimal result = second.add(millisecond.divide(new BigDecimal(1000)).setScale(2, BigDecimal.ROUND_HALF_UP));
-        return String.format(context.getApplicationContext().getString(R.string.earlyLateDiffer), BigDecimalUtils.bigDecimalToString(result));
+        return String.format(context.getApplicationContext().getString(R.string.formatSeconds), BigDecimalUtils.bigDecimalToString(result));
     }
 
     /**

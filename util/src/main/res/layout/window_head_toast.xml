@@ -20,7 +20,7 @@
             android:layout_height="@dimen/dp_40"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/dp_20"
-            android:contentDescription="@string/toDo"
+            android:contentDescription="@string/frontCover"
             android:src="@mipmap/icon" />
 
         <LinearLayout

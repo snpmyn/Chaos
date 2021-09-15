@@ -12,7 +12,7 @@
         android:id="@+id/gridActivityItemIv"
         android:layout_width="@dimen/dp_24"
         android:layout_height="@dimen/dp_24"
-        android:contentDescription="@string/toDo" />
+        android:contentDescription="@string/frontCover" />
 
     <TextView
         android:id="@+id/gridActivityItemTv"
