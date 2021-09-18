@@ -2,6 +2,7 @@
 ## 释义
 混沌
 ## 模块
+#### [basic](./basic/) 基础
 | 名称 | 说明 | 补充 |
 |:-:|:-:|:-:|
 | basic | 基础 | 无 |
@@ -20,17 +21,18 @@
 | doraemonkit | DoraemonKit | 无 |
 | tbs | 腾讯浏览服务 | 无 |
 | scan | 扫描 | 无 |
-| pool | 水池 | 供外部依赖 |
-| litepool | 轻量水池 | 供外部依赖 |
+| pool | 水池 | 供外部使用 |
+| litepool | 轻量水池 | 供外部使用 |
 ## 依赖
 #### basic
 ```
 api 'androidx.appcompat:appcompat:xxx'
 api 'com.google.android.material:material:xxx'
+api 'androidx.constraintlayout:constraintlayout:xxx'
 api 'com.github.bumptech.glide:glide:xxx'
 api 'io.reactivex:rxandroid:xxx'
 api 'io.reactivex:rxjava:xxx'
-api 'io.reactivex.rxjava2:rxandroid:xxx1'
+api 'io.reactivex.rxjava2:rxandroid:xxx'
 api 'io.reactivex.rxjava2:rxjava:xxx'
 api 'io.reactivex.rxjava3:rxandroid:xxx'
 api 'io.reactivex.rxjava3:rxjava:xxx'
@@ -43,7 +45,6 @@ api 'com.getkeepsafe.relinker:relinker:xxx'
 api 'org.apache.commons:commons-lang3:xxx'
 api 'com.squareup.okio:okio:xxx'
 api 'org.greenrobot:eventbus:xxx'
-api 'com.airbnb.android:lottie:xxx'
 api 'com.guolindev.permissionx:permissionx:xxx'
 ```
 #### util
@@ -126,21 +127,25 @@ implementation project(path: ':util')
 implementation project(path: ':matisse')
 api 'cn.bingoogolapple:bga-qrcode-zxing:xxx'
 ```
+### lottie
+```
+api 'com.airbnb.android:lottie:xxx'
+```
 #### pool
 ```
 api project(path: ':scan')
-api project(path: ':bmob')
-api project(path: ':doraemonkit')
-api project(path: ':banner')
-api project(path: ':jpush')
-api project(path: ':matisse')
-api project(path: ':janalytics')
-api project(path: ':ucrop')
 api project(path: ':tbs')
+api project(path: ':doraemonkit')
 api project(path: ':litepal')
-api project(path: ':fragmentation')
-api project(path: ':bugly')
+api project(path: ':bmob')
 api project(path: ':mobsms')
+api project(path: ':bugly')
+api project(path: ':janalytics')
+api project(path: ':jpush')
+api project(path: ':fragmentation')
+api project(path: ':ucrop')
+api project(path: ':matisse')
+api project(path: ':banner')
 api project(path: ':widget')
 api project(path: ':util')
 ```
