@@ -11,4 +11,8 @@
     <string name="canCancelLoadingDialog">可取消加载对话框</string>
     <string name="messageDialog">消息对话框</string>
     <string name="moneyHint">￥0.00</string>
+    <string name="lottie">LOTTIE</string>
+    <string name="lottieAnimationViewXml">LottieAnimationView 之 xml用法</string>
+    <string name="lottieAnimationViewCode">LottieAnimationView 之代码用法</string>
+    <string name="lottieComposition">LottieComposition</string>
 </resources>

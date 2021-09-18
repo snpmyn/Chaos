@@ -1,4 +1,4 @@
-package com.chaos.pool;
+package com.chaos.litepool.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.chaos.janalytics.kit.JanalyticsKit;
+import com.chaos.litepool.R;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 
 import support.SupportFragment;
@@ -71,7 +71,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportVisible() {
         visibleToUser();
-        JanalyticsKit.onPageStart(getContext(), this.getClass().getCanonicalName());
     }
 
     /**
@@ -120,7 +119,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportInvisible() {
         invisibleToUser();
-        JanalyticsKit.onPageEnd(getContext(), this.getClass().getCanonicalName());
     }
 
     /**

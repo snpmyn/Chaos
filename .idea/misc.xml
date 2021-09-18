@@ -9,8 +9,13 @@
         <entry key="app/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/icon_background.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/page_background_solid_r6.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/drawable/preview_window.xml" value="0.33796296296296297" />
         <entry key="app/src/main/res/drawable/purple_500_solid_r8.xml" value="0.35444330949948927" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
+        <entry key="app/src/main/res/layout/activity_lottie_animation_view_code.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/activity_lottie_animation_view_xml.xml" value="0.23097826086956522" />
+        <entry key="app/src/main/res/layout/activity_lottie_composition.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/activity_lottie_home.xml" value="0.23097826086956522" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36770833333333336" />
         <entry key="app/src/main/res/layout/activity_money.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_picture.xml" value="0.22871376811594202" />
@@ -21,14 +26,17 @@
         <entry key="basic/src/main/res/drawable/gray_dot.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/gray_solid_r6.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/gray_stroke_r4.xml" value="0.3453703703703704" />
+        <entry key="basic/src/main/res/drawable/ic_arrow_back_10dp_18dp.xml" value="0.3529111338100102" />
         <entry key="basic/src/main/res/drawable/ic_arrow_back_font_input_24dp.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/ic_arrow_back_white_24dp.xml" value="0.27037037037037037" />
         <entry key="basic/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/ic_phone_number_clear_16dp.xml" value="0.3529111338100102" />
         <entry key="basic/src/main/res/drawable/ic_visibility_font_input_20dp.xml" value="0.3458333333333333" />
         <entry key="basic/src/main/res/drawable/ic_visibility_off_font_input_20dp.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/icon_background.xml" value="0.27037037037037037" />
+        <entry key="basic/src/main/res/drawable/preview_window.xml" value="0.3529111338100102" />
         <entry key="basic/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/purple_500_dot.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/purple_500_solid_blr8.xml" value="0.3453703703703704" />
@@ -46,14 +54,26 @@
         <entry key="jpush/src/main/res/layout/activity_jpush_display.xml" value="0.2694746376811594" />
         <entry key="matisse/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="matisse/src/main/res/drawable/ic_photo_library_24dp_yellow.xml" value="0.26944444444444443" />
+        <entry key="pool/src/main/res/drawable/color_login_button_background_solid_semi_circle.xml" value="0.3529111338100102" />
+        <entry key="pool/src/main/res/drawable/pool_login_button_background_solid_semi_circle.xml" value="0.34629629629629627" />
+        <entry key="pool/src/main/res/layout/activity_login.xml" value="0.16448032290615539" />
+        <entry key="pool/src/main/res/layout/activity_login_two.xml" value="0.21422101449275363" />
+        <entry key="pool/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="pool/src/main/res/layout/activity_splash_two.xml" value="0.16448032290615539" />
+        <entry key="pool/src/main/res/layout/activity_user_agreement_and_privacy_policy.xml" value="0.25" />
+        <entry key="pool/src/main/res/layout/activity_user_agreement_and_privacy_policy_activity.xml" value="0.223731884057971" />
+        <entry key="pool/src/main/res/layout/dialog_user_agreement_and_privacy_policy.xml" value="0.23278985507246377" />
         <entry key="scan/src/main/res/drawable/ic_arrow_back_white_24dp.xml" value="0.2759259259259259" />
         <entry key="scan/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2638888888888889" />
         <entry key="scan/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="scan/src/main/res/drawable/ic_flash_off_color_scan_flash_on_off_24dp.xml" value="0.26944444444444443" />
+        <entry key="scan/src/main/res/drawable/ic_flash_off_scan_flash_on_off_24dp.xml" value="0.3425925925925926" />
         <entry key="scan/src/main/res/drawable/ic_flash_on_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="scan/src/main/res/drawable/ic_flash_on_color_scan_flash_on_off_24dp.xml" value="0.26944444444444443" />
+        <entry key="scan/src/main/res/drawable/ic_flash_on_scan_flash_on_off_24dp.xml" value="0.3425925925925926" />
         <entry key="scan/src/main/res/drawable/ic_photo_library_24dp_yellow.xml" value="0.26944444444444443" />
         <entry key="scan/src/main/res/drawable/ic_photo_library_color_scan_photo_library_24dp.xml" value="0.26944444444444443" />
+        <entry key="scan/src/main/res/drawable/ic_photo_library_scan_photo_library_24dp.xml" value="0.3425925925925926" />
         <entry key="scan/src/main/res/layout/activity_scan_bar_code.xml" value="0.2740036231884058" />
         <entry key="scan/src/main/res/layout/activity_scan_qr_code.xml" value="0.2504528985507246" />
         <entry key="util/src/main/res/layout/window_head_toast.xml" value="0.16523713420787084" />
@@ -72,6 +92,7 @@
         <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />
         <entry key="widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.16523713420787084" />
+        <entry key="widget/src/main/res/layout/function_item.xml" value="0.19021739130434784" />
         <entry key="widget/src/main/res/layout/item_grid_view.xml" value="0.18177083333333333" />
         <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
         <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.2817028985507246" />

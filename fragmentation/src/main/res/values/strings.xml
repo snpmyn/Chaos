@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="stackView">栈视图（Stack）</string>
-    <string name="stackHelp">*: Not in backStack\n☀: Visible</string>
+    <string name="fragmentationStackView">栈视图（Stack）</string>
+    <string name="fragmentationStackHelp">*: Not in backStack\n☀: Visible</string>
 </resources>

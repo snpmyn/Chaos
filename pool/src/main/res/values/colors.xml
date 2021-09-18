@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pool_login_button_background">#91B2F5</color>
+    <color name="pool_user_agreement_and_privacy_policy_text">#FF9502</color>
+    <color name="pool_user_agreement_and_privacy_policy_text_in_dialog">#91B2F5</color>
+    <color name="pool_user_agreement_and_privacy_policy_agree_button_text">#FF9502</color>
+</resources>

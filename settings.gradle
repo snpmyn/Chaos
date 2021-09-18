@@ -1,5 +1,6 @@
 include ':litepool'
 include ':pool'
+include ':lottie'
 include ':scan'
 include ':tbs'
 include ':doraemonkit'

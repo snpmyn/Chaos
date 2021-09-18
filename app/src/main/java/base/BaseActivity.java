@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
  * @author zsp
  * @desc BaseActivity
  */
-public abstract class BaseActivity extends com.chaos.pool.BaseActivity {
+public abstract class BaseActivity extends com.chaos.pool.base.BaseActivity {
     /**
      * 加载视图
      *

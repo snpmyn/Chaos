@@ -1,4 +1,4 @@
-package com.chaos.litepool;
+package com.chaos.litepool.base;
 
 import android.os.Bundle;
 import android.view.MotionEvent;

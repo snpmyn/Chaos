@@ -49,6 +49,6 @@ public class BmobErrorCode {
      */
     public static void errorMessageShow(Context context, int errorCode) {
         String errorMessage = ERROR_CODE_MESSAGE_MAP.get(errorCode);
-        ToastKit.showShort(TextUtils.isEmpty(errorMessage) ? context.getString(R.string.bmobSmsUnknownError) : errorMessage);
+        ToastKit.showShort(TextUtils.isEmpty(errorMessage) ? context.getString(R.string.bmobUnknownError) : errorMessage);
     }
 }

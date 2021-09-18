@@ -64,4 +64,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/dp_16</item>
     </style>
+    <!--SplashActivityStyle-->
+    <style name="SplashActivityStyle" parent="Theme.Chaos">
+        <item name="android:windowBackground">@drawable/preview_window</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

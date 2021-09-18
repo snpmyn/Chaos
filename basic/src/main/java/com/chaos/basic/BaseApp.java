@@ -5,6 +5,8 @@ import android.content.res.Configuration;
 
 import androidx.annotation.NonNull;
 
+import java.util.List;
+
 /**
  * Created on 2021/3/5
  *
@@ -23,11 +25,46 @@ import androidx.annotation.NonNull;
  * 全局唯一，不同 Activity、Service 中获实例相同；
  * 数据传递、数据共享、数据缓存等。
  */
-public class BasicApp extends Application {
+public abstract class BaseApp extends Application {
     private static Application instance;
+    private static Boolean debug;
+    private static Boolean ensembleMobSms;
+    private static List<String> permissionList;
 
+    /**
+     * 获单例
+     *
+     * @return 单例
+     */
     public static Application getInstance() {
         return instance;
+    }
+
+    /**
+     * 获调试否
+     *
+     * @return 调试否
+     */
+    public static Boolean getDebug() {
+        return debug;
+    }
+
+    /**
+     * 获集成 MobSms 否
+     *
+     * @return 集成 MobSms 否
+     */
+    public static Boolean getEnsembleMobSms() {
+        return ensembleMobSms;
+    }
+
+    /**
+     * 获权限集
+     *
+     * @return 权限集
+     */
+    public static List<String> getPermissionList() {
+        return permissionList;
     }
 
     /**
@@ -38,8 +75,14 @@ public class BasicApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // Application 本已单例
-        instance = this;
+        // 单例
+        instance = instance();
+        // 调试否
+        debug = debug();
+        // 集成 MobSms 否
+        ensembleMobSms = ensembleMobSms();
+        // 权限集
+        permissionList = permissionList();
     }
 
     /**
@@ -84,5 +127,35 @@ public class BasicApp extends Application {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
+
+    /**
+     * 单例
+     * <p>
+     * Application 本已单例。
+     *
+     * @return 单例
+     */
+    protected abstract Application instance();
+
+    /**
+     * 调试否
+     *
+     * @return 调试否
+     */
+    protected abstract Boolean debug();
+
+    /**
+     * 集成 MobSms 否
+     *
+     * @return 集成 MobSms 否
+     */
+    protected abstract Boolean ensembleMobSms();
+
+    /**
+     * 权限集
+     *
+     * @return 权限集
+     */
+    protected abstract List<String> permissionList();
 }
 

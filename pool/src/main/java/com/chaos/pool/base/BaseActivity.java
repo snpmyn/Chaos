@@ -1,4 +1,4 @@
-package com.chaos.pool;
+package com.chaos.pool.base;
 
 import android.os.Bundle;
 import android.view.MotionEvent;

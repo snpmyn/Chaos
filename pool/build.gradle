@@ -2,6 +2,27 @@ plugins {
     id 'com.android.library'
 }
 
+// MobSDK 插件
+apply plugin: 'com.mob.sdk'
+// MobSDK 扩展
+MobSDK {
+    // Mob 官方申请 AppKey
+    appKey rootProject.ext.mobsms["appKey"]
+    // Mob 官方申请 AppKey 所对应 AppSecret
+    appSecret rootProject.ext.mobsms["appSecret"]
+    // 设 MobSDK 为隐私协议适配版
+    spEdition rootProject.ext.mobsms["spEdition"]
+    // 注册 SMSSDK 相关信息
+    SMSSDK {
+        // 默用 GUI（不用下关）
+        gui rootProject.ext.mobsms["gui"]
+        // 打开短信本机号验证功能（3.7.0+）
+        // 独用短信才需通开关打开短信本机号验证功能
+        // 同用秒验和短信，默支持短信本机号验证功能，无需也不可通开关打开（类冲突）
+        mobileAuth rootProject.ext.mobsms["mobileAuth"]
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
 
@@ -26,19 +47,20 @@ android {
 }
 
 dependencies {
+    api project(path: ':lottie')
     api project(path: ':scan')
-    api project(path: ':bmob')
-    api project(path: ':doraemonkit')
-    api project(path: ':banner')
-    api project(path: ':jpush')
-    api project(path: ':matisse')
-    api project(path: ':janalytics')
-    api project(path: ':ucrop')
     api project(path: ':tbs')
+    api project(path: ':doraemonkit')
     api project(path: ':litepal')
-    api project(path: ':fragmentation')
-    api project(path: ':bugly')
+    api project(path: ':bmob')
     api project(path: ':mobsms')
+    api project(path: ':bugly')
+    api project(path: ':janalytics')
+    api project(path: ':jpush')
+    api project(path: ':fragmentation')
+    api project(path: ':ucrop')
+    api project(path: ':matisse')
+    api project(path: ':banner')
     api project(path: ':widget')
     api project(path: ':util')
 }

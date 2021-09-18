@@ -1,4 +1,4 @@
-package com.chaos.litepool;
+package com.chaos.pool.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.chaos.janalytics.kit.JanalyticsKit;
+import com.chaos.pool.R;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
+import com.chaos.util.java.datetime.CurrentTimeMillisClock;
 
 import support.SupportFragment;
 
@@ -26,9 +29,17 @@ public abstract class BaseFragment extends SupportFragment {
      */
     private View view;
     /**
+     * 浏览时长
+     */
+    private long browseDuration;
+    /**
      * 第一 Fragment 否
      */
     private boolean areFirstFragment;
+    /**
+     * 极光分析浏览事件参数
+     */
+    private String[] janalyticsBrowseEventParams;
     /**
      * OnBackToFirstListener
      */
@@ -48,6 +59,7 @@ public abstract class BaseFragment extends SupportFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(layoutResId(), container, false);
         areFirstFragment = areFirstFragment();
+        janalyticsBrowseEventParams = janalyticsBrowseEventParams();
         eventBusRegister();
         stepUi(view);
         return view;
@@ -70,6 +82,7 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportVisible() {
         visibleToUser();
+        JanalyticsKit.onPageStart(getContext(), this.getClass().getCanonicalName());
     }
 
     /**
@@ -118,6 +131,7 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportInvisible() {
         invisibleToUser();
+        JanalyticsKit.onPageEnd(getContext(), this.getClass().getCanonicalName());
     }
 
     /**
@@ -133,6 +147,21 @@ public abstract class BaseFragment extends SupportFragment {
      * @return 第一 Fragment 否
      */
     protected abstract boolean areFirstFragment();
+
+    /**
+     * 极光分析浏览事件参数
+     * <p>
+     * browseId – 浏览内容 ID（自定）
+     * browseName – 浏览内容名（标题等，非空）
+     * browseType – 浏览内容类型（如热点、汽车、财经等）
+     * extMapKey – 扩展参数键
+     * extMapValue – 扩展参数值
+     * <p>
+     * 详参 {@link JanalyticsKit#onBrowseEvent(Context, String, String, String, float, String, String)}。
+     *
+     * @return 极光分析浏览事件参数
+     */
+    protected abstract String[] janalyticsBrowseEventParams();
 
     /**
      * EventBus 注册
@@ -199,6 +228,19 @@ public abstract class BaseFragment extends SupportFragment {
             onBackToFirstListener.onBackToFirstFragment();
         }
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        browseDuration = CurrentTimeMillisClock.getInstance().now();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        browseDuration = (CurrentTimeMillisClock.getInstance().now() - browseDuration);
+        JanalyticsKit.onBrowseEvent(fragmentationSupportActivity, janalyticsBrowseEventParams[0], janalyticsBrowseEventParams[1], janalyticsBrowseEventParams[2], browseDuration, janalyticsBrowseEventParams[3], janalyticsBrowseEventParams[4]);
     }
 
     public interface OnBackToFirstListener {

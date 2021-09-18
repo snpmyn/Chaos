@@ -107,10 +107,10 @@ public class ScanBarCodeActivity extends AppCompatActivity implements View.OnCli
         if (view.getId() == R.id.scanBarCodeActivityIbFlash) {
             if (flashOn) {
                 scanBarCodeActivityZxv.closeFlashlight();
-                scanBarCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_off_color_scan_flash_on_off_24dp);
+                scanBarCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_off_scan_flash_on_off_24dp);
             } else {
                 scanBarCodeActivityZxv.openFlashlight();
-                scanBarCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_on_color_scan_flash_on_off_24dp);
+                scanBarCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_on_scan_flash_on_off_24dp);
             }
             flashOn = !flashOn;
         }

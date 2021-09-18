@@ -12,6 +12,7 @@ import base.BaseActivity;
 import butterknife.OnClick;
 import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
+import widget.lottie.LottieHomeActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureActivity;
 import widget.scan.ScanActivity;
@@ -71,7 +72,8 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnChoose,
             R.id.widgetActivityBtnSearch,
             R.id.widgetActivityBtnPicture,
-            R.id.widgetActivityBtnScan})
+            R.id.widgetActivityBtnScan,
+            R.id.widgetActivityBtnLottie})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -97,6 +99,10 @@ public class WidgetActivity extends BaseActivity {
             // 扫描页
             case R.id.widgetActivityBtnScan:
                 IntentJump.getInstance().jump(null, this, false, ScanActivity.class);
+                break;
+            // Lottie 主页
+            case R.id.widgetActivityBtnLottie:
+                IntentJump.getInstance().jump(null, this, false, LottieHomeActivity.class);
                 break;
             default:
                 break;

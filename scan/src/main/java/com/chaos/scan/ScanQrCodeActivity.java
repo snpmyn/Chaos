@@ -107,10 +107,10 @@ public class ScanQrCodeActivity extends AppCompatActivity implements View.OnClic
         if (view.getId() == R.id.scanQrCodeActivityIbFlash) {
             if (flashOn) {
                 scanQrCodeActivityZxv.closeFlashlight();
-                scanQrCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_off_color_scan_flash_on_off_24dp);
+                scanQrCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_off_scan_flash_on_off_24dp);
             } else {
                 scanQrCodeActivityZxv.openFlashlight();
-                scanQrCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_on_color_scan_flash_on_off_24dp);
+                scanQrCodeActivityIbFlash.setImageResource(R.drawable.ic_flash_on_scan_flash_on_off_24dp);
             }
             flashOn = !flashOn;
         }

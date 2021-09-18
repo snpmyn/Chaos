@@ -1,30 +1,57 @@
 # Chaos
+
 ## 释义
+
 混沌
+
 ## 模块
+
 #### [basic](./basic/) 基础
-| 名称 | 说明 | 补充 |
-|:-:|:-:|:-:|
-| basic | 基础 | 无 |
-| util | 工具类 | 无 |
-| widget | 组件 | 无 |
-| banner | 轮播图 | 无 |
-| matisse | 选图 | 无 |
-| ucrop | 裁剪 | 无 |
-| fragmentation | 碎片 | 无 |
-| jpush | 极光推送 | 无 |
-| janalytics | 极光统计 | 无 |
-| bugly | Bugly | 无 |
-| mobsms | SMSSDK | 无 |
-| bmob | Bmob | 无 |
-| litepal | LitePal | 无 |
-| doraemonkit | DoraemonKit | 无 |
-| tbs | 腾讯浏览服务 | 无 |
-| scan | 扫描 | 无 |
-| pool | 水池 | 供外部使用 |
-| litepool | 轻量水池 | 供外部使用 |
+
+#### [util](./util/) 工具类
+
+#### [widget](./widget/) 组件
+
+#### [banner](./banner/) 轮播图
+
+#### [matisse](./matisse/) 选图
+
+#### [ucrop](./ucrop/) 裁剪
+
+#### [fragmentation](./fragmentation/) 碎片
+
+#### [jpush](./jpush/) 极光推送
+
+#### [janalytics](./janalytics/) 极光统计
+
+#### [bugly](./bugly/) Bugly
+
+#### [mobsms](./mobsms/) SMSSDK
+
+#### [bmob](./bmob/) Bmob
+
+#### [litepal](./litepal/) LitePal
+
+#### [doraemonkit](./doraemonkit/) DoraemonKit
+
+#### [tbs](./tbs/) 腾讯浏览服务
+
+#### [scan](./scan/) 扫描
+
+#### [lottie](./lottie/) 动画
+
+#### [pool](./pool/) 水池
+
+供外部使用
+
+#### [litepool](./litepool/) 轻量水池
+
+供外部使用
+
 ## 依赖
+
 #### basic
+
 ```
 api 'androidx.appcompat:appcompat:xxx'
 api 'com.google.android.material:material:xxx'
@@ -47,68 +74,95 @@ api 'com.squareup.okio:okio:xxx'
 api 'org.greenrobot:eventbus:xxx'
 api 'com.guolindev.permissionx:permissionx:xxx'
 ```
+
 #### util
+
 ```
 api project(path: ':basic')
 ```
+
 #### widget
+
 ```
 implementation project(path: ':util')
+implementation project(path: ':lottie')
 implementation 'com.willowtreeapps.spruce:spruce-android:xxx'
 ```
+
 #### banner
+
 ```
 implementation project(path: ':basic')
 api 'com.youth.banner:banner:xxx'
 ```
+
 #### matisse
+
 ```
 implementation project(path: ':basic')
 api 'com.zhihu.android:matisse:xxx'
 ```
+
 #### ucrop
+
 ```
 implementation project(path: ':basic')
 api 'com.github.yalantis:ucrop:xxx'
 ```
+
 #### fragmentation
+
 ```
 implementation project(path: ':util')
 ```
+
 #### jpush
+
 ```
 implementation project(path: ':util')
 implementation 'cn.jiguang.sdk:jcore:xxx'
 api 'cn.jiguang.sdk:jpush:xxx'
 ```
+
 #### janalytics
+
 ```
 implementation project(path: ':util')
 implementation 'cn.jiguang.sdk:jcore:xxx'
 api 'cn.jiguang.sdk:janalytics:xxx'
 ```
+
 #### bugly
+
 ```
 implementation project(path: ':basic')
 implementation project(path: ':tbs')
 api 'com.tencent.bugly:crashreport_upgrade:xxx'
 implementation 'com.tencent.bugly:nativecrashreport:xxx'
 ```
+
 #### mobsms
+
 ```
 implementation project(path: ':util')
 ```
+
 #### bmob
+
 ```
 implementation project(path: ':util')
 api 'io.github.bmob:android-sdk:xxx'
 ```
+
 #### litepal
+
 ```
 implementation project(path: ':util')
 api 'org.litepal.guolindev:core:xxx'
 ```
+
 #### doraemonkit
+
 ```
 implementation project(path: ':util')
 debugImplementation "io.github.didi.dokit:dokitx:xxx"
@@ -117,22 +171,31 @@ debugImplementation "io.github.didi.dokit:dokitx-mc:xxx"
 debugImplementation "io.github.didi.dokit:dokitx-weex:xxx"
 releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
 ```
+
 #### tbs
+
 ```
 api 'com.tencent.tbs.tbssdk:sdk:xxx'
 ```
+
 #### scan
+
 ```
 implementation project(path: ':util')
 implementation project(path: ':matisse')
 api 'cn.bingoogolapple:bga-qrcode-zxing:xxx'
 ```
+
 ### lottie
+
 ```
 api 'com.airbnb.android:lottie:xxx'
 ```
+
 #### pool
+
 ```
+api project(path: ':lottie')
 api project(path: ':scan')
 api project(path: ':tbs')
 api project(path: ':doraemonkit')
@@ -149,32 +212,51 @@ api project(path: ':banner')
 api project(path: ':widget')
 api project(path: ':util')
 ```
+
 #### litepool
+
 ```
 api project(path: ':litepal')
 api project(path: ':fragmentation')
 api project(path: ':widget')
 api project(path: ':util')
 ```
+
 ## 使用
+
 gradle(app)
+
 ```
 省略
 ```
+
 gradle(project)
+
 ```
 省略
 ```
+
 gradle(config)
+
 ``` 
 省略
 ```
+
 ## TODO
+
 #### 持续优化
+
 #### 处理注解
+
 #### 支持 kotlin
-#### 优化 jpush、mobsms、litepal、doraemonkit 集成
+
+#### 优化集成
+
+* [mobsms](./mobsms/)
+* [doraemonkit](./doraemonkit/)
+
 ## License
+
 ```
 Copyright [2021] [snpmyn]
 

@@ -41,7 +41,7 @@
             app:qrcv_isShowLocationPoint="true"
             app:qrcv_isShowTipBackground="true"
             app:qrcv_qrCodeTipText="二维码放入框内，可自动扫描"
-            app:qrcv_scanLineColor="@color/color_scan_line"
+            app:qrcv_scanLineColor="@color/scan_line"
             app:qrcv_tipTextSize="@dimen/sp_12"
             app:qrcv_toolbarHeight="?actionBarSize"
             app:qrcv_topOffset="?actionBarSize" />
@@ -66,7 +66,7 @@
                     android:layout_centerInParent="true"
                     android:contentDescription="@string/openOnOrOpenOffFlash"
                     android:padding="@dimen/dp_12"
-                    app:srcCompat="@drawable/ic_flash_off_color_scan_flash_on_off_24dp" />
+                    app:srcCompat="@drawable/ic_flash_off_scan_flash_on_off_24dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -82,7 +82,7 @@
                     android:layout_centerInParent="true"
                     android:contentDescription="@string/selectFromPhotoAlbum"
                     android:padding="@dimen/dp_12"
-                    app:srcCompat="@drawable/ic_photo_library_color_scan_photo_library_24dp" />
+                    app:srcCompat="@drawable/ic_photo_library_scan_photo_library_24dp" />
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
