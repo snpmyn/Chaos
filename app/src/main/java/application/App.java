@@ -67,6 +67,8 @@ public class App extends PoolApp {
 
     /**
      * 权限集
+     * <p>
+     * 默动获 Manifest.permission.READ_EXTERNAL_STORAGE。
      *
      * @return 权限集
      */

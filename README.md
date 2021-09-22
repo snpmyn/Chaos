@@ -6,47 +6,81 @@
 
 ## 模块
 
-#### [basic](./basic/) 基础
+#### [basic](./basic/)
 
-#### [util](./util/) 工具类
+基础
 
-#### [widget](./widget/) 组件
+#### [util](./util/)
 
-#### [banner](./banner/) 轮播图
+工具类
 
-#### [matisse](./matisse/) 选图
+#### [widget](./widget/)
 
-#### [ucrop](./ucrop/) 裁剪
+组件
 
-#### [fragmentation](./fragmentation/) 碎片
+#### [banner](./banner/)
 
-#### [jpush](./jpush/) 极光推送
+轮播图
 
-#### [janalytics](./janalytics/) 极光统计
+#### [matisse](./matisse/)
 
-#### [bugly](./bugly/) Bugly
+选图
 
-#### [mobsms](./mobsms/) SMSSDK
+#### [ucrop](./ucrop/)
 
-#### [bmob](./bmob/) Bmob
+裁剪
 
-#### [litepal](./litepal/) LitePal
+#### [fragmentation](./fragmentation/)
 
-#### [doraemonkit](./doraemonkit/) DoraemonKit
+碎片
 
-#### [tbs](./tbs/) 腾讯浏览服务
+#### [jpush](./jpush/)
 
-#### [scan](./scan/) 扫描
+极光推送
 
-#### [lottie](./lottie/) 动画
+#### [janalytics](./janalytics/)
 
-#### [pool](./pool/) 水池
+极光统计
 
-供外部使用
+#### [bugly](./bugly/)
 
-#### [litepool](./litepool/) 轻量水池
+Bugly
 
-供外部使用
+#### [mobsms](./mobsms/)
+
+SMSSDK
+
+#### [bmob](./bmob/)
+
+Bmob
+
+#### [litepal](./litepal/)
+
+LitePal
+
+#### [doraemonkit](./doraemonkit/)
+
+DoraemonKit
+
+#### [tbs](./tbs/)
+
+腾讯浏览服务
+
+#### [scan](./scan/)
+
+扫描
+
+#### [lottie](./lottie/)
+
+动画
+
+#### [pool](./pool/)
+
+水池（供外部使用）
+
+#### [litepool](./litepool/)
+
+轻量水池（供外部使用）
 
 ## 依赖
 

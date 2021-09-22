@@ -81,6 +81,8 @@ public class PoolApp extends BaseApp implements MMKVHandler, MMKVContentChangeNo
 
     /**
      * 权限集
+     * <p>
+     * 默动获 Manifest.permission.READ_EXTERNAL_STORAGE。
      *
      * @return 权限集
      */
