@@ -51,6 +51,8 @@
         <entry key="basic/src/main/res/drawable/white_solid_r12.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/white_solid_r6.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/white_solid_r8.xml" value="0.3453703703703704" />
+        <entry key="bugly/src/main/res/layout/bugly_upgrade_dialog.xml" value="0.16448032290615539" />
+        <entry key="bugly/src/main/res/layout/upgrade_dialog.xml" value="0.23369565217391305" />
         <entry key="jpush/src/main/res/layout/activity_jpush_display.xml" value="0.2694746376811594" />
         <entry key="matisse/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="matisse/src/main/res/drawable/ic_photo_library_24dp_yellow.xml" value="0.26944444444444443" />
