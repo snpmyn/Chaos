@@ -6,8 +6,11 @@ import java.util.List;
 
 import cn.bmob.v3.BmobBatch;
 import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BatchResult;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListListener;
+import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -102,5 +105,112 @@ public class BmobKit {
      */
     public void multiUpdate(List<BmobObject> bmobObjectList, QueryListListener<BatchResult> queryListListener) {
         new BmobBatch().updateBatch(bmobObjectList).doBatch(queryListListener);
+    }
+
+    /**
+     * 单个查询
+     *
+     * @param objectId      对象 ID
+     * @param queryListener 查询监听
+     * @param <T>           <T>
+     */
+    public <T extends BmobObject> void singleQuery(String objectId, QueryListener<T> queryListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.getObject(objectId, queryListener);
+    }
+
+    /**
+     * 多个查询
+     *
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void multiQuery(FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 等于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereEqualTo(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereEqualTo(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 不等于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereNotEqualTo(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereNotEqualTo(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 小于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereLessThan(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereLessThan(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 小于等于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereLessThanOrEqualTo(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereLessThanOrEqualTo(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 大于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereGreaterThan(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereGreaterThan(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 大于等于查询
+     *
+     * @param key          键
+     * @param value        值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereGreaterThanOrEqualTo(String key, Object value, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereGreaterThanOrEqualTo(key, value);
+        bmobQuery.findObjects(findListener);
     }
 }
