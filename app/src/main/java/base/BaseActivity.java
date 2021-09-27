@@ -2,6 +2,8 @@ package base;
 
 import android.os.Bundle;
 
+import com.chaos.pool.base.BasePoolActivity;
+
 import butterknife.ButterKnife;
 
 /**
@@ -10,7 +12,7 @@ import butterknife.ButterKnife;
  * @author zsp
  * @desc BaseActivity
  */
-public abstract class BaseActivity extends com.chaos.pool.base.BaseActivity {
+public abstract class BaseActivity extends BasePoolActivity {
     /**
      * 加载视图
      *

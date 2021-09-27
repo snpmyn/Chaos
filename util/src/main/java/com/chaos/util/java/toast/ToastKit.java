@@ -2,7 +2,7 @@ package com.chaos.util.java.toast;
 
 import android.widget.Toast;
 
-import com.chaos.basic.BaseApp;
+import com.chaos.basic.BaseBasicApp;
 
 /**
  * Created on 2020-09-09
@@ -33,7 +33,7 @@ public class ToastKit {
         if (null != toast) {
             toast.cancel();
         }
-        toast = CommonToast.makeText(BaseApp.getInstance(), msg, time);
+        toast = CommonToast.makeText(BaseBasicApp.getInstance(), msg, time);
         toast.show();
     }
 
@@ -41,7 +41,7 @@ public class ToastKit {
         if (null != toast) {
             toast.cancel();
         }
-        toast = CommonToast.makeText(BaseApp.getInstance(), msg, time);
+        toast = CommonToast.makeText(BaseBasicApp.getInstance(), msg, time);
         toast.setGravity(gravity, 0, 0);
         toast.show();
     }

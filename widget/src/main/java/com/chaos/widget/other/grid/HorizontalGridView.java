@@ -22,6 +22,10 @@ import java.util.List;
  * @desc 水平 GridView
  */
 public class HorizontalGridView<T extends IGrid> extends LinearLayout {
+    /**
+     * 圆点集
+     */
+    private final ArrayList<ImageView> dotList = new ArrayList<>();
     private List<T> list;
     private ViewPager viewPager;
     private LinearLayout linearLayout;
@@ -44,10 +48,6 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
      * 是否循环
      */
     private boolean areLoop = false;
-    /**
-     * 圆点集
-     */
-    private final ArrayList<ImageView> dotList = new ArrayList<>();
     /**
      * 指示器数组
      */
@@ -192,6 +192,32 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
         this.onGridItemChildViewClickListener = onGridItemChildViewClickListener;
     }
 
+    protected View initGridView(int currentPageIndex) {
+        MeasuredGridView measuredGridView = new MeasuredGridView(getContext());
+        measuredGridView.setVerticalSpacing(20);
+        measuredGridView.setSelector(android.R.color.transparent);
+        // 设置 5 列
+        measuredGridView.setNumColumns(5);
+        try {
+            final List<T> list = this.list.subList(currentPageIndex * mMaxShowCount, (currentPageIndex == (pagerCount - 1)) ?
+                    this.list.size() : ((currentPageIndex + 1) * mMaxShowCount));
+            BaseGridViewAdapter<T> baseGridViewAdapter = new GridAdapter<>(getContext());
+            baseGridViewAdapter.show(measuredGridView, list);
+            // 条目点击监听
+            measuredGridView.setOnItemClickListener((parent, view, position, id) -> {
+                if (onGridItemClickListener != null) {
+                    onGridItemClickListener.onItemClick(list.get(position), position);
+                }
+            });
+            // 条目子视图点击监听
+            baseGridViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> onGridItemChildViewClickListener.onItemChildViewClick(item, position));
+        } catch (Exception e) {
+            LogUtils.exception(e);
+            return null;
+        }
+        return measuredGridView;
+    }
+
     private class MyViewHolder implements IViewHolder {
         /**
          * 创建内容视图
@@ -213,31 +239,5 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
         public int getPagerCount() {
             return pagerCount;
         }
-    }
-
-    protected View initGridView(int currentPageIndex) {
-        MeasuredGridView measuredGridView = new MeasuredGridView(getContext());
-        measuredGridView.setVerticalSpacing(20);
-        measuredGridView.setSelector(android.R.color.transparent);
-        // 设置 5 列
-        measuredGridView.setNumColumns(5);
-        try {
-            final List<T> list = this.list.subList(currentPageIndex * mMaxShowCount, (currentPageIndex == (pagerCount - 1)) ?
-                    this.list.size() : ((currentPageIndex + 1) * mMaxShowCount));
-            BaseGridViewAdapter<T> baseGridViewAdapter = new GridViewAdapter<>(getContext());
-            baseGridViewAdapter.show(measuredGridView, list);
-            // 条目点击监听
-            measuredGridView.setOnItemClickListener((parent, view, position, id) -> {
-                if (onGridItemClickListener != null) {
-                    onGridItemClickListener.onItemClick(list.get(position), position);
-                }
-            });
-            // 条目子视图点击监听
-            baseGridViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> onGridItemChildViewClickListener.onItemChildViewClick(item, position));
-        } catch (Exception e) {
-            LogUtils.exception(e);
-            return null;
-        }
-        return measuredGridView;
     }
 }

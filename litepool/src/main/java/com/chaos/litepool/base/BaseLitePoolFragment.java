@@ -19,9 +19,9 @@ import support.SupportFragment;
  * Created on 2021/3/12
  *
  * @author zsp
- * @desc BaseFragment
+ * @desc BaseLitePoolFragment
  */
-public abstract class BaseFragment extends SupportFragment {
+public abstract class BaseLitePoolFragment extends SupportFragment {
     /**
      * 视图
      */
@@ -184,7 +184,7 @@ public abstract class BaseFragment extends SupportFragment {
      * 返 false 向上最终传递至 Fragment 宿主 Activity。此时宿主 Activity 复写 onBackPressedSupport 则执行，没复写不执行。
      * Fragment 宿主 Activity 之基类复写 onKeyUp 时同执行。
      * MainActivity 于该法处理。
-     * SplashActivity 与 LoginActivity 于 {@link BaseActivity#onKeyUp} 处理。
+     * SplashActivity 与 LoginActivity 于 BaseActivity 之 onKeyUp 处理。
      *
      * @return boolean
      */

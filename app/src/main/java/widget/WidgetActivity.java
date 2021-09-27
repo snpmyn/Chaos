@@ -12,9 +12,12 @@ import base.BaseActivity;
 import butterknife.OnClick;
 import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
+import widget.grid.GridActivity;
 import widget.lottie.LottieHomeActivity;
 import widget.money.MoneyActivity;
-import widget.picture.PictureActivity;
+import widget.picture.PictureHomeActivity;
+import widget.property.PropertyActivity;
+import widget.pudding.PuddingActivity;
 import widget.scan.ScanActivity;
 import widget.search.SearchActivity;
 
@@ -73,7 +76,10 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnSearch,
             R.id.widgetActivityBtnPicture,
             R.id.widgetActivityBtnScan,
-            R.id.widgetActivityBtnLottie})
+            R.id.widgetActivityBtnLottie,
+            R.id.widgetActivityBtnPudding,
+            R.id.widgetActivityBtnGrid,
+            R.id.widgetActivityBtnProperty})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -92,9 +98,9 @@ public class WidgetActivity extends BaseActivity {
             case R.id.widgetActivityBtnSearch:
                 IntentJump.getInstance().jump(null, this, false, SearchActivity.class);
                 break;
-            // 图片页
+            // 图片主页
             case R.id.widgetActivityBtnPicture:
-                IntentJump.getInstance().jump(null, this, false, PictureActivity.class);
+                IntentJump.getInstance().jump(null, this, false, PictureHomeActivity.class);
                 break;
             // 扫描页
             case R.id.widgetActivityBtnScan:
@@ -103,6 +109,18 @@ public class WidgetActivity extends BaseActivity {
             // Lottie 主页
             case R.id.widgetActivityBtnLottie:
                 IntentJump.getInstance().jump(null, this, false, LottieHomeActivity.class);
+                break;
+            // Pudding 页
+            case R.id.widgetActivityBtnPudding:
+                IntentJump.getInstance().jump(null, this, false, PuddingActivity.class);
+                break;
+            // 网格页
+            case R.id.widgetActivityBtnGrid:
+                IntentJump.getInstance().jump(null, this, false, GridActivity.class);
+                break;
+            // 属性页
+            case R.id.widgetActivityBtnProperty:
+                IntentJump.getInstance().jump(null, this, false, PropertyActivity.class);
                 break;
             default:
                 break;

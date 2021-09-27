@@ -1,4 +1,4 @@
-package com.chaos.pool.base;
+package com.chaos.litepool.base;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -6,8 +6,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.chaos.janalytics.kit.JanalyticsKit;
-import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
 import com.chaos.util.java.view.ViewUtils;
@@ -26,7 +24,7 @@ import support.SupportActivity;
  * Created on 2021/3/9
  *
  * @author zsp
- * @desc BaseActivity
+ * @desc BaseLitePoolActivity
  * 优点：
  * 方便代码编写，减重复代码，加快开发；
  * 优化代码结构，降耦合度，方便修改；
@@ -39,7 +37,7 @@ import support.SupportActivity;
  * {@link #setListener()}
  * {@link #startLogic()}
  */
-public abstract class BaseActivity extends SupportActivity {
+public abstract class BaseLitePoolActivity extends SupportActivity {
     private BaseInstanceDialog baseInstanceDialog;
 
     @Override
@@ -182,20 +180,6 @@ public abstract class BaseActivity extends SupportActivity {
             }
         }
         return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        JpushKit.onResume(this);
-        JanalyticsKit.onPageStart(this, this.getClass().getCanonicalName());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JpushKit.onPause(this);
-        JanalyticsKit.onPageEnd(this, this.getClass().getCanonicalName());
     }
 }
 

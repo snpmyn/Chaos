@@ -18,10 +18,10 @@ import org.jetbrains.annotations.NotNull;
  * Created on 2020-09-23
  *
  * @author zsp
- * @desc 网格视图适配器
+ * @desc 网格适配器
  */
-public class GridViewAdapter<T extends IGrid> extends BaseGridViewAdapter<T> {
-    public GridViewAdapter(Context context) {
+public class GridAdapter<T extends IGrid> extends BaseGridViewAdapter<T> {
+    public GridAdapter(Context context) {
         super(context);
     }
 
@@ -30,7 +30,7 @@ public class GridViewAdapter<T extends IGrid> extends BaseGridViewAdapter<T> {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (null == view) {
-            view = layoutInflater.inflate(R.layout.item_grid_view, null);
+            view = layoutInflater.inflate(R.layout.grid_view_item, null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         } else {

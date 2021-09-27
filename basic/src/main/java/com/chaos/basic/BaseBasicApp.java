@@ -11,7 +11,7 @@ import java.util.List;
  * Created on 2021/3/5
  *
  * @author zsp
- * @desc 应用
+ * @desc 基类应用
  * 官方：
  * Base class for those who need to maintain global application state.
  * You can provide your own implementation by specifying its name in your AndroidManifest.xml's <application> tag,
@@ -25,7 +25,7 @@ import java.util.List;
  * 全局唯一，不同 Activity、Service 中获实例相同；
  * 数据传递、数据共享、数据缓存等。
  */
-public abstract class BaseApp extends Application {
+public abstract class BaseBasicApp extends Application {
     private static Application instance;
     private static Boolean debug;
     private static Boolean ensembleMobSms;

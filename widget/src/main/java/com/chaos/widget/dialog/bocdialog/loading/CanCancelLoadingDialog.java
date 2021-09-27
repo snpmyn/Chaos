@@ -84,7 +84,7 @@ public class CanCancelLoadingDialog extends BaseInstanceDialog {
         layoutParams.height = DensityUtils.dipToPxByFloat(context, 46);
         view.setLayoutParams(layoutParams);
         // 动画
-        animation = AnimationUtils.loadAnimation(context, R.anim.loading);
+        animation = AnimationUtils.loadAnimation(context, R.anim.boc_dialog_can_cancel_loading);
     }
 
     @Override

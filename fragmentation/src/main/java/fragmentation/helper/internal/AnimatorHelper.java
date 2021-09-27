@@ -39,7 +39,7 @@ public final class AnimatorHelper {
 
     public Animation getNoneAnimation() {
         if (null == noneAnimation) {
-            noneAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
+            noneAnimation = AnimationUtils.loadAnimation(context, R.anim.no);
         }
         return noneAnimation;
     }
@@ -67,7 +67,7 @@ public final class AnimatorHelper {
 
     private void initEnterAnimation() {
         if (fragmentAnimator.getEnter() == 0) {
-            enterAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
+            enterAnimation = AnimationUtils.loadAnimation(context, R.anim.no);
         } else {
             enterAnimation = AnimationUtils.loadAnimation(context, fragmentAnimator.getEnter());
         }
@@ -75,7 +75,7 @@ public final class AnimatorHelper {
 
     private void initExitAnimation() {
         if (fragmentAnimator.getExit() == 0) {
-            exitAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
+            exitAnimation = AnimationUtils.loadAnimation(context, R.anim.no);
         } else {
             exitAnimation = AnimationUtils.loadAnimation(context, fragmentAnimator.getExit());
         }
@@ -83,7 +83,7 @@ public final class AnimatorHelper {
 
     private void initPopEnterAnimation() {
         if (fragmentAnimator.getPopEnter() == 0) {
-            popEnterAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
+            popEnterAnimation = AnimationUtils.loadAnimation(context, R.anim.no);
         } else {
             popEnterAnimation = AnimationUtils.loadAnimation(context, fragmentAnimator.getPopEnter());
         }
@@ -91,7 +91,7 @@ public final class AnimatorHelper {
 
     private void initPopExitAnimation() {
         if (fragmentAnimator.getPopExit() == 0) {
-            popExitAnimation = AnimationUtils.loadAnimation(context, R.anim.no_anim);
+            popExitAnimation = AnimationUtils.loadAnimation(context, R.anim.no);
         } else {
             popExitAnimation = AnimationUtils.loadAnimation(context, fragmentAnimator.getPopExit());
         }

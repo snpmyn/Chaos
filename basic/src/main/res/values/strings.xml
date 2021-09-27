@@ -22,6 +22,9 @@
     <string name="search">搜索</string>
     <string name="pleaseInput">请输入</string>
     <string name="picture">图片</string>
+    <string name="localLoad">本地加载</string>
+    <string name="networkLoad">网络加载</string>
+    <string name="property">属性</string>
     <string name="scan">扫描</string>
     <string name="suggestToAllowThesePermissions">建议授权这些权限</string>
     <string name="agree">同意</string>
@@ -99,9 +102,24 @@
     <string name="and">和</string>
     <string name="privacyPolicy">隐私政策</string>
     <string name="deletePhoneNumber">删除手机号</string>
+    <string name="exampleOne">示例一</string>
+    <string name="exampleTwo">示例二</string>
+    <string name="exampleThree">示例三</string>
+    <string name="exampleFour">示例四</string>
+    <string name="exampleFive">示例五</string>
+    <string name="exampleSix">示例六</string>
+    <string name="exampleSeven">示例七</string>
+    <string name="exampleEight">示例八</string>
+    <string name="title">标题</string>
+    <string name="content">内容</string>
+    <string name="show">显示</string>
+    <string name="dismiss">消失</string>
+    <string name="grid">网格</string>
+    <string name="doubleClick">双重点击</string>
+    <string name="notRealizeYet">暂未实现</string>
     <!--format-->
     <string name="formatRecapVerificationCode">%1$s 后可重获验证码</string>
-    <string name="formatSeconds" formatted="true">%1$s 秒</string>
+    <string name="formatSeconds">%1$s 秒</string>
     <string name="formatAlreadyTheLatestVersion">已是最新版本 %1$s</string>
     <string name="formatFindNewVersion">发现新版本 %1$s</string>
 </resources>

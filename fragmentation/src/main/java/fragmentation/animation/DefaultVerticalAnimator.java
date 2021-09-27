@@ -32,6 +32,13 @@ public class DefaultVerticalAnimator extends FragmentAnimator implements Parcela
         super(in);
     }
 
+    public DefaultVerticalAnimator() {
+        enter = R.anim.fragmentation_veritical_fragment_enter;
+        exit = R.anim.fragmentation_veritical__fragment_exit;
+        popEnter = R.anim.fragmentation_veritical__fragment_pop_enter;
+        popExit = R.anim.fragmentation_veritical__fragment_pop_exit;
+    }
+
     @Override
     public void writeToParcel(@NotNull Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
@@ -40,12 +47,5 @@ public class DefaultVerticalAnimator extends FragmentAnimator implements Parcela
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    public DefaultVerticalAnimator() {
-        enter = R.anim.veritical_fragment_enter;
-        exit = R.anim.veritical__fragment_exit;
-        popEnter = R.anim.veritical__fragment_pop_enter;
-        popExit = R.anim.veritical__fragment_pop_exit;
     }
 }

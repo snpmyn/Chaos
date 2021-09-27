@@ -172,9 +172,9 @@ public class PickerOptions {
      */
     public int backgroundId = -1;
     /**
-     * 条目间距倍数（默 1.6）
+     * 条目间距倍数（默 1.6F）
      */
-    public float lineSpacingMultiplier = 2.6f;
+    public float lineSpacingMultiplier = 2.6F;
     /**
      * 对话框模式
      */
@@ -197,6 +197,6 @@ public class PickerOptions {
     public WheelView.DividerType dividerType = WheelView.DividerType.WRAP;
 
     public PickerOptions(int buildType) {
-        layoutResId = ((buildType == TYPE_PICKER_OPTIONS) ? R.layout.pickerview_options : R.layout.pickerview_time);
+        layoutResId = ((buildType == TYPE_PICKER_OPTIONS) ? R.layout.picker_view_options : R.layout.picker_view_time);
     }
 }

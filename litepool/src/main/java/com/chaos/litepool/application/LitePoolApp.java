@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import com.chaos.basic.BaseApp;
+import com.chaos.basic.BaseBasicApp;
 import com.chaos.litepool.R;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.listener.AppListener;
@@ -30,7 +30,7 @@ import timber.log.Timber;
  * @author zsp
  * @desc 应用
  */
-public class LitePoolApp extends BaseApp implements MMKVHandler, MMKVContentChangeNotification {
+public class LitePoolApp extends BaseBasicApp implements MMKVHandler, MMKVContentChangeNotification {
     /**
      * 应用程序创调
      * <p>
@@ -193,4 +193,3 @@ public class LitePoolApp extends BaseApp implements MMKVHandler, MMKVContentChan
         }
     }
 }
-

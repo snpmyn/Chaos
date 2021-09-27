@@ -17,7 +17,7 @@ import com.chaos.mobsms.sms.handler.MobSmsHandler;
 import com.chaos.mobsms.sms.kit.MobSmsKit;
 import com.chaos.mobsms.sms.listener.MobSmsListener;
 import com.chaos.pool.R;
-import com.chaos.pool.base.BaseActivity;
+import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.module.login.kit.LoginActivityKit;
 import com.chaos.pool.module.login.kit.UserAgreementAndPrivacyPolicyActivityKit;
 import com.chaos.pool.module.login.listener.LoginActivityListener;
@@ -34,7 +34,7 @@ import cn.smssdk.EventHandler;
  * @author: zsp
  * @date: 2021/9/16 9:37 上午
  */
-public class LoginActivity extends BaseActivity implements View.OnClickListener, MobSmsListener {
+public class LoginActivity extends BasePoolActivity implements View.OnClickListener, MobSmsListener {
     /**
      * 登录页监听
      */

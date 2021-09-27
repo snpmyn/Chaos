@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pageBackground"
-    tools:context="widget.picture.PictureActivity">
+    tools:context="widget.picture.PicturePulseActivity">
 
     <com.chaos.widget.picture.pulse.PulseView
-        android:id="@+id/pictureActivityPv"
+        android:id="@+id/picturePulseActivityPv"
         android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"

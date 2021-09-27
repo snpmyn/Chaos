@@ -12,14 +12,14 @@ import butterknife.BindView;
 import value.ChaosMagic;
 
 /**
- * @desc: 图片页
+ * @desc: 图片脉动页
  * @author: zsp
- * @date: 2021/9/3 3:15 下午
+ * @date: 2021/9/26 3:13 下午
  */
-public class PictureActivity extends BaseActivity implements View.OnClickListener, PulseView.PulseListener {
+public class PicturePulseActivity extends BaseActivity implements View.OnClickListener, PulseView.PulseListener {
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.pictureActivityPv)
-    PulseView pictureActivityPv;
+    @BindView(R.id.picturePulseActivityPv)
+    PulseView picturePulseActivityPv;
     private int counter;
 
     /**
@@ -29,7 +29,7 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected int layoutResId() {
-        return R.layout.activity_picture;
+        return R.layout.activity_picture_pulse;
     }
 
     /**
@@ -53,8 +53,8 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void setListener() {
-        pictureActivityPv.setPulseListener(this);
-        pictureActivityPv.setOnClickListener(this);
+        picturePulseActivityPv.setPulseListener(this);
+        picturePulseActivityPv.setOnClickListener(this);
     }
 
     /**
@@ -68,9 +68,9 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (counter++ % ChaosMagic.INT_TWO == 0) {
-            pictureActivityPv.startPulse();
+            picturePulseActivityPv.startPulse();
         } else {
-            pictureActivityPv.finishPulse();
+            picturePulseActivityPv.finishPulse();
         }
     }
 

@@ -17,6 +17,16 @@
         tools:replace="android:allowBackup"
         tools:targetApi="n">
         <activity
+            android:name="widget.grid.GridActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.pudding.PuddingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name="widget.lottie.LottieCompositionActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -50,7 +60,22 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="widget.picture.PictureActivity"
+            android:name="widget.property.PropertyActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.picture.PictureResourceActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.picture.PicturePulseActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.picture.PictureHomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
@@ -109,7 +134,7 @@
 
                 <data
                     android:host="jiguang"
-                    android:scheme="jiguang-3ffc2de0b81400dccd396ad4" />
+                    android:scheme="jiguang-5a12e20622325c81ead16ec3" />
             </intent-filter>
         </activity>
         <activity

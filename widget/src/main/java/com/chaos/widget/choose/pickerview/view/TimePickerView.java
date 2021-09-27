@@ -46,7 +46,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         initViews();
         initAnim();
         if (null == pickerOptions.customListener) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, contentContainer);
+            LayoutInflater.from(context).inflate(R.layout.picker_view_time, contentContainer);
             // 顶标
             TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout rlTop = (RelativeLayout) findViewById(R.id.rlTop);
@@ -77,7 +77,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         } else {
             pickerOptions.customListener.customLayout(LayoutInflater.from(context).inflate(pickerOptions.layoutResId, contentContainer));
         }
-        // 时间转轮（自定义）
+        // 时间转轮（自定）
         LinearLayout timePicker = (LinearLayout) findViewById(R.id.timePicker);
         timePicker.setBackgroundColor(pickerOptions.bgColorWheel);
         initWheelTime(context, timePicker);

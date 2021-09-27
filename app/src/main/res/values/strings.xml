@@ -15,4 +15,9 @@
     <string name="lottieAnimationViewXml">LottieAnimationView 之 xml用法</string>
     <string name="lottieAnimationViewCode">LottieAnimationView 之代码用法</string>
     <string name="lottieComposition">LottieComposition</string>
+    <string name="pudding">PUDDING</string>
+    <string name="clickChildView">子视图点击</string>
+    <string name="picturePulse">图片脉动</string>
+    <string name="pictureResource">图片资源</string>
+    <string name="getProperty">获取属性</string>
 </resources>

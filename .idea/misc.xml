@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/preview_window.xml" value="0.33796296296296297" />
         <entry key="app/src/main/res/drawable/purple_500_solid_r8.xml" value="0.35444330949948927" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
+        <entry key="app/src/main/res/layout/activity_grid.xml" value="0.2418478260869565" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_code.xml" value="0.2223731884057971" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_xml.xml" value="0.23097826086956522" />
         <entry key="app/src/main/res/layout/activity_lottie_composition.xml" value="0.2223731884057971" />
@@ -19,6 +20,12 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36770833333333336" />
         <entry key="app/src/main/res/layout/activity_money.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_picture.xml" value="0.22871376811594202" />
+        <entry key="app/src/main/res/layout/activity_picture_home.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/activity_picture_pulse.xml" value="0.21557971014492755" />
+        <entry key="app/src/main/res/layout/activity_picture_resource.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/activity_property.xml" value="0.16347124117053483" />
+        <entry key="app/src/main/res/layout/activity_property_activity.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/activity_pudding.xml" value="0.26358695652173914" />
         <entry key="app/src/main/res/layout/activity_scan.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.16523713420787084" />
         <entry key="app/src/main/res/layout/activity_widget.xml" value="0.27219202898550726" />
@@ -32,6 +39,7 @@
         <entry key="basic/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/ic_close_font_input_20dp.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/ic_notifications_white_24dp.xml" value="0.22777777777777777" />
         <entry key="basic/src/main/res/drawable/ic_phone_number_clear_16dp.xml" value="0.3529111338100102" />
         <entry key="basic/src/main/res/drawable/ic_visibility_font_input_20dp.xml" value="0.3458333333333333" />
         <entry key="basic/src/main/res/drawable/ic_visibility_off_font_input_20dp.xml" value="0.35444330949948927" />
@@ -92,11 +100,22 @@
         <entry key="widget/src/main/res/drawable/purple_500_white_solid_brr12_selector.xml" value="0.26944444444444443" />
         <entry key="widget/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.26944444444444443" />
         <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/choco.xml" value="0.2346014492753623" />
+        <entry key="widget/src/main/res/layout/dialog_base.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />
+        <entry key="widget/src/main/res/layout/dialog_common_loading.xml" value="0.21331521739130435" />
+        <entry key="widget/src/main/res/layout/dialog_right_angle_message.xml" value="0.21331521739130435" />
+        <entry key="widget/src/main/res/layout/dialog_round_corner_message.xml" value="0.21331521739130435" />
+        <entry key="widget/src/main/res/layout/download_progress_dialog.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.16523713420787084" />
         <entry key="widget/src/main/res/layout/function_item.xml" value="0.19021739130434784" />
+        <entry key="widget/src/main/res/layout/grid_view_item.xml" value="0.2857789855072464" />
+        <entry key="widget/src/main/res/layout/horizontal_gridview.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/item_grid_view.xml" value="0.18177083333333333" />
+        <entry key="widget/src/main/res/layout/list_popup_window_item.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.335" />
+        <entry key="widget/src/main/res/layout/picker_view_options.xml" value="0.20833333333333334" />
+        <entry key="widget/src/main/res/layout/picker_view_time.xml" value="0.20833333333333334" />
         <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_options.xml" value="0.2817028985507246" />
         <entry key="widget/src/main/res/layout/pickerview_time.xml" value="0.2817028985507246" />

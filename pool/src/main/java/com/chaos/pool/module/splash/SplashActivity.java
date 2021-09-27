@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import com.chaos.pool.R;
-import com.chaos.pool.base.BaseActivity;
+import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.module.splash.kit.SplashActivityKit;
 import com.chaos.util.java.animation.AnimationManager;
 import com.chaos.util.java.screen.ScreenUtils;
@@ -16,7 +16,7 @@ import com.chaos.util.java.screen.ScreenUtils;
  * @author: zsp
  * @date: 2021/9/16 3:40 下午
  */
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BasePoolActivity {
     TextView splashActivityTv;
     /**
      * 闪屏页配套元件

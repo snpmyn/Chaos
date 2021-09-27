@@ -21,9 +21,9 @@ import support.SupportFragment;
  * Created on 2021/3/12
  *
  * @author zsp
- * @desc BaseFragment
+ * @desc BasePoolFragment
  */
-public abstract class BaseFragment extends SupportFragment {
+public abstract class BasePoolFragment extends SupportFragment {
     /**
      * 视图
      */

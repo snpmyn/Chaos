@@ -32,6 +32,13 @@ public class DefaultHorizontalAnimator extends FragmentAnimator implements Parce
         super(in);
     }
 
+    public DefaultHorizontalAnimator() {
+        enter = R.anim.fragmentation_horizontal_fragment_enter;
+        exit = R.anim.fragmentation_horizontal_fragment_exit;
+        popEnter = R.anim.fragmentation_horizontal_fragment_pop_enter;
+        popExit = R.anim.fragmentation_horizontal_fragment_pop_exit;
+    }
+
     @Override
     public void writeToParcel(@NotNull Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
@@ -40,12 +47,5 @@ public class DefaultHorizontalAnimator extends FragmentAnimator implements Parce
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    public DefaultHorizontalAnimator() {
-        enter = R.anim.horizontal_fragment_enter;
-        exit = R.anim.horizontal_fragment_exit;
-        popEnter = R.anim.horizontal_fragment_pop_enter;
-        popExit = R.anim.horizontal_fragment_pop_exit;
     }
 }

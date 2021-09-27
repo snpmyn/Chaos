@@ -14,7 +14,7 @@ ext {
     ]
     jpush = [
             // JPush 注册包名对应 AppKey
-            jpushAppKey : "3ffc2de0b81400dccd396ad4",
+            jpushAppKey : "5a12e20622325c81ead16ec3",
             // 暂默值即可
             jpushChannel: "developer-default",
     ]

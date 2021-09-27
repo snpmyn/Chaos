@@ -5,7 +5,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.chaos.pool.R;
-import com.chaos.pool.base.BaseActivity;
+import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.module.login.kit.UserAgreementAndPrivacyPolicyActivityKit;
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -14,7 +14,7 @@ import com.google.android.material.appbar.MaterialToolbar;
  * @author: zsp
  * @date: 2021/9/16 1:52 下午
  */
-public class UserAgreementAndPrivacyPolicyActivity extends BaseActivity {
+public class UserAgreementAndPrivacyPolicyActivity extends BasePoolActivity {
     MaterialToolbar userAgreementAndPrivacyPolicyActivityMt;
     TextView userAgreementAndPrivacyPolicyActivityTv;
     WebView userAgreementAndPrivacyPolicyActivityWv;

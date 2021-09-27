@@ -90,6 +90,7 @@ DoraemonKit
 api 'androidx.appcompat:appcompat:xxx'
 api 'com.google.android.material:material:xxx'
 api 'androidx.constraintlayout:constraintlayout:xxx'
+api "androidx.activity:activity:xxx"
 api 'com.github.bumptech.glide:glide:xxx'
 api 'io.reactivex:rxandroid:xxx'
 api 'io.reactivex:rxjava:xxx'
@@ -100,6 +101,8 @@ api 'io.reactivex.rxjava3:rxjava:xxx'
 api 'com.squareup.retrofit2:retrofit:xxx'
 api 'com.squareup.retrofit2:adapter-rxjava:xxx'
 api 'com.squareup.retrofit2:converter-gson:xxx'
+api 'androidx.core:core-ktx:xxx'
+api "org.jetbrains.kotlin:kotlin-stdlib:xxx"
 api 'com.jakewharton.timber:timber:xxx'
 api 'com.tencent:mmkv-static:xxx'
 api 'com.getkeepsafe.relinker:relinker:xxx'
@@ -281,8 +284,6 @@ gradle(config)
 #### 持续优化
 
 #### 处理注解
-
-#### 支持 kotlin
 
 #### 优化集成
 

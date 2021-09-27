@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.chaos.pool.R;
-import com.chaos.pool.base.BaseActivity;
+import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.module.login.kit.LoginTwoActivityKit;
 import com.chaos.pool.module.login.kit.UserAgreementAndPrivacyPolicyActivityKit;
 import com.chaos.pool.module.login.listener.LoginTwoActivityListener;
@@ -25,7 +25,7 @@ import com.google.android.material.appbar.MaterialToolbar;
  * @author: zsp
  * @date: 2021/9/17 4:31 下午
  */
-public class LoginTwoActivity extends BaseActivity implements View.OnClickListener {
+public class LoginTwoActivity extends BasePoolActivity implements View.OnClickListener {
     /**
      * 登录二页监听
      */
