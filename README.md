@@ -6,7 +6,7 @@
 
 ## 模块
 
-#### [basic](./basic/)
+#### [basic](./basic)
 
 基础
 
