@@ -3,6 +3,10 @@ package com.chaos.jpush.receiver;
 import android.app.Notification;
 import android.content.Context;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.chaos.jpush.kit.JpushMessageReceiverKit;
+
 import cn.jpush.android.api.CmdMessage;
 import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.JPushMessage;
@@ -20,16 +24,17 @@ import timber.log.Timber;
  * 4.新回调方式同旧自定 Receiver 兼容，配该 Receiver 后默亦发广播至旧 Receiver。
  * 重写 onMessage、onNotifyMessageArrived、onNotifyMessageOpened、onMultiActionClicked 需调 super 才发广播至旧 Receiver。
  * <p>
- * 该类为回调父类，开发者需继承该类并于清单文件配对应实现类，接口操作结果于所配类下法回调。
- * <p>
  * 该回调类虽基于 BroadcastReceiver，但为加快回调速度，在 SDK 内部会判断进程。
  * 当触发进程与组件配置进程一致时，内部采用 Java 对象的回调方式，并不产生 Android 组件生命周期，故不建议在该类中声明 Handler 属性。
  * @author: 郑少鹏
  * @date: 2019/5/31 14:53
  */
-public class BaseJpushMessageReceiver extends JPushMessageReceiver {
-    public BaseJpushMessageReceiver() {
+public class MyJpushMessageReceiver extends JPushMessageReceiver {
+    private final JpushMessageReceiverKit jpushMessageReceiverKit;
+
+    public MyJpushMessageReceiver() {
         super();
+        this.jpushMessageReceiverKit = new JpushMessageReceiverKit();
     }
 
     @Override
@@ -42,12 +47,15 @@ public class BaseJpushMessageReceiver extends JPushMessageReceiver {
     public void onMessage(Context context, CustomMessage customMessage) {
         super.onMessage(context, customMessage);
         Timber.d("[onMessage] 收自定消息回调");
+        AppCompatActivity appCompatActivity = (AppCompatActivity) context;
+        jpushMessageReceiverKit.onMessageExecute(appCompatActivity, customMessage);
     }
 
     @Override
     public void onNotifyMessageOpened(Context context, NotificationMessage notificationMessage) {
         super.onNotifyMessageOpened(context, notificationMessage);
         Timber.d("[onNotifyMessageOpened] 点通知回调");
+        jpushMessageReceiverKit.onNotifyMessageOpenedExecute(notificationMessage);
     }
 
     @Override

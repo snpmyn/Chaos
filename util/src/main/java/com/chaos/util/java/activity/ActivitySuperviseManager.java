@@ -1,5 +1,7 @@
 package com.chaos.util.java.activity;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
@@ -8,6 +10,9 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.chaos.util.java.datetime.CurrentTimeMillisClock;
+import com.chaos.util.java.toast.ToastKit;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -18,26 +23,22 @@ import java.util.List;
 
 import timber.log.Timber;
 
-import static android.content.Context.ACTIVITY_SERVICE;
-
-import com.chaos.util.java.datetime.CurrentTimeMillisClock;
-import com.chaos.util.java.toast.ToastKit;
-
 /**
  * Created on 2017/9/19.
  *
  * @author 郑少鹏
  * @desc ActivitySuperviseManager
- * Application：
+ * 使用一：
  * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} 之 onActivityCreated 当 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
  * {@link Application#registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks)} 之 onActivityDestroyed 当 {@link AppCompatActivity#finish()(Bundle, PersistableBundle)} 时执行，android:launchMode="singleTask" 时不执行。
- * 基类：
+ * <p>
+ * 使用二：
  * 基类之 {@link AppCompatActivity#onCreate(Bundle, PersistableBundle)} 推当前 Activity 至 Activity 管理容器，需时遍历容器并 finish 所有 Activity。
  */
 public class ActivitySuperviseManager {
+    private static final long WAIT_TIME = 2000L;
     private static ActivitySuperviseManager instance;
     private final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
-    private static final long WAIT_TIME = 2000L;
     private long touchDownTime = 0L;
 
     public static ActivitySuperviseManager getInstance() {

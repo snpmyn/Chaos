@@ -1,4 +1,4 @@
-package com.chaos.widget.pudding
+package com.chaos.util.java.pudding
 
 import android.graphics.PixelFormat
 import android.os.Handler

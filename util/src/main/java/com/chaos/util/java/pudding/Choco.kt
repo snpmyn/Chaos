@@ -1,4 +1,4 @@
-package com.chaos.widget.pudding
+package com.chaos.util.java.pudding
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -18,7 +18,7 @@ import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
-import com.chaos.widget.R
+import com.chaos.util.R
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.choco.view.*
 import timber.log.Timber

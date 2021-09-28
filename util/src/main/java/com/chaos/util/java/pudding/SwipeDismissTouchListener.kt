@@ -1,4 +1,4 @@
-package com.chaos.widget.pudding
+package com.chaos.util.java.pudding
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -9,7 +9,7 @@ import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.annotation.RequiresApi
-import com.chaos.widget.pudding.SwipeDismissTouchListener.DismissCallbacks
+import com.chaos.util.java.pudding.SwipeDismissTouchListener.DismissCallbacks
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -149,7 +149,6 @@ internal class SwipeDismissTouchListener(
                     if (mSwiping) {
                         mTranslationX = deltaX
                         mView.translationX = deltaX - mSwipingSlop
-                        // TODO: use an ease-out interpolator or such
                         mView.alpha = max(0.0F, min(1.0F, 1.0F - 2.0F * abs(deltaX) / mViewWidth))
                         return true
                     }

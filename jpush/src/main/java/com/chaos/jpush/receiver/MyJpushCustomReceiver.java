@@ -34,7 +34,7 @@ import timber.log.Timber;
  * @author: 郑少鹏
  * @date: 2019/5/31 16:17
  */
-public class BaseJpushCustomReceiver extends BroadcastReceiver {
+public class MyJpushCustomReceiver extends BroadcastReceiver {
     /**
      * 消息
      */

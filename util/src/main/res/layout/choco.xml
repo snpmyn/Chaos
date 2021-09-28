@@ -61,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_14"
-                android:textStyle="bold"
                 tools:text="标题" />
 
             <androidx.appcompat.widget.AppCompatTextView

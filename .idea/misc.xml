@@ -86,6 +86,7 @@
         <entry key="scan/src/main/res/drawable/ic_photo_library_scan_photo_library_24dp.xml" value="0.3425925925925926" />
         <entry key="scan/src/main/res/layout/activity_scan_bar_code.xml" value="0.2740036231884058" />
         <entry key="scan/src/main/res/layout/activity_scan_qr_code.xml" value="0.2504528985507246" />
+        <entry key="util/src/main/res/layout/choco.xml" value="0.24139492753623187" />
         <entry key="util/src/main/res/layout/window_head_toast.xml" value="0.16523713420787084" />
         <entry key="widget/src/main/res/drawable/gray_dot.xml" value="0.24537037037037038" />
         <entry key="widget/src/main/res/drawable/ic_backspace_gray_20dp.xml" value="0.3225" />
