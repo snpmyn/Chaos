@@ -10,75 +10,75 @@
 
 基础
 
-#### [util](./util/)
+#### [util](./util)
 
 工具类
 
-#### [widget](./widget/)
+#### [widget](./widget)
 
 组件
 
-#### [banner](./banner/)
+#### [banner](./banner)
 
 轮播图
 
-#### [matisse](./matisse/)
+#### [matisse](./matisse)
 
 选图
 
-#### [ucrop](./ucrop/)
+#### [ucrop](./ucrop)
 
 裁剪
 
-#### [fragmentation](./fragmentation/)
+#### [fragmentation](./fragmentation)
 
 碎片
 
-#### [jpush](./jpush/)
+#### [jpush](./jpush)
 
 极光推送
 
-#### [janalytics](./janalytics/)
+#### [janalytics](./janalytics)
 
 极光统计
 
-#### [bugly](./bugly/)
+#### [bugly](./bugly)
 
 Bugly
 
-#### [mobsms](./mobsms/)
+#### [mobsms](./mobsms)
 
 SMSSDK
 
-#### [bmob](./bmob/)
+#### [bmob](./bmob)
 
 Bmob
 
-#### [litepal](./litepal/)
+#### [litepal](./litepal)
 
 LitePal
 
-#### [doraemonkit](./doraemonkit/)
+#### [doraemonkit](./doraemonkit)
 
 DoraemonKit
 
-#### [tbs](./tbs/)
+#### [tbs](./tbs)
 
 腾讯浏览服务
 
-#### [scan](./scan/)
+#### [scan](./scan)
 
 扫描
 
-#### [lottie](./lottie/)
+#### [lottie](./lottie)
 
 动画
 
-#### [pool](./pool/)
+#### [pool](./pool)
 
 水池（供外部使用）
 
-#### [litepool](./litepool/)
+#### [litepool](./litepool)
 
 轻量水池（供外部使用）
 
@@ -287,8 +287,8 @@ gradle(config)
 
 #### 优化集成
 
-* [mobsms](./mobsms/)
-* [doraemonkit](./doraemonkit/)
+- [mobsms](./mobsms)
+- [doraemonkit](./doraemonkit)
 
 ## License
 
