@@ -28,8 +28,10 @@
     <dimen name="dp_70">70dp</dimen>
     <dimen name="dp_80">80dp</dimen>
     <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
     <dimen name="dp_130">130dp</dimen>
     <dimen name="dp_180">180dp</dimen>
+    <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_256">256dp</dimen>
     <!-- SP -->
     <dimen name="sp_10">10sp</dimen>

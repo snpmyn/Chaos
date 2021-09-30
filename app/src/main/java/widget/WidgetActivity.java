@@ -10,6 +10,7 @@ import com.example.chaos.R;
 
 import base.BaseActivity;
 import butterknife.OnClick;
+import widget.banner.BannerHomeActivity;
 import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
 import widget.grid.GridActivity;
@@ -79,7 +80,8 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnLottie,
             R.id.widgetActivityBtnPudding,
             R.id.widgetActivityBtnGrid,
-            R.id.widgetActivityBtnProperty})
+            R.id.widgetActivityBtnProperty,
+            R.id.widgetActivityBtnBanner})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -121,6 +123,10 @@ public class WidgetActivity extends BaseActivity {
             // 属性页
             case R.id.widgetActivityBtnProperty:
                 IntentJump.getInstance().jump(null, this, false, PropertyActivity.class);
+                break;
+            // 轮播主页
+            case R.id.widgetActivityBtnBanner:
+                IntentJump.getInstance().jump(null, this, false, BannerHomeActivity.class);
                 break;
             default:
                 break;

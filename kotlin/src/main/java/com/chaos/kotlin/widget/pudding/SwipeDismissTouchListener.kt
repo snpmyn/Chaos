@@ -1,4 +1,4 @@
-package com.chaos.kotlin
+package com.chaos.kotlin.widget.pudding
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -9,7 +9,7 @@ import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.annotation.RequiresApi
-import com.chaos.kotlin.SwipeDismissTouchListener.DismissCallbacks
+import com.chaos.kotlin.widget.pudding.SwipeDismissTouchListener.DismissCallbacks
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

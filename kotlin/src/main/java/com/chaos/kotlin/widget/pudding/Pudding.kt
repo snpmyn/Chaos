@@ -1,4 +1,4 @@
-package com.chaos.kotlin
+package com.chaos.kotlin.widget.pudding
 
 import android.graphics.PixelFormat
 import android.os.Handler

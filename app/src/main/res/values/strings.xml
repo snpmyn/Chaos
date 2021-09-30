@@ -21,4 +21,7 @@
     <string name="picturePulse">图片脉动</string>
     <string name="pictureResource">图片资源</string>
     <string name="getProperty">获取属性</string>
+    <string name="banner">轮播</string>
+    <string name="bannerOne">轮播一</string>
+    <string name="bannerTwo">轮播二</string>
 </resources>

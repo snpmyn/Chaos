@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
-import com.chaos.kotlin.Pudding;
+import com.chaos.kotlin.widget.pudding.Pudding;
 import com.chaos.util.java.toast.ToastKit;
 import com.example.chaos.R;
 

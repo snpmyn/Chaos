@@ -126,6 +126,8 @@
     <string name="checking">检测中</string>
     <string name="noUpgradeVersionInformationAvailable">暂无更新版本信息</string>
     <string name="checkUpgradeFail">检测更新失败</string>
+    <string name="clear">清空</string>
+    <string name="add">添加</string>
     <!--format-->
     <string name="formatRecapVerificationCode">%1$s 后可重获验证码</string>
     <string name="formatSeconds">%1$s 秒</string>

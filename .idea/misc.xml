@@ -11,6 +11,10 @@
         <entry key="app/src/main/res/drawable/page_background_solid_r6.xml" value="0.35444330949948927" />
         <entry key="app/src/main/res/drawable/preview_window.xml" value="0.33796296296296297" />
         <entry key="app/src/main/res/drawable/purple_500_solid_r8.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/layout/activity_banner.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/activity_banner_home.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/activity_banner_one.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/activity_banner_two.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
         <entry key="app/src/main/res/layout/activity_grid.xml" value="0.2418478260869565" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_code.xml" value="0.2223731884057971" />
@@ -62,6 +66,8 @@
         <entry key="bugly/src/main/res/layout/bugly_upgrade_dialog.xml" value="0.16448032290615539" />
         <entry key="bugly/src/main/res/layout/upgrade_dialog.xml" value="0.23369565217391305" />
         <entry key="jpush/src/main/res/layout/activity_jpush_display.xml" value="0.2694746376811594" />
+        <entry key="kotlin/src/main/res/layout/banner_item_wrapper.xml" value="0.24320652173913043" />
+        <entry key="kotlin/src/main/res/layout/banner_view_wrapper_item.xml" value="0.2726449275362319" />
         <entry key="kotlin/src/main/res/layout/choco.xml" value="0.2427536231884058" />
         <entry key="matisse/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
         <entry key="matisse/src/main/res/drawable/ic_photo_library_24dp_yellow.xml" value="0.26944444444444443" />

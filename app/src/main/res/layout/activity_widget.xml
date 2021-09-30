@@ -98,4 +98,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnGrid" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/widgetActivityBtnBanner"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:text="@string/banner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnProperty" />
 </androidx.constraintlayout.widget.ConstraintLayout>

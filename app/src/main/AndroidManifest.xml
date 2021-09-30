@@ -17,6 +17,18 @@
         tools:replace="android:allowBackup"
         tools:targetApi="n">
         <activity
+            android:name="widget.banner.BannerTwoActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.banner.BannerOneActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="widget.banner.BannerHomeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name="widget.grid.GridActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />

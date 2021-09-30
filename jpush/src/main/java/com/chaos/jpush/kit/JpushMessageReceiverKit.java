@@ -3,12 +3,13 @@ package com.chaos.jpush.kit;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.jpush.JpushDisplayActivity;
 import com.chaos.jpush.value.JpushConstant;
-import com.chaos.kotlin.Pudding;
+import com.chaos.kotlin.widget.pudding.Pudding;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.intent.IntentJump;
 
@@ -29,12 +30,14 @@ public class JpushMessageReceiverKit {
      * @param customMessage     自定消息
      */
     public void onMessageExecute(AppCompatActivity appCompatActivity, CustomMessage customMessage) {
+        Looper.prepare();
         Pudding.create(appCompatActivity, choco -> {
             choco.setTitle(customMessage.title);
             choco.setTitleTypeface(Typeface.DEFAULT_BOLD);
             choco.setText(customMessage.message);
             return null;
         }).show();
+        Looper.loop();
     }
 
     /**
