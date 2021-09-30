@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    apply from: "script.gradle"
     apply from: "config.gradle"
     ext.kotlin_version = '1.5.31'
     repositories {
@@ -41,6 +42,7 @@ buildscript {
     }
 }
 
+// 官方新建工程无此闭包。该工程暂需。
 allprojects {
     repositories {
         google()

@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -23,9 +25,16 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.kotlinOptions["jvmTarget"]
+    }
 }
 
 dependencies {
-    api project(path: ':kotlin')
-    /*kotlin*/
+    api project(path: ':basic')
+    /*basic*/
+    api 'androidx.core:core-ktx:1.6.0'
+    /*自带*/
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    /*补充*/
 }

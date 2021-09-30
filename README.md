@@ -74,6 +74,10 @@ DoraemonKit
 
 动画
 
+#### [kotlin](./kotlin)
+
+Kotlin
+
 #### [pool](./pool)
 
 水池（供外部使用）
@@ -101,8 +105,6 @@ api 'io.reactivex.rxjava3:rxjava:xxx'
 api 'com.squareup.retrofit2:retrofit:xxx'
 api 'com.squareup.retrofit2:adapter-rxjava:xxx'
 api 'com.squareup.retrofit2:converter-gson:xxx'
-api 'androidx.core:core-ktx:xxx'
-api "org.jetbrains.kotlin:kotlin-stdlib:xxx"
 api 'com.jakewharton.timber:timber:xxx'
 api 'com.tencent:mmkv-static:xxx'
 api 'com.getkeepsafe.relinker:relinker:xxx'
@@ -115,7 +117,7 @@ api 'com.guolindev.permissionx:permissionx:xxx'
 #### util
 
 ```
-api project(path: ':basic')
+api project(path: ':kotlin')
 ```
 
 #### widget
@@ -202,11 +204,11 @@ api 'org.litepal.guolindev:core:xxx'
 
 ```
 implementation project(path: ':util')
-debugImplementation "io.github.didi.dokit:dokitx:xxx"
-debugImplementation "io.github.didi.dokit:dokitx-ft:xxx"
-debugImplementation "io.github.didi.dokit:dokitx-mc:xxx"
-debugImplementation "io.github.didi.dokit:dokitx-weex:xxx"
-releaseImplementation "io.github.didi.dokit:dokitx-no-op:xxx"
+debugImplementation 'io.github.didi.dokit:dokitx:xxx'
+debugImplementation 'io.github.didi.dokit:dokitx-ft:xxx'
+debugImplementation 'io.github.didi.dokit:dokitx-mc:xxx'
+debugImplementation 'io.github.didi.dokit:dokitx-weex:xxx'
+releaseImplementation 'io.github.didi.dokit:dokitx-no-op:xxx'
 ```
 
 #### tbs
@@ -226,7 +228,16 @@ api 'cn.bingoogolapple:bga-qrcode-zxing:xxx'
 ### lottie
 
 ```
+implementation project(path: ':basic')
 api 'com.airbnb.android:lottie:xxx'
+```
+
+### kotlin
+
+```
+api project(path: ':basic')
+api 'androidx.core:core-ktx:xxx'
+api "org.jetbrains.kotlin:kotlin-stdlib:xxx"
 ```
 
 #### pool

@@ -1,7 +1,6 @@
 ext {
     android = [
             compileSdkVersion: 30,
-            buildToolsVersion: "30.0.3",
             applicationId    : "com.example.chaos",
             minSdkVersion    : 23,
             targetSdkVersion : 30,
@@ -11,6 +10,9 @@ ext {
     compileOptions = [
             sourceCompatibility: JavaVersion.VERSION_1_8,
             targetCompatibility: JavaVersion.VERSION_1_8
+    ]
+    kotlinOptions = [
+            jvmTarget: '1.8'
     ]
     jpush = [
             // JPush 注册包名对应 AppKey

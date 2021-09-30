@@ -5,7 +5,7 @@
 
     <application
         android:name="application.App"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
@@ -18,105 +18,87 @@
         tools:targetApi="n">
         <activity
             android:name="widget.grid.GridActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.pudding.PuddingActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.lottie.LottieCompositionActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.lottie.LottieAnimationViewCodeActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.lottie.LottieAnimationViewXmlActivity"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.lottie.LottieHomeActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.scan.ScanBarCodeActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.scan.ScanQrCodeActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.scan.ScanActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.property.PropertyActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.picture.PictureResourceActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.picture.PicturePulseActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.picture.PictureHomeActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.search.SearchActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.choose.ChooseActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.money.MoneyActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.dialog.BocDialogActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="widget.WidgetActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.pool.module.login.UserAgreementAndPrivacyPolicyActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.pool.module.login.LoginTwoActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.pool.module.splash.SplashActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/SplashActivityStyle"
             tools:ignore="LockedOrientationActivity">
@@ -139,12 +121,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.jpush.JpushDisplayActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>

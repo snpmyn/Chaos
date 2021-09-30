@@ -1,4 +1,4 @@
-package com.chaos.util.java.pudding
+package com.chaos.kotlin
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -18,7 +18,6 @@ import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
-import com.chaos.util.R
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.choco.view.*
 import timber.log.Timber
@@ -50,7 +49,6 @@ class Choco @JvmOverloads constructor(
 
     /**
      * 初配
-     *
      * loading 显示、icon 动画、触摸反馈等。
      */
     private fun initConfiguration() {

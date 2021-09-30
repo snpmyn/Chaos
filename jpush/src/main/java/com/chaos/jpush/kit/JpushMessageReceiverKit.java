@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.jpush.JpushDisplayActivity;
 import com.chaos.jpush.value.JpushConstant;
+import com.chaos.kotlin.Pudding;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.intent.IntentJump;
-import com.chaos.util.java.pudding.Pudding;
 
 import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.NotificationMessage;
