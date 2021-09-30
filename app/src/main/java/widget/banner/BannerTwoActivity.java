@@ -94,4 +94,18 @@ public class BannerTwoActivity extends BaseActivity {
                 break;
         }
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        bannerTwoActivityBvInterval.startAutoScroll();
+        bannerTwoActivityBvSmooth.startAutoScroll();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        bannerTwoActivityBvInterval.stopAutoScroll();
+        bannerTwoActivityBvSmooth.stopAutoScroll();
+    }
 }
