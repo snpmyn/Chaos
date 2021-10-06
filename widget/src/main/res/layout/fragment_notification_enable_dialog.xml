@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/white_purple_500_solid_blr12_selector"
+        android:background="@drawable/white_purple_500_solid_blr14_selector"
         android:baselineAligned="false">
 
         <RelativeLayout

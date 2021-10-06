@@ -5,6 +5,31 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.39427083333333335" />
         <entry key="../../../.gradle/caches/transforms-2/files-2.1/8ca2dd6b236acc108ba9473f8964608f/material-1.3.0/res/layout/test_toolbar.xml" value="0.25407608695652173" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/app/src/main/res/layout/activity_picture_pulse.xml" value="0.7782258064516129" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/app/src/main/res/layout/activity_search.xml" value="0.1118659420289855" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/app/src/main/res/layout/item_main_activity.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/gray_solid_r8.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/gray_stroke_r6.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/purple_500_solid_blr10.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/purple_500_solid_r10.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/purple_500_white_solid_blr14_selector.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/purple_500_white_solid_brr14_selector.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/white_purple_500_solid_blr14_selector.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/white_purple_500_solid_brr14_selector.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/white_solid_r10.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/white_solid_r14.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/basic/src/main/res/drawable/white_solid_r8.xml" value="0.18333333333333332" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/jpush/src/main/res/layout/activity_jpush_display.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/pool/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/pool/src/main/res/layout/activity_login_two.xml" value="0.1118659420289855" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/pool/src/main/res/layout/activity_splash.xml" value="0.1118659420289855" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/pool/src/main/res/layout/activity_user_agreement_and_privacy_policy.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/pool/src/main/res/layout/dialog_user_agreement_and_privacy_policy.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/util/src/main/res/layout/window_head_toast.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/dialog_common_loading.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/dialog_round_corner_message.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.1788693234476367" />
         <entry key="app/src/main/res/drawable/gray_solid_r6.xml" value="0.35444330949948927" />
         <entry key="app/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/icon_background.xml" value="0.2574074074074074" />

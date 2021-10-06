@@ -11,7 +11,7 @@
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_20"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@drawable/white_solid_r12"
+        android:background="@drawable/white_solid_r14"
         android:padding="@dimen/dp_10">
 
         <ImageView

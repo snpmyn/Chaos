@@ -10,7 +10,7 @@
     <string name="ensure">确定</string>
     <string name="provincialAndUrbanLinkage">省市区联动</string>
     <string name="startPulse">开始脉动</string>
-    <string name="finshPulse">完成脉动</string>
+    <string name="finishPulse">完成脉动</string>
     <string name="scanQrCode">扫描二维码</string>
     <string name="scanBarCode">扫描条形码</string>
     <string name="loading">加载中</string>

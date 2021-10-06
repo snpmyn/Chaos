@@ -87,6 +87,6 @@ public class PicturePulseActivity extends BaseActivity implements View.OnClickLi
      */
     @Override
     public void onFinishPulse() {
-        ToastKit.showShort(getString(R.string.finshPulse));
+        ToastKit.showShort(getString(R.string.finishPulse));
     }
 }

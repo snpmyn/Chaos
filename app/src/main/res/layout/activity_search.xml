@@ -12,7 +12,7 @@
         android:id="@+id/searchActivitySv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gray_solid_r6"
+        android:background="@drawable/gray_solid_r8"
         app:iconifiedByDefault="false"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="@string/pleaseInput" />

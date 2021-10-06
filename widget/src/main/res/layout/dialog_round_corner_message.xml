@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/white_solid_r12"
+    android:background="@drawable/white_solid_r14"
     android:orientation="vertical">
 
     <LinearLayout
@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/white_purple_500_solid_blr12_selector"
+            android:background="@drawable/white_purple_500_solid_blr14_selector"
             android:textColor="@color/purple_500_white_color_selector"
             android:textSize="@dimen/sp_14"
             tools:text="取消" />
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/white_purple_500_solid_brr12_selector"
+            android:background="@drawable/white_purple_500_solid_brr14_selector"
             android:textColor="@color/purple_500_white_color_selector"
             android:textSize="@dimen/sp_14"
             tools:text="确定" />

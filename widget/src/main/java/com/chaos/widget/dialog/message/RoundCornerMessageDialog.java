@@ -165,7 +165,7 @@ public class RoundCornerMessageDialog extends BaseInstanceDialog {
      * 设置左按钮默认选中
      */
     private void setLeftButtonDefaultSelect() {
-        roundCornerMessageDialogBtnLeft.setBackground(ContextCompat.getDrawable(context, R.drawable.purple_500_white_solid_blr12_selector));
+        roundCornerMessageDialogBtnLeft.setBackground(ContextCompat.getDrawable(context, R.drawable.purple_500_white_solid_blr14_selector));
         setButtonDefaultSelect(roundCornerMessageDialogBtnLeft);
     }
 
@@ -173,7 +173,7 @@ public class RoundCornerMessageDialog extends BaseInstanceDialog {
      * 设置右按钮默认选中
      */
     private void setRightButtonDefaultSelect() {
-        roundCornerMessageDialogBtnRight.setBackground(ContextCompat.getDrawable(context, R.drawable.purple_500_white_solid_brr12_selector));
+        roundCornerMessageDialogBtnRight.setBackground(ContextCompat.getDrawable(context, R.drawable.purple_500_white_solid_brr14_selector));
         setButtonDefaultSelect(roundCornerMessageDialogBtnRight);
     }
 
