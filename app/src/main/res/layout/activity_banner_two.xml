@@ -12,12 +12,13 @@
     <com.chaos.kotlin.widget.banner.view.BannerView
         android:id="@+id/bannerTwoActivityBvInterval"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="@dimen/dp_180"
         android:layout_marginLeft="@dimen/dp_20"
         android:layout_marginRight="@dimen/dp_20"
         app:BannerViewCornerRadius="@dimen/dp_8"
-        app:BannerViewHeight="@dimen/dp_120"
-        app:BannerViewIntervalInMillis="3000">
+        app:BannerViewIntervalInMillis="4000"
+        app:BannerViewMargin="@dimen/dp_4"
+        app:BannerViewWidthRatio="0.85">
 
         <com.chaos.kotlin.widget.banner.indicator.CrossBarIndicator
             android:layout_width="wrap_content"
@@ -34,21 +35,19 @@
     <com.chaos.kotlin.widget.banner.view.BannerView
         android:id="@+id/bannerTwoActivityBvSmooth"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_120"
+        android:layout_height="@dimen/dp_180"
         android:layout_marginLeft="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_50"
         android:layout_marginRight="@dimen/dp_20"
-        app:BannerViewAlign="CENTER_HORIZONTAL"
         app:BannerViewHoldInMillis="1000"
         app:BannerViewIntervalInMillis="6000"
-        app:BannerViewMargin="@dimen/dp_8"
+        app:BannerViewMargin="@dimen/dp_4"
         app:BannerViewScrollMode="SMOOTH"
-        app:BannerViewWidthRatio="0.9">
+        app:BannerViewWidthRatio="0.85">
 
         <com.chaos.kotlin.widget.banner.indicator.CrossBarIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/dp_8"
             android:layout_marginBottom="@dimen/dp_8"

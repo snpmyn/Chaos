@@ -81,10 +81,13 @@
         <entry key="basic/src/main/res/drawable/purple_500_solid_semi_circle.xml" value="0.3453703703703704" />
         <entry key="basic/src/main/res/drawable/purple_500_white_drawable_selector.xml" value="0.24537037037037038" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_blr12_selector.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/purple_500_white_solid_blr14_selector.xml" value="0.31296296296296294" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_brr12_selector.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/purple_500_white_solid_brr14_selector.xml" value="0.31296296296296294" />
         <entry key="basic/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_blr12_selector.xml" value="0.2759259259259259" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_brr12_selector.xml" value="0.2759259259259259" />
+        <entry key="basic/src/main/res/drawable/white_solid_circle.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/white_solid_r12.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/white_solid_r6.xml" value="0.35444330949948927" />
         <entry key="basic/src/main/res/drawable/white_solid_r8.xml" value="0.3453703703703704" />

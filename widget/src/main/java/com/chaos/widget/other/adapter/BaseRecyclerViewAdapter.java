@@ -1,5 +1,6 @@
 package com.chaos.widget.other.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +24,8 @@ import java.util.List;
  * @desc RecyclerView 适配器基类
  */
 public abstract class BaseRecyclerViewAdapter<T, A extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<A> {
-    private List<T> list;
     protected LayoutInflater layoutInflater;
+    private List<T> list;
     private OnItemClickListener onItemClickListener;
     private AdapterHelper.OnItemChildViewClickListener<T> onItemChildViewClickListener;
 
@@ -47,28 +48,13 @@ public abstract class BaseRecyclerViewAdapter<T, A extends RecyclerView.ViewHold
         return position;
     }
 
-    public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public BaseViewHolder(@NonNull View itemView) {
-            super(itemView);
-            if (null != onItemClickListener) {
-                itemView.setOnClickListener(this);
-            }
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (null != onItemClickListener) {
-                onItemClickListener.onItemClick(itemView, getLayoutPosition());
-            }
-        }
-    }
-
     /**
      * 显示
      *
      * @param recyclerView 控件
      * @param list         数据
      */
+    @SuppressLint("NotifyDataSetChanged")
     public void show(RecyclerView recyclerView, List<T> list) {
         this.list = list;
         if (this.hasObservers()) {
@@ -109,5 +95,21 @@ public abstract class BaseRecyclerViewAdapter<T, A extends RecyclerView.ViewHold
      */
     protected void setOnItemChildViewClickListener(int position, T item, View childView) {
         AdapterHelper.setOnItemChildViewClickListener(position, item, childView, onItemChildViewClickListener);
+    }
+
+    public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public BaseViewHolder(@NonNull View itemView) {
+            super(itemView);
+            if (null != onItemClickListener) {
+                itemView.setOnClickListener(this);
+            }
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (null != onItemClickListener) {
+                onItemClickListener.onItemClick(itemView, getLayoutPosition());
+            }
+        }
     }
 }
