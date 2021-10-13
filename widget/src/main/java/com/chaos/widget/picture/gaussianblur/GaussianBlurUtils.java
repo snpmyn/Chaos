@@ -7,6 +7,8 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created on 2021/5/28
  *
@@ -17,7 +19,7 @@ public class GaussianBlurUtils {
     /**
      * 缩放比例
      */
-    private static final float SCALE = 1.0f;
+    private static final float SCALE = 1.0F;
 
     /**
      * 高斯模糊
@@ -27,7 +29,7 @@ public class GaussianBlurUtils {
      * @param radius  模糊度
      * @return 高斯模糊后位图
      */
-    public static Bitmap gaussianBlur(Context context, Bitmap bitmap, float radius) {
+    public static Bitmap gaussianBlur(Context context, @NonNull Bitmap bitmap, float radius) {
         // 原位图宽高缩放
         int width = Math.round(bitmap.getWidth() * SCALE);
         int height = Math.round(bitmap.getHeight() * SCALE);
@@ -43,7 +45,7 @@ public class GaussianBlurUtils {
         // 创建 Allocation 对象时内存为空，需 copyTo() 填充数据。
         Allocation tmpIn = Allocation.createFromBitmap(renderScript, inputBitmap);
         Allocation tmpOut = Allocation.createFromBitmap(renderScript, outputBitmap);
-        // 渲染模糊度（25.0f 最大）
+        // 渲染模糊度（25.0F 最大）
         scriptIntrinsicBlur.setRadius(radius);
         // 输入内存
         scriptIntrinsicBlur.setInput(tmpIn);

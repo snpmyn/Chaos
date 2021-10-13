@@ -40,7 +40,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters 'armeabi-v7a', 'x86'//,'armeabi','arm64-v8a','x86_64','mips','mips64'
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'//,'x86_64','mips','mips64'
         }
         resConfigs "en", "zh"
         manifestPlaceholders = [
@@ -78,15 +78,15 @@ dependencies {
     /*ButterKnife*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
-    debugImplementation 'io.github.didi.dokit:dokitx:3.4.3.1'
+    debugImplementation 'io.github.didi.dokit:dokitx:3.5.0'
     // 核心模块
-    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.4.3.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.5.0'
     // 文件同步模块
-    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.4.3.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.5.0'
     // 一机多控模块
-    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.4.3.1'
+    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.5.0'
     // weex 模块
-    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.4.3.1'
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.5.0'
     // no-op 模块
     // 仅 release 环境需引 no-op
     // 否则插件注入相关代码致找不到对应 class

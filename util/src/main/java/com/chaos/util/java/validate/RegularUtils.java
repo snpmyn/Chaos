@@ -80,8 +80,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isMobileExact(CharSequence input) {
-        return isMatch(REGEX_MOBILE_EXACT, input);
+    public static boolean areMobileExact(CharSequence input) {
+        return areMatch(REGEX_MOBILE_EXACT, input);
     }
 
     /**
@@ -91,7 +91,7 @@ public class RegularUtils {
      * @return true 匹 / false 不匹
      */
     public static boolean allMobile(CharSequence input) {
-        return isMatch(REGEX_ALL_MOBILE, input);
+        return areMatch(REGEX_ALL_MOBILE, input);
     }
 
     /**
@@ -101,7 +101,7 @@ public class RegularUtils {
      * @return true 匹 / false 不匹
      */
     public static boolean allMobileWithSms(CharSequence input) {
-        return isMatch(REGEX_ALL_MOBILE_WITH_SMS, input);
+        return areMatch(REGEX_ALL_MOBILE_WITH_SMS, input);
     }
 
     /**
@@ -110,8 +110,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isTel(CharSequence input) {
-        return isMatch(REGEX_TEL, input);
+    public static boolean areTel(CharSequence input) {
+        return areMatch(REGEX_TEL, input);
     }
 
     /**
@@ -120,8 +120,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isIdCard15(CharSequence input) {
-        return isMatch(REGEX_ID_CARD15, input);
+    public static boolean areIdCard15(CharSequence input) {
+        return areMatch(REGEX_ID_CARD15, input);
     }
 
     /**
@@ -130,8 +130,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isIdCard18(CharSequence input) {
-        return isMatch(REGEX_ID_CARD18, input);
+    public static boolean areIdCard18(CharSequence input) {
+        return areMatch(REGEX_ID_CARD18, input);
     }
 
     /**
@@ -140,8 +140,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isEmail(CharSequence input) {
-        return isMatch(REGEX_EMAIL, input);
+    public static boolean areEmail(CharSequence input) {
+        return areMatch(REGEX_EMAIL, input);
     }
 
     /**
@@ -150,8 +150,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isUrl(CharSequence input) {
-        return isMatch(REGEX_URL, input);
+    public static boolean areUrl(CharSequence input) {
+        return areMatch(REGEX_URL, input);
     }
 
     /**
@@ -160,8 +160,8 @@ public class RegularUtils {
      * @param input 待验文本
      * @return true 匹 / false 不匹
      */
-    public static boolean isZh(CharSequence input) {
-        return isMatch(REGEX_ZH, input);
+    public static boolean areZh(CharSequence input) {
+        return areMatch(REGEX_ZH, input);
     }
 
     /**
@@ -171,7 +171,7 @@ public class RegularUtils {
      * @param input 所匹字符串
      * @return true 匹 / false 不匹
      */
-    private static boolean isMatch(String regex, CharSequence input) {
+    private static boolean areMatch(String regex, CharSequence input) {
         return (null != input) && (input.length() > 0) && Pattern.matches(regex, input);
     }
 

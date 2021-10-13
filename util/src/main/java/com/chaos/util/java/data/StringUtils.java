@@ -30,8 +30,8 @@ public class StringUtils {
      * @param content 内容
      * @return 空否
      */
-    public static boolean isEmpty(String content) {
-        return (null == content) || content.isEmpty();
+    public static boolean areEmpty(String content) {
+        return ((null == content) || content.isEmpty());
     }
 
     /**
@@ -40,8 +40,8 @@ public class StringUtils {
      * @param content 内容
      * @return 空或 null 否
      */
-    public static boolean isEmptyOrNull(String content) {
-        return isEmpty(content) || TextUtils.equals("null", content.toLowerCase());
+    public static boolean areEmptyOrNull(String content) {
+        return (areEmpty(content) || TextUtils.equals("null", content.toLowerCase()));
     }
 
     /**
@@ -52,7 +52,7 @@ public class StringUtils {
      */
     @NonNull
     public static String subZeroAndDot(String content) {
-        if (isEmpty(content)) {
+        if (areEmpty(content)) {
             return "";
         }
         if (content.indexOf(UtilMagic.STRING_DOT) > 0) {
@@ -171,7 +171,7 @@ public class StringUtils {
      * @return 字符串
      */
     public static String doubleToString(Double d, int num, String defValue) {
-        return (null == d) ? defValue : doubleToString(d, num);
+        return ((null == d) ? defValue : doubleToString(d, num));
     }
 
     /**
@@ -239,7 +239,7 @@ public class StringUtils {
      * @return 布尔型
      */
     public static boolean stringToBoolean(String s) {
-        if (isEmpty(s)) {
+        if (areEmpty(s)) {
             return false;
         } else {
             try {
@@ -258,7 +258,7 @@ public class StringUtils {
      * @return 字符串
      */
     public static @NotNull String readFromFile(Context context, String fileName) {
-        if ((null != context) && !isEmpty(fileName)) {
+        if ((null != context) && !areEmpty(fileName)) {
             AssetManager assetManager = context.getAssets();
             InputStream inputStream;
             try {
@@ -292,7 +292,7 @@ public class StringUtils {
         s = s.toUpperCase();
         int len = s.length();
         for (int i = 0; i < len; ++i) {
-            answer = Character.getNumericValue(s.charAt(i)) - Character.getNumericValue(c) + 26 * answer + 1;
+            answer = (Character.getNumericValue(s.charAt(i)) - Character.getNumericValue(c) + 26 * answer + 1);
             if (answer > (2147483646 - Character.getNumericValue(s.charAt(i)) + Character.getNumericValue(c)) / 26) {
                 return 0;
             }
@@ -313,12 +313,12 @@ public class StringUtils {
             return "";
         } else {
             while (k != 0) {
-                int c = k % 26;
+                int c = (k % 26);
                 if (c == 0) {
                     c = 26;
                 }
                 stringBuffer.insert(0, DIGITS[c - 1]);
-                k = (k - c) / 26;
+                k = ((k - c) / 26);
             }
             return stringBuffer.toString();
         }

@@ -53,29 +53,6 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
     private StringBuffer stringBuffer = new StringBuffer();
     private OnKeyboardListener onKeyboardListener;
 
-    public interface OnKeyboardListener {
-        /**
-         * 位数变化
-         *
-         * @param number 位数
-         */
-        void onNumberChange(String number);
-
-        /**
-         * 键盘取消
-         *
-         * @param formatNumber 格式化金额
-         */
-        void onKeyboardCancel(String formatNumber);
-
-        /**
-         * 键盘完成
-         *
-         * @param formatNumber 格式化金额
-         */
-        void onKeyboardComplete(String formatNumber);
-    }
-
     public MoneyInputKeyboardView(Context context) {
         this.context = context;
         stepUi();
@@ -203,7 +180,7 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
     }
 
     public void setCurrency(String currency) {
-        if (StringUtils.isEmptyOrNull(currency)) {
+        if (StringUtils.areEmptyOrNull(currency)) {
             return;
         }
         this.currency = currency;
@@ -253,7 +230,7 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
     public String getFormatNumber() {
         String str = stringBuffer.toString();
         if (filterZero) {
-            if (StringUtils.isEmpty(str)) {
+            if (StringUtils.areEmpty(str)) {
                 return "";
             }
             return new BigDecimal(str).stripTrailingZeros().toPlainString();
@@ -283,6 +260,17 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
     }
 
     /**
+     * 设置输入金额
+     *
+     * @param money 金额
+     */
+    public void setInputMoney(String money) {
+        clearBuffer();
+        stringBuffer.append(money);
+        onKeyboardListener.onNumberChange(getFormatNumber());
+    }
+
+    /**
      * 获取 12 位输入金额
      * <p>
      * 转为单位分
@@ -303,17 +291,6 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
 
     public String getInputAccount() {
         return stringBuffer.toString();
-    }
-
-    /**
-     * 设置输入金额
-     *
-     * @param money 金额
-     */
-    public void setInputMoney(String money) {
-        clearBuffer();
-        stringBuffer.append(money);
-        onKeyboardListener.onNumberChange(getFormatNumber());
     }
 
     public void setInputAccount(String account) {
@@ -388,7 +365,7 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
      * @return 格式化后金额
      */
     private String formatMoney(String money, int maxIntegers, int maxDecimalDigits, boolean filterZero) {
-        if (StringUtils.isEmpty(money)) {
+        if (StringUtils.areEmpty(money)) {
             return "";
         }
         try {
@@ -423,6 +400,29 @@ public class MoneyInputKeyboardView implements View.OnClickListener {
         }
         money = new BigDecimal(money).divide(new BigDecimal(100)).toPlainString();
         return formatMoney(money, maxIntegers, maxDecimalDigits, filterZero);
+    }
+
+    public interface OnKeyboardListener {
+        /**
+         * 位数变化
+         *
+         * @param number 位数
+         */
+        void onNumberChange(String number);
+
+        /**
+         * 键盘取消
+         *
+         * @param formatNumber 格式化金额
+         */
+        void onKeyboardCancel(String formatNumber);
+
+        /**
+         * 键盘完成
+         *
+         * @param formatNumber 格式化金额
+         */
+        void onKeyboardComplete(String formatNumber);
     }
 }
 

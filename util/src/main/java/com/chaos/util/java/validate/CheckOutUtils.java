@@ -41,7 +41,7 @@ public class CheckOutUtils {
      * @param userName 用户名
      * @return 2-25 汉字
      */
-    public static boolean isUserNameYws(String userName) {
+    public static boolean areUserNameYws(String userName) {
         Matcher mc = P1.matcher(userName);
         return mc.matches();
     }
@@ -52,7 +52,7 @@ public class CheckOutUtils {
      * @param mail 邮箱
      * @return 邮箱否
      */
-    public static boolean isValidEmail(String mail) {
+    public static boolean areValidEmail(String mail) {
         Matcher mc = P2.matcher(mail);
         return mc.matches();
     }
@@ -60,7 +60,7 @@ public class CheckOutUtils {
     /**
      * 输数字否
      */
-    public static boolean isNumeric(String str) {
+    public static boolean areNumeric(String str) {
         return P3.matcher(str).matches();
     }
 
@@ -70,7 +70,7 @@ public class CheckOutUtils {
      * @param str 座或手机
      * @return 联系方式
      */
-    public static boolean isMobileOrPhone(String str) {
+    public static boolean areMobileOrPhone(String str) {
         String regex = "^((([0\\+]\\d{2,3}-)|(0\\d{2,3})-))(\\d{7,8})(-(\\d{3,}))?$|^1[0-9]{10}$";
         return match(regex, str);
     }
@@ -81,7 +81,7 @@ public class CheckOutUtils {
      * @param price 金额
      * @return 金额有效性
      */
-    public static boolean isPrice(String price) {
+    public static boolean arePrice(String price) {
         String regex = "^([1-9][0-9]{0,7})(\\.\\d{1,2})?$";
         return match(regex, price);
     }
@@ -89,7 +89,7 @@ public class CheckOutUtils {
     /**
      * 含中否
      */
-    public static boolean isContainChinese(String str) {
+    public static boolean areContainChinese(String str) {
         Matcher m = P5.matcher(str);
         return m.find();
     }
@@ -97,7 +97,7 @@ public class CheckOutUtils {
     /**
      * 纯英否
      */
-    public static boolean isLetter(String str) {
+    public static boolean areLetter(String str) {
         Matcher m = P6.matcher(str);
         return m.matches();
     }
@@ -105,7 +105,7 @@ public class CheckOutUtils {
     /**
      * 纯中否
      */
-    public static boolean isChinese(String str) {
+    public static boolean areChinese(String str) {
         Matcher m = P7.matcher(str);
         return m.matches();
     }
@@ -113,7 +113,7 @@ public class CheckOutUtils {
     /**
      * 密码类型否
      */
-    public static boolean isPassword(String str) {
+    public static boolean arePassword(String str) {
         Matcher m = P8.matcher(str);
         return m.matches();
     }
@@ -121,7 +121,7 @@ public class CheckOutUtils {
     /**
      * 警员号否
      */
-    public static boolean isPoliceNumberAndLength(String str) {
+    public static boolean arePoliceNumberAndLength(String str) {
         Matcher m = P9.matcher(str);
         return m.matches();
     }
@@ -129,7 +129,7 @@ public class CheckOutUtils {
     /**
      * 邮件 email 格式正确否
      */
-    public static boolean isEmail(String email) {
+    public static boolean areEmail(String email) {
         if ((null == email) || "".equals(email)) {
             return false;
         }
@@ -143,7 +143,7 @@ public class CheckOutUtils {
      * @param str 字符
      * @return 6 到 20 位
      */
-    public static boolean isLength(String str) {
+    public static boolean areLength(String str) {
         return P10.matcher(str).matches();
     }
 
@@ -153,7 +153,7 @@ public class CheckOutUtils {
      * @param str 住址
      * @return 1 到 250 位
      */
-    public static boolean isAddressLength(String str) {
+    public static boolean areAddressLength(String str) {
         return P11.matcher(str).matches();
     }
 
@@ -163,7 +163,7 @@ public class CheckOutUtils {
      * @param str 用户名
      * @return 4 到 16 位
      */
-    public static boolean isUserNameSsl(String str) {
+    public static boolean areUserNameSsl(String str) {
         return P12.matcher(str).matches();
     }
 
@@ -173,7 +173,7 @@ public class CheckOutUtils {
      * @param str 用户真名
      * @return 用户真名长
      */
-    public static boolean isNameLength(String str) {
+    public static boolean areNameLength(String str) {
         return P13.matcher(str).matches();
     }
 
@@ -183,7 +183,7 @@ public class CheckOutUtils {
      * @param str 输字符
      * @return 输字符首字母英否
      */
-    public static boolean isEnglish(String str) {
+    public static boolean areEnglish(String str) {
         return P14.matcher(str).matches();
     }
 
@@ -193,7 +193,7 @@ public class CheckOutUtils {
      * @param str 银行卡号
      * @return 13 到 19 位
      */
-    public static boolean isBank(String str) {
+    public static boolean areBank(String str) {
         return P15.matcher(str).matches();
     }
 
@@ -227,7 +227,7 @@ public class CheckOutUtils {
     /**
      * 密码长（6-20 位除空格回车 tab 外字符）
      */
-    public static boolean isPassLenLes(String str) {
+    public static boolean arePassLenLes(String str) {
         String regex = "^\\INT_S{6,20}$";
         return match(regex, str);
     }
@@ -235,7 +235,7 @@ public class CheckOutUtils {
     /**
      * 密码长（6 到 16 位数字字母组合）
      */
-    public static boolean isPassLenLsl(String str) {
+    public static boolean arePassLenLsl(String str) {
         String regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
         return match(regex, str);
     }
@@ -256,7 +256,7 @@ public class CheckOutUtils {
      *
      * @return 字符串日期格式否
      */
-    public static boolean isDate(String strDate) {
+    public static boolean areDate(String strDate) {
         Matcher m = P16.matcher(strDate);
         return m.matches();
     }
@@ -271,7 +271,7 @@ public class CheckOutUtils {
      * @param identityCode 身份证号
      * @return 合规否
      */
-    public static boolean isIdentityCard(String identityCode) {
+    public static boolean areIdentityCard(String identityCode) {
         if (null != identityCode) {
             String identityCardRegex = "(^\\d{18}$)|(^\\d{17}(\\d|X|x|Y|y)$)";
             return identityCode.matches(identityCardRegex);

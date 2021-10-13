@@ -160,21 +160,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
-        <!-- Jpush(极光推送消息接收器) -->
-        <!-- Required since 3.0.7 -->
-        <!-- 新 tag/alias 接口返结果需开发者配一自定广播 -->
-        <!-- 3.3.0 始该类回调全事件 -->
-        <!-- 该广播继承 JPush 所提 JPushMessageReceiver 并如下增一 IntentFilter -->
-        <receiver
-            android:name="com.chaos.jpush.receiver.MyJpushMessageReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-
-                <category android:name="com.example.chaos" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

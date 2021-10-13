@@ -167,14 +167,14 @@ public class SplashActivityKit {
      * 请求权限
      * <p>
      * 极光统计用到，建议授予。
-     * ["android.permission.READ_PHONE_STATE"]
-     * ["android.permission.WRITE_EXTERNAL_STORAGE"]
-     * ["android.permission.READ_EXTERNAL_STORAGE"]
-     * ["android.permission.ACCESS_FINE_LOCATION"]
+     * "android.permission.READ_PHONE_STATE"
+     * "android.permission.WRITE_EXTERNAL_STORAGE"
+     * "android.permission.READ_EXTERNAL_STORAGE"
+     * "android.permission.ACCESS_FINE_LOCATION"
      * 详参 {@link com.chaos.jpush.kit.JpushKit#requestPermission(Context)}。
      * <p>
      * Bmob 允许读取手机状态（用于创建 BmobInstallation）
-     * ["android.permission.READ_PHONE_STATE"]
+     * "android.permission.READ_PHONE_STATE"
      *
      * @param fragmentActivity FragmentActivity
      */

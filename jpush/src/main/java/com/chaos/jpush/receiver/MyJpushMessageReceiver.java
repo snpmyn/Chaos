@@ -3,8 +3,6 @@ package com.chaos.jpush.receiver;
 import android.app.Notification;
 import android.content.Context;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.chaos.jpush.kit.JpushMessageReceiverKit;
 
 import cn.jpush.android.api.CmdMessage;
@@ -47,8 +45,7 @@ public class MyJpushMessageReceiver extends JPushMessageReceiver {
     public void onMessage(Context context, CustomMessage customMessage) {
         super.onMessage(context, customMessage);
         Timber.d("[onMessage] 收自定消息回调");
-        AppCompatActivity appCompatActivity = (AppCompatActivity) context;
-        jpushMessageReceiverKit.onMessageExecute(appCompatActivity, customMessage);
+        jpushMessageReceiverKit.onMessageExecute(customMessage);
     }
 
     @Override

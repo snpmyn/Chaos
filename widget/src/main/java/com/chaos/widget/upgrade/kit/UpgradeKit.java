@@ -69,7 +69,7 @@ public class UpgradeKit {
         // 场景一：无不再提示
         // 场景二：有不再提示且不再提示版不等当前服务器最新版
         // 场景三：重启
-        if (StringUtils.isEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode) || restart) {
+        if (StringUtils.areEmpty(noRemindAnyMoreVersionCode) || (Integer.parseInt(noRemindAnyMoreVersionCode) != newVersionCode) || restart) {
             judge(applicationId, path, upgradeBean, upgradeListener, noUpgradeHint);
         }
     }

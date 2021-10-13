@@ -1,5 +1,6 @@
 package application;
 
+import android.Manifest;
 import android.app.Application;
 
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
@@ -74,7 +75,12 @@ public class App extends PoolApp {
      */
     @Override
     protected List<String> permissionList() {
-        return super.permissionList();
+        List<String> list = super.permissionList();
+        // TODO: 2021/10/12 华为机型除 Manifest.permission.READ_EXTERNAL_STORAGE 外，亦需 Manifest.permission.WRITE_EXTERNAL_STORAGE。待优化。
+        list.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        list.add(Manifest.permission.READ_PHONE_STATE);
+        list.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        return list;
     }
 
     /**

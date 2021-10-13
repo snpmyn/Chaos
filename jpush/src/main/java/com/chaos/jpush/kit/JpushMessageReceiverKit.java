@@ -2,16 +2,15 @@ package com.chaos.jpush.kit;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Looper;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 
 import com.chaos.jpush.JpushDisplayActivity;
 import com.chaos.jpush.value.JpushConstant;
-import com.chaos.kotlin.widget.pudding.Pudding;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.intent.IntentJump;
+import com.chaos.util.java.toast.ToastKit;
 
 import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.NotificationMessage;
@@ -26,17 +25,11 @@ public class JpushMessageReceiverKit {
     /**
      * OnMessage 执行
      *
-     * @param appCompatActivity 活动
-     * @param customMessage     自定消息
+     * @param customMessage 自定消息
      */
-    public void onMessageExecute(AppCompatActivity appCompatActivity, CustomMessage customMessage) {
+    public void onMessageExecute(@NonNull CustomMessage customMessage) {
         Looper.prepare();
-        Pudding.create(appCompatActivity, choco -> {
-            choco.setTitle(customMessage.title);
-            choco.setTitleTypeface(Typeface.DEFAULT_BOLD);
-            choco.setText(customMessage.message);
-            return null;
-        }).show();
+        ToastKit.showShort(customMessage.message);
         Looper.loop();
     }
 
