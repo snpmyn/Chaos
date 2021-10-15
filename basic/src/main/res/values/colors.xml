@@ -14,6 +14,7 @@
     <color name="fontInput">#202323</color>
     <color name="gray">#CBCBCB</color>
 
-    <color name="color_F9FAFB">#F9FAFB</color>
     <color name="color_60000000">#60000000</color>
+    <color name="navigationBarBackground">#F9FAFB</color>
+    <color name="bottomNavigationViewMenuDrawableSelf">#E0E2E7</color>
 </resources>

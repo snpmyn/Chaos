@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="widget.module.ModuleOneActivity">
+
+    <FrameLayout
+        android:id="@+id/moduleOneActivityFl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        app:layout_constraintBottom_toTopOf="@+id/moduleOneActivityBnv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/moduleOneActivityBnv" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/moduleOneActivityBnv"
+        style="@style/BottomNavigationViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_52"
+        android:background="@color/navigationBarBackground"
+        app:itemTextColor="@color/font_hint_font_input_color_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_view_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

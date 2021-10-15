@@ -28,23 +28,22 @@ import timber.log.Timber;
  * @desc 轮播二页配套元件
  */
 public class BannerTwoActivityKit {
-    public List<String> stringList;
+    public List<Integer> integerList;
 
     /**
      * constructor
      */
     public BannerTwoActivityKit() {
-        this.stringList = new ArrayList<>(4);
+        this.integerList = new ArrayList<>(3);
     }
 
     /**
      * 初始轮播数据
      */
     public void stepBannerData() {
-        stringList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565003123891&di=6b99987620571a5600e681f1ed9a7e56&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FqpYuMBtI9tONDBEBXrp6Cg%3D%3D%2F6631251384142500810.jpg");
-        stringList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565003123891&di=6b99987620571a5600e681f1ed9a7e56&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FqpYuMBtI9tONDBEBXrp6Cg%3D%3D%2F6631251384142500810.jpg");
-        stringList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565003123891&di=6b99987620571a5600e681f1ed9a7e56&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FqpYuMBtI9tONDBEBXrp6Cg%3D%3D%2F6631251384142500810.jpg");
-        stringList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565003123891&di=6b99987620571a5600e681f1ed9a7e56&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FqpYuMBtI9tONDBEBXrp6Cg%3D%3D%2F6631251384142500810.jpg");
+        integerList.add(R.mipmap.icon);
+        integerList.add(R.mipmap.icon);
+        integerList.add(R.mipmap.icon);
     }
 
     /**
@@ -73,7 +72,7 @@ public class BannerTwoActivityKit {
 
             @Override
             public int getCount() {
-                return stringList.size();
+                return integerList.size();
             }
 
             @NotNull
@@ -87,7 +86,7 @@ public class BannerTwoActivityKit {
                 if (itemView instanceof ImageView) {
                     ImageView imageView = (ImageView) itemView;
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    GlideUtils.loadByObject(itemView.getContext(), stringList.get(position), imageView);
+                    GlideUtils.loadByObject(itemView.getContext(), integerList.get(position), imageView);
                     imageView.setOnClickListener(view -> Timber.d("onBindView onClick %s", position));
                 }
             }
@@ -120,7 +119,7 @@ public class BannerTwoActivityKit {
 
             @Override
             public int getCount() {
-                return stringList.size();
+                return integerList.size();
             }
 
             @NotNull
@@ -135,7 +134,7 @@ public class BannerTwoActivityKit {
                     ImageView imageView = (ImageView) itemView;
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     GlideUtils.loadByObjectTransformation(
-                            itemView.getContext(), stringList.get(position),
+                            itemView.getContext(), integerList.get(position),
                             new CenterCropRoundCornerTransform(DensityUtils.dipToPxByFloat(imageView.getContext(), 8.0F)), imageView);
                     imageView.setOnClickListener(view -> Timber.d("onBindView onClick %s", position));
                 }

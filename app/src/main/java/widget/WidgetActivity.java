@@ -15,6 +15,8 @@ import widget.choose.ChooseActivity;
 import widget.dialog.BocDialogActivity;
 import widget.grid.GridActivity;
 import widget.lottie.LottieHomeActivity;
+import widget.module.ModuleOneActivity;
+import widget.module.ModuleTwoActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureHomeActivity;
 import widget.property.PropertyActivity;
@@ -81,7 +83,9 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnPudding,
             R.id.widgetActivityBtnGrid,
             R.id.widgetActivityBtnProperty,
-            R.id.widgetActivityBtnBanner})
+            R.id.widgetActivityBtnBanner,
+            R.id.widgetActivityBtnModuleOne,
+            R.id.widgetActivityBtnModuleTwo})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -127,6 +131,14 @@ public class WidgetActivity extends BaseActivity {
             // 轮播主页
             case R.id.widgetActivityBtnBanner:
                 IntentJump.getInstance().jump(null, this, false, BannerHomeActivity.class);
+                break;
+            //  模块一页
+            case R.id.widgetActivityBtnModuleOne:
+                IntentJump.getInstance().jump(null, this, false, ModuleOneActivity.class);
+                break;
+            //  模块二页
+            case R.id.widgetActivityBtnModuleTwo:
+                IntentJump.getInstance().jump(null, this, false, ModuleTwoActivity.class);
                 break;
             default:
                 break;

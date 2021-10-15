@@ -11,5 +11,6 @@
         android:id="@+id/bannerOneActivityBanner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_200"
+        android:layout_margin="@dimen/dp_12"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

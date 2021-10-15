@@ -5,106 +5,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pageBackground"
-    android:clipToPadding="false"
-    android:padding="@dimen/dp_12"
     tools:context="widget.WidgetActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnBocDialog"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/bocDialog"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnMoney"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/money"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnBocDialog" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnChoose"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/choose"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnMoney" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnBocDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/bocDialog"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnSearch"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnChoose" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/money" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnPicture"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/picture"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnSearch" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnChoose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/choose" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnScan"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/scan"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnPicture" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/search" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnLottie"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/lottie"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnScan" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/picture" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnPudding"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/pudding"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnLottie" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/scan" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnGrid"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/grid"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnPudding" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnLottie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/lottie" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnProperty"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/property"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnGrid" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnPudding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/pudding" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/widgetActivityBtnBanner"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:text="@string/banner"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/widgetActivityBtnProperty" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/grid" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnProperty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/property" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/banner" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnModuleOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/moduleOne" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnModuleTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_12"
+                android:text="@string/moduleTwo" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

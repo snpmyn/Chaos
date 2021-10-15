@@ -80,13 +80,13 @@ public class BannerTwoActivity extends BaseActivity {
         switch (view.getId()) {
             // 清空
             case R.id.bannerTwoActivityMbClear:
-                bannerTwoActivityKit.stringList.clear();
+                bannerTwoActivityKit.integerList.clear();
                 bannerTwoActivityBvInterval.doRecreate();
                 bannerTwoActivityBvSmooth.doRecreate();
                 break;
             // 添加
             case R.id.bannerTwoActivityMbAdd:
-                bannerTwoActivityKit.stringList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565003123891&di=6b99987620571a5600e681f1ed9a7e56&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FqpYuMBtI9tONDBEBXrp6Cg%3D%3D%2F6631251384142500810.jpg");
+                bannerTwoActivityKit.integerList.add(R.drawable.pulse_view);
                 bannerTwoActivityBvInterval.doRecreate();
                 bannerTwoActivityBvSmooth.doRecreate();
                 break;

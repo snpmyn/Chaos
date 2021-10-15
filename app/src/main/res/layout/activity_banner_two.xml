@@ -12,9 +12,8 @@
     <com.chaos.kotlin.widget.banner.view.BannerView
         android:id="@+id/bannerTwoActivityBvInterval"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_180"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
+        android:layout_height="@dimen/dp_200"
+        android:layout_margin="@dimen/dp_12"
         app:BannerViewCornerRadius="@dimen/dp_8"
         app:BannerViewIntervalInMillis="4000"
         app:BannerViewMargin="@dimen/dp_4"
@@ -25,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_8"
             app:CrossBarIndicatorBackgroundColor="@color/purple_200"
             app:CrossBarIndicatorForegroundColor="@color/purple_500"
             app:CrossBarIndicatorHeight="@dimen/dp_2"
@@ -48,6 +48,7 @@
         <com.chaos.kotlin.widget.banner.indicator.CrossBarIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/dp_8"
             android:layout_marginBottom="@dimen/dp_8"

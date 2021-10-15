@@ -15,6 +15,8 @@ import com.example.chaos.MainActivity;
 
 import java.util.List;
 
+import configure.FragmentationInitConfig;
+
 /**
  * Created on 2021/4/1
  *
@@ -87,6 +89,8 @@ public class App extends PoolApp {
      * 初始化配置
      */
     private void initConfiguration() {
+        // Fragmentation
+        FragmentationInitConfig.initFragmentation(debug());
         // 极光推送
         JpushInitConfigure.initJpush(this, debug());
         // 极光统计
