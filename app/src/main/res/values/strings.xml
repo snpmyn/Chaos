@@ -24,6 +24,7 @@
     <string name="banner">轮播</string>
     <string name="bannerOne">轮播一</string>
     <string name="bannerTwo">轮播二</string>
+    <string name="bannerThree">轮播三</string>
     <string name="moduleOne">模块一</string>
     <string name="moduleTwo">模块二</string>
 </resources>

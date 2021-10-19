@@ -87,10 +87,10 @@ public class ModuleOneActivity extends BaseActivity implements BaseFragment.OnBa
     protected void setListener() {
         mainActivityBnv.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.moduleOneActivityMenuHomePage:
+                case R.id.bottomNavigationViewMenuHomePage:
                     showHideFragmentExecute(0, prePosition);
                     break;
-                case R.id.moduleOneActivityMenuMine:
+                case R.id.bottomNavigationViewMenuMine:
                     showHideFragmentExecute(1, prePosition);
                     break;
                 default:
@@ -140,7 +140,7 @@ public class ModuleOneActivity extends BaseActivity implements BaseFragment.OnBa
      */
     @Override
     public void onBackToFirstFragment() {
-        mainActivityBnv.getMenu().findItem(R.id.moduleOneActivityMenuHomePage).setChecked(true);
+        mainActivityBnv.getMenu().findItem(R.id.bottomNavigationViewMenuHomePage).setChecked(true);
         showHideFragmentExecute(0, prePosition);
         prePosition = 0;
     }

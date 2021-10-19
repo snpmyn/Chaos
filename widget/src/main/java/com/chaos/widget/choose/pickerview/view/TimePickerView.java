@@ -31,7 +31,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
     private static final String TAG_SUBMIT = "submit";
     private static final String TAG_CANCEL = "bill_cancel";
     /**
-     * 自定义控件
+     * 自定控件
      */
     private WheelTime wheelTime;
 

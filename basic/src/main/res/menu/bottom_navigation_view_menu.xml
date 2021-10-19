@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/moduleOneActivityMenuHomePage"
+        android:id="@+id/bottomNavigationViewMenuHomePage"
         android:enabled="true"
         android:icon="@drawable/bottom_navigation_view_menu_home_page"
         android:title="@string/homepage" />
     <item
-        android:id="@+id/moduleOneActivityMenuMine"
+        android:id="@+id/bottomNavigationViewMenuMine"
         android:enabled="true"
         android:icon="@drawable/bottom_navigation_view_menu_mine"
         android:title="@string/mine" />

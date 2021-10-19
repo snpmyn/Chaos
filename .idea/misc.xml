@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/layout/activity_banner.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/activity_banner_home.xml" value="0.2509057971014493" />
         <entry key="app/src/main/res/layout/activity_banner_one.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/activity_banner_three.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/activity_banner_two.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
         <entry key="app/src/main/res/layout/activity_grid.xml" value="0.2418478260869565" />
@@ -114,6 +115,7 @@
         <entry key="bugly/src/main/res/layout/upgrade_dialog.xml" value="0.23369565217391305" />
         <entry key="jpush/src/main/res/layout/activity_jpush_display.xml" value="0.2694746376811594" />
         <entry key="kotlin/src/main/res/layout/banner_item_wrapper.xml" value="0.24320652173913043" />
+        <entry key="kotlin/src/main/res/layout/banner_view_item.xml" value="0.2427536231884058" />
         <entry key="kotlin/src/main/res/layout/banner_view_wrapper_item.xml" value="0.2726449275362319" />
         <entry key="kotlin/src/main/res/layout/choco.xml" value="0.2427536231884058" />
         <entry key="matisse/src/main/res/drawable/ic_flash_off_24dp_blue.xml" value="0.26944444444444443" />
@@ -154,7 +156,9 @@
         <entry key="widget/src/main/res/drawable/purple_500_white_solid_blr12_selector.xml" value="0.26944444444444443" />
         <entry key="widget/src/main/res/drawable/purple_500_white_solid_brr12_selector.xml" value="0.26944444444444443" />
         <entry key="widget/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.26944444444444443" />
+        <entry key="widget/src/main/res/layout/banner_view_pager.xml" value="0.24954710144927536" />
         <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.2817028985507246" />
+        <entry key="widget/src/main/res/layout/boc_viewpager_banner.xml" value="0.2875905797101449" />
         <entry key="widget/src/main/res/layout/choco.xml" value="0.2346014492753623" />
         <entry key="widget/src/main/res/layout/dialog_base.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />

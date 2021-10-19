@@ -60,7 +60,9 @@ public class BannerHomeActivity extends BaseActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    @OnClick({R.id.bannerHomeActivityMbBannerOne, R.id.bannerHomeActivityMbBannerTwo})
+    @OnClick({R.id.bannerHomeActivityMbBannerOne,
+            R.id.bannerHomeActivityMbBannerTwo,
+            R.id.bannerHomeActivityMbBannerThree})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 轮播一页
@@ -70,6 +72,10 @@ public class BannerHomeActivity extends BaseActivity {
             // 轮播二页
             case R.id.bannerHomeActivityMbBannerTwo:
                 IntentJump.getInstance().jump(null, this, false, BannerTwoActivity.class);
+                break;
+            // 轮播三页
+            case R.id.bannerHomeActivityMbBannerThree:
+                IntentJump.getInstance().jump(null, this, false, BannerThreeActivity.class);
                 break;
             default:
                 break;

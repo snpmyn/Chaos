@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kotlinBannerViewPagerIsNotUsedAsTheUnderlyingImplementationHere">此处未用 ViewPager 作底层实现</string>
+    <string name="kotlinBannerContextCorrespondsToTheActivityInstance">上下文对应 Activity 实例</string>
+    <string name="kotlinBannerNeedAndOnlySetLinearLayoutManagerType">需且只能设线性布局管理器类型</string>
+</resources>

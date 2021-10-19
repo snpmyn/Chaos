@@ -361,7 +361,11 @@ class BannerView @JvmOverloads constructor(
     }
 
     override fun getItemViewWidth(): Int {
-        if ((mWidth <= 0) || (mItemViewWidthRatio <= 0)) throw IllegalStateException("数据状态异常")
+        if ((mWidth <= 0) || (mItemViewWidthRatio <= 0)) throw IllegalStateException(
+            context.getString(
+                R.string.dataStatusIsAbnormal
+            )
+        )
         return (mWidth * mItemViewWidthRatio).toInt()
     }
 
@@ -389,7 +393,7 @@ class BannerView @JvmOverloads constructor(
 
     private fun checkDataState() {
         if (null == mBannerViewImpl) {
-            throw IllegalStateException("数据状态异常")
+            throw IllegalStateException(context.getString(R.string.dataStatusIsAbnormal))
         }
     }
 

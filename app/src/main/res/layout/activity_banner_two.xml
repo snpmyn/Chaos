@@ -40,7 +40,7 @@
         android:layout_marginTop="@dimen/dp_50"
         android:layout_marginRight="@dimen/dp_20"
         app:BannerViewHoldInMillis="1000"
-        app:BannerViewIntervalInMillis="6000"
+        app:BannerViewIntervalInMillis="4000"
         app:BannerViewMargin="@dimen/dp_4"
         app:BannerViewScrollMode="SMOOTH"
         app:BannerViewWidthRatio="0.85">

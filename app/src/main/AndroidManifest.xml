@@ -17,6 +17,10 @@
         tools:replace="android:allowBackup"
         tools:targetApi="n">
         <activity
+            android:name="widget.banner.BannerThreeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name="widget.module.ModuleTwoActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
@@ -118,7 +122,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.chaos.pool.module.splash.SplashActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashActivityStyle"
             tools:ignore="LockedOrientationActivity">

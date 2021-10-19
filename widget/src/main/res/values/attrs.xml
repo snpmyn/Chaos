@@ -90,4 +90,8 @@
         <attr name="showHidePasswordEditTextTintColor" format="color" />
         <attr name="showHidePasswordEditTextAdditionalTouchTargetSize" format="dimension" />
     </declare-styleable>
+    <!--ConvenientBanner-->
+    <declare-styleable name="ConvenientBanner">
+        <attr name="convenientBannerCanLoop" format="boolean" />
+    </declare-styleable>
 </resources>

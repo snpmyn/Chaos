@@ -31,7 +31,10 @@ internal class PagerViewFactory(
         } else {
             if (intervalUseViewPager) {
                 // 此处可据需用 ViewPager 作底层实现
-                throw IllegalStateException("此处未用 ViewPager 作底层实现")
+                throw IllegalStateException(
+                    bannerView.getContext()
+                        .getString(R.string.kotlinBannerViewPagerIsNotUsedAsTheUnderlyingImplementationHere)
+                )
             } else {
                 casePagerRecycler(false)
             }
@@ -54,7 +57,7 @@ internal class PagerViewFactory(
                 if (!isActivityDestroyed(holder.itemView.context)) {
                     val realPos = position % bannerView.getCount()
                     bannerView.onBindView(
-                        holder.itemView.findViewById(R.id.BannerViewRealItem),
+                        holder.itemView.findViewById(R.id.KotlinBannerViewRealItem),
                         realPos
                     )
                 }
@@ -74,7 +77,7 @@ internal class PagerViewFactory(
                     bannerView.getItemViewWidth() + bannerView.getItemViewMargin()
                 // 外部实际 ItemView
                 val itemView = bannerView.getItemView(parent.context)
-                itemView.id = R.id.BannerViewRealItem
+                itemView.id = R.id.KotlinBannerViewRealItem
                 val ivParams = RelativeLayout.LayoutParams(
                     bannerView.getItemViewWidth(),
                     ViewGroup.LayoutParams.MATCH_PARENT
@@ -94,7 +97,7 @@ internal class PagerViewFactory(
     private fun isActivityDestroyed(context: Context?): Boolean {
         if (null == context) return true
         if (context !is Activity) {
-            throw IllegalStateException("上下文对应 Activity 实例")
+            throw IllegalStateException(context.getString(R.string.kotlinBannerContextCorrespondsToTheActivityInstance))
         }
         if (context.isFinishing || context.isDestroyed) {
             return true

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="BannerViewRealItem" type="id" />
+    <item name="KotlinBannerViewRealItem" type="id" />
 </resources>

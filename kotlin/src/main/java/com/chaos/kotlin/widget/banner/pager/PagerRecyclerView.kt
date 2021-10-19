@@ -10,6 +10,7 @@ import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.chaos.kotlin.R
 import com.chaos.kotlin.widget.banner.IPagerViewInstance
 import com.chaos.kotlin.widget.banner.OnPageChangeListener
 import java.util.*
@@ -57,7 +58,7 @@ class PagerRecyclerView @JvmOverloads constructor(
         if ((mOldPosition < 0) || (realCount <= 0)) {
             return 0
         }
-        return mOldPosition % realCount
+        return (mOldPosition % realCount)
     }
 
     override fun setSmoothMode(enabled: Boolean) {
@@ -180,7 +181,7 @@ class PagerRecyclerView @JvmOverloads constructor(
      */
     private fun startTimer() {
         mTimer?.cancel()
-        if ((mWidth > 0) && mFlagStartTimer && (null != context) && context is Activity) {
+        if ((mWidth > 0) && mFlagStartTimer && (null != context) && (context is Activity)) {
             mTimer = timer(initialDelay = mDelayedTime, period = mPeriodTime) {
                 if (mScrollState == SCROLL_STATE_IDLE) {
                     (context as Activity).runOnUiThread {
@@ -281,7 +282,7 @@ class PagerRecyclerView @JvmOverloads constructor(
         if ((null != layoutManager) && (layoutManager is LinearLayoutManager)) {
             return layoutManager as LinearLayoutManager
         }
-        throw IllegalStateException("需且只能设线性布局管理器类型")
+        throw IllegalStateException(context.getString(R.string.kotlinBannerNeedAndOnlySetLinearLayoutManagerType))
     }
 
     companion object {

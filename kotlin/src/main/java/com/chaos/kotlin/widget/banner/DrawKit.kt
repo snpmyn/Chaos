@@ -49,7 +49,7 @@ internal fun Int.removeFlag(flag: Int): Int {
 }
 
 /**
- * FlagSet 含 Flag 否
+ * FlagSet 含 Flag
  */
 internal fun Int.containFlag(flag: Int): Boolean {
     return this or flag == this
