@@ -1,4 +1,4 @@
-package widget.module.mine;
+package widget.module.one.homepage;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,18 +8,18 @@ import com.example.chaos.R;
 import org.jetbrains.annotations.NotNull;
 
 import base.BaseFragment;
-import widget.module.mine.fragment.MineChildFragment;
+import widget.module.one.homepage.fragment.HomePageChildFragment;
 
 /**
  * Created on 2020/12/14
  *
  * @author zsp
- * @desc 我的碎片
+ * @desc 首页碎片
  */
-public class MineFragment extends BaseFragment {
-    public static @NotNull MineFragment newInstance() {
+public class HomePageFragment extends BaseFragment {
+    public static @NotNull HomePageFragment newInstance() {
         Bundle bundle = new Bundle();
-        MineFragment fragment = new MineFragment();
+        HomePageFragment fragment = new HomePageFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -31,7 +31,7 @@ public class MineFragment extends BaseFragment {
      */
     @Override
     protected int layoutResId() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_home_page;
     }
 
     /**
@@ -57,7 +57,7 @@ public class MineFragment extends BaseFragment {
      */
     @Override
     protected String[] janalyticsBrowseEventParams() {
-        return new String[]{"push_browse_account_id", "我的碎片", "我的碎片", "MineFragment-key", "MineFragment-value"};
+        return new String[]{"push_browse_account_id", "首页碎片", "首页碎片", "HomePageFragment-key", "HomePageFragment-value"};
     }
 
     /**
@@ -98,8 +98,8 @@ public class MineFragment extends BaseFragment {
      */
     @Override
     protected void startLoadOnLazyInitView() {
-        if (null == findChildFragment(MineChildFragment.class)) {
-            loadRootFragment(R.id.mineFragmentFl, MineChildFragment.newInstance());
+        if (null == findChildFragment(HomePageChildFragment.class)) {
+            loadRootFragment(R.id.homePageFragmentFl, HomePageChildFragment.newInstance());
         }
     }
 

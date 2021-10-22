@@ -1,25 +1,33 @@
-package widget.module.homepage;
+package widget.module.one.mine.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
+import com.chaos.util.java.rxbus.RxBus;
 import com.example.chaos.R;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import org.jetbrains.annotations.NotNull;
 
 import base.BaseFragment;
-import widget.module.homepage.fragment.HomePageChildFragment;
+import butterknife.BindView;
+import value.ChaosRxBusConstant;
 
 /**
- * Created on 2020/12/14
+ * Created on 2021/2/2
  *
  * @author zsp
- * @desc 首页碎片
+ * @desc 帮助反馈碎片
  */
-public class HomePageFragment extends BaseFragment {
-    public static @NotNull HomePageFragment newInstance() {
+public class HelpFeedbackFragment extends BaseFragment {
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.helpFeedbackFragmentMt)
+    MaterialToolbar helpFeedbackFragmentMt;
+
+    public static @NotNull HelpFeedbackFragment newInstance() {
         Bundle bundle = new Bundle();
-        HomePageFragment fragment = new HomePageFragment();
+        HelpFeedbackFragment fragment = new HelpFeedbackFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -31,7 +39,7 @@ public class HomePageFragment extends BaseFragment {
      */
     @Override
     protected int layoutResId() {
-        return R.layout.fragment_home_page;
+        return R.layout.fragment_help_feedback;
     }
 
     /**
@@ -57,7 +65,7 @@ public class HomePageFragment extends BaseFragment {
      */
     @Override
     protected String[] janalyticsBrowseEventParams() {
-        return new String[]{"push_browse_account_id", "首页碎片", "首页碎片", "HomePageFragment-key", "HomePageFragment-value"};
+        return new String[]{"push_browse_account_id", "帮助反馈碎片", "帮助反馈碎片", "HelpFeedbackFragment-key", "HelpFeedbackFragment-value"};
     }
 
     /**
@@ -98,9 +106,7 @@ public class HomePageFragment extends BaseFragment {
      */
     @Override
     protected void startLoadOnLazyInitView() {
-        if (null == findChildFragment(HomePageChildFragment.class)) {
-            loadRootFragment(R.id.homePageFragmentFl, HomePageChildFragment.newInstance());
-        }
+
     }
 
     /**
@@ -111,7 +117,9 @@ public class HomePageFragment extends BaseFragment {
      */
     @Override
     protected void startLoadOnEnterAnimationEnd() {
-
+        initConfiguration();
+        setListener();
+        startLogic();
     }
 
     /**
@@ -119,6 +127,36 @@ public class HomePageFragment extends BaseFragment {
      */
     @Override
     protected void invisibleToUser() {
+        hideSoftInput();
+    }
 
+    private void initConfiguration() {
+
+    }
+
+    private void setListener() {
+        helpFeedbackFragmentMt.setNavigationOnClickListener(v -> fragmentationSupportActivity.onBackPressed());
+    }
+
+    private void startLogic() {
+
+    }
+
+    /**
+     * 处理回退事件
+     * <p>
+     * 返 true 消费该事件，不再向上传递。
+     * 返 false 向上最终传递至 Fragment 宿主 Activity。此时宿主 Activity 复写 onBackPressedSupport 则执行，没复写不执行。
+     * Fragment 宿主 Activity 之基类复写 onKeyUp 时同执行。
+     * MainActivity 于该法处理。
+     * SplashActivity 与 LoginActivity 于 BaseActivity 之 onKeyUp 处理。
+     *
+     * @return boolean
+     */
+    @Override
+    public boolean onBackPressedSupport() {
+        pop();
+        RxBus.get().post(ChaosRxBusConstant.MODULE_ONE_ACTIVITY_$_BOTTOM_NAVIGATION_VIEW, ChaosRxBusConstant.MODULE_ONE_ACTIVITY_$_SHOW_BOTTOM_NAVIGATION_VIEW_CODE);
+        return true;
     }
 }

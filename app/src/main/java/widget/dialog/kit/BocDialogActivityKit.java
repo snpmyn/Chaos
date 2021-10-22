@@ -10,6 +10,7 @@ import com.chaos.util.java.sign.SignUtils;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;
+import com.chaos.widget.dialog.bocdialog.loading.LottieAnimationViewLoadingDialog;
 import com.chaos.widget.dialog.message.RightAngleMessageDialog;
 import com.chaos.widget.dialog.message.RoundCornerMessageDialog;
 import com.example.chaos.R;
@@ -157,5 +158,19 @@ public class BocDialogActivityKit {
                 .setOnBackPressedListener(() -> ToastKit.showShort("backPressed")).build();
         canCancelLoadingDialog.setCancelable(false);
         canCancelLoadingDialog.show();
+    }
+
+    /**
+     * LottieAnimationView 加载对话框
+     *
+     * @param appCompatActivity 活动
+     */
+    public void lottieAnimationViewLoadingDialog(AppCompatActivity appCompatActivity) {
+        LottieAnimationViewLoadingDialog lottieAnimationViewLoadingDialog = new LottieAnimationViewLoadingDialog.Builder(appCompatActivity, 0)
+                .setAnimation("camera.json")
+                .setOnBackPressedListener(() -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+                        SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"))).build();
+        lottieAnimationViewLoadingDialog.setCancelable(false);
+        lottieAnimationViewLoadingDialog.show();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="widget.module.ModuleOneActivity">
+    tools:context="widget.module.one.ModuleOneActivity">
 
     <FrameLayout
         android:id="@+id/moduleOneActivityFl"
@@ -12,12 +12,6 @@
         android:layout_height="@dimen/dp_0"
         app:layout_constraintBottom_toTopOf="@+id/moduleOneActivityBnv"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px1"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/moduleOneActivityBnv" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/moduleOneActivityBnv"

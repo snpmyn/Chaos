@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/moduleTwoActivityTestOneFragment"
+        android:contentDescription="@string/testOne"
+        android:enabled="true"
+        android:icon="@drawable/module_two_activity_bottom_navigation_view_menu_test_one"
+        android:title="@string/testOne" />
+    <item
+        android:id="@+id/moduleTwoActivityTestTwoFragment"
+        android:contentDescription="@string/testTwo"
+        android:enabled="true"
+        android:icon="@drawable/module_two_activity_bottom_navigation_view_menu_test_two"
+        android:title="@string/testTwo" />
+    <item
+        android:id="@+id/moduleTwoActivityTestThreeFragment"
+        android:contentDescription="@string/testThree"
+        android:enabled="true"
+        android:icon="@drawable/module_two_activity_bottom_navigation_view_menu_test_three"
+        android:title="@string/testThree" />
+</menu>

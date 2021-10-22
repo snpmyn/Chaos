@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/moduleTwoActivityTestOneFragment">
+    <!--测试一-->
+    <fragment
+        android:id="@+id/moduleTwoActivityTestOneFragment"
+        android:name="widget.module.two.fragment.TestOneFragment"
+        android:label="测试一"
+        tools:layout="@layout/fragment_test_one">
+        <action
+            android:id="@+id/actionFromTestOneFragmentToTestOtherFragment"
+            app:destination="@id/moduleTwoActivityNavigationTestOtherFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <!--测试二-->
+    <fragment
+        android:id="@+id/moduleTwoActivityTestTwoFragment"
+        android:name="widget.module.two.fragment.TestTwoFragment"
+        android:label="测试二"
+        tools:layout="@layout/fragment_test_two" />
+    <!--测试三-->
+    <fragment
+        android:id="@+id/moduleTwoActivityTestThreeFragment"
+        android:name="widget.module.two.fragment.TestThreeFragment"
+        android:label="测试三"
+        tools:layout="@layout/fragment_test_three" />
+    <!--测试其它-->
+    <fragment
+        android:id="@+id/moduleTwoActivityNavigationTestOtherFragment"
+        android:name="widget.module.two.fragment.TestOtherFragment"
+        android:label="测试其它"
+        tools:layout="@layout/fragment_test_other">
+        <argument
+            android:name="booleanData"
+            app:argType="boolean" />
+        <argument
+            android:name="intData"
+            app:argType="integer" />
+        <argument
+            android:name="floatData"
+            app:argType="float" />
+        <argument
+            android:name="stringData"
+            app:argType="string" />
+    </fragment>
+</navigation>

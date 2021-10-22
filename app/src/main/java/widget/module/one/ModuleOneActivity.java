@@ -1,4 +1,4 @@
-package widget.module;
+package widget.module.one;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -21,8 +21,8 @@ import base.BaseFragment;
 import butterknife.BindView;
 import timber.log.Timber;
 import value.ChaosRxBusConstant;
-import widget.module.homepage.HomePageFragment;
-import widget.module.mine.MineFragment;
+import widget.module.one.homepage.HomePageFragment;
+import widget.module.one.mine.MineFragment;
 
 /**
  * @desc: 模块一页

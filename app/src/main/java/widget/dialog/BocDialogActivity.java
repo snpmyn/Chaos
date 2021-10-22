@@ -67,7 +67,8 @@ public class BocDialogActivity extends BaseActivity {
             R.id.bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle,
             R.id.bocDialogActivityBtnRoundCornerMessageDialogWithTitle,
             R.id.bocDialogActivityBtnCommonLoadingDialog,
-            R.id.bocDialogActivityBtnCanCancelLoadingDialog})
+            R.id.bocDialogActivityBtnCanCancelLoadingDialog,
+            R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 直角消息对话框（无标题）
@@ -93,6 +94,10 @@ public class BocDialogActivity extends BaseActivity {
             // 可取消加载对话框
             case R.id.bocDialogActivityBtnCanCancelLoadingDialog:
                 bocDialogActivityKit.canCancelLoadingDialog(this);
+                break;
+            // LottieAnimationView 加载对话框
+            case R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog:
+                bocDialogActivityKit.lottieAnimationViewLoadingDialog(this);
                 break;
             default:
                 break;

@@ -105,6 +105,8 @@ api 'io.reactivex.rxjava3:rxjava:xxx'
 api 'com.squareup.retrofit2:retrofit:xxx'
 api 'com.squareup.retrofit2:adapter-rxjava:xxx'
 api 'com.squareup.retrofit2:converter-gson:xxx'
+api "android.arch.navigation:navigation-ui:xxx"
+api "android.arch.navigation:navigation-fragment:xxx"
 api 'com.jakewharton.timber:timber:xxx'
 api 'com.tencent:mmkv-static:xxx'
 api 'com.getkeepsafe.relinker:relinker:xxx'

@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
 }
 
+/*Safe Args*/
+apply plugin: "androidx.navigation.safeargs"
+
 // MobSDK 插件
 apply plugin: 'com.mob.sdk'
 // MobSDK 扩展

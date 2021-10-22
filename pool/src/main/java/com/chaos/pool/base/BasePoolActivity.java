@@ -14,6 +14,7 @@ import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
 import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;
+import com.chaos.widget.dialog.bocdialog.loading.LottieAnimationViewLoadingDialog;
 import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
 import com.chaos.widget.dialog.bocdialog.loading.listener.OnClickToCloseListener;
 import com.chaos.widget.dialog.bocdialog.loading.listener.OnDialogCloseListener;
@@ -119,6 +120,21 @@ public abstract class BasePoolActivity extends SupportActivity {
                 .setHint(hint)
                 .setOnClickToCloseListener(onClickToCloseListener)
                 .setOnDialogCloseListener(onDialogCloseListener)
+                .setOnBackPressedListener(onBackPressedListener).build();
+        baseInstanceDialog.setCancelable(false);
+        baseInstanceDialog.show();
+    }
+
+    /**
+     * LottieAnimationView 加载
+     *
+     * @param assetName             资产名
+     *                              如 "camera.json"
+     * @param onBackPressedListener 回退按压监听
+     */
+    public void lottieAnimationViewLoadingDialog(String assetName, OnBackPressedListener onBackPressedListener) {
+        baseInstanceDialog = new LottieAnimationViewLoadingDialog.Builder(this, 0)
+                .setAnimation(assetName)
                 .setOnBackPressedListener(onBackPressedListener).build();
         baseInstanceDialog.setCancelable(false);
         baseInstanceDialog.show();

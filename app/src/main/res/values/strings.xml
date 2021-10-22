@@ -10,6 +10,7 @@
     <string name="roundCornerMessageDialogWithTitle">圆角消息对话框（有标题）</string>
     <string name="commonLoadingDialog">普通加载对话框</string>
     <string name="canCancelLoadingDialog">可取消加载对话框</string>
+    <string name="lottieAnimationViewLoadingDialog">LottieAnimationView 加载对话框</string>
     <string name="messageDialog">消息对话框</string>
     <string name="moneyHint">￥0.00</string>
     <string name="lottie">LOTTIE</string>
@@ -27,4 +28,11 @@
     <string name="bannerThree">轮播三</string>
     <string name="moduleOne">模块一</string>
     <string name="moduleTwo">模块二</string>
+    <string name="testOne">测试一</string>
+    <string name="testTwo">测试二</string>
+    <string name="testThree">测试三</string>
+    <string name="toTestOther">到测试其它</string>
+    <string name="toTestOtherWithValue">到测试其它并传值</string>
+    <string name="backToTestOne">返回测试一</string>
+    <string name="noValuePassed">暂无传值</string>
 </resources>

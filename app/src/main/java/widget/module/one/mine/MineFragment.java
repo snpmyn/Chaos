@@ -1,33 +1,25 @@
-package widget.module.mine.fragment;
+package widget.module.one.mine;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
-import com.chaos.util.java.rxbus.RxBus;
 import com.example.chaos.R;
-import com.google.android.material.appbar.MaterialToolbar;
 
 import org.jetbrains.annotations.NotNull;
 
 import base.BaseFragment;
-import butterknife.BindView;
-import value.ChaosRxBusConstant;
+import widget.module.one.mine.fragment.MineChildFragment;
 
 /**
- * Created on 2021/2/2
+ * Created on 2020/12/14
  *
  * @author zsp
- * @desc 帮助反馈碎片
+ * @desc 我的碎片
  */
-public class HelpFeedbackFragment extends BaseFragment {
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.helpFeedbackFragmentMt)
-    MaterialToolbar helpFeedbackFragmentMt;
-
-    public static @NotNull HelpFeedbackFragment newInstance() {
+public class MineFragment extends BaseFragment {
+    public static @NotNull MineFragment newInstance() {
         Bundle bundle = new Bundle();
-        HelpFeedbackFragment fragment = new HelpFeedbackFragment();
+        MineFragment fragment = new MineFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -39,7 +31,7 @@ public class HelpFeedbackFragment extends BaseFragment {
      */
     @Override
     protected int layoutResId() {
-        return R.layout.fragment_help_feedback;
+        return R.layout.fragment_mine;
     }
 
     /**
@@ -65,7 +57,7 @@ public class HelpFeedbackFragment extends BaseFragment {
      */
     @Override
     protected String[] janalyticsBrowseEventParams() {
-        return new String[]{"push_browse_account_id", "帮助反馈碎片", "帮助反馈碎片", "HelpFeedbackFragment-key", "HelpFeedbackFragment-value"};
+        return new String[]{"push_browse_account_id", "我的碎片", "我的碎片", "MineFragment-key", "MineFragment-value"};
     }
 
     /**
@@ -106,7 +98,9 @@ public class HelpFeedbackFragment extends BaseFragment {
      */
     @Override
     protected void startLoadOnLazyInitView() {
-
+        if (null == findChildFragment(MineChildFragment.class)) {
+            loadRootFragment(R.id.mineFragmentFl, MineChildFragment.newInstance());
+        }
     }
 
     /**
@@ -117,9 +111,7 @@ public class HelpFeedbackFragment extends BaseFragment {
      */
     @Override
     protected void startLoadOnEnterAnimationEnd() {
-        initConfiguration();
-        setListener();
-        startLogic();
+
     }
 
     /**
@@ -127,36 +119,6 @@ public class HelpFeedbackFragment extends BaseFragment {
      */
     @Override
     protected void invisibleToUser() {
-        hideSoftInput();
-    }
 
-    private void initConfiguration() {
-
-    }
-
-    private void setListener() {
-        helpFeedbackFragmentMt.setNavigationOnClickListener(v -> fragmentationSupportActivity.onBackPressed());
-    }
-
-    private void startLogic() {
-
-    }
-
-    /**
-     * 处理回退事件
-     * <p>
-     * 返 true 消费该事件，不再向上传递。
-     * 返 false 向上最终传递至 Fragment 宿主 Activity。此时宿主 Activity 复写 onBackPressedSupport 则执行，没复写不执行。
-     * Fragment 宿主 Activity 之基类复写 onKeyUp 时同执行。
-     * MainActivity 于该法处理。
-     * SplashActivity 与 LoginActivity 于 BaseActivity 之 onKeyUp 处理。
-     *
-     * @return boolean
-     */
-    @Override
-    public boolean onBackPressedSupport() {
-        pop();
-        RxBus.get().post(ChaosRxBusConstant.MODULE_ONE_ACTIVITY_$_BOTTOM_NAVIGATION_VIEW, ChaosRxBusConstant.MODULE_ONE_ACTIVITY_$_SHOW_BOTTOM_NAVIGATION_VIEW_CODE);
-        return true;
     }
 }

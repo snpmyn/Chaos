@@ -41,6 +41,8 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:adapter-rxjava:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api "android.arch.navigation:navigation-ui:1.0.0"
+    api "android.arch.navigation:navigation-fragment:1.0.0"
     /*官方*/
     api 'com.jakewharton.timber:timber:5.0.1'
     /*timber*/
@@ -54,6 +56,6 @@ dependencies {
     /*okio*/
     api 'org.greenrobot:eventbus:3.2.0'
     /*EventBus*/
-    api 'com.guolindev.permissionx:permissionx:1.6.0'
+    api 'com.guolindev.permissionx:permissionx:1.6.1'
     /*PermissionX*/
 }

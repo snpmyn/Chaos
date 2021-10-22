@@ -1,4 +1,4 @@
-package widget.module.homepage.fragment;
+package widget.module.one.homepage.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

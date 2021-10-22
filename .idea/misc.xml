@@ -30,10 +30,24 @@
         <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/dialog_common_loading.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/dialog_round_corner_message.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Chaos/widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.1788693234476367" />
+        <entry key="app/src/main/res/drawable/animated_clock_alarm.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/animated_clock_stop_watch.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/animated_clock_stopwatch.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/animated_clock_timer.xml" value="0.26296296296296295" />
         <entry key="app/src/main/res/drawable/gray_solid_r6.xml" value="0.35444330949948927" />
+        <entry key="app/src/main/res/drawable/ic_clock_alarm_24dp_color_control_normal.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_clock_alarm_white_24dp.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_clock_stop_watch_white_24dp.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_clock_stopwatch_24dp_color_control_normal.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_clock_timer_24dp_color_control_normal.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_clock_timer_white_24dp.xml" value="0.26296296296296295" />
         <entry key="app/src/main/res/drawable/ic_info_white_24dp.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/icon_background.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/menu_home_page.xml" value="0.3578125" />
+        <entry key="app/src/main/res/drawable/menu_test_one.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/module_two_activity_bottom_navigation_view_menu_test_one.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/module_two_activity_bottom_navigation_view_menu_test_three.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/module_two_activity_bottom_navigation_view_menu_test_two.xml" value="0.26296296296296295" />
         <entry key="app/src/main/res/drawable/page_background_solid_r6.xml" value="0.35444330949948927" />
         <entry key="app/src/main/res/drawable/preview_window.xml" value="0.33796296296296297" />
         <entry key="app/src/main/res/drawable/purple_500_solid_r8.xml" value="0.35444330949948927" />
@@ -42,6 +56,7 @@
         <entry key="app/src/main/res/layout/activity_banner_one.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/activity_banner_three.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/activity_banner_two.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/activity_boc_dialog.xml" value="0.259963768115942" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.28442028985507245" />
         <entry key="app/src/main/res/layout/activity_grid.xml" value="0.2418478260869565" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_code.xml" value="0.2223731884057971" />
@@ -67,8 +82,14 @@
         <entry key="app/src/main/res/layout/fragment_home_page_child.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.25905797101449274" />
         <entry key="app/src/main/res/layout/fragment_mine_child.xml" value="0.25905797101449274" />
+        <entry key="app/src/main/res/layout/fragment_test_one.xml" value="0.2105978260869565" />
+        <entry key="app/src/main/res/layout/fragment_test_other.xml" value="0.2105978260869565" />
+        <entry key="app/src/main/res/layout/fragment_test_three.xml" value="0.2105978260869565" />
+        <entry key="app/src/main/res/layout/fragment_test_two.xml" value="0.2105978260869565" />
         <entry key="app/src/main/res/layout/item_main_activity.xml" value="0.25679347826086957" />
         <entry key="app/src/main/res/menu/module_one_activity_menu.xml" value="0.3375" />
+        <entry key="app/src/main/res/menu/module_two_activity_bottom_menu.xml" value="0.3375" />
+        <entry key="app/src/main/res/menu/module_two_activity_bottom_navigation_view_menu.xml" value="0.3375" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page_normal_22dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page_select_22dp.xml" value="0.3578125" />
@@ -163,6 +184,7 @@
         <entry key="widget/src/main/res/layout/dialog_base.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.184375" />
         <entry key="widget/src/main/res/layout/dialog_common_loading.xml" value="0.21331521739130435" />
+        <entry key="widget/src/main/res/layout/dialog_lottie_animation_view_loading.xml" value="0.259963768115942" />
         <entry key="widget/src/main/res/layout/dialog_right_angle_message.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/dialog_round_corner_message.xml" value="0.21331521739130435" />
         <entry key="widget/src/main/res/layout/download_progress_dialog.xml" value="0.21331521739130435" />

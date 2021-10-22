@@ -1,4 +1,4 @@
-package widget.module.mine.fragment;
+package widget.module.one.mine.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

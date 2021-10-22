@@ -1,11 +1,14 @@
-package com.chaos.litepool.base;
+package com.chaos.pool.base;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.chaos.janalytics.kit.JanalyticsKit;
+import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
 import com.chaos.util.java.view.ViewUtils;
@@ -19,13 +22,11 @@ import com.chaos.widget.dialog.bocdialog.loading.listener.OnDialogCloseListener;
 
 import org.jetbrains.annotations.NotNull;
 
-import support.SupportActivity;
-
 /**
- * Created on 2021/3/9
+ * Created on 2021/10/22
  *
  * @author zsp
- * @desc BaseLitePoolActivity
+ * @desc BasePoolTwoActivity
  * 优点：
  * 方便代码编写，减重复代码，加快开发；
  * 优化代码结构，降耦合度，方便修改；
@@ -38,7 +39,7 @@ import support.SupportActivity;
  * {@link #setListener()}
  * {@link #startLogic()}
  */
-public abstract class BaseLitePoolActivity extends SupportActivity {
+public abstract class BasePoolTwoActivity extends AppCompatActivity {
     private BaseInstanceDialog baseInstanceDialog;
 
     @Override
@@ -196,6 +197,20 @@ public abstract class BaseLitePoolActivity extends SupportActivity {
             }
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JpushKit.onResume(this);
+        JanalyticsKit.onPageStart(this, this.getClass().getCanonicalName());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JpushKit.onPause(this);
+        JanalyticsKit.onPageEnd(this, this.getClass().getCanonicalName());
     }
 }
 

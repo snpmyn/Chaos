@@ -21,11 +21,11 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="widget.module.ModuleTwoActivity"
+            android:name="widget.module.two.ModuleTwoActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="widget.module.ModuleOneActivity"
+            android:name="widget.module.one.ModuleOneActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
