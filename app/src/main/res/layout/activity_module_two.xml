@@ -27,7 +27,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/moduleTwoActivityBnv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
+        android:layout_height="?actionBarSize"
         android:background="@color/navigationBarBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/module_two_activity_bottom_navigation_view_menu" />
