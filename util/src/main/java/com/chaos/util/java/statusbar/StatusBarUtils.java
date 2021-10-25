@@ -754,6 +754,6 @@ public class StatusBarUtils {
         display.getMetrics(displayMetrics);
         int displayHeight = displayMetrics.heightPixels;
         int displayWidth = displayMetrics.widthPixels;
-        return ((realWidth - displayWidth) > 0) || ((realHeight - displayHeight) > 0);
+        return (((realWidth - displayWidth) > 0) || ((realHeight - displayHeight) > 0));
     }
 }
