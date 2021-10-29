@@ -29,7 +29,7 @@ public class CustomDialog extends BaseDialog {
 
     @Override
     public void convertView(ViewHolder holder, BaseDialog dialog) {
-        if (baseViewConvertListener != null) {
+        if (null != baseViewConvertListener) {
             baseViewConvertListener.convertView(holder, dialog);
         }
     }
@@ -47,7 +47,7 @@ public class CustomDialog extends BaseDialog {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
+        if (null != savedInstanceState) {
             baseViewConvertListener = savedInstanceState.getParcelable("listener");
         }
     }

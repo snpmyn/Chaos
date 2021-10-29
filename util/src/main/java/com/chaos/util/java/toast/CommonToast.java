@@ -25,15 +25,12 @@ public class CommonToast extends Toast {
     }
 
     public static @NotNull CommonToast makeText(Context context, CharSequence charSequence, int duration) throws Resources.NotFoundException {
-        @SuppressLint("ShowToast") Toast toast = Toast.makeText(context, charSequence, duration);
         // 通知权限未开启用 ContextWrapper
         if (!areNotificationEnabled(context)) {
             context = new MyContextWrapper(context);
         }
-        CommonToast commonToast = new CommonToast(context);
-        commonToast.setDuration(toast.getDuration());
-        commonToast.setView(toast.getView());
-        return commonToast;
+        @SuppressLint("ShowToast") Toast toast = Toast.makeText(context, charSequence, duration);
+        return (CommonToast) toast;
     }
 
     private static boolean areNotificationEnabled(Context context) {

@@ -5,11 +5,11 @@ import android.view.Gravity;
 import com.chaos.widget.R;
 
 /**
- * @decs: PickerViewAnimateUtil
+ * @decs: PickerViewAnimateUtils
  * @author: 郑少鹏
  * @date: 2018/4/3 17:31
  */
-public class PickerViewAnimateUtil {
+public class PickerViewAnimateUtils {
     private static final int INVALID = -1;
 
     /**

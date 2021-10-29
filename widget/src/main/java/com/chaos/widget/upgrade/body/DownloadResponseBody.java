@@ -63,7 +63,7 @@ public class DownloadResponseBody extends ResponseBody {
             @Override
             public long read(@NonNull Buffer sink, long byteCount) throws IOException {
                 long bytesRead = super.read(sink, byteCount);
-                mProgress += (bytesRead == -1) ? 0 : bytesRead;
+                mProgress += ((bytesRead == -1) ? 0 : bytesRead);
                 if (CurrentTimeMillisClock.getInstance().now() - mLastSendTime > WidgetMagic.INT_FIVE_HUNDRED) {
                     RxManager.send(new DownloadProgressEvent(contentLength(), mProgress));
                     mLastSendTime = CurrentTimeMillisClock.getInstance().now();

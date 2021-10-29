@@ -630,10 +630,11 @@ public class DateUtils {
             c1.setTime(Objects.requireNonNull(dateFormat.parse(startDay), "must not be null"));
             c2.setTime(Objects.requireNonNull(dateFormat.parse(endDay), "must not be null"));
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
         while (!c1.after(c2)) {
-            // 循环对比至相等，n 即所要结果
+            // 循环对比至相等
+            // n 即所要结果
             n++;
             if (type == 1) {
                 // 比月（月 + 1）

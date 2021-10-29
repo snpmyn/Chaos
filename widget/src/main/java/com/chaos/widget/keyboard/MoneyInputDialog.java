@@ -26,48 +26,6 @@ public class MoneyInputDialog extends Dialog {
     private OnKeyboardListener onKeyboardListener;
     private OnKeyboardCompleteListener onKeyboardCompleteListener;
 
-    /**
-     * 键返监听
-     */
-    public interface OnKeyBackListener {
-        /**
-         * 键返
-         */
-        void keyBack();
-    }
-
-    /**
-     * 键盘监听
-     */
-    public interface OnKeyboardListener {
-        /**
-         * 键盘显示
-         */
-        void onKeyboardShow();
-
-        /**
-         * 键盘消失
-         */
-        void onKeyboardDismiss();
-
-        /**
-         * 格式化前消失
-         */
-        void onKeyboardDismissBeforeFormat();
-    }
-
-    /**
-     * 键盘完成监听
-     */
-    public interface OnKeyboardCompleteListener {
-        /**
-         * 键盘完成
-         *
-         * @param formatNumber 格式化金额
-         */
-        void onKeyboardComplete(String formatNumber);
-    }
-
     public MoneyInputDialog(Context context) {
         super(context, R.style.MoneyInputDialogStyle);
         moneyInputKeyboardView = new MoneyInputKeyboardView(context);
@@ -194,6 +152,48 @@ public class MoneyInputDialog extends Dialog {
 
     public void clear() {
         moneyInputKeyboardView.clear();
+    }
+
+    /**
+     * 键返监听
+     */
+    public interface OnKeyBackListener {
+        /**
+         * 键返
+         */
+        void keyBack();
+    }
+
+    /**
+     * 键盘监听
+     */
+    public interface OnKeyboardListener {
+        /**
+         * 键盘显示
+         */
+        void onKeyboardShow();
+
+        /**
+         * 键盘消失
+         */
+        void onKeyboardDismiss();
+
+        /**
+         * 格式化前消失
+         */
+        void onKeyboardDismissBeforeFormat();
+    }
+
+    /**
+     * 键盘完成监听
+     */
+    public interface OnKeyboardCompleteListener {
+        /**
+         * 键盘完成
+         *
+         * @param formatNumber 格式化金额
+         */
+        void onKeyboardComplete(String formatNumber);
     }
 }
 

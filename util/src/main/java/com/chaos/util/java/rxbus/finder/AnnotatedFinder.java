@@ -187,12 +187,12 @@ public final class AnnotatedFinder {
             loadAnnotatedSubscriberMethods(listenerClass, methods);
         }
         if (!methods.isEmpty()) {
-            for (Map.Entry<EventType, Set<SourceMethod>> e : methods.entrySet()) {
+            for (Map.Entry<EventType, Set<SourceMethod>> entry : methods.entrySet()) {
                 Set<SubscriberBaseEvent> subscribers = new HashSet<>();
-                for (SourceMethod sourceMethod : e.getValue()) {
+                for (SourceMethod sourceMethod : entry.getValue()) {
                     subscribers.add(new SubscriberBaseEvent(listener, sourceMethod.method, sourceMethod.thread));
                 }
-                subscribersInMethod.put(e.getKey(), subscribers);
+                subscribersInMethod.put(entry.getKey(), subscribers);
             }
         }
         return subscribersInMethod;

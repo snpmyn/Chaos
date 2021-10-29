@@ -30,26 +30,26 @@ public class HorizontalDividerDecoration extends BaseDividerDecoration {
         int transitionX = (int) child.getTranslationX();
         int transitionY = (int) child.getTranslationY();
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
-        rect.left = parent.getPaddingLeft() + marginProvider.dividerLeftMargin(position, parent) + transitionX;
-        rect.right = parent.getWidth() - parent.getPaddingRight() - marginProvider.dividerRightMargin(position, parent) + transitionX;
+        rect.left = (parent.getPaddingLeft() + marginProvider.dividerLeftMargin(position, parent) + transitionX);
+        rect.right = (parent.getWidth() - parent.getPaddingRight() - marginProvider.dividerRightMargin(position, parent) + transitionX);
         int dividerSize = getDividerSize(position, parent);
         boolean areReverseLayout = areReverseLayout(parent);
         if (dividerType == DividerType.DRAWABLE) {
             // set top and bottom position of divider
             if (areReverseLayout) {
-                rect.bottom = child.getTop() - layoutParams.topMargin + transitionY;
-                rect.top = rect.bottom - dividerSize;
+                rect.bottom = (child.getTop() - layoutParams.topMargin + transitionY);
+                rect.top = (rect.bottom - dividerSize);
             } else {
-                rect.top = child.getBottom() + layoutParams.bottomMargin + transitionY;
-                rect.bottom = rect.top + dividerSize;
+                rect.top = (child.getBottom() + layoutParams.bottomMargin + transitionY);
+                rect.bottom = (rect.top + dividerSize);
             }
         } else {
             // set center point of divider
             int halfSize = dividerSize / 2;
             if (areReverseLayout) {
-                rect.top = child.getTop() - layoutParams.topMargin - halfSize + transitionY;
+                rect.top = (child.getTop() - layoutParams.topMargin - halfSize + transitionY);
             } else {
-                rect.top = child.getBottom() + layoutParams.bottomMargin + halfSize + transitionY;
+                rect.top = (child.getBottom() + layoutParams.bottomMargin + halfSize + transitionY);
             }
             rect.bottom = rect.top;
         }

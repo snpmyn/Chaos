@@ -172,7 +172,7 @@ public class RegularUtils {
      * @return true 匹 / false 不匹
      */
     private static boolean areMatch(String regex, CharSequence input) {
-        return (null != input) && (input.length() > 0) && Pattern.matches(regex, input);
+        return ((null != input) && (input.length() > 0) && Pattern.matches(regex, input));
     }
 
     /**

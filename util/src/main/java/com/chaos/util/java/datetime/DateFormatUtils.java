@@ -87,12 +87,12 @@ public class DateFormatUtils {
         }
         if (value.length() == UtilMagic.INT_FOURTEEN) {
             // 长度 14 格式转 yyyy-mm-dd hh:mm:ss
-            sReturn = value.substring(0, 4)
+            sReturn = (value.substring(0, 4)
                     + "-" + value.substring(4, 6)
                     + "-" + value.substring(6, 8) + " "
                     + value.substring(8, 10)
                     + ":" + value.substring(10, 12) + ":"
-                    + value.substring(12, 14);
+                    + value.substring(12, 14));
             return sReturn;
         }
         if (value.length() == UtilMagic.INT_NINETEEN) {
@@ -107,11 +107,11 @@ public class DateFormatUtils {
         }
         if (value.length() == UtilMagic.INT_TEN) {
             // 长度 10 格式转 yyyymmhh
-            sReturn = value.substring(0, 4) + value.substring(5, 7) + value.substring(8, 10);
+            sReturn = (value.substring(0, 4) + value.substring(5, 7) + value.substring(8, 10));
         }
         if (value.length() == UtilMagic.INT_EIGHT) {
             // 长度 8 格式转 yyyy-mm-dd
-            sReturn = value.substring(0, 4) + "-" + value.substring(4, 6) + "-" + value.substring(6, 8);
+            sReturn = (value.substring(0, 4) + "-" + value.substring(4, 6) + "-" + value.substring(6, 8));
         }
         return sReturn;
     }
@@ -121,9 +121,9 @@ public class DateFormatUtils {
             return "";
         }
         Date dt;
-        SimpleDateFormat inFmt;
-        SimpleDateFormat outFmt;
-        ParsePosition pos = new ParsePosition(0);
+        SimpleDateFormat simpleDateFormatIn;
+        SimpleDateFormat simpleDateFormatOut;
+        ParsePosition parsePosition = new ParsePosition(0);
         date = date.replace("-", "").replace(":", "");
         if ("".equals(date.trim())) {
             return "";
@@ -138,19 +138,19 @@ public class DateFormatUtils {
         try {
             switch (date.trim().length()) {
                 case 14:
-                    inFmt = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
+                    simpleDateFormatIn = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
                     break;
                 case 12:
-                    inFmt = new SimpleDateFormat("yyyyMMddHHmm", Locale.CHINA);
+                    simpleDateFormatIn = new SimpleDateFormat("yyyyMMddHHmm", Locale.CHINA);
                     break;
                 case 10:
-                    inFmt = new SimpleDateFormat("yyyyMMddHH", Locale.CHINA);
+                    simpleDateFormatIn = new SimpleDateFormat("yyyyMMddHH", Locale.CHINA);
                     break;
                 case 8:
-                    inFmt = new SimpleDateFormat("yyyyMMdd", Locale.CHINA);
+                    simpleDateFormatIn = new SimpleDateFormat("yyyyMMdd", Locale.CHINA);
                     break;
                 case 6:
-                    inFmt = new SimpleDateFormat("yyyyMM", Locale.CHINA);
+                    simpleDateFormatIn = new SimpleDateFormat("yyyyMM", Locale.CHINA);
                     break;
                 case 7:
                 case 9:
@@ -159,15 +159,15 @@ public class DateFormatUtils {
                 default:
                     return date;
             }
-            if (null == (dt = inFmt.parse(date, pos))) {
+            if (null == (dt = simpleDateFormatIn.parse(date, parsePosition))) {
                 return date;
             }
             if ((null == format) || ("".equals(format.trim()))) {
-                outFmt = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
+                simpleDateFormatOut = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
             } else {
-                outFmt = new SimpleDateFormat(format, Locale.CHINA);
+                simpleDateFormatOut = new SimpleDateFormat(format, Locale.CHINA);
             }
-            return outFmt.format(dt);
+            return simpleDateFormatOut.format(dt);
         } catch (Exception e) {
             Timber.e(e);
         }

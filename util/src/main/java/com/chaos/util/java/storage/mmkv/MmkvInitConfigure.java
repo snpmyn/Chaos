@@ -29,7 +29,7 @@ public class MmkvInitConfigure {
      */
     public static void initMmkv(@NotNull Application application, boolean debug, MMKVHandler mmkvHandler, MMKVContentChangeNotification mmkvContentChangeNotification) {
         String dir = application.getFilesDir().getAbsolutePath() + "/mmkv";
-        String rootDir = MMKV.initialize(dir, libName -> ReLinker.loadLibrary(application, libName), MMKVLogLevel.LevelInfo);
+        String rootDir = MMKV.initialize(application, dir, libName -> ReLinker.loadLibrary(application, libName), MMKVLogLevel.LevelInfo);
         Timber.d("mmkv root: %s", rootDir);
         MMKV.setLogLevel(debug ? MMKVLogLevel.LevelInfo : MMKVLogLevel.LevelNone);
         MMKV.registerHandler(mmkvHandler);

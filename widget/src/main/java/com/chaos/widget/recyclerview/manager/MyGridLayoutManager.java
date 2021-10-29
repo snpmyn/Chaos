@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class MyGridLayoutManager extends GridLayoutManager {
     /**
-     * 允滑
-     */
-    private boolean scrollEnable = true;
-    /**
      * 布局子控件监听
      */
     private final OnLayoutChildrenListener onLayoutChildrenListener;
+    /**
+     * 允滑
+     */
+    private boolean scrollEnable = true;
 
     /**
      * Creates a vertical GridLayoutManager
@@ -50,7 +50,7 @@ public class MyGridLayoutManager extends GridLayoutManager {
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
         super.onLayoutChildren(recycler, state);
-        if (onLayoutChildrenListener != null) {
+        if (null != onLayoutChildrenListener) {
             onLayoutChildrenListener.onLayoutChildren(recycler, state);
         }
     }

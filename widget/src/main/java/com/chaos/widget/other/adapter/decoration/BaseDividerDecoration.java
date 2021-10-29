@@ -31,43 +31,27 @@ import java.util.Objects;
 public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration {
     private static final int DEFAULT_SIZE = 2;
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
-
-    protected enum DividerType {
-        /**
-         * 位图
-         */
-        DRAWABLE,
-        /**
-         * 画笔
-         */
-        PAINT,
-        /**
-         * 颜色
-         */
-        COLOR
-    }
-
-    DividerType dividerType = DividerType.DRAWABLE;
     private final VisibilityProvider visibilityProvider;
+    private final boolean showLastDivider;
+    DividerType dividerType = DividerType.DRAWABLE;
     PaintProvider paintProvider;
-    private ColorProvider colorProvider;
     DrawableProvider drawableProvider;
     SizeProvider sizeProvider;
-    private final boolean showLastDivider;
     boolean positionInsideItem;
+    private ColorProvider colorProvider;
     private Paint paint;
 
     BaseDividerDecoration(@NotNull Builder builder) {
-        if (builder.mPaintProvider != null) {
+        if (null != builder.mPaintProvider) {
             dividerType = DividerType.PAINT;
             paintProvider = builder.mPaintProvider;
-        } else if (builder.mColorProvider != null) {
+        } else if (null != builder.mColorProvider) {
             dividerType = DividerType.COLOR;
             colorProvider = builder.mColorProvider;
             paint = new Paint();
             setSizeProvider(builder);
         } else {
-            if (builder.mDrawableProvider == null) {
+            if (null == builder.mDrawableProvider) {
                 TypedArray typedArray = builder.context.obtainStyledAttributes(ATTRS);
                 final Drawable divider = typedArray.getDrawable(0);
                 typedArray.recycle();
@@ -84,7 +68,7 @@ public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration 
 
     private void setSizeProvider(@NotNull Builder builder) {
         sizeProvider = builder.mSizeProvider;
-        if (sizeProvider == null) {
+        if (null == sizeProvider) {
             sizeProvider = (position, parent) -> DEFAULT_SIZE;
         }
     }
@@ -101,7 +85,7 @@ public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration 
     @Override
     public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         RecyclerView.Adapter adapter = parent.getAdapter();
-        if (adapter == null) {
+        if (null == adapter) {
             return;
         }
         int itemCount = adapter.getItemCount();
@@ -217,7 +201,7 @@ public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration 
             GridLayoutManager.SpanSizeLookup spanSizeLookup = gridLayoutManager.getSpanSizeLookup();
             int spanCount = gridLayoutManager.getSpanCount();
             int itemCount = Objects.requireNonNull(parent.getAdapter()).getItemCount();
-            for (int i = itemCount - 1; i >= 0; i--) {
+            for (int i = (itemCount - 1); i >= 0; i--) {
                 if (spanSizeLookup.getSpanIndex(i, spanCount) == 0) {
                     return itemCount - i;
                 }
@@ -279,6 +263,21 @@ public abstract class BaseDividerDecoration extends RecyclerView.ItemDecoration 
      * @param parent   列表视图
      */
     protected abstract void setItemOffsets(Rect outRect, int position, RecyclerView parent);
+
+    protected enum DividerType {
+        /**
+         * 位图
+         */
+        DRAWABLE,
+        /**
+         * 画笔
+         */
+        PAINT,
+        /**
+         * 颜色
+         */
+        COLOR
+    }
 
     /**
      * Interface for controlling divider visibility.

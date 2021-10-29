@@ -26,7 +26,7 @@ public class RandomTransitionGenerator implements TransitionGenerator {
     /**
      * Minimum rect dimension factor, according to the maximum one.
      */
-    private static final float MIN_RECT_FACTOR = 0.75f;
+    private static final float MIN_RECT_FACTOR = 0.75F;
     /**
      * Random object used to generate arbitrary rects.
      */
@@ -59,7 +59,7 @@ public class RandomTransitionGenerator implements TransitionGenerator {
 
     @Override
     public Transition generateNextTransition(RectF drawableBounds, RectF viewport) {
-        boolean firstTransition = mLastGenTrans == null;
+        boolean firstTransition = (null == mLastGenTrans);
         boolean drawableBoundsChanged = true;
         boolean viewportRatioChanged = true;
         RectF srcRect;
@@ -107,13 +107,13 @@ public class RandomTransitionGenerator implements TransitionGenerator {
         }
         maxCrop = new RectF(0, 0, r, b);
         float randomFloat = MathUtils.truncate(mRandom.nextFloat(), 2);
-        float factor = MIN_RECT_FACTOR + ((1 - MIN_RECT_FACTOR) * randomFloat);
+        float factor = (MIN_RECT_FACTOR + (1 - MIN_RECT_FACTOR) * randomFloat);
         float width = factor * maxCrop.width();
         float height = factor * maxCrop.height();
         int widthDiff = (int) (drawableBounds.width() - width);
         int heightDiff = (int) (drawableBounds.height() - height);
-        int left = widthDiff > 0 ? mRandom.nextInt(widthDiff) : 0;
-        int top = heightDiff > 0 ? mRandom.nextInt(heightDiff) : 0;
+        int left = (widthDiff > 0 ? mRandom.nextInt(widthDiff) : 0);
+        int top = (heightDiff > 0 ? mRandom.nextInt(heightDiff) : 0);
         return new RectF(left, top, left + width, top + height);
     }
 

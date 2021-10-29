@@ -26,14 +26,14 @@ import timber.log.Timber;
  */
 public class ProvincialAndUrbanLinkage {
     private final AppCompatActivity appCompatActivity;
-    private OptionsPickerView optionsPickerView;
-    private ArrayList<LocationBeanPicker> options1Items = new ArrayList<>();
     private final ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
     private final ArrayList<ArrayList<ArrayList<String>>> options3Items = new ArrayList<>();
     /**
      * 接口
      */
     public Location location;
+    private OptionsPickerView optionsPickerView;
+    private ArrayList<LocationBeanPicker> options1Items = new ArrayList<>();
 
     /**
      * constructor

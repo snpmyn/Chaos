@@ -34,6 +34,9 @@ public class WheelTime {
     private static final int DEFAULT_START_DAY = 1;
     private static final int DEFAULT_END_DAY = 31;
     static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private final int gravity;
+    private final boolean[] type;
+    private final int textSize;
     private View view;
     private WheelView wvYear;
     private WheelView wvMonth;
@@ -41,8 +44,6 @@ public class WheelTime {
     private WheelView wvHours;
     private WheelView wvMinutes;
     private WheelView wvSeconds;
-    private final int gravity;
-    private final boolean[] type;
     private int startYear = DEFAULT_START_YEAR;
     private int endYear = DEFAULT_END_YEAR;
     private int startMonth = DEFAULT_START_MONTH;
@@ -53,7 +54,6 @@ public class WheelTime {
      */
     private int endDay = DEFAULT_END_DAY;
     private int currentYear;
-    private final int textSize;
     /**
      * 文本 / 分割线色
      */

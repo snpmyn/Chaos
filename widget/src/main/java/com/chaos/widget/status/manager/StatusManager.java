@@ -25,6 +25,7 @@ public class StatusManager {
     public static int BASE_LOADING_LAYOUT_ID = NO_LAYOUT_ID;
     public static int BASE_EMPTY_LAYOUT_ID = NO_LAYOUT_ID;
     public static int BASE_RETRY_LAYOUT_ID = NO_LAYOUT_ID;
+    private final StatusLayout statusLayout;
     /**
      * 状（0 无网络、1 连接失败、2 加载失败、3 加载、4 空、5 内容）
      */
@@ -33,7 +34,6 @@ public class StatusManager {
      * 请求码
      */
     public int requestCode = 101;
-    private final StatusLayout statusLayout;
 
     private StatusManager(Object activityOrFragmentOrView, BaseStatusListener listener) {
         if (null == listener) {

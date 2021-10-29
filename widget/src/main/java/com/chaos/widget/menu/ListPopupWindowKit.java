@@ -42,8 +42,8 @@ public class ListPopupWindowKit {
         WeakReference<Context> weakReference = new WeakReference<>(context);
         ListPopupWindow listPopupWindow = new ListPopupWindow(weakReference.get(), null, R.attr.listPopupWindowStyle);
         listPopupWindow.setAnchorView(anchor);
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(weakReference.get(), R.layout.list_popup_window_item, objects);
-        listPopupWindow.setAdapter(adapter);
+        ArrayAdapter<CharSequence> arrayAdapter = new ArrayAdapter<>(weakReference.get(), R.layout.list_popup_window_item, objects);
+        listPopupWindow.setAdapter(arrayAdapter);
         listPopupWindow.setOnItemClickListener((parent, view, position, id) -> {
             listPopupWindow.dismiss();
             listPopupWindowKitInterface.onItemClick(view, position, id);

@@ -34,7 +34,7 @@ public class DrawableCenterTextView extends AppCompatTextView {
             int drawablePadding = getCompoundDrawablePadding();
             int drawableWidth = drawable.getIntrinsicWidth();
             // 总宽（文本宽 + drawablePadding + drawableWidth）
-            float bodyWidth = textWidth + drawablePadding + drawableWidth;
+            float bodyWidth = (textWidth + drawablePadding + drawableWidth);
             // 移画布绘 X 轴
             canvas.translate((getWidth() - bodyWidth) / 2, 0);
         } else if (null != (drawable = drawables[1])) {
@@ -44,7 +44,7 @@ public class DrawableCenterTextView extends AppCompatTextView {
             int drawablePadding = getCompoundDrawablePadding();
             int drawableHeight = drawable.getIntrinsicHeight();
             // 总高（文本高 + drawablePadding + drawableHeight）
-            float bodyHeight = textHeight + drawablePadding + drawableHeight;
+            float bodyHeight = (textHeight + drawablePadding + drawableHeight);
             // 移画布绘 Y 轴
             canvas.translate(0, (getHeight() - bodyHeight) / 2);
         }

@@ -54,7 +54,7 @@ public abstract class BaseDialog extends DialogFragment {
     /**
      * 灰度
      */
-    private float dimAmount = 0.5f;
+    private float dimAmount = 0.5F;
     /**
      * 底部显
      */
@@ -141,7 +141,7 @@ public abstract class BaseDialog extends DialogFragment {
             Window window = getDialog().getWindow();
             if (window != null) {
                 WindowManager.LayoutParams lp = window.getAttributes();
-                // 调节灰色背景透明度 [0-1]（默 0.5f）
+                // 调节灰色背景透明度 [0-1]（默 0.5F）
                 lp.dimAmount = dimAmount;
                 // 底部显
                 if (showBottom) {
@@ -158,8 +158,8 @@ public abstract class BaseDialog extends DialogFragment {
                     }
                 }
                 // Dialog 宽
-                if (width == 0) {
-                    lp.width = ScreenUtils.screenWidth(Objects.requireNonNull(getContext())) - 2 * DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), margin);
+                if ((width == 0) && (null != getContext())) {
+                    lp.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(getContext(), margin);
                 } else {
                     lp.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
                 }

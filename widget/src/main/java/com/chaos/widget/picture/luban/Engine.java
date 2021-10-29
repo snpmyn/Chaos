@@ -24,9 +24,9 @@ import value.WidgetMagic;
 class Engine {
     private final InputStreamProvider srcImg;
     private final File tagImg;
+    private final boolean focusAlpha;
     private int srcWidth;
     private int srcHeight;
-    private final boolean focusAlpha;
 
     Engine(@NonNull InputStreamProvider srcImg, File tagImg, boolean focusAlpha) throws IOException {
         this.tagImg = tagImg;
@@ -41,8 +41,8 @@ class Engine {
     }
 
     private int computeSize() {
-        srcWidth = ((srcWidth % 2) == 1) ? (srcWidth + 1) : srcWidth;
-        srcHeight = ((srcHeight % 2) == 1) ? (srcHeight + 1) : srcHeight;
+        srcWidth = (((srcWidth % 2) == 1) ? (srcWidth + 1) : srcWidth);
+        srcHeight = (((srcHeight % 2) == 1) ? (srcHeight + 1) : srcHeight);
         int longSide = Math.max(srcWidth, srcHeight);
         int shortSide = Math.min(srcWidth, srcHeight);
         float scale = ((float) shortSide / longSide);
@@ -57,7 +57,7 @@ class Engine {
                 return longSide / 1280;
             }
         } else if ((scale <= WidgetMagic.FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE) && (scale > WidgetMagic.FLOAT_ZERO_DOT_FIVE)) {
-            return longSide / 1280 == 0 ? 1 : longSide / 1280;
+            return ((longSide / 1280 == 0) ? 1 : longSide / 1280);
         } else {
             return (int) Math.ceil(longSide / (1280.0 / scale));
         }
@@ -74,7 +74,7 @@ class Engine {
         options.inSampleSize = computeSize();
         Bitmap tagBitmap = BitmapFactory.decodeStream(srcImg.open(), null, options);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (Checker.SINGLE.isJpg(srcImg.open())) {
+        if (Checker.SINGLE.areJpg(srcImg.open())) {
             tagBitmap = rotatingImage(tagBitmap, Checker.SINGLE.getOrientation(srcImg.open()));
         }
         if (null != tagBitmap) {

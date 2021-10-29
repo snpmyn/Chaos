@@ -15,10 +15,10 @@ public class RandomNumberUtils {
     /**
      * 某范围随机数
      * <p>
-     * 需获随机数范围 [2,100]，
-     * 假设返伪随机数范围 [0,N) 即 [0,N - 1]，
-     * 对所得数模 99 计算所得数范围 [0,98]，
-     * 结果加 2 即 [2,100]。
+     * 需获随机数范围 [2, 100]，
+     * 假设返伪随机数范围 [0, N) 即 [0, N - 1]，
+     * 对所得数模 99 计算所得数范围 [0, 98]，
+     * 结果加 2 即 [2, 100]。
      *
      * @param min 指定范围最小值
      * @param max 指定范围最大值
@@ -118,11 +118,11 @@ public class RandomNumberUtils {
         Random rd = new Random();
         int index;
         for (int i = 0; i < result.length; i++) {
-            // 待选数组 0 到 len-2 随机一下标
+            // 待选数组 0 到 len - 2 随机一下标
             index = Math.abs(rd.nextInt() % len--);
             // 放随机到的数到结果集
             result[i] = source[index];
-            // 待选数组被随机到的数用待选数组 len-1 下标对应数替换
+            // 待选数组被随机到的数用待选数组 len - 1 下标对应数替换
             source[index] = source[len];
         }
         return result;

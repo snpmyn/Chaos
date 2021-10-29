@@ -27,7 +27,7 @@ public class NotificationEnableDialogFragment extends DialogFragment {
     /**
      * 视图
      */
-    private View view;
+    private View mView;
     /**
      * 通知允对话框点监听
      */
@@ -58,13 +58,23 @@ public class NotificationEnableDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_notification_enable_dialog, container);
-        return view;
+        mView = inflater.inflate(R.layout.fragment_notification_enable_dialog, container);
+        return mView;
     }
 
+    /**
+     * Called immediately after {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}
+     * has returned, but before any saved state has been restored in to the view.
+     * This gives subclasses a chance to initialize themselves once
+     * they know their view hierarchy has been completely created.  The fragment's
+     * view hierarchy is not however attached to its parent at this point.
+     *
+     * @param view               The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     */
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         // 对话框
         Dialog dialog = getDialog();
         if (null == dialog) {
@@ -81,12 +91,12 @@ public class NotificationEnableDialogFragment extends DialogFragment {
         }
         window.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.white_solid_r10));
         // 控件
-        MaterialButton fragmentNotificationEnableDialogMbTalkAboutItLater = view.findViewById(R.id.fragmentNotificationEnableDialogMbTalkAboutItLater);
+        MaterialButton fragmentNotificationEnableDialogMbTalkAboutItLater = mView.findViewById(R.id.fragmentNotificationEnableDialogMbTalkAboutItLater);
         fragmentNotificationEnableDialogMbTalkAboutItLater.setOnClickListener(v -> {
             dismiss();
             notificationEnableDialogOnClickListener.talkAboutItLater();
         });
-        MaterialButton fragmentNotificationEnableDialogMbOk = view.findViewById(R.id.fragmentNotificationEnableDialogMbOk);
+        MaterialButton fragmentNotificationEnableDialogMbOk = mView.findViewById(R.id.fragmentNotificationEnableDialogMbOk);
         fragmentNotificationEnableDialogMbOk.setOnClickListener(v -> {
             dismiss();
             notificationEnableDialogOnClickListener.ok();
@@ -99,12 +109,11 @@ public class NotificationEnableDialogFragment extends DialogFragment {
         this.notificationEnableDialogOnClickListener = notificationEnableDialogOnClickListener;
     }
 
-    /**
-     * Remove dialog.
-     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        notificationEnableDialogOnClickListener = null;
+        if (null != notificationEnableDialogOnClickListener) {
+            notificationEnableDialogOnClickListener = null;
+        }
     }
 }

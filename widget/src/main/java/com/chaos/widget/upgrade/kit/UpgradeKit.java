@@ -143,7 +143,7 @@ public class UpgradeKit {
     private void execute(String applicationId, String path, String url) {
         // 监听下载进度
         UpgradeManager.getDownloadProgressEventObservable().subscribe(downloadProgressEvent -> {
-            if ((null != downloadProgressDialog) && downloadProgressDialog.isShowing() && downloadProgressEvent.isNotDownloadFinished()) {
+            if ((null != downloadProgressDialog) && downloadProgressDialog.isShowing() && downloadProgressEvent.areNotDownloadFinished()) {
                 // 正常 downloadProgressEvent.getTotal()
                 downloadProgressDialog.setProgress(downloadProgressEvent.getProgress(), downloadProgressEvent.getTotal());
             }
@@ -152,7 +152,7 @@ public class UpgradeKit {
         UpgradeManager.deleteOldApk(path);
         // 新版已下直 return
         // 此时无需装 APK（isApkFileDownloaded 已调安装）
-        if (UpgradeManager.isApkDownloaded(applicationId, path, serverVersionName)) {
+        if (UpgradeManager.areApkDownloaded(applicationId, path, serverVersionName)) {
             return;
         }
         // 下新 APK

@@ -205,7 +205,7 @@ public class HorizontalGridView<T extends IGrid> extends LinearLayout {
             baseGridViewAdapter.show(measuredGridView, list);
             // 条目点击监听
             measuredGridView.setOnItemClickListener((parent, view, position, id) -> {
-                if (onGridItemClickListener != null) {
+                if (null != onGridItemClickListener) {
                     onGridItemClickListener.onItemClick(list.get(position), position);
                 }
             });

@@ -66,7 +66,7 @@ public class SubscriberBaseEvent extends BaseEvent {
         initObservable();
         // Compute hash code eagerly since we know it will be used frequently and we cannot estimate the runtime of the target's hashCode call.
         final int prime = 31;
-        hashCode = (prime + method.hashCode()) * prime + target.hashCode();
+        hashCode = ((prime + method.hashCode()) * prime + target.hashCode());
     }
 
     private void initObservable() {

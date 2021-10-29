@@ -113,10 +113,10 @@ public class AnimationManager {
      */
     public static void xGradual(final @NotNull View view, int start, int end, long duration, int interpolator, Animator.AnimatorListener animatorListener) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
-        final ViewGroup.LayoutParams params = view.getLayoutParams();
+        final ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         valueAnimator.addUpdateListener(animation -> {
-            params.width = (int) animation.getAnimatedValue();
-            view.setLayoutParams(params);
+            layoutParams.width = (int) animation.getAnimatedValue();
+            view.setLayoutParams(layoutParams);
             view.requestLayout();
         });
         switch (interpolator) {
@@ -148,10 +148,10 @@ public class AnimationManager {
      */
     public static void yGradual(final @NotNull View view, int start, int end, long duration, int interpolator, Animator.AnimatorListener animatorListener) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
-        final ViewGroup.LayoutParams params = view.getLayoutParams();
+        final ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         valueAnimator.addUpdateListener(animation -> {
-            params.height = (int) animation.getAnimatedValue();
-            view.setLayoutParams(params);
+            layoutParams.height = (int) animation.getAnimatedValue();
+            view.setLayoutParams(layoutParams);
             view.requestLayout();
         });
         switch (interpolator) {
@@ -184,10 +184,10 @@ public class AnimationManager {
      */
     public static @NotNull ValueAnimator yGradualReturn(final @NotNull View view, int start, int end, long duration, int interpolator, Animator.AnimatorListener animatorListener) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
-        final ViewGroup.LayoutParams params = view.getLayoutParams();
+        final ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         valueAnimator.addUpdateListener(animation -> {
-            params.height = (int) animation.getAnimatedValue();
-            view.setLayoutParams(params);
+            layoutParams.height = (int) animation.getAnimatedValue();
+            view.setLayoutParams(layoutParams);
             view.requestLayout();
         });
         switch (interpolator) {

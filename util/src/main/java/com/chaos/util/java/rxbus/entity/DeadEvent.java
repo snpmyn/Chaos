@@ -1,6 +1,10 @@
 package com.chaos.util.java.rxbus.entity;
 
+import androidx.annotation.NonNull;
+
 import com.chaos.util.java.rxbus.Bus;
+
+import timber.log.Timber;
 
 /**
  * @decs: DeadEvent
@@ -17,7 +21,7 @@ public class DeadEvent {
      * @param source Object broadcasting the DeadEvent (generally the {@link Bus}).
      * @param event  The event that could not be delivered.
      */
-    public DeadEvent(Object source, Object event) {
-
+    public DeadEvent(@NonNull Object source, @NonNull Object event) {
+        Timber.d(this.getClass().getSimpleName(), source.getClass().getSimpleName() + " " + event.getClass().getSimpleName());
     }
 }

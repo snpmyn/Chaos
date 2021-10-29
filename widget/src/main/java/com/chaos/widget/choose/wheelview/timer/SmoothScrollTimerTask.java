@@ -12,9 +12,9 @@ import java.util.TimerTask;
  */
 public final class SmoothScrollTimerTask extends TimerTask {
     private final WheelView wheelView;
+    private final int offset;
     private int realTotalOffset;
     private int realOffset;
-    private final int offset;
 
     public SmoothScrollTimerTask(WheelView wheelView, int offset) {
         this.wheelView = wheelView;
@@ -30,7 +30,7 @@ public final class SmoothScrollTimerTask extends TimerTask {
         }
         // 将要滚动范围细分 10 小份
         // 按 10 小份单位重绘
-        realOffset = (int) ((float) realTotalOffset * 0.1f);
+        realOffset = (int) ((float) realTotalOffset * 0.1F);
         if (realOffset == 0) {
             if (realTotalOffset < 0) {
                 realOffset = -1;

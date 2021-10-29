@@ -22,8 +22,8 @@ import java.util.List;
  * @desc GridView 适配器基类
  */
 public abstract class BaseGridViewAdapter<T> extends BaseAdapter {
-    private List<T> list;
     protected LayoutInflater layoutInflater;
+    private List<T> list;
     private AdapterHelper.OnItemChildViewClickListener<T> onItemChildViewClickListener;
 
     public BaseGridViewAdapter(@NotNull Context context) {

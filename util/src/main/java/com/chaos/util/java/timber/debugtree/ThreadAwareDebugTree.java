@@ -28,7 +28,7 @@ public class ThreadAwareDebugTree extends Timber.DebugTree {
      */
     @Override
     protected @Nullable String createStackElementTag(@NotNull StackTraceElement element) {
-        return element.getMethodName() + "(" + element.getFileName() + ":" + +element.getLineNumber() + ")";
+        return (element.getMethodName() + "(" + element.getFileName() + ":" + +element.getLineNumber() + ")");
     }
 
     /**

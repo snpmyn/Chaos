@@ -48,10 +48,6 @@ public class CrashManagerInitConfigure implements Thread.UncaughtExceptionHandle
      */
     private final Thread.UncaughtExceptionHandler uncaughtExceptionHandler;
     /**
-     * 路径
-     */
-    private String path;
-    /**
      * 存设备信息和异常信息
      */
     private final Map<String, String> information = new HashMap<>();
@@ -59,6 +55,10 @@ public class CrashManagerInitConfigure implements Thread.UncaughtExceptionHandle
      * 格式化日期（日志文件名部分）
      */
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.CHINA);
+    /**
+     * 路径
+     */
+    private String path;
 
     /**
      * 仅一 CrashHandler 实例

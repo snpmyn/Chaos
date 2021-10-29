@@ -23,6 +23,8 @@ import java.util.Locale;
  * @date: 2019/8/7 14:51
  */
 public class MultiProgressBar extends ProgressBar {
+    private final int mMaxStrokeWidth;
+    private final Rect mTextRect = new Rect();
     private Paint mPaint;
     private Mode mMode;
     private int mTextColor;
@@ -36,11 +38,9 @@ public class MultiProgressBar extends ProgressBar {
     private boolean mIsHiddenText;
     private int mRadius;
     private int xMaxUnReachedEnd;
-    private final int mMaxStrokeWidth;
     private int mTextHeight;
     private int mTextWidth;
     private RectF fArcRect;
-    private final Rect mTextRect = new Rect();
     private String mText;
 
     public MultiProgressBar(Context context) {
@@ -56,6 +56,14 @@ public class MultiProgressBar extends ProgressBar {
         initDefaultAttrs(context);
         initCustomAttrs(context, attrs);
         mMaxStrokeWidth = Math.max(mReachedHeight, mUnReachedHeight);
+    }
+
+    public static int dp2px(@NonNull Context context, float dpValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, context.getResources().getDisplayMetrics());
+    }
+
+    public static int sp2px(@NonNull Context context, float spValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, context.getResources().getDisplayMetrics());
     }
 
     private void initDefaultAttrs(Context context) {
@@ -120,7 +128,7 @@ public class MultiProgressBar extends ProgressBar {
         } else if (mMode == Mode.Horizontal) {
             calculateTextWidthAndHeight();
             int width = MeasureSpec.getSize(widthMeasureSpec);
-            int expectHeight = getPaddingTop() + getPaddingBottom();
+            int expectHeight = (getPaddingTop() + getPaddingBottom());
             if (mIsHiddenText) {
                 expectHeight += Math.max(mReachedHeight, mUnReachedHeight);
             } else {
@@ -128,9 +136,9 @@ public class MultiProgressBar extends ProgressBar {
             }
             int height = resolveSize(expectHeight, heightMeasureSpec);
             setMeasuredDimension(width, height);
-            xMaxUnReachedEnd = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
+            xMaxUnReachedEnd = (getMeasuredWidth() - getPaddingLeft() - getPaddingRight());
         } else if (mMode == Mode.Circle) {
-            int expectSize = mRadius * 2 + mMaxStrokeWidth + getPaddingLeft() + getPaddingRight();
+            int expectSize = (mRadius * 2 + mMaxStrokeWidth + getPaddingLeft() + getPaddingRight());
             int width = resolveSize(expectSize, widthMeasureSpec);
             int height = resolveSize(expectSize, heightMeasureSpec);
             expectSize = Math.min(width, height);
@@ -165,7 +173,7 @@ public class MultiProgressBar extends ProgressBar {
     private void onDrawHorizontal(@NonNull Canvas canvas) {
         canvas.save();
         canvas.translate(getPaddingLeft(), Integer.valueOf(getMeasuredHeight()).floatValue() / 2);
-        float reachedRatio = getProgress() * 1.0f / getMax();
+        float reachedRatio = getProgress() * 1.0F / getMax();
         float xReachedEnd = reachedRatio * xMaxUnReachedEnd;
         if (mIsHiddenText) {
             if (xReachedEnd > xMaxUnReachedEnd) {
@@ -179,7 +187,7 @@ public class MultiProgressBar extends ProgressBar {
             }
             float xUnReachedStart = xReachedEnd;
             if (mIsCapRounded) {
-                xUnReachedStart += (mReachedHeight + mUnReachedHeight) * 1.0f / 2;
+                xUnReachedStart += (mReachedHeight + mUnReachedHeight) * 1.0F / 2;
             }
             if (xUnReachedStart < xMaxUnReachedEnd) {
                 mPaint.setColor(mUnReachedColor);
@@ -189,7 +197,7 @@ public class MultiProgressBar extends ProgressBar {
             }
         } else {
             calculateTextWidthAndHeight();
-            int xMaxReachedEnd = xMaxUnReachedEnd - mTextWidth - mTextMargin;
+            int xMaxReachedEnd = (xMaxUnReachedEnd - mTextWidth - mTextMargin);
             if (xReachedEnd > xMaxReachedEnd) {
                 xReachedEnd = xMaxReachedEnd;
             }
@@ -202,9 +210,9 @@ public class MultiProgressBar extends ProgressBar {
             mPaint.setTextAlign(Paint.Align.LEFT);
             mPaint.setStyle(Paint.Style.FILL);
             mPaint.setColor(mTextColor);
-            float xTextStart = xReachedEnd > 0 ? xReachedEnd + mTextMargin : xReachedEnd;
+            float xTextStart = (xReachedEnd > 0 ? (xReachedEnd + mTextMargin) : xReachedEnd);
             canvas.drawText(mText, xTextStart, Integer.valueOf(mTextHeight).floatValue() / 2, mPaint);
-            float xUnReachedStart = xTextStart + mTextWidth + mTextMargin;
+            float xUnReachedStart = (xTextStart + mTextWidth + mTextMargin);
             if (xUnReachedStart < xMaxUnReachedEnd) {
                 mPaint.setColor(mUnReachedColor);
                 mPaint.setStrokeWidth(Integer.valueOf(mUnReachedHeight).floatValue());
@@ -225,7 +233,7 @@ public class MultiProgressBar extends ProgressBar {
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(mReachedColor);
         mPaint.setStrokeWidth(Integer.valueOf(mReachedHeight).floatValue());
-        float sweepAngle = getProgress() * 1.0f / getMax() * 360;
+        float sweepAngle = getProgress() * 1.0F / getMax() * 360;
         canvas.drawArc(fArcRect, 0, sweepAngle, false, mPaint);
         if (!mIsHiddenText) {
             calculateTextWidthAndHeight();
@@ -239,7 +247,7 @@ public class MultiProgressBar extends ProgressBar {
 
     private void calculateTextWidthAndHeight() {
         // 改参数溢出
-        mText = String.format(Locale.CHINA, "%d", (int) (getProgress() * 1.0f / getMax() * 100)) + "%";
+        mText = String.format(Locale.CHINA, "%d", (int) (getProgress() * 1.0F / getMax() * 100)) + "%";
         mPaint.setTextSize(mTextSize);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.getTextBounds(mText, 0, mText.length(), mTextRect);
@@ -261,20 +269,12 @@ public class MultiProgressBar extends ProgressBar {
          */
         Circle,
         /**
-         * h彗星
+         * 彗星
          */
         Comet,
         /**
          * 波浪
          */
         Wave
-    }
-
-    public static int dp2px(@NonNull Context context, float dpValue) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, context.getResources().getDisplayMetrics());
-    }
-
-    public static int sp2px(@NonNull Context context, float spValue) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, context.getResources().getDisplayMetrics());
     }
 }

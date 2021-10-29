@@ -73,8 +73,8 @@ public class ProgressWheel extends View {
     private boolean linearProgress;
     private float mProgress = 0.0F;
     private float mTargetProgress = 0.0F;
-    private boolean isSpinning = false;
-    private ProgressCallback callback;
+    private boolean areSpinning = false;
+    private ProgressCallback progressCallback;
     private boolean shouldAnimate;
 
     /**
@@ -230,9 +230,9 @@ public class ProgressWheel extends View {
         a.recycle();
     }
 
-    public void setCallback(ProgressCallback progressCallback) {
-        callback = progressCallback;
-        if (!isSpinning) {
+    public void setProgressCallback(ProgressCallback progressCallback) {
+        this.progressCallback = progressCallback;
+        if (!areSpinning) {
             runCallback();
         }
     }
@@ -250,7 +250,7 @@ public class ProgressWheel extends View {
         if (!shouldAnimate) {
             return;
         }
-        if (isSpinning) {
+        if (areSpinning) {
             // draw the spinning bar
             mustInvalidate = true;
             long deltaTime = (SystemClock.uptimeMillis() - lastTimeAnimated);
@@ -258,12 +258,12 @@ public class ProgressWheel extends View {
             updateBarLength(deltaTime);
             mProgress += deltaNormalized;
             if (mProgress > WidgetMagic.INT_THREE_HUNDRED_SIXTY) {
-                mProgress -= 360F;
+                mProgress -= 360.0F;
                 // a full turn has been completed
                 // we run the callback with -1 in case we want to
                 // do something, like changing the color
-                if (null != callback) {
-                    callback.onProgressUpdate(-1.0F);
+                if (null != progressCallback) {
+                    progressCallback.onProgressUpdate(-1.0F);
                 }
             }
             lastTimeAnimated = SystemClock.uptimeMillis();
@@ -342,8 +342,8 @@ public class ProgressWheel extends View {
     /**
      * Check if the wheel is currently spinning.
      */
-    public boolean isSpinning() {
-        return isSpinning;
+    public boolean areAreSpinning() {
+        return areSpinning;
     }
 
     /**
@@ -359,7 +359,7 @@ public class ProgressWheel extends View {
      * Turn off spin mode.
      */
     public void stopSpinning() {
-        isSpinning = false;
+        areSpinning = false;
         mProgress = 0.0F;
         mTargetProgress = 0.0F;
         invalidate();
@@ -370,14 +370,14 @@ public class ProgressWheel extends View {
      */
     public void spin() {
         lastTimeAnimated = SystemClock.uptimeMillis();
-        isSpinning = true;
+        areSpinning = true;
         invalidate();
     }
 
     private void runCallback() {
-        if (null != callback) {
+        if (null != progressCallback) {
             float normalizedProgress = (float) Math.round(mProgress * 100 / 360.0F) / 100;
-            callback.onProgressUpdate(normalizedProgress);
+            progressCallback.onProgressUpdate(normalizedProgress);
         }
     }
 
@@ -387,9 +387,9 @@ public class ProgressWheel extends View {
      * @param progress the progress between 0 and 1
      */
     public void setInstantProgress(float progress) {
-        if (isSpinning) {
+        if (areSpinning) {
             mProgress = 0.0F;
-            isSpinning = false;
+            areSpinning = false;
         }
         if (progress > WidgetMagic.FLOAT_ONE_DOT_ZERO) {
             progress -= 1.0F;
@@ -399,7 +399,7 @@ public class ProgressWheel extends View {
         if (FloatUtils.equal(progress, mTargetProgress)) {
             return;
         }
-        mTargetProgress = Math.min(progress * 360.0f, 360.0F);
+        mTargetProgress = Math.min(progress * 360.0F, 360.0F);
         mProgress = mTargetProgress;
         lastTimeAnimated = SystemClock.uptimeMillis();
         invalidate();
@@ -412,7 +412,7 @@ public class ProgressWheel extends View {
         // we save everything that can be changed at runtime
         wheelSavedState.mProgress = this.mProgress;
         wheelSavedState.mTargetProgress = this.mTargetProgress;
-        wheelSavedState.isSpinning = this.isSpinning;
+        wheelSavedState.areSpinning = this.areSpinning;
         wheelSavedState.spinSpeed = this.spinSpeed;
         wheelSavedState.barWidth = this.barWidth;
         wheelSavedState.barColor = this.barColor;
@@ -434,7 +434,7 @@ public class ProgressWheel extends View {
         super.onRestoreInstanceState(wheelSavedState.getSuperState());
         this.mProgress = wheelSavedState.mProgress;
         this.mTargetProgress = wheelSavedState.mTargetProgress;
-        this.isSpinning = wheelSavedState.isSpinning;
+        this.areSpinning = wheelSavedState.areSpinning;
         this.spinSpeed = wheelSavedState.spinSpeed;
         this.barWidth = wheelSavedState.barWidth;
         this.barColor = wheelSavedState.barColor;
@@ -452,7 +452,7 @@ public class ProgressWheel extends View {
      * @return The current progress between 0.0 and 1.0, if the wheel is indeterminate, then the result is -1.
      */
     public float getProgress() {
-        return isSpinning ? -1 : mProgress / 360.0F;
+        return areSpinning ? -1 : mProgress / 360.0F;
     }
 
     //----------------------------------
@@ -465,9 +465,9 @@ public class ProgressWheel extends View {
      * @param progress The progress between 0 and 1.
      */
     public void setProgress(float progress) {
-        if (isSpinning) {
+        if (areSpinning) {
             mProgress = 0.0F;
-            isSpinning = false;
+            areSpinning = false;
             runCallback();
         }
         if (progress > WidgetMagic.FLOAT_ONE_DOT_ZERO) {
@@ -494,7 +494,7 @@ public class ProgressWheel extends View {
      */
     public void setLinearProgress(boolean isLinear) {
         linearProgress = isLinear;
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -515,7 +515,7 @@ public class ProgressWheel extends View {
      */
     public void setCircleRadius(int circleRadius) {
         this.circleRadius = circleRadius;
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -536,7 +536,7 @@ public class ProgressWheel extends View {
      */
     public void setBarWidth(int barWidth) {
         this.barWidth = barWidth;
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -558,7 +558,7 @@ public class ProgressWheel extends View {
     public void setBarColor(int barColor) {
         this.barColor = barColor;
         setupPaints();
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -580,7 +580,7 @@ public class ProgressWheel extends View {
     public void setRimColor(int rimColor) {
         this.rimColor = rimColor;
         setupPaints();
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -619,7 +619,7 @@ public class ProgressWheel extends View {
      */
     public void setRimWidth(int rimWidth) {
         this.rimWidth = rimWidth;
-        if (!isSpinning) {
+        if (!areSpinning) {
             invalidate();
         }
     }
@@ -655,7 +655,7 @@ public class ProgressWheel extends View {
                 };
         float mProgress;
         float mTargetProgress;
-        boolean isSpinning;
+        boolean areSpinning;
         float spinSpeed;
         int barWidth;
         int barColor;
@@ -673,7 +673,7 @@ public class ProgressWheel extends View {
             super(in);
             this.mProgress = in.readFloat();
             this.mTargetProgress = in.readFloat();
-            this.isSpinning = (in.readByte() != 0);
+            this.areSpinning = (in.readByte() != 0);
             this.spinSpeed = in.readFloat();
             this.barWidth = in.readInt();
             this.barColor = in.readInt();
@@ -689,7 +689,7 @@ public class ProgressWheel extends View {
             super.writeToParcel(out, flags);
             out.writeFloat(this.mProgress);
             out.writeFloat(this.mTargetProgress);
-            out.writeByte((byte) (isSpinning ? 1 : 0));
+            out.writeByte((byte) (areSpinning ? 1 : 0));
             out.writeFloat(this.spinSpeed);
             out.writeInt(this.barWidth);
             out.writeInt(this.barColor);

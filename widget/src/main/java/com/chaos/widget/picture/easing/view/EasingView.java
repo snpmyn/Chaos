@@ -28,6 +28,15 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      */
     private final Matrix mMatrix = new Matrix();
     /**
+     * The rect that holds the bounds of this view.
+     */
+    private final RectF mViewportRect = new RectF();
+    /**
+     * Indicates whether the parent constructor was already called.
+     * This is needed to distinguish if the image is being set before or after the super class constructor returns.
+     */
+    private final boolean mInitialized;
+    /**
      * The {@link TransitionGenerator} implementation used to perform the transitions between rects.
      * The default {@link TransitionGenerator} is {@link RandomTransitionGenerator}.
      */
@@ -40,10 +49,6 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      * The ongoing transition.
      */
     private Transition mCurrentTrans;
-    /**
-     * The rect that holds the bounds of this view.
-     */
-    private final RectF mViewportRect = new RectF();
     /**
      * The rect that holds the bounds of the current {@link Drawable}.
      */
@@ -61,11 +66,6 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      * Controls whether the the animation is running.
      */
     private boolean mPaused;
-    /**
-     * Indicates whether the parent constructor was already called.
-     * This is needed to distinguish if the image is being set before or after the super class constructor returns.
-     */
-    private final boolean mInitialized;
 
     public EasingView(Context context) {
         this(context, null);
@@ -130,18 +130,18 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Drawable d = getDrawable();
-        if (!mPaused && (d != null)) {
+        Drawable drawable = getDrawable();
+        if (!mPaused && (null != drawable)) {
             if (mDrawableRect.isEmpty()) {
                 updateDrawableBounds();
             } else if (hasBounds()) {
-                if (mCurrentTrans == null) {
+                if (null == mCurrentTrans) {
                     // Starting the first transition.
                     startNewTransition();
                 }
-                if (mCurrentTrans.getDestinyRect() != null) {
+                if (null != mCurrentTrans.getDestinyRect()) {
                     // If null, it's supposed to stop.
-                    mElapsedTime += System.currentTimeMillis() - mLastFrameTime;
+                    mElapsedTime += (System.currentTimeMillis() - mLastFrameTime);
                     RectF currentRect = mCurrentTrans.getInterpolatedRect(mElapsedTime);
                     float widthScale = mDrawableRect.width() / currentRect.width();
                     float heightScale = mDrawableRect.height() / currentRect.height();
@@ -197,7 +197,7 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
     public void restart() {
         int width = getWidth();
         int height = getHeight();
-        if (width == 0 || height == 0) {
+        if ((width == 0) || (height == 0)) {
             // Can't call restart() when view area is zero.
             return;
         }
@@ -221,7 +221,7 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      * @param transition The transition that just started.
      */
     private void fireTransitionStart(Transition transition) {
-        if (mTransitionListener != null && transition != null) {
+        if ((null != mTransitionListener) && (null != transition)) {
             mTransitionListener.onTransitionStart(transition);
         }
     }
@@ -232,7 +232,7 @@ public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
      * @param transition The transition that just ended.
      */
     private void fireTransitionEnd(Transition transition) {
-        if (mTransitionListener != null && transition != null) {
+        if ((null != mTransitionListener) && (null != transition)) {
             mTransitionListener.onTransitionEnd(transition);
         }
     }

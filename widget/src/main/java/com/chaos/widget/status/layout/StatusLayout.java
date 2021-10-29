@@ -19,11 +19,11 @@ import timber.log.Timber;
  * @date: 2018/10/23 18:54
  */
 public class StatusLayout extends FrameLayout {
+    private final LayoutInflater mLayoutInflater;
     private View mLoadingView;
     private View mEmptyView;
     private View mRetryView;
     private View mContentView;
-    private final LayoutInflater mLayoutInflater;
 
     public StatusLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -121,59 +121,49 @@ public class StatusLayout extends FrameLayout {
         }
         if (view == mLoadingView) {
             mLoadingView.setVisibility(View.VISIBLE);
-            if (mRetryView != null) {
+            if (null != mRetryView) {
                 mRetryView.setVisibility(View.GONE);
             }
-            if (mContentView != null) {
+            if (null != mContentView) {
                 mContentView.setVisibility(View.GONE);
             }
-            if (mEmptyView != null) {
+            if (null != mEmptyView) {
                 mEmptyView.setVisibility(View.GONE);
             }
         } else if (view == mEmptyView) {
             mEmptyView.setVisibility(View.VISIBLE);
-            if (mLoadingView != null) {
+            if (null != mLoadingView) {
                 mLoadingView.setVisibility(View.GONE);
             }
-            if (mRetryView != null) {
+            if (null != mRetryView) {
                 mRetryView.setVisibility(View.GONE);
             }
-            if (mContentView != null) {
+            if (null != mContentView) {
                 mContentView.setVisibility(View.GONE);
             }
         } else if (view == mRetryView) {
             mRetryView.setVisibility(View.VISIBLE);
-            if (mLoadingView != null) {
+            if (null != mLoadingView) {
                 mLoadingView.setVisibility(View.GONE);
             }
-            if (mContentView != null) {
+            if (null != mContentView) {
                 mContentView.setVisibility(View.GONE);
             }
-            if (mEmptyView != null) {
+            if (null != mEmptyView) {
                 mEmptyView.setVisibility(View.GONE);
             }
         } else if (view == mContentView) {
             mContentView.setVisibility(View.VISIBLE);
-            if (mLoadingView != null) {
+            if (null != mLoadingView) {
                 mLoadingView.setVisibility(View.GONE);
             }
-            if (mRetryView != null) {
+            if (null != mRetryView) {
                 mRetryView.setVisibility(View.GONE);
             }
-            if (mEmptyView != null) {
+            if (null != mEmptyView) {
                 mEmptyView.setVisibility(View.GONE);
             }
         }
-    }
-
-    public void setContentView(View view) {
-        View contentView = mContentView;
-        if (contentView != null) {
-            Timber.d("You have already set a retry view and would be instead of this new one.");
-        }
-        removeView(contentView);
-        addView(view);
-        mContentView = view;
     }
 
     public View getLoadingView() {
@@ -186,7 +176,7 @@ public class StatusLayout extends FrameLayout {
 
     public void setLoadingView(View view) {
         View loadingView = mLoadingView;
-        if (loadingView != null) {
+        if (null != loadingView) {
             Timber.d("You have already set a loading view and would be instead of this new one.");
         }
         removeView(loadingView);
@@ -204,7 +194,7 @@ public class StatusLayout extends FrameLayout {
 
     public void setEmptyView(View view) {
         View emptyView = mEmptyView;
-        if (emptyView != null) {
+        if (null != emptyView) {
             Timber.d("You have already set a empty view and would be instead of this new one.");
         }
         removeView(emptyView);
@@ -222,7 +212,7 @@ public class StatusLayout extends FrameLayout {
 
     public void setRetryView(View view) {
         View retryView = mRetryView;
-        if (retryView != null) {
+        if (null != retryView) {
             Timber.d("You have already set a retry view and would be instead of this new one.");
         }
         removeView(retryView);
@@ -232,6 +222,16 @@ public class StatusLayout extends FrameLayout {
 
     public View getContentView() {
         return mContentView;
+    }
+
+    public void setContentView(View view) {
+        View contentView = mContentView;
+        if (null != contentView) {
+            Timber.d("You have already set a retry view and would be instead of this new one.");
+        }
+        removeView(contentView);
+        addView(view);
+        mContentView = view;
     }
 
     public void setContentView(int layoutId) {

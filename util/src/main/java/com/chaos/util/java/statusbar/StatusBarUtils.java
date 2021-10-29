@@ -355,8 +355,8 @@ public class StatusBarUtils {
         contentLayout.setFitsSystemWindows(true);
         contentLayout.setClipToPadding(true);
         // 抽屉布局属性
-        ViewGroup vg = (ViewGroup) drawerLayout.getChildAt(1);
-        vg.setFitsSystemWindows(false);
+        ViewGroup viewGroup = (ViewGroup) drawerLayout.getChildAt(1);
+        viewGroup.setFitsSystemWindows(false);
         // DrawerLayout 属性
         drawerLayout.setFitsSystemWindows(false);
     }
@@ -549,8 +549,8 @@ public class StatusBarUtils {
     private static @NotNull View createTranslucentStatusBarView(Activity activity, int alpha) {
         // 绘一状态栏等高矩形
         View statusBarView = new View(activity);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(activity));
-        statusBarView.setLayoutParams(params);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(activity));
+        statusBarView.setLayoutParams(layoutParams);
         statusBarView.setBackgroundColor(Color.argb(alpha, 0, 0, 0));
         statusBarView.setId(FAKE_TRANSLUCENT_VIEW_ID);
         return statusBarView;
@@ -583,7 +583,7 @@ public class StatusBarUtils {
         if (alpha == 0) {
             return color;
         }
-        float a = (1 - alpha / 255f);
+        float a = (1 - alpha / 255.0F);
         int red = (color >> 16 & 0xff);
         int green = (color >> 8 & 0xff);
         int blue = (color & 0xff);
@@ -622,20 +622,20 @@ public class StatusBarUtils {
     private static void setMeiZuStatusBarDarkIcon(Activity activity, boolean dark) {
         if (null != activity) {
             try {
-                WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+                WindowManager.LayoutParams layoutParams = activity.getWindow().getAttributes();
                 Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
                 Field meiZuFlags = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
                 darkFlag.setAccessible(true);
                 meiZuFlags.setAccessible(true);
                 int bit = darkFlag.getInt(null);
-                int value = meiZuFlags.getInt(lp);
+                int value = meiZuFlags.getInt(layoutParams);
                 if (dark) {
                     value |= bit;
                 } else {
                     value &= ~bit;
                 }
-                meiZuFlags.setInt(lp, value);
-                activity.getWindow().setAttributes(lp);
+                meiZuFlags.setInt(layoutParams, value);
+                activity.getWindow().setAttributes(layoutParams);
             } catch (Exception e) {
                 Timber.e(e);
             }
@@ -646,12 +646,12 @@ public class StatusBarUtils {
      * 状态栏字体色暗
      *
      * @param activity 活动
-     * @param isDark   暗否
+     * @param areDark  暗否
      */
-    private static void statusBarTextColorDark(@NonNull Activity activity, boolean isDark) {
+    private static void statusBarTextColorDark(@NonNull Activity activity, boolean areDark) {
         View decorView = activity.getWindow().getDecorView();
         int vis = decorView.getSystemUiVisibility();
-        if (isDark) {
+        if (areDark) {
             vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         } else {
             vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;

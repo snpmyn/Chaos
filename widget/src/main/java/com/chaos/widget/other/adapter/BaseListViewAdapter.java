@@ -21,8 +21,8 @@ import java.util.List;
  * @desc ListView 适配器基类
  */
 public abstract class BaseListViewAdapter<T> extends BaseAdapter {
-    private List<T> list;
     protected LayoutInflater layoutInflater;
+    private List<T> list;
     private AdapterHelper.OnItemChildViewClickListener<T> onItemChildViewClickListener;
 
     public BaseListViewAdapter(@NotNull Context context) {

@@ -25,16 +25,16 @@ public final class MathUtils {
     /**
      * Checks whether two {@link RectF} have the same aspect ratio.
      *
-     * @param r1 The first rect.
-     * @param r2 The second rect.
+     * @param fRectOne The first rect.
+     * @param fRectTwo The second rect.
      * @return {@code true} If both rectangles have the same aspect ratio, {@code false} otherwise.
      */
-    public static boolean haveSameAspectRatio(RectF r1, RectF r2) {
+    public static boolean haveSameAspectRatio(RectF fRectOne, RectF fRectTwo) {
         // Reduces precision to avoid problems when comparing aspect ratios.
-        float srcRectRatio = MathUtils.truncate(MathUtils.getRectRatio(r1), 3);
-        float dstRectRatio = MathUtils.truncate(MathUtils.getRectRatio(r2), 3);
-        // Compares aspect ratios that allows for a tolerance range of [0, 0.01] 
-        return (Math.abs(srcRectRatio - dstRectRatio) <= 0.01f);
+        float srcRectRatio = MathUtils.truncate(MathUtils.getRectRatio(fRectOne), 3);
+        float dstRectRatio = MathUtils.truncate(MathUtils.getRectRatio(fRectTwo), 3);
+        // Compares aspect ratios that allows for a tolerance range of [0, 0.01]
+        return (Math.abs(srcRectRatio - dstRectRatio) <= 0.01F);
     }
 
     /**

@@ -40,8 +40,6 @@ public class Luban implements Handler.Callback {
     private static final int MSG_COMPRESS_SUCCESS = 0;
     private static final int MSG_COMPRESS_START = 1;
     private static final int MSG_COMPRESS_ERROR = 2;
-    private String mTargetDir;
-    private boolean focusAlpha;
     private final int mLeastCompressSize;
     private final OnRenameListener mRenameListener;
     private final OnCompressListener mCompressListener;
@@ -49,6 +47,8 @@ public class Luban implements Handler.Callback {
     private final List<InputStreamProvider> mStreamProviders;
     private final Handler mHandler;
     private final Random random = new Random();
+    private String mTargetDir;
+    private boolean focusAlpha;
 
     private Luban(@NonNull Builder builder) {
         this.mTargetDir = builder.mTargetDir;
@@ -99,7 +99,7 @@ public class Luban implements Handler.Callback {
         if (TextUtils.isEmpty(mTargetDir)) {
             mTargetDir = getImageCacheDir(context).getAbsolutePath();
         }
-        String cacheBuilder = mTargetDir + "/" + System.currentTimeMillis() + (random.nextInt() * 1000) + (TextUtils.isEmpty(suffix) ? ".jpg" : suffix);
+        String cacheBuilder = (mTargetDir + "/" + System.currentTimeMillis() + (random.nextInt() * 1000) + (TextUtils.isEmpty(suffix) ? ".jpg" : suffix));
         return new File(cacheBuilder);
     }
 
@@ -109,7 +109,7 @@ public class Luban implements Handler.Callback {
         if (TextUtils.isEmpty(mTargetDir)) {
             mTargetDir = getImageCacheDir(context).getAbsolutePath();
         }
-        String cacheBuilder = mTargetDir + "/" + filename;
+        String cacheBuilder = (mTargetDir + "/" + filename);
         return new File(cacheBuilder);
     }
 
@@ -129,7 +129,7 @@ public class Luban implements Handler.Callback {
      * @param context A context.
      */
     private void launch(final Context context) {
-        boolean flag = (null == mStreamProviders) || (mStreamProviders.size() == 0) && (null != mCompressListener);
+        boolean flag = ((null == mStreamProviders) || (mStreamProviders.size() == 0) && (null != mCompressListener));
         if (flag) {
             mCompressListener.onError(new NullPointerException("image file cannot be null"));
         }
@@ -195,16 +195,15 @@ public class Luban implements Handler.Callback {
             outFile = getImageCustomFile(context, filename);
         }
         if (null != mCompressionPredicate) {
-            if (mCompressionPredicate.apply(path.getPath())
-                    && Checker.SINGLE.needCompress(mLeastCompressSize, path.getPath())) {
+            if (mCompressionPredicate.apply(path.getPath()) && Checker.SINGLE.needCompress(mLeastCompressSize, path.getPath())) {
                 result = new Engine(path, outFile, focusAlpha).compress();
             } else {
                 result = new File(path.getPath());
             }
         } else {
-            result = Checker.SINGLE.needCompress(mLeastCompressSize, path.getPath()) ?
+            result = (Checker.SINGLE.needCompress(mLeastCompressSize, path.getPath()) ?
                     new Engine(path, outFile, focusAlpha).compress() :
-                    new File(path.getPath());
+                    new File(path.getPath()));
         }
         return result;
     }
@@ -232,13 +231,13 @@ public class Luban implements Handler.Callback {
 
     public static class Builder {
         private final Context context;
+        private final List<InputStreamProvider> mStreamProviders;
         private String mTargetDir;
         private boolean focusAlpha;
         private int mLeastCompressSize = 100;
         private OnRenameListener mRenameListener;
         private OnCompressListener mCompressListener;
         private CompressionPredicate mCompressionPredicate;
-        private final List<InputStreamProvider> mStreamProviders;
 
         Builder(Context context) {
             this.context = context;

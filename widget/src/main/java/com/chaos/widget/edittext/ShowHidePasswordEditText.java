@@ -106,8 +106,6 @@ public class ShowHidePasswordEditText extends androidx.appcompat.widget.AppCompa
     private boolean areLeftToRight() {
         // If we are pre JB assume always LTR.
         // Other methods, seemingly broken when testing though.
-        /*return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL;*/
-        /*return !ViewUtils.isLayoutRtl(this);*/
         Configuration config = getResources().getConfiguration();
         return (config.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL);
     }

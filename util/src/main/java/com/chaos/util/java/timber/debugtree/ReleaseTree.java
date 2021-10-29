@@ -20,7 +20,7 @@ public class ReleaseTree extends ThreadAwareDebugTree {
      */
     @Override
     protected boolean isLoggable(@Nullable String tag, int priority) {
-        return (priority != Log.VERBOSE) && (priority != Log.DEBUG) && (priority != Log.INFO);
+        return ((priority != Log.VERBOSE) && (priority != Log.DEBUG) && (priority != Log.INFO));
     }
 
     /**

@@ -13,7 +13,7 @@ public class RxBus {
     /**
      * Instance of {@link Bus}.
      */
-    private static Bus sBus;
+    private static Bus mBus;
 
     /**
      * Get the instance of {@link Bus}.
@@ -21,9 +21,9 @@ public class RxBus {
      * @return Bus
      */
     public static synchronized Bus get() {
-        if (null == sBus) {
-            sBus = new Bus(ThreadEnforcer.ANY);
+        if (null == mBus) {
+            mBus = new Bus(ThreadEnforcer.ANY);
         }
-        return sBus;
+        return mBus;
     }
 }

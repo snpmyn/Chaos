@@ -30,7 +30,7 @@ import timber.log.Timber;
  * @date: 2018/8/22 8:55
  */
 public class UpgradeEngine {
-    private static UpgradeEngine sInstance;
+    private static UpgradeEngine instance;
     private final DownloadApi downloadApi;
 
     private UpgradeEngine() {
@@ -44,14 +44,14 @@ public class UpgradeEngine {
     }
 
     public static UpgradeEngine getInstance() {
-        if (null == sInstance) {
+        if (null == instance) {
             synchronized (UpgradeEngine.class) {
-                if (null == sInstance) {
-                    sInstance = new UpgradeEngine();
+                if (null == instance) {
+                    instance = new UpgradeEngine();
                 }
             }
         }
-        return sInstance;
+        return instance;
     }
 
     private static @NotNull OkHttpClient getDownloadOkHttpClient() {

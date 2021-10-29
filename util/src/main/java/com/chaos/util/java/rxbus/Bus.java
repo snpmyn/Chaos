@@ -174,7 +174,7 @@ public class Bus {
         for (EventType type : foundProducers.keySet()) {
             final ProducerBaseEvent producer = foundProducers.get(type);
             ProducerBaseEvent previousProducer = producersByType.putIfAbsent(type, producer);
-            //checking if the previous producer existed
+            // checking if the previous producer existed
             if (null != previousProducer) {
                 if (null != producer) {
                     throw new IllegalArgumentException("Producer method for type " + type
@@ -192,24 +192,24 @@ public class Bus {
             }
         }
         Map<EventType, Set<SubscriberBaseEvent>> foundSubscribersMap = finder.findAllSubscribers(object);
-        for (EventType type : foundSubscribersMap.keySet()) {
-            Set<SubscriberBaseEvent> subscribers = subscribersByType.get(type);
+        for (EventType eventType : foundSubscribersMap.keySet()) {
+            Set<SubscriberBaseEvent> subscribers = subscribersByType.get(eventType);
             if (null == subscribers) {
-                //concurrent put if absent
+                // concurrent put if absent
                 Set<SubscriberBaseEvent> subscribersCreation = new CopyOnWriteArraySet<>();
-                subscribers = subscribersByType.putIfAbsent(type, subscribersCreation);
+                subscribers = subscribersByType.putIfAbsent(eventType, subscribersCreation);
                 if (null == subscribers) {
                     subscribers = subscribersCreation;
                 }
             }
-            final Set<SubscriberBaseEvent> foundSubscribers = foundSubscribersMap.get(type);
+            final Set<SubscriberBaseEvent> foundSubscribers = foundSubscribersMap.get(eventType);
             if ((null != foundSubscribers) && !subscribers.addAll(foundSubscribers)) {
                 throw new IllegalArgumentException("Object already registered.");
             }
         }
         for (Map.Entry<EventType, Set<SubscriberBaseEvent>> entry : foundSubscribersMap.entrySet()) {
-            EventType type = entry.getKey();
-            ProducerBaseEvent producer = producersByType.get(type);
+            EventType eventType = entry.getKey();
+            ProducerBaseEvent producer = producersByType.get(eventType);
             if ((null != producer) && producer.isValid()) {
                 Set<SubscriberBaseEvent> subscriberEvents = entry.getValue();
                 for (SubscriberBaseEvent subscriberEvent : subscriberEvents) {

@@ -89,7 +89,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         int position = viewPager.getCurrentItem();
         if (position == 0) {
             position = getFirstItem();
-        } else if (position == getCount() - 1) {
+        } else if (position == (getCount() - 1)) {
             position = getLastItem();
         }
         try {
@@ -116,7 +116,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     }
 
     private int getLastItem() {
-        return getRealCount() - 1;
+        return (getRealCount() - 1);
     }
 
     int toRealPosition(int position) {

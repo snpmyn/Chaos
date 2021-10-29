@@ -94,12 +94,7 @@ public class ActivitySuperviseManager {
     public String getCurrentRunningActivityName(@NotNull Context context) {
         ActivityManager activityManager = (ActivityManager) context.getApplicationContext().getSystemService(ACTIVITY_SERVICE);
         ActivityManager.RunningTaskInfo runningTaskInfo = ((null != activityManager) ? activityManager.getRunningTasks(1).get(0) : null);
-        String currentRunningActivityName;
-        if ((null != runningTaskInfo) && (null != runningTaskInfo.topActivity)) {
-            currentRunningActivityName = runningTaskInfo.topActivity.getShortClassName();
-        } else {
-            currentRunningActivityName = null;
-        }
+        String currentRunningActivityName = ((null != runningTaskInfo) && (null != runningTaskInfo.topActivity)) ? runningTaskInfo.topActivity.getShortClassName() : null;
         Timber.d("当前活动名：%s", currentRunningActivityName);
         return currentRunningActivityName;
     }

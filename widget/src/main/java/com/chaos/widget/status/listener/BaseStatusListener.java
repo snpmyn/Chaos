@@ -60,14 +60,14 @@ public abstract class BaseStatusListener {
     }
 
     public boolean isSetLoadingLayout() {
-        return generateLoadingLayoutId() != StatusManager.NO_LAYOUT_ID || generateLoadingLayout() != null;
+        return ((generateLoadingLayoutId() != StatusManager.NO_LAYOUT_ID) || (null != generateLoadingLayout()));
     }
 
     public boolean isSetEmptyLayout() {
-        return generateEmptyLayoutId() != StatusManager.NO_LAYOUT_ID || generateEmptyLayout() != null;
+        return ((generateEmptyLayoutId() != StatusManager.NO_LAYOUT_ID) || (null != generateEmptyLayout()));
     }
 
     public boolean isSetRetryLayout() {
-        return generateRetryLayoutId() != StatusManager.NO_LAYOUT_ID || generateRetryLayout() != null;
+        return ((generateRetryLayoutId() != StatusManager.NO_LAYOUT_ID) || (null != generateRetryLayout()));
     }
 }

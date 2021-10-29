@@ -1,18 +1,18 @@
 package com.chaos.util.java.keyboard;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
-
-import static android.content.Context.INPUT_METHOD_SERVICE;
-
-import androidx.annotation.NonNull;
 
 /**
  * Created on 2017/8/22.

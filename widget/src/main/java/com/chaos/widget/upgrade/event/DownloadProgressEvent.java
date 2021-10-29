@@ -43,7 +43,7 @@ public class DownloadProgressEvent {
      *
      * @return 未下载完
      */
-    public boolean isNotDownloadFinished() {
+    public boolean areNotDownloadFinished() {
         return fileTotalSize != currentProgress;
     }
 }

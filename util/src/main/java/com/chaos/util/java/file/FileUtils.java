@@ -88,8 +88,8 @@ public class FileUtils {
      * @param filePath filePath
      * @return 据路径文件存否
      */
-    public static boolean isFileExistByPath(final String filePath) {
-        return isFileExist(getFileByPath(filePath));
+    public static boolean areFileExistByPath(final String filePath) {
+        return areFileExist(getFileByPath(filePath));
     }
 
     /**
@@ -98,7 +98,7 @@ public class FileUtils {
      * @param file file
      * @return 文件存否
      */
-    private static boolean isFileExist(final File file) {
+    private static boolean areFileExist(final File file) {
         return (file != null) && file.exists();
     }
 
@@ -109,10 +109,10 @@ public class FileUtils {
      * @return 文件
      */
     private static @org.jetbrains.annotations.Nullable File getFileByPath(final String filePath) {
-        return isSpace(filePath) ? null : new File(filePath);
+        return areSpace(filePath) ? null : new File(filePath);
     }
 
-    private static boolean isSpace(final String s) {
+    private static boolean areSpace(final String s) {
         if (null == s) {
             return true;
         }
@@ -256,15 +256,15 @@ public class FileUtils {
      * @return 文件
      */
     public static boolean writeFile(File file, InputStream inputStream) {
-        OutputStream os = null;
+        OutputStream outputStream = null;
         try {
-            os = new FileOutputStream(file);
+            outputStream = new FileOutputStream(file);
             byte[] data = new byte[1024];
             int length;
             while ((length = inputStream.read(data)) != -1) {
-                os.write(data, 0, length);
+                outputStream.write(data, 0, length);
             }
-            os.flush();
+            outputStream.flush();
             return true;
         } catch (Exception e) {
             Timber.e(e);
@@ -272,7 +272,7 @@ public class FileUtils {
                 file.deleteOnExit();
             }
         } finally {
-            closeStream(os);
+            closeStream(outputStream);
             closeStream(inputStream);
         }
         return false;
@@ -392,7 +392,7 @@ public class FileUtils {
      * @param uri Uri
      * @return true if uri is a MediaStore uri
      */
-    public static boolean isMediaUri(@NotNull Uri uri) {
+    public static boolean areMediaUri(@NotNull Uri uri) {
         return "media".equalsIgnoreCase(uri.getAuthority());
     }
 
@@ -471,7 +471,7 @@ public class FileUtils {
      * @param uri       Uri
      * @return boolean
      */
-    private static boolean isLocalStorageDocument(@NotNull String authority, @NotNull Uri uri) {
+    private static boolean areLocalStorageDocument(@NotNull String authority, @NotNull Uri uri) {
         return authority.equals(uri.getAuthority());
     }
 
@@ -481,7 +481,7 @@ public class FileUtils {
      * @param uri the uri to check
      * @return boolean
      */
-    private static boolean isExternalStorageDocument(@NotNull Uri uri) {
+    private static boolean areExternalStorageDocument(@NotNull Uri uri) {
         return "com.android.externalstorage.documents".equals(uri.getAuthority());
     }
 
@@ -491,7 +491,7 @@ public class FileUtils {
      * @param uri the uri to check
      * @return boolean
      */
-    private static boolean isDownloadsDocument(@NotNull Uri uri) {
+    private static boolean areDownloadsDocument(@NotNull Uri uri) {
         return "com.android.providers.downloads.documents".equals(uri.getAuthority());
     }
 
@@ -501,7 +501,7 @@ public class FileUtils {
      * @param uri the uri to check
      * @return boolean
      */
-    private static boolean isMediaDocument(@NotNull Uri uri) {
+    private static boolean areMediaDocument(@NotNull Uri uri) {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
     }
 
@@ -511,7 +511,7 @@ public class FileUtils {
      * @param uri the uri to check
      * @return boolean
      */
-    private static boolean isGooglePhotosUri(@NotNull Uri uri) {
+    private static boolean areGooglePhotosUri(@NotNull Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
 
@@ -530,8 +530,7 @@ public class FileUtils {
         final String[] projection = {column};
         try (Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null)) {
             if ((null != cursor) && cursor.moveToFirst()) {
-                final int columnIndex = cursor.getColumnIndexOrThrow(column);
-                return cursor.getString(columnIndex);
+                return cursor.getString(cursor.getColumnIndexOrThrow(column));
             }
         }
         return null;
@@ -554,12 +553,12 @@ public class FileUtils {
         // DocumentProvider
         if (DocumentsContract.isDocumentUri(context, uri)) {
             // LocalStorageProvider
-            if (isLocalStorageDocument(authority, uri)) {
+            if (areLocalStorageDocument(authority, uri)) {
                 // The path is the id
                 return DocumentsContract.getDocumentId(uri);
             }
             // ExternalStorageProvider
-            else if (isExternalStorageDocument(uri)) {
+            else if (areExternalStorageDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -568,7 +567,7 @@ public class FileUtils {
                 }
             }
             // DownloadsProvider
-            else if (isDownloadsDocument(uri)) {
+            else if (areDownloadsDocument(uri)) {
                 final String id = DocumentsContract.getDocumentId(uri);
                 if ((null != id) && id.startsWith(UtilMagic.STRING_RAW_COLON)) {
                     return id.substring(4);
@@ -600,7 +599,7 @@ public class FileUtils {
                 return destinationPath;
             }
             // MediaProvider
-            else if (isMediaDocument(uri)) {
+            else if (areMediaDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -613,15 +612,14 @@ public class FileUtils {
                     contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                 }
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[]{split[1]
-                };
+                final String[] selectionArgs = new String[]{split[1]};
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
         }
         // MediaStore (and general)
         else if (UtilMagic.STRING_CONTENT.equalsIgnoreCase(uri.getScheme())) {
             // Return the remote address
-            if (isGooglePhotosUri(uri)) {
+            if (areGooglePhotosUri(uri)) {
                 return uri.getLastPathSegment();
             }
             return getDataColumn(context, uri, null, null);
@@ -668,9 +666,9 @@ public class FileUtils {
         if (size > bytesInKiloBytes) {
             fileSize = Integer.valueOf(size / bytesInKiloBytes).floatValue();
             if (fileSize > bytesInKiloBytes) {
-                fileSize = fileSize / bytesInKiloBytes;
+                fileSize = (fileSize / bytesInKiloBytes);
                 if (fileSize > bytesInKiloBytes) {
-                    fileSize = fileSize / bytesInKiloBytes;
+                    fileSize = (fileSize / bytesInKiloBytes);
                     suffix = gigaBytes;
                 } else {
                     suffix = megaBytes;
@@ -707,7 +705,7 @@ public class FileUtils {
             int index = 0;
             while (file.exists()) {
                 index++;
-                name = fileName + '(' + index + ')' + extension;
+                name = (fileName + '(' + index + ')' + extension);
                 file = new File(directory, name);
             }
         }

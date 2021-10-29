@@ -33,10 +33,10 @@ enum Checker {
     /**
      * Determine if it is JPG.
      *
-     * @param is image file input stream
+     * @param inputStream image file input stream
      */
-    boolean isJpg(InputStream is) {
-        return isJpg(toByteArray(is));
+    boolean areJpg(InputStream inputStream) {
+        return areJpg(toByteArray(inputStream));
     }
 
     /**
@@ -51,7 +51,7 @@ enum Checker {
         return getOrientation(toByteArray(inputStream));
     }
 
-    private boolean isJpg(byte[] data) {
+    private boolean areJpg(byte[] data) {
         if ((null == data) || (data.length < WidgetMagic.INT_THREE)) {
             return false;
         }
@@ -160,7 +160,7 @@ enum Checker {
     boolean needCompress(int leastCompressSize, String path) {
         if (leastCompressSize > 0) {
             File source = new File(path);
-            return source.exists() && source.length() > (leastCompressSize << 10);
+            return source.exists() && source.length() > ((long) leastCompressSize << 10);
         }
         return true;
     }

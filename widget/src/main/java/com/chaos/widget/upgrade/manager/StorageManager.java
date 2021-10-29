@@ -1,5 +1,7 @@
 package com.chaos.widget.upgrade.manager;
 
+import static com.chaos.widget.upgrade.manager.AppManager.APPLICATION;
+
 import com.chaos.util.java.file.FileUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -7,8 +9,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.InputStream;
-
-import static com.chaos.widget.upgrade.manager.AppManager.APPLICATION;
 
 /**
  * @decs: 存储管理器

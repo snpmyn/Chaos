@@ -14,7 +14,7 @@ public class IntUtils {
      * @return 奇数
      */
     public static boolean oddNumber(int value) {
-        return (value % 2) != 0;
+        return ((value % 2) != 0);
     }
 
     /**
@@ -24,6 +24,6 @@ public class IntUtils {
      * @return 偶数
      */
     public static boolean even(int value) {
-        return (value % 2) == 0;
+        return ((value % 2) == 0);
     }
 }

@@ -22,28 +22,6 @@ import java.util.List;
  * @desc DraggableCoordinatorLayout
  */
 public class DraggableCoordinatorLayout extends CoordinatorLayout {
-    /**
-     * A listener to use when a child view is being dragged.
-     */
-    public interface ViewDragListener {
-        /**
-         * 视图已捕获
-         *
-         * @param view View
-         * @param i    int
-         */
-        void onViewCaptured(@NonNull View view, int i);
-
-        /**
-         * 视图已释放
-         *
-         * @param view View
-         * @param v    float
-         * @param v1   float
-         */
-        void onViewReleased(@NonNull View view, float v, float v1);
-    }
-
     private final ViewDragHelper viewDragHelper;
     private final List<View> draggableChildren = new ArrayList<>();
     private ViewDragListener viewDragListener;
@@ -145,6 +123,28 @@ public class DraggableCoordinatorLayout extends CoordinatorLayout {
 
     public void setViewDragListener(ViewDragListener viewDragListener) {
         this.viewDragListener = viewDragListener;
+    }
+
+    /**
+     * A listener to use when a child view is being dragged.
+     */
+    public interface ViewDragListener {
+        /**
+         * 视图已捕获
+         *
+         * @param view View
+         * @param i    int
+         */
+        void onViewCaptured(@NonNull View view, int i);
+
+        /**
+         * 视图已释放
+         *
+         * @param view View
+         * @param v    float
+         * @param v1   float
+         */
+        void onViewReleased(@NonNull View view, float v, float v1);
     }
 }
 

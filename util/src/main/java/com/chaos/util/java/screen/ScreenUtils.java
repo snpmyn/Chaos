@@ -1,5 +1,7 @@
 package com.chaos.util.java.screen;
 
+import static android.content.Context.WINDOW_SERVICE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -12,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
-
-import static android.content.Context.WINDOW_SERVICE;
 
 /**
  * Created on 2019/3/6.
@@ -44,9 +44,9 @@ public class ScreenUtils {
      * @return 屏宽（像素）
      */
     public static int screenWidth(@NotNull Context context) {
-        DisplayMetrics metric = new DisplayMetrics();
-        context.getDisplay().getMetrics(metric);
-        return metric.widthPixels;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        context.getDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 
     /**
@@ -56,9 +56,9 @@ public class ScreenUtils {
      * @return 屏高（像素）
      */
     public static int screenHeight(@NotNull Context context) {
-        DisplayMetrics metric = new DisplayMetrics();
-        context.getDisplay().getMetrics(metric);
-        return metric.heightPixels;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        context.getDisplay().getMetrics(displayMetrics);
+        return displayMetrics.heightPixels;
     }
 
     /**

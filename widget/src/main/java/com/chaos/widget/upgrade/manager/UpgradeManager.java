@@ -1,5 +1,7 @@
 package com.chaos.widget.upgrade.manager;
 
+import static com.chaos.widget.upgrade.manager.AppManager.APPLICATION;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,8 +25,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 import value.WidgetMagic;
-
-import static com.chaos.widget.upgrade.manager.AppManager.APPLICATION;
 
 /**
  * @decs: 更新管理器
@@ -55,7 +55,7 @@ public class UpgradeManager {
      * @param version       新 APK 版本
      * @return 下否
      */
-    public static boolean isApkDownloaded(String applicationId, String path, String version) {
+    public static boolean areApkDownloaded(String applicationId, String path, String version) {
         File apkFile = StorageManager.getApk(path, version);
         if (apkFile.exists()) {
             installApk(applicationId, apkFile);

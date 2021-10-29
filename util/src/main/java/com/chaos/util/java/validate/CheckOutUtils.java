@@ -36,10 +36,10 @@ public class CheckOutUtils {
     private static final Pattern P16 = Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-/\\s]?((((0?[13578])|(1[02]))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-/\\s]?((((0?[13578])|(1[02]))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3])):([0-5]?[0-9])((\\s)|(:([0-5]?[0-9])))))?$");
 
     /**
-     * 用户名 1-50 即 2-25 汉字
+     * 用户名 1 - 50 即 2 - 25 汉字
      *
      * @param userName 用户名
-     * @return 2-25 汉字
+     * @return 2 - 25 汉字
      */
     public static boolean areUserNameYws(String userName) {
         Matcher mc = P1.matcher(userName);
@@ -225,7 +225,7 @@ public class CheckOutUtils {
     }
 
     /**
-     * 密码长（6-20 位除空格回车 tab 外字符）
+     * 密码长（6 - 20 位除空格回车 tab 外字符）
      */
     public static boolean arePassLenLes(String str) {
         String regex = "^\\INT_S{6,20}$";
@@ -292,14 +292,14 @@ public class CheckOutUtils {
             String years = birthday.substring(0, 4);
             String moths = birthday.substring(4, 6);
             String days = birthday.substring(6, 8);
-            birthday = years + "-" + moths + "-" + days;
+            birthday = (years + "-" + moths + "-" + days);
         } else if (ids.length() == UtilMagic.INT_FIFTEEN) {
             // 15 位
             birthday = ids.substring(6, 12);
             String years = birthday.substring(0, 2);
             String moths = birthday.substring(2, 4);
             String days = birthday.substring(4, 6);
-            birthday = "19" + years + "-" + moths + "-" + days;
+            birthday = ("19" + years + "-" + moths + "-" + days);
         }
         return birthday;
     }

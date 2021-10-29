@@ -14,10 +14,6 @@ import timber.log.Timber;
 class AppManager {
     static final Application APPLICATION;
 
-    private AppManager() {
-
-    }
-
     static {
         Application application = null;
         try {
@@ -35,5 +31,9 @@ class AppManager {
         } finally {
             APPLICATION = application;
         }
+    }
+
+    private AppManager() {
+
     }
 }

@@ -27,7 +27,7 @@ public class SpruceKit {
         new Spruce.SpruceBuilder(recyclerView)
                 .sortWith(new DefaultSort(interObjectDelay))
                 .animateWith(DefaultAnimations.shrinkAnimator(recyclerView, duration),
-                        ObjectAnimator.ofFloat(recyclerView, "translationX", -recyclerView.getWidth(), 0.0f).setDuration(duration))
+                        ObjectAnimator.ofFloat(recyclerView, "translationX", -recyclerView.getWidth(), 0.0F).setDuration(duration))
                 .start();
     }
 

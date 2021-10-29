@@ -1,10 +1,11 @@
 package com.chaos.widget.picture.luban.adapter;
 
-import com.chaos.util.java.log.LogUtils;
 import com.chaos.widget.picture.luban.provider.InputStreamProvider;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import timber.log.Timber;
 
 /**
  * @decs: BaseInputStreamAdapter
@@ -36,7 +37,7 @@ public abstract class BaseInputStreamAdapter implements InputStreamProvider {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                LogUtils.exception(e);
+                Timber.e(e);
             } finally {
                 inputStream = null;
             }

@@ -25,6 +25,22 @@ public class AdapterHelper {
     }
 
     /**
+     * 条目子视图点击监听
+     *
+     * @param <T> <T>
+     */
+    public interface OnItemChildViewClickListener<T> {
+        /**
+         * 条目子视图点击
+         *
+         * @param position  位置
+         * @param item      条目
+         * @param childView 子视图
+         */
+        void onItemChildViewClick(int position, T item, View childView);
+    }
+
+    /**
      * 条目子视图点击
      *
      * @param <T> <T>
@@ -47,21 +63,5 @@ public class AdapterHelper {
             }
             onItemChildViewClickListener.onItemChildViewClick(position, item, view);
         }
-    }
-
-    /**
-     * 条目子视图点击监听
-     *
-     * @param <T> <T>
-     */
-    public interface OnItemChildViewClickListener<T> {
-        /**
-         * 条目子视图点击
-         *
-         * @param position  位置
-         * @param item      条目
-         * @param childView 子视图
-         */
-        void onItemChildViewClick(int position, T item, View childView);
     }
 }

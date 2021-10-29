@@ -30,26 +30,26 @@ public class VerticalDividerDecoration extends BaseDividerDecoration {
         int transitionX = (int) child.getTranslationX();
         int transitionY = (int) child.getTranslationY();
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
-        rect.top = parent.getPaddingTop() + marginProvider.dividerTopMargin(position, parent) + transitionY;
-        rect.bottom = parent.getHeight() - parent.getPaddingBottom() - marginProvider.dividerBottomMargin(position, parent) + transitionY;
+        rect.top = (parent.getPaddingTop() + marginProvider.dividerTopMargin(position, parent) + transitionY);
+        rect.bottom = (parent.getHeight() - parent.getPaddingBottom() - marginProvider.dividerBottomMargin(position, parent) + transitionY);
         int dividerSize = getDividerSize(position, parent);
         boolean areReverseLayout = areReverseLayout(parent);
         if (dividerType == DividerType.DRAWABLE) {
             // set left and right position of divider
             if (areReverseLayout) {
-                rect.right = child.getLeft() - layoutParams.leftMargin + transitionX;
-                rect.left = rect.right - dividerSize;
+                rect.right = (child.getLeft() - layoutParams.leftMargin + transitionX);
+                rect.left = (rect.right - dividerSize);
             } else {
-                rect.left = child.getRight() + layoutParams.rightMargin + transitionX;
-                rect.right = rect.left + dividerSize;
+                rect.left = (child.getRight() + layoutParams.rightMargin + transitionX);
+                rect.right = (rect.left + dividerSize);
             }
         } else {
             // set center point of divider
             int halfSize = dividerSize / 2;
             if (areReverseLayout) {
-                rect.left = child.getLeft() - layoutParams.leftMargin - halfSize + transitionX;
+                rect.left = (child.getLeft() - layoutParams.leftMargin - halfSize + transitionX);
             } else {
-                rect.left = child.getRight() + layoutParams.rightMargin + halfSize + transitionX;
+                rect.left = (child.getRight() + layoutParams.rightMargin + halfSize + transitionX);
             }
             rect.right = rect.left;
         }

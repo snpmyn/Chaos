@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import com.chaos.widget.R;
 import com.chaos.widget.choose.pickerview.configure.PickerOptions;
 import com.chaos.widget.choose.pickerview.listener.OnDismissListener;
-import com.chaos.widget.choose.pickerview.util.PickerViewAnimateUtil;
+import com.chaos.widget.choose.pickerview.util.PickerViewAnimateUtils;
 
 /**
  * @decs: 精仿 iOS 之 PickerViewController 控件
@@ -27,13 +27,14 @@ import com.chaos.widget.choose.pickerview.util.PickerViewAnimateUtil;
  * @date: 2018/4/3 19:18
  */
 public class BasePickerView {
+    private final Context context;
+    private final int animGravity = Gravity.BOTTOM;
     ViewGroup contentContainer;
     PickerOptions pickerOptions;
     /**
      * 通点 View 弹出
      */
     View clickView;
-    private final Context context;
     /**
      * 附加 View 之根 View
      */
@@ -59,7 +60,6 @@ public class BasePickerView {
         }
         return false;
     };
-    private final int animGravity = Gravity.BOTTOM;
     private final View.OnKeyListener onKeyBackListener = (v, keyCode, event) -> {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && (event.getAction() == MotionEvent.ACTION_DOWN) && areShowing()) {
             dismiss();
@@ -221,12 +221,12 @@ public class BasePickerView {
     }
 
     private Animation getInAnimation() {
-        int animationResource = PickerViewAnimateUtil.getAnimationResource(this.animGravity, true);
+        int animationResource = PickerViewAnimateUtils.getAnimationResource(this.animGravity, true);
         return AnimationUtils.loadAnimation(context, animationResource);
     }
 
     private Animation getOutAnimation() {
-        int animationResource = PickerViewAnimateUtil.getAnimationResource(this.animGravity, false);
+        int animationResource = PickerViewAnimateUtils.getAnimationResource(this.animGravity, false);
         return AnimationUtils.loadAnimation(context, animationResource);
     }
 

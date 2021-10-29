@@ -48,7 +48,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
         super.onLayoutChildren(recycler, state);
-        if (onLayoutChildrenListener != null) {
+        if (null != onLayoutChildrenListener) {
             onLayoutChildrenListener.onLayoutChildren(recycler, state);
         }
     }
