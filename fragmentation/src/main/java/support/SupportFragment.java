@@ -585,7 +585,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
      * @return ISupportFragment
      */
     public ISupportFragment getTopFragment() {
-        return SupportHelper.getTopFragment(getFragmentManager());
+        return SupportHelper.getTopFragment(getParentFragmentManager());
     }
 
     protected ISupportFragment getTopChildFragment() {
@@ -607,7 +607,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
      * @return ISupportFragment
      */
     public <T extends ISupportFragment> T findFragment(Class<T> fragmentClass) {
-        return SupportHelper.findFragment(getFragmentManager(), fragmentClass);
+        return SupportHelper.findFragment(getParentFragmentManager(), fragmentClass);
     }
 
     /**

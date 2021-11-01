@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentationMagician;
@@ -110,10 +111,7 @@ public class SupportHelper {
      * @param fragment 目标 Fragment
      */
     public static @Nullable ISupportFragment getPreFragment(@NotNull Fragment fragment) {
-        FragmentManager fragmentManager = fragment.getFragmentManager();
-        if (null == fragmentManager) {
-            return null;
-        }
+        FragmentManager fragmentManager = fragment.getParentFragmentManager();
         List<Fragment> fragmentList = FragmentationMagician.getActiveFragments(fragmentManager);
         int index = fragmentList.indexOf(fragment);
         for (int i = (index - 1); i >= 0; i--) {
@@ -190,27 +188,18 @@ public class SupportHelper {
 
     /**
      * Get the topFragment from BackStack.
+     *
+     * @param fragmentManager FragmentManager
+     * @return the topFragment from BackStack
      */
-    public static ISupportFragment getBackStackTopFragment(FragmentManager fragmentManager) {
-        return getBackStackTopFragment(fragmentManager, 0);
-    }
-
-    /**
-     * Get the topFragment from BackStack.
-     */
-    private static @Nullable ISupportFragment getBackStackTopFragment(@NotNull FragmentManager fragmentManager, int containerId) {
+    @androidx.annotation.Nullable
+    public static ISupportFragment getBackStackTopFragment(@NonNull FragmentManager fragmentManager) {
         int count = fragmentManager.getBackStackEntryCount();
         for (int i = (count - 1); i >= 0; i--) {
             FragmentManager.BackStackEntry backStackEntry = fragmentManager.getBackStackEntryAt(i);
             Fragment fragment = fragmentManager.findFragmentByTag(backStackEntry.getName());
             if (fragment instanceof ISupportFragment) {
-                ISupportFragment iSupportFragment = (ISupportFragment) fragment;
-                if (containerId == 0) {
-                    return iSupportFragment;
-                }
-                if (containerId == iSupportFragment.getSupportDelegate().mContainerId) {
-                    return iSupportFragment;
-                }
+                return (ISupportFragment) fragment;
             }
         }
         return null;

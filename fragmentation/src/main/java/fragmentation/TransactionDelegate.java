@@ -290,10 +290,8 @@ class TransactionDelegate {
             if (null == resultRecord) {
                 return;
             }
-            ISupportFragment targetFragment = null;
-            if (null != from.getFragmentManager()) {
-                targetFragment = (ISupportFragment) from.getFragmentManager().getFragment(from.getArguments(), FRAGMENTATION_STATE_SAVE_RESULT);
-            }
+            ISupportFragment targetFragment;
+            targetFragment = (ISupportFragment) from.getParentFragmentManager().getFragment(from.getArguments(), FRAGMENTATION_STATE_SAVE_RESULT);
             if (null != targetFragment) {
                 targetFragment.onFragmentResult(resultRecord.requestCode, resultRecord.resultCode, resultRecord.resultBundle);
             }

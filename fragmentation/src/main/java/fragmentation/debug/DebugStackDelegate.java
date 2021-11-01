@@ -206,16 +206,14 @@ public class DebugStackDelegate implements SensorEventListener {
 
     private void addDebugFragmentRecord(List<DebugFragmentRecord> fragmentRecords, Fragment fragment) {
         if (null != fragment) {
-            int backStackCount = 0;
-            if (null != fragment.getFragmentManager()) {
-                backStackCount = fragment.getFragmentManager().getBackStackEntryCount();
-            }
+            int backStackCount;
+            backStackCount = fragment.getParentFragmentManager().getBackStackEntryCount();
             CharSequence name = fragment.getClass().getSimpleName();
             if (backStackCount == 0) {
                 name = span(name, " *");
             } else {
                 for (int j = 0; j < backStackCount; j++) {
-                    FragmentManager.BackStackEntry backStackEntry = fragment.getFragmentManager().getBackStackEntryAt(j);
+                    FragmentManager.BackStackEntry backStackEntry = fragment.getParentFragmentManager().getBackStackEntryAt(j);
                     boolean flag = ((null != backStackEntry.getName()) && backStackEntry.getName().equals(fragment.getTag())) || ((null == backStackEntry.getName()) && (null == fragment.getTag()));
                     if (flag) {
                         break;

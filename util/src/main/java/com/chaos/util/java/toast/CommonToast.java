@@ -30,7 +30,10 @@ public class CommonToast extends Toast {
             context = new MyContextWrapper(context);
         }
         @SuppressLint("ShowToast") Toast toast = Toast.makeText(context, charSequence, duration);
-        return (CommonToast) toast;
+        CommonToast commonToast = new CommonToast(context);
+        commonToast.setDuration(toast.getDuration());
+        commonToast.setView(toast.getView());
+        return commonToast;
     }
 
     private static boolean areNotificationEnabled(Context context) {

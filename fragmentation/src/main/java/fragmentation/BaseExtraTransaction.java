@@ -415,7 +415,7 @@ public abstract class BaseExtraTransaction {
             if (null == mFragment) {
                 return mActivity.getSupportFragmentManager();
             }
-            return mFragment.getFragmentManager();
+            return mFragment.getParentFragmentManager();
         }
     }
 }

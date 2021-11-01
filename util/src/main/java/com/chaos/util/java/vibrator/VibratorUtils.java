@@ -28,8 +28,9 @@ public class VibratorUtils {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createOneShot(milliseconds, amplitude);
                 vibrator.vibrate(vibrationEffect);
+            } else {
+                vibrator.vibrate(200);
             }
-            vibrator.vibrate(200);
         }
     }
 
@@ -47,8 +48,9 @@ public class VibratorUtils {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createWaveform(timings, amplitudes, repeat);
                 vibrator.vibrate(vibrationEffect);
+            } else {
+                vibrator.vibrate(timings, repeat);
             }
-            vibrator.vibrate(timings, repeat);
         }
     }
 }
