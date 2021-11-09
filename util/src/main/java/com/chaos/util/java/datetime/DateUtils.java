@@ -46,6 +46,15 @@ public class DateUtils {
     }
 
     /**
+     * 当前时（yyyy）
+     *
+     * @return String
+     */
+    public static @NotNull String getCurrentTimeYear() {
+        return getCurrentTime(DateFormatUtils.DATE_YEAR);
+    }
+
+    /**
      * 当前时（yyyy-MM）
      *
      * @return String
