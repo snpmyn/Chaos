@@ -1,11 +1,15 @@
 package widget;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.chaos.util.java.intent.IntentJump;
+import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 
 import base.BaseActivity;
@@ -30,6 +34,13 @@ import widget.search.SearchActivity;
  * @date: 2021/4/1 2:04 PM
  */
 public class WidgetActivity extends BaseActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        TransitionKit.getInstance().startPageSetting(this);
+        TransitionKit.getInstance().endPageSetting(this);
+        super.onCreate(savedInstanceState);
+    }
+
     /**
      * 布局资源 ID
      *
@@ -110,7 +121,7 @@ public class WidgetActivity extends BaseActivity {
                 break;
             // 扫描页
             case R.id.widgetActivityBtnScan:
-                IntentJump.getInstance().jump(null, this, false, ScanActivity.class);
+                jumpWithTransition(view, ScanActivity.class);
                 break;
             // Lottie 主页
             case R.id.widgetActivityBtnLottie:
@@ -122,7 +133,7 @@ public class WidgetActivity extends BaseActivity {
                 break;
             // 网格页
             case R.id.widgetActivityBtnGrid:
-                IntentJump.getInstance().jump(null, this, false, GridActivity.class);
+                jumpWithTransition(view, GridActivity.class);
                 break;
             // 属性页
             case R.id.widgetActivityBtnProperty:
@@ -143,5 +154,15 @@ public class WidgetActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    /**
+     * 过渡跳转
+     *
+     * @param view                视图
+     * @param targetActivityClass 目标活动
+     */
+    private void jumpWithTransition(View view, Class<?> targetActivityClass) {
+        TransitionKit.getInstance().jumpWithTransition(this, view, new Intent(this, targetActivityClass));
     }
 }

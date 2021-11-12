@@ -1,10 +1,13 @@
 package widget.scan;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 
 import base.BaseActivity;
@@ -18,6 +21,12 @@ import widget.scan.kit.ScanActivityKit;
  */
 public class ScanActivity extends BaseActivity {
     private ScanActivityKit scanActivityKit;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        TransitionKit.getInstance().endPageSetting(this);
+        super.onCreate(savedInstanceState);
+    }
 
     /**
      * 布局资源 ID

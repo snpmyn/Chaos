@@ -2,9 +2,11 @@ package com.example.chaos;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +14,7 @@ import com.chaos.util.java.listener.AppListener;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.dialog.message.RoundCornerMessageDialog;
 import com.chaos.widget.other.listview.MeasuredListView;
+import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.kit.MainActivityKit;
 import com.google.android.material.button.MaterialButton;
 
@@ -39,6 +42,12 @@ public class MainActivity extends BaseActivity {
      * 主页配套元件
      */
     private MainActivityKit mainActivityKit;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        TransitionKit.getInstance().startPageSetting(this);
+        super.onCreate(savedInstanceState);
+    }
 
     /**
      * 布局资源 ID

@@ -1,10 +1,14 @@
 package widget.grid;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.other.grid.HorizontalGridView;
 import com.chaos.widget.other.grid.bean.GridBean;
+import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 
 import base.BaseActivity;
@@ -24,6 +28,12 @@ public class GridActivity extends BaseActivity {
      * 网格页配套元件
      */
     private GridActivityKit gridActivityKit;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        TransitionKit.getInstance().endPageSetting(this);
+        super.onCreate(savedInstanceState);
+    }
 
     /**
      * 布局资源 ID

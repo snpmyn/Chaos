@@ -1,20 +1,22 @@
 package com.example.chaos.kit;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chaos.util.java.intent.IntentJump;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.other.adapter.decoration.HorizontalDividerDecoration;
 import com.chaos.widget.other.adapter.decoration.VerticalDividerDecoration;
 import com.chaos.widget.other.listview.MeasuredListView;
+import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 import com.example.chaos.adapter.MainActivityListViewAdapter;
 import com.example.chaos.adapter.MainActivityRecyclerViewAdapter;
@@ -60,7 +62,7 @@ public class MainActivityKit {
         mainActivityModuleList.add(new MainActivityModule(1, "组件", "组件 注释"));
         mainActivityModuleList.add(new MainActivityModule(2, "待定", "待定 注释"));
         // MeasuredListView
-        measuredListView.setOnItemClickListener((parent, view, position, id) -> execute(appCompatActivity, mainActivityModuleList.get(position)));
+        measuredListView.setOnItemClickListener((parent, view, position, id) -> execute(appCompatActivity, view, mainActivityModuleList.get(position)));
         // RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(appCompatActivity));
         recyclerView.addItemDecoration(new HorizontalDividerDecoration
@@ -109,7 +111,7 @@ public class MainActivityKit {
         MainActivityListViewAdapter mainActivityListViewAdapter = new MainActivityListViewAdapter(appCompatActivity);
         mainActivityListViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> ToastKit.showLong((mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation()));
         MainActivityRecyclerViewAdapter mainActivityRecyclerViewAdapter = new MainActivityRecyclerViewAdapter(appCompatActivity);
-        mainActivityRecyclerViewAdapter.setOnItemClickListener((view, position) -> execute(appCompatActivity, mainActivityModuleList.get(position)));
+        mainActivityRecyclerViewAdapter.setOnItemClickListener((view, position) -> execute(appCompatActivity, view, mainActivityModuleList.get(position)));
         mainActivityRecyclerViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> ToastKit.showLong((mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation()));
         // 显示
         if (recyclerView.getVisibility() == View.VISIBLE) {
@@ -129,12 +131,13 @@ public class MainActivityKit {
      * 执行
      *
      * @param appCompatActivity  活动
+     * @param view               视图
      * @param mainActivityModule 主页模块
      */
-    private void execute(AppCompatActivity appCompatActivity, @NotNull MainActivityModule mainActivityModule) {
+    private void execute(AppCompatActivity appCompatActivity, View view, @NonNull MainActivityModule mainActivityModule) {
         switch (mainActivityModule.getModuleId()) {
             case 1:
-                IntentJump.getInstance().jump(null, appCompatActivity, false, WidgetActivity.class);
+                TransitionKit.getInstance().jumpWithTransition(appCompatActivity, view, new Intent(appCompatActivity, WidgetActivity.class));
                 break;
             case 2:
                 ToastKit.showShort("待定");
