@@ -28,6 +28,6 @@ android {
 dependencies {
     implementation project(path: ':basic')
     /*basic*/
-    api 'com.airbnb.android:lottie:4.2.0'
+    api 'com.airbnb.android:lottie:4.2.1'
     /*lottie*/
 }

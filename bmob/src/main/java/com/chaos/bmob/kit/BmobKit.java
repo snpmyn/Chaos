@@ -1,5 +1,7 @@
 package com.chaos.bmob.kit;
 
+import androidx.annotation.NonNull;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -141,6 +143,38 @@ public class BmobKit {
     public <T extends BmobObject> void queryByWhereEqualTo(String key, Object value, FindListener<T> findListener) {
         BmobQuery<T> bmobQuery = new BmobQuery<>();
         bmobQuery.addWhereEqualTo(key, value);
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 等于查询
+     *
+     * @param key          键
+     * @param values       值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereEqualTo(String key, @NonNull Object[] values, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        for (Object value : values) {
+            bmobQuery.addWhereEqualTo(key, value);
+        }
+        bmobQuery.findObjects(findListener);
+    }
+
+    /**
+     * 等于查询
+     *
+     * @param keys         键
+     * @param values       值
+     * @param findListener 查找监听
+     * @param <T>          <T>
+     */
+    public <T extends BmobObject> void queryByWhereEqualTo(@NonNull String[] keys, Object[] values, FindListener<T> findListener) {
+        BmobQuery<T> bmobQuery = new BmobQuery<>();
+        for (int i = 0; i < keys.length; i++) {
+            bmobQuery.addWhereEqualTo(keys[i], values[i]);
+        }
         bmobQuery.findObjects(findListener);
     }
 

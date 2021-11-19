@@ -2,7 +2,7 @@
 buildscript {
     apply from: "script.gradle"
     apply from: "config.gradle"
-    ext.kotlin_version = '1.5.31'
+    ext.kotlin_version = '1.6.0'
     def nav_version = "2.3.5"
     repositories {
         google()
