@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobBatch;
@@ -147,35 +148,43 @@ public class BmobKit {
     }
 
     /**
-     * 等于查询
+     * 并且等于查询
      *
-     * @param key          键
-     * @param values       值
+     * @param key          并且等于查询
+     * @param values       值数组
      * @param findListener 查找监听
      * @param <T>          <T>
      */
-    public <T extends BmobObject> void queryByWhereEqualTo(String key, @NonNull Object[] values, FindListener<T> findListener) {
-        BmobQuery<T> bmobQuery = new BmobQuery<>();
+    public <T extends BmobObject> void queryByWhereEqualToWithAnd(String key, @NonNull Object[] values, FindListener<T> findListener) {
+        List<BmobQuery<T>> bmobQueryList = new ArrayList<>(values.length);
         for (Object value : values) {
+            BmobQuery<T> bmobQuery = new BmobQuery<>();
             bmobQuery.addWhereEqualTo(key, value);
+            bmobQueryList.add(bmobQuery);
         }
-        bmobQuery.findObjects(findListener);
+        BmobQuery<T> multiBmobQuery = new BmobQuery<>();
+        multiBmobQuery.and(bmobQueryList);
+        multiBmobQuery.findObjects(findListener);
     }
 
     /**
-     * 等于查询
+     * 或等于查询
      *
-     * @param keys         键
-     * @param values       值
+     * @param key          并且等于查询
+     * @param values       值数组
      * @param findListener 查找监听
      * @param <T>          <T>
      */
-    public <T extends BmobObject> void queryByWhereEqualTo(@NonNull String[] keys, Object[] values, FindListener<T> findListener) {
-        BmobQuery<T> bmobQuery = new BmobQuery<>();
-        for (int i = 0; i < keys.length; i++) {
-            bmobQuery.addWhereEqualTo(keys[i], values[i]);
+    public <T extends BmobObject> void queryByWhereEqualToWithOr(String key, @NonNull Object[] values, FindListener<T> findListener) {
+        List<BmobQuery<T>> bmobQueryList = new ArrayList<>(values.length);
+        for (Object value : values) {
+            BmobQuery<T> bmobQuery = new BmobQuery<>();
+            bmobQuery.addWhereEqualTo(key, value);
+            bmobQueryList.add(bmobQuery);
         }
-        bmobQuery.findObjects(findListener);
+        BmobQuery<T> multiBmobQuery = new BmobQuery<>();
+        multiBmobQuery.or(bmobQueryList);
+        multiBmobQuery.findObjects(findListener);
     }
 
     /**
