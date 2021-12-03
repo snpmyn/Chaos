@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chaos.util.java.list.ListUtils;
 import com.chaos.util.java.screen.ScreenUtils;
 import com.chaos.widget.R;
-import com.chaos.widget.adapttemplate.bean.FunctionBean;
+import com.chaos.widget.adapttemplate.bean.ModuleBean;
 import com.chaos.widget.recyclerview.listener.OnRecyclerViewOnItemClickListener;
 import com.chaos.widget.textview.TextViewKit;
 
@@ -25,13 +25,13 @@ import java.util.List;
  * Created on 2021/3/29
  *
  * @author zsp
- * @desc 功能适配器
+ * @desc 模块适配器
  */
-public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHolder> {
+public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder> {
     private final Context context;
     private final int totalMargin;
     private final int spanCount;
-    private List<FunctionBean> functionBeans;
+    private List<ModuleBean> moduleBeans;
     private OnRecyclerViewOnItemClickListener onRecyclerViewOnItemClickListener;
 
     /**
@@ -41,15 +41,15 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
      * @param totalMargin 总外边距
      * @param spanCount   间隔数
      */
-    public FunctionAdapter(Context context, int totalMargin, int spanCount) {
+    public ModuleAdapter(Context context, int totalMargin, int spanCount) {
         this.context = context;
         this.totalMargin = totalMargin;
         this.spanCount = spanCount;
-        this.functionBeans = new ArrayList<>();
+        this.moduleBeans = new ArrayList<>();
     }
 
-    public void setMoreFunctionData(List<FunctionBean> functionBeans) {
-        this.functionBeans = functionBeans;
+    public void setFunctionData(List<ModuleBean> moduleBeans) {
+        this.moduleBeans = moduleBeans;
     }
 
     public void setOnRecyclerViewOnItemClickListener(OnRecyclerViewOnItemClickListener onRecyclerViewOnItemLongClickListener) {
@@ -65,9 +65,12 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         layoutParams.height = ((ScreenUtils.screenWidth(context) - totalMargin) / spanCount);
         view.setLayoutParams(layoutParams);
         // 点击监听
-        view.setOnClickListener(v -> {
-            int position = (Integer) view.getTag();
-            onRecyclerViewOnItemClickListener.onItemClick(v, position, functionBeans.get(position));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = (Integer) view.getTag();
+                onRecyclerViewOnItemClickListener.onItemClick(v, position, moduleBeans.get(position));
+            }
         });
         return new ViewHolder(view);
     }
@@ -75,16 +78,16 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
-        FunctionBean functionBean = functionBeans.get(position);
-        // 功能
-        TextViewKit.setDrawable(context, holder.functionItemTvFunction, functionBean.getFunctionIconResId(), 2, 20);
-        holder.functionItemTvFunction.setText(context.getString(functionBean.getFunctionNameResId()));
+        ModuleBean moduleBean = moduleBeans.get(position);
+        // 模块
+        TextViewKit.setDrawable(context, holder.functionItemTvFunction, moduleBean.getFunctionIconResId(), 2, 20);
+        holder.functionItemTvFunction.setText(moduleBean.getFunctionName());
     }
 
     @Override
     public int getItemCount() {
-        if (ListUtils.listIsNotEmpty(functionBeans)) {
-            return functionBeans.size();
+        if (ListUtils.listIsNotEmpty(moduleBeans)) {
+            return moduleBeans.size();
         }
         return 0;
     }
