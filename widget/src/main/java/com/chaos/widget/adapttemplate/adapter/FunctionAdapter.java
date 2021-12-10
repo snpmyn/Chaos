@@ -39,7 +39,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
      *
      * @param context     上下文
      * @param totalMargin 总外边距
-     * @param spanCount   间隔数
+     * @param spanCount   跨距数
      */
     public FunctionAdapter(Context context, int totalMargin, int spanCount) {
         this.context = context;

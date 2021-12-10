@@ -39,7 +39,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
      *
      * @param context     上下文
      * @param totalMargin 总外边距
-     * @param spanCount   间隔数
+     * @param spanCount   跨距数
      */
     public ModuleAdapter(Context context, int totalMargin, int spanCount) {
         this.context = context;
@@ -65,12 +65,9 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
         layoutParams.height = ((ScreenUtils.screenWidth(context) - totalMargin) / spanCount);
         view.setLayoutParams(layoutParams);
         // 点击监听
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = (Integer) view.getTag();
-                onRecyclerViewOnItemClickListener.onItemClick(v, position, moduleBeans.get(position));
-            }
+        view.setOnClickListener(v -> {
+            int position = (Integer) view.getTag();
+            onRecyclerViewOnItemClickListener.onItemClick(v, position, moduleBeans.get(position));
         });
         return new ViewHolder(view);
     }

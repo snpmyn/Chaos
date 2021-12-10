@@ -123,6 +123,8 @@
     <string name="backuping">备份中</string>
     <string name="backupSuccessful">备份成功</string>
     <string name="backupFail">备份失败</string>
+    <string name="notBackedUp">未备份</string>
+    <string name="hasBeenBackedUp">已备份</string>
     <string name="checking">检测中</string>
     <string name="noUpgradeVersionInformationAvailable">暂无更新版本信息</string>
     <string name="checkUpgradeFail">检测更新失败</string>

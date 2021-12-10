@@ -54,7 +54,7 @@ dependencies {
     /*BasicThreadFactory*/
     api 'com.squareup.okio:okio:3.0.0'
     /*okio*/
-    api 'org.greenrobot:eventbus:3.2.0'
+    api 'org.greenrobot:eventbus:3.3.1'
     /*EventBus*/
     api 'com.guolindev.permissionx:permissionx:1.6.1'
     /*PermissionX*/
