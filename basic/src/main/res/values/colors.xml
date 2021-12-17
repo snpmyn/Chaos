@@ -16,5 +16,5 @@
 
     <color name="color_60000000">#60000000</color>
     <color name="navigationBarBackground">#F9FAFB</color>
-    <color name="bottomNavigationViewMenuDrawableSelf">#E0E2E7</color>
+    <color name="bottomNavigationViewMenuDrawableSelf">#C8CFE0</color>
 </resources>
