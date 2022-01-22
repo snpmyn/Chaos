@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Chaos/util/src/main/res/layout/window_head_toast.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/icon_foreground.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/animated_clock_alarm.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/animated_clock_stop_watch.xml" value="0.3578125" />

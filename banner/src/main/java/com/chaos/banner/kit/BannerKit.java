@@ -20,7 +20,7 @@ public class BannerKit {
      *
      * @param banner    控件
      * @param integers  数据
-     * @param cls       变压器
+     * @param cls       页转换器
      * @param delayTime 延时
      */
     public void banner(@NonNull Banner banner, List<Integer> integers, Class<? extends ViewPager.PageTransformer> cls, int delayTime) {

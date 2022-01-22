@@ -6,7 +6,7 @@ import androidx.annotation.DrawableRes;
  * Created on 2020-09-23
  *
  * @author zsp
- * @des 网格接口
+ * @desc 网格接口
  */
 public interface IGrid {
     /**
