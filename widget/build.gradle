@@ -39,17 +39,17 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.snpmyn.Chaos'
                 artifactId = 'pool'
-                version = 'v0.0.19.3'
+                version = 'v0.0.19.6.3'
             }
             // Creates a Maven publication called “debug”.
-            //debug(MavenPublication) {
-            // Applies the component for the debug build variant.
-            //from components.debug
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
 
-            //groupId = 'com.example.MyLibrary'
-            //artifactId = 'final-debug'
-            //version = '1.0'
-            //}
+                groupId = 'com.github.snpmyn.Chaos'
+                artifactId = 'pool'
+                version = 'v0.0.19.6.3'
+            }
         }
     }
 }
