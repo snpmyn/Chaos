@@ -18,7 +18,7 @@ public class ModuleBean {
     /**
      * 模块名称
      */
-    private final int functionName;
+    private final String functionName;
 
     /**
      * constructor
@@ -27,7 +27,7 @@ public class ModuleBean {
      * @param functionIconResId 模块图标资源 ID
      * @param functionName      模块名称
      */
-    public ModuleBean(int functionId, int functionIconResId, int functionName) {
+    public ModuleBean(int functionId, int functionIconResId, String functionName) {
         this.functionId = functionId;
         this.functionIconResId = functionIconResId;
         this.functionName = functionName;
@@ -41,7 +41,7 @@ public class ModuleBean {
         return functionIconResId;
     }
 
-    public int getFunctionName() {
+    public String getFunctionName() {
         return functionName;
     }
 }
