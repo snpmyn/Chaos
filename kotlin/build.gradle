@@ -35,7 +35,7 @@ android {
 dependencies {
     api project(path: ':basic')
     /*basic*/
-    api 'androidx.core:core-ktx:1.6.0'
+    api 'androidx.core:core-ktx:1.7.0'
     /*kotlin 自带*/
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     /*kotlin 补充*/

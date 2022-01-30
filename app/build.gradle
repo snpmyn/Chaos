@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
 }
 
-/*Safe Args*/
+// Safe Args
 apply plugin: "androidx.navigation.safeargs"
 
 // MobSDK 插件
@@ -81,18 +81,18 @@ dependencies {
     /*ButterKnife*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
-    debugImplementation 'io.github.didi.dokit:dokitx:3.5.0'
-    // 核心模块
-    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.5.0'
-    // 文件同步模块
-    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.5.0'
-    // 一机多控模块
-    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.5.0'
-    // weex 模块
-    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.5.0'
-    // no-op 模块
-    // 仅 release 环境需引 no-op
-    // 否则插件注入相关代码致找不到对应 class
+    debugImplementation 'io.github.didi.dokit:dokitx:3.5.2'
+    /*核心模块*/
+    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.5.2'
+    /*文件同步模块*/
+    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.5.2'
+    /*一机多控模块*/
+    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.5.2'
+    /*weex 模块*/
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.5.2'
+    /*no-op 模块*/
+    /*仅 release 环境需引 no-op*/
+    /*否则插件注入相关代码致找不到对应 class*/
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
     /*LeakCanary*/
 }
