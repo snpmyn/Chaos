@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.snpmyn'
-version = 'v0.0.19.6.9'
+group = 'com.github.snpmyn.Chaos'
+version = 'v0.0.19.6.10'
 
 // MobSDK 插件
 apply plugin: 'com.mob.sdk'
@@ -61,18 +61,18 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.snpmyn'
-                artifactId = 'Chaos'
-                version = 'v0.0.19.6.9'
+                groupId = 'com.github.snpmyn.Chaos'
+                artifactId = 'pool'
+                version = 'v0.0.19.6.10'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'com.github.snpmyn'
-                artifactId = 'Chaos'
-                version = 'v0.0.19.6.9'
+                groupId = 'com.github.snpmyn.Chaos'
+                artifactId = 'pool'
+                version = 'v0.0.19.6.10'
             }
         }
     }
