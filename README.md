@@ -4,6 +4,10 @@
 
 混沌
 
+## 版本
+
+[![Release](https://jitpack.io/v/snpmyn/Chaos.svg)](https://jitpack.io/#snpmyn/Chaos)
+
 ## 模块
 
 #### [basic](./basic)
