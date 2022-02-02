@@ -34,7 +34,9 @@ public class ModuleAdapterKit {
     public void display(AppCompatActivity appCompatActivity, RecyclerView recyclerView, List<ModuleBean> moduleBeanList, int spanCount, int spacing, int totalMargin, ModuleAdapterKitInterface moduleAdapterKitInterface) {
         // 控件
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(appCompatActivity, recyclerView);
-        recyclerViewConfigure.gridLayout(spanCount, spacing, true, true, false);
+        if (recyclerView.getItemDecorationCount() == 0) {
+            recyclerViewConfigure.gridLayout(spanCount, spacing, true, true, false);
+        }
         // 适配器
         ModuleAdapter moduleAdapter = new ModuleAdapter(appCompatActivity, totalMargin, spanCount);
         moduleAdapter.setModuleData(moduleBeanList);
