@@ -458,7 +458,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
     /**
      * startForResult
      * <p>
-     * Launch an fragment for which you would like a result when it poped.
+     * Launch an fragment for which you would like a result when it popped.
      *
      * @param toFragment  目标 Fragment
      * @param requestCode 响应码

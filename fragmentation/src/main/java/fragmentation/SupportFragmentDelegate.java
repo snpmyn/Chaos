@@ -115,7 +115,7 @@ public class SupportFragmentDelegate {
             this.mFragmentActivity = (FragmentActivity) activity;
             mTransactionDelegate = mSupport.getSupportDelegate().getTransactionDelegate();
         } else {
-            throw new RuntimeException(activity.getClass().getSimpleName() + " must impl ISupportActivity!");
+            throw new RuntimeException(activity.getClass().getSimpleName() + " must implement ISupportActivity!");
         }
     }
 
@@ -515,7 +515,7 @@ public class SupportFragmentDelegate {
     }
 
     /**
-     * Launch an fragment for which you would like a result when it poped.
+     * Launch an fragment for which you would like a result when it popped.
      */
     public void startForResult(ISupportFragment toFragment, int requestCode) {
         mTransactionDelegate.dispatchStartTransaction(mFragment.getParentFragmentManager(), iSupportFragment, toFragment, requestCode, ISupportFragment.STANDARD, TransactionDelegate.TYPE_ADD_RESULT);

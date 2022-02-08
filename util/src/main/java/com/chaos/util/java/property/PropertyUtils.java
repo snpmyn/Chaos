@@ -25,9 +25,9 @@ import timber.log.Timber;
  * @desc 属性工具类
  */
 public class PropertyUtils {
-    private String line = "";
     private final List<String> keysList = new ArrayList<>();
     private final Map<String, String> keyValueMap = new LinkedHashMap<>();
+    private String line = "";
 
     private List<String> getKeysList() {
         return keysList;

@@ -25,7 +25,7 @@ public class RecyclerViewScrollController {
      */
     public void smoothScrollToTargetPosition(@NonNull RecyclerView recyclerView, int position) {
         LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        if (manager != null) {
+        if (null != manager) {
             // 滑至指定位
             // 记录（第三种情况用到）
             this.index = position;

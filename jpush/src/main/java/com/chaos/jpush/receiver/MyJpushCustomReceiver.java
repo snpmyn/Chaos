@@ -106,7 +106,7 @@ public class MyJpushCustomReceiver extends BroadcastReceiver {
                     message.arg1 = JpushEnum.ACTION_NOTIFICATION_OPENED.getCode();
                 } else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
                     Timber.d("[JpushCustomReceiver] RICH PUSH CALLBACK: %s", bundle.getString(JPushInterface.EXTRA_EXTRA));
-                    message.arg1 = JpushEnum.ACTION_RICHPUSH_CALLBACK.getCode();
+                    message.arg1 = JpushEnum.ACTION_RICH_PUSH_CALLBACK.getCode();
                 } else if (JPushInterface.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
                     Timber.d("[JpushCustomReceiver] %s connected state change to %s", intent.getAction(), intent.getBooleanExtra(JPushInterface.EXTRA_CONNECTION_CHANGE, false));
                     message.arg1 = JpushEnum.ACTION_CONNECTION_CHANGE.getCode();

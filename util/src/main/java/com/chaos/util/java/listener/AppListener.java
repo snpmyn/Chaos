@@ -19,11 +19,11 @@ import java.util.Set;
  * @desc 应用监听
  */
 public class AppListener {
-    private final String TAG = this.getClass().getSimpleName();
     private static AppListener appListener;
+    private final String TAG = this.getClass().getSimpleName();
+    private final Set<Callback> callbackSet = new HashSet<>();
     private boolean hasInitConfiguration = false;
     private boolean areForeground = false;
-    private final Set<Callback> callbackSet = new HashSet<>();
 
     public static AppListener getInstance() {
         if (null == appListener) {
@@ -67,6 +67,24 @@ public class AppListener {
             callback.onStateChange(areForeground);
         }
         LogUtils.d(TAG, "唤醒前台 " + areForeground);
+    }
+
+    /**
+     * 注册回调
+     *
+     * @param callback 回调
+     */
+    public void registerCallback(Callback callback) {
+        callbackSet.add(callback);
+    }
+
+    public interface Callback {
+        /**
+         * 状态变化
+         *
+         * @param areForeground 是否前台
+         */
+        void onStateChange(boolean areForeground);
     }
 
     private class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {
@@ -115,23 +133,5 @@ public class AppListener {
         public void onActivityDestroyed(@NonNull Activity activity) {
 
         }
-    }
-
-    /**
-     * 注册回调
-     *
-     * @param callback 回调
-     */
-    public void registerCallback(Callback callback) {
-        callbackSet.add(callback);
-    }
-
-    public interface Callback {
-        /**
-         * 状态变化
-         *
-         * @param areForeground 是否前台
-         */
-        void onStateChange(boolean areForeground);
     }
 }

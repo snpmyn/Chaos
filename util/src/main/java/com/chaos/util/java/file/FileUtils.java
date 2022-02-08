@@ -450,7 +450,7 @@ public class FileUtils {
      *
      * @param context   Context
      * @param authority YOUR_AUTHORITY.provider
-     * @param uri       Uri
+     * @param uri       uri
      * @return String
      */
     public static @org.jetbrains.annotations.Nullable String getMimeType(Context context, String authority, Uri uri) {
@@ -468,7 +468,7 @@ public class FileUtils {
      * Whether the uri authority is local.
      *
      * @param authority YOUR_AUTHORITY.provider
-     * @param uri       Uri
+     * @param uri       uri
      * @return boolean
      */
     private static boolean areLocalStorageDocument(@NotNull String authority, @NotNull Uri uri) {

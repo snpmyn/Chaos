@@ -82,13 +82,13 @@ public final class LocalBroadcastManagerKit {
             ArrayList<IntentFilter> intentFilters = this.mReceivers.remove(receiver);
             if (null != intentFilters) {
                 for (int i = 0; i < intentFilters.size(); ++i) {
-                    IntentFilter filter = (IntentFilter) intentFilters.get(i);
+                    IntentFilter filter = intentFilters.get(i);
                     for (int j = 0; j < filter.countActions(); ++j) {
                         String action = filter.getAction(j);
                         ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receiverRecords = this.mActions.get(action);
                         if (null != receiverRecords) {
                             for (int k = 0; k < receiverRecords.size(); ++k) {
-                                if (((ReceiverRecord) receiverRecords.get(k)).broadcastReceiver == receiver) {
+                                if (receiverRecords.get(k).broadcastReceiver == receiver) {
                                     receiverRecords.remove(k);
                                     --k;
                                 }
@@ -122,7 +122,7 @@ public final class LocalBroadcastManagerKit {
                 ArrayList<LocalBroadcastManagerKit.ReceiverRecord> receivers = null;
                 int i;
                 for (i = 0; i < receiverRecords.size(); ++i) {
-                    ReceiverRecord receiver = (ReceiverRecord) receiverRecords.get(i);
+                    ReceiverRecord receiver = receiverRecords.get(i);
                     if (debug) {
                         Timber.d("Matching against filter %s", receiver.intentFilter);
                     }
@@ -165,7 +165,7 @@ public final class LocalBroadcastManagerKit {
                 }
                 if (null != receivers) {
                     for (i = 0; i < receivers.size(); ++i) {
-                        ((ReceiverRecord) receivers.get(i)).broadcasting = false;
+                        receivers.get(i).broadcasting = false;
                     }
                     this.mPendingBroadcasts.add(new BroadcastRecord(intent, receivers));
                     if (!this.mHandler.hasMessages(1)) {

@@ -31,7 +31,7 @@ public class SupportActivityDelegate {
 
     public SupportActivityDelegate(ISupportActivity iSupportActivity) {
         if (!(iSupportActivity instanceof FragmentActivity)) {
-            throw new RuntimeException("Must extends FragmentActivity/AppCompatActivity");
+            throw new RuntimeException("Must extends FragmentActivity / AppCompatActivity");
         }
         this.mSupport = iSupportActivity;
         this.mActivity = (FragmentActivity) iSupportActivity;

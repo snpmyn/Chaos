@@ -222,7 +222,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
 
     /**
      * It is recommended to use {@link SupportFragment#startForResult(ISupportFragment, int)}.
-     * Launch an fragment for which you would like a result when it poped.
+     * Launch an fragment for which you would like a result when it popped.
      */
     public void startForResult(ISupportFragment toFragment, int requestCode) {
         supportActivityDelegate.startForResult(toFragment, requestCode);

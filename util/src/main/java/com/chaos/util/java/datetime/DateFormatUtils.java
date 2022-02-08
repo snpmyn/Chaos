@@ -29,11 +29,11 @@ public class DateFormatUtils {
     /**
      * yyyyMMdd
      */
-    public static final String DATE_NOFULL_FORMAT = "yyyyMMdd";
+    public static final String DATE_NO_FULL_FORMAT = "yyyyMMdd";
     /**
      * yyyyMMddHHmmss
      */
-    public static final String TIME_NOFULL_FORMAT = "yyyyMMddHHmmss";
+    public static final String TIME_NO_FULL_FORMAT = "yyyyMMddHHmmss";
     /**
      * yyyy
      */
