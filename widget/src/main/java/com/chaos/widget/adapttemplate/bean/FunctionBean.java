@@ -10,42 +10,42 @@ public class FunctionBean {
     /**
      * 功能 ID
      */
-    private final int functionModuleId;
+    private final int functionId;
     /**
      * 功能名称
      */
-    private final String functionModuleName;
+    private final String functionName;
     /**
      * 功能显示
      */
-    private boolean functionModuleShow;
+    private boolean functionShow;
 
     /**
      * constructor
      *
-     * @param functionModuleId   功能 ID
-     * @param functionModuleName 功能名称
-     * @param functionModuleShow 功能显示
+     * @param functionId   功能 ID
+     * @param functionName 功能名称
+     * @param functionShow 功能显示
      */
-    public FunctionBean(int functionModuleId, String functionModuleName, boolean functionModuleShow) {
-        this.functionModuleId = functionModuleId;
-        this.functionModuleName = functionModuleName;
-        this.functionModuleShow = functionModuleShow;
+    public FunctionBean(int functionId, String functionName, boolean functionShow) {
+        this.functionId = functionId;
+        this.functionName = functionName;
+        this.functionShow = functionShow;
     }
 
-    public int getFunctionModuleId() {
-        return functionModuleId;
+    public int getFunctionId() {
+        return functionId;
     }
 
-    public String getFunctionModuleName() {
-        return functionModuleName;
+    public String getFunctionName() {
+        return functionName;
     }
 
-    public boolean isFunctionModuleShow() {
-        return functionModuleShow;
+    public boolean isFunctionShow() {
+        return functionShow;
     }
 
-    public void setFunctionModuleShow(boolean functionModuleShow) {
-        this.functionModuleShow = functionModuleShow;
+    public void setFunctionShow(boolean functionShow) {
+        this.functionShow = functionShow;
     }
 }

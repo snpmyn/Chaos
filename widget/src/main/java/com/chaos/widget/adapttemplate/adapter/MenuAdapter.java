@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chaos.util.java.list.ListUtils;
 import com.chaos.util.java.screen.ScreenUtils;
 import com.chaos.widget.R;
-import com.chaos.widget.adapttemplate.bean.ModuleBean;
+import com.chaos.widget.adapttemplate.bean.MenuBean;
 import com.chaos.widget.recyclerview.listener.OnRecyclerViewOnItemClickListener;
 import com.chaos.widget.textview.TextViewKit;
 
@@ -25,13 +25,13 @@ import java.util.List;
  * Created on 2021/3/29
  *
  * @author zsp
- * @desc 模块适配器
+ * @desc 菜单适配器
  */
-public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder> {
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     private final Context context;
     private final int totalMargin;
     private final int spanCount;
-    private List<ModuleBean> moduleBeans;
+    private List<MenuBean> menuBeans;
     private OnRecyclerViewOnItemClickListener onRecyclerViewOnItemClickListener;
 
     /**
@@ -41,15 +41,15 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
      * @param totalMargin 总外边距
      * @param spanCount   跨距数
      */
-    public ModuleAdapter(Context context, int totalMargin, int spanCount) {
+    public MenuAdapter(Context context, int totalMargin, int spanCount) {
         this.context = context;
         this.totalMargin = totalMargin;
         this.spanCount = spanCount;
-        this.moduleBeans = new ArrayList<>();
+        this.menuBeans = new ArrayList<>();
     }
 
-    public void setModuleData(List<ModuleBean> moduleBeans) {
-        this.moduleBeans = moduleBeans;
+    public void setMenuData(List<MenuBean> menuBeans) {
+        this.menuBeans = menuBeans;
     }
 
     public void setOnRecyclerViewOnItemClickListener(OnRecyclerViewOnItemClickListener onRecyclerViewOnItemLongClickListener) {
@@ -59,7 +59,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.module_item, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.menu_item, viewGroup, false);
         // 宽高等同
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = ((ScreenUtils.screenWidth(context) - totalMargin) / spanCount);
@@ -67,7 +67,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
         // 点击监听
         view.setOnClickListener(v -> {
             int position = (Integer) view.getTag();
-            onRecyclerViewOnItemClickListener.onItemClick(v, position, moduleBeans.get(position));
+            onRecyclerViewOnItemClickListener.onItemClick(v, position, menuBeans.get(position));
         });
         return new ViewHolder(view);
     }
@@ -75,26 +75,26 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
-        ModuleBean moduleBean = moduleBeans.get(position);
-        // 模块
-        TextViewKit.setDrawable(context, holder.moduleItemTv, moduleBean.getFunctionIconResId(), 2, 20);
-        holder.moduleItemTv.setText(moduleBean.getFunctionName());
+        MenuBean menuBean = menuBeans.get(position);
+        // 菜单
+        TextViewKit.setDrawable(context, holder.menuItemTv, menuBean.getMenuIconResId(), 2, 20);
+        holder.menuItemTv.setText(menuBean.getMenuName());
     }
 
     @Override
     public int getItemCount() {
-        if (ListUtils.listIsNotEmpty(moduleBeans)) {
-            return moduleBeans.size();
+        if (ListUtils.listIsNotEmpty(menuBeans)) {
+            return menuBeans.size();
         }
         return 0;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView moduleItemTv;
+        TextView menuItemTv;
 
         private ViewHolder(@NonNull View view) {
             super(view);
-            moduleItemTv = view.findViewById(R.id.moduleItemTv);
+            menuItemTv = view.findViewById(R.id.menuItemTv);
         }
     }
 }

@@ -72,11 +72,11 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         holder.itemView.setTag(position);
         FunctionBean functionBean = functionBeans.get(position);
         // 功能名称
-        holder.functionItemTvFunctionName.setText(functionBean.getFunctionModuleName());
+        holder.functionItemTvFunctionName.setText(functionBean.getFunctionName());
         // 功能显示
-        holder.functionItemSmFunctionShow.setChecked(functionBean.isFunctionModuleShow());
+        holder.functionItemSmFunctionShow.setChecked(functionBean.isFunctionShow());
         // 选变监听
-        holder.functionItemSmFunctionShow.setOnCheckedChangeListener((buttonView, isChecked) -> functionBean.setFunctionModuleShow(isChecked));
+        holder.functionItemSmFunctionShow.setOnCheckedChangeListener((buttonView, isChecked) -> functionBean.setFunctionShow(isChecked));
         // 点击监听
         holder.functionItemSmFunctionShow.setOnClickListener(v -> onRecyclerViewOnItemClickListener.onItemClick(v, holder.getAdapterPosition(), functionBean));
     }

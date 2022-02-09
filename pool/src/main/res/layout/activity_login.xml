@@ -113,7 +113,7 @@
         <TextView
             android:id="@+id/loginActivityTvLogin"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_46"
+            android:layout_height="?actionBarSize"
             android:layout_marginTop="@dimen/dp_36"
             android:background="@drawable/pool_login_button_background_solid_semi_circle"
             android:enabled="false"
