@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-android'
     /*kotlin 补充*/
     id 'kotlin-android-extensions'
+
+    id 'maven-publish'
 }
 
 android {
@@ -29,6 +31,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = rootProject.ext.kotlinOptions["jvmTarget"]
+    }
+
+    afterEvaluate {
+        publishing {
+            publications {
+                release(MavenPublication) {
+                    from components.release
+                }
+            }
+        }
     }
 }
 
