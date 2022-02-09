@@ -5,7 +5,7 @@ plugins {
     /*kotlin 补充*/
     id 'kotlin-android-extensions'
 
-    id 'maven-publish'
+    /*id 'maven-publish'*/
 }
 
 android {
@@ -32,50 +32,40 @@ android {
     kotlinOptions {
         jvmTarget = rootProject.ext.kotlinOptions["jvmTarget"]
     }
+}
 
-//    afterEvaluate {
-//        publishing {
-//            publications {
-//                release(MavenPublication) {
-//                    from components.release
-//                }
+//// Because the components are created only during the afterEvaluate phase,
+//// you must configure your publications using the afterEvaluate() lifecycle method.
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // You can then customize attributes of the publication as shown below.
+//                groupId = 'com.github.snpmyn.Chaos'
+//                artifactId = 'pool'
+//                version = 'v0.0.19.7.5'
+//            }
+//            // Creates a Maven publication called “debug”.
+//            debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+//                from components.debug
+//
+//                groupId = 'com.github.snpmyn.Chaos'
+//                artifactId = 'pool'
+//                version = 'v0.0.19.7.5'
 //            }
 //        }
 //    }
-}
-
-// Because the components are created only during the afterEvaluate phase,
-// you must configure your publications using the afterEvaluate() lifecycle method.
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.snpmyn.Chaos'
-                artifactId = 'pool'
-                version = 'v0.0.19.7.4'
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'com.github.snpmyn.Chaos'
-                artifactId = 'pool'
-                version = 'v0.0.19.7.4'
-            }
-        }
-    }
-}
+//}
 
 dependencies {
     api project(path: ':basic')
     /*basic*/
-    api 'androidx.core:core-ktx:1.7.0'
+    api 'androidx.core:core-ktx:1.6.0'
     /*kotlin 自带*/
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     /*kotlin 补充*/
