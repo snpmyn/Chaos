@@ -60,4 +60,9 @@ ext {
             // [普通模式配置] 无需针对函数插装的包名和类名
             normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
     ]
+    jitpack = [
+            groupId   : 'com.github.snpmyn.Chaos',
+            artifactId: 'pool',
+            version   : 'v0.0.19.8.1',
+    ]
 }

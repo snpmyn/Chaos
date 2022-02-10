@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-android'
     /*kotlin 补充*/
     id 'kotlin-android-extensions'
+    /*maven*/
+    id 'maven-publish'
+    id 'com.github.dcendents.android-maven'
 }
 
 android {
@@ -29,6 +32,34 @@ android {
     }
     kotlinOptions {
         jvmTarget = rootProject.ext.kotlinOptions["jvmTarget"]
+    }
+}
+
+// Because the components are created only during the afterEvaluate phase,
+// you must configure your publications using the afterEvaluate() lifecycle method.
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = rootProject.ext.jitpack["groupId"]
+                artifactId = rootProject.ext.jitpack["artifactId"]
+                version = rootProject.ext.jitpack["version"]
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = rootProject.ext.jitpack["groupId"]
+                artifactId = rootProject.ext.jitpack["artifactId"]
+                version = rootProject.ext.jitpack["version"]
+            }
+        }
     }
 }
 

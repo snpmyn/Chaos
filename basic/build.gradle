@@ -1,11 +1,9 @@
 plugins {
     id 'com.android.library'
+    /*maven*/
     id 'maven-publish'
     id 'com.github.dcendents.android-maven'
 }
-
-group = 'com.github.snpmyn.Chaos'
-version = 'v0.0.19.7.10'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -41,18 +39,18 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.snpmyn.Chaos'
-                artifactId = 'pool'
-                version = 'v0.0.19.7.10'
+                groupId = rootProject.ext.jitpack["groupId"]
+                artifactId = rootProject.ext.jitpack["artifactId"]
+                version = rootProject.ext.jitpack["version"]
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'com.github.snpmyn.Chaos'
-                artifactId = 'pool'
-                version = 'v0.0.19.7.10'
+                groupId = rootProject.ext.jitpack["groupId"]
+                artifactId = rootProject.ext.jitpack["artifactId"]
+                version = rootProject.ext.jitpack["version"]
             }
         }
     }
