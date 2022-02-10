@@ -63,7 +63,7 @@ android {
         debug {
             signingConfig signingConfigs.debug
             buildConfigField "String", "DOMAIN_NAME", '"http://xxx.com"'
-            manifestPlaceholders = [app_name: "混沌（开发版）"]
+            manifestPlaceholders = [app_name: "混沌 开发版"]
             versionNameSuffix "-debug"
         }
     }
