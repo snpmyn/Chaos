@@ -104,6 +104,16 @@ public class TestOneFragment extends BaseTwoFragment {
 
     }
 
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
+
     @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.testOneFragmentTvToTestOther, R.id.testOneFragmentTvToTestOtherWithValue})
     public void onViewClicked(@NonNull View view) {

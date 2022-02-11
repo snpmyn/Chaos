@@ -141,6 +141,16 @@ public class MineChildFragment extends BaseFragment {
 
     }
 
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
+
     private void initConfiguration() {
         mineChildFragmentTvName.setText(MineChildFragment.newInstance().getClass().getSimpleName());
     }

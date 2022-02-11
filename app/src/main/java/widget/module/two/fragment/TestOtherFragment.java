@@ -104,6 +104,16 @@ public class TestOtherFragment extends BaseTwoFragment {
         testOtherFragmentKit.handle(this);
     }
 
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
+
     @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.testOneFragmentTvBackToTestOne)
     public void onViewClicked(@NonNull View view) {

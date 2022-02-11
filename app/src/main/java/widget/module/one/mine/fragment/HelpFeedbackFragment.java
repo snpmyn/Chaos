@@ -130,6 +130,16 @@ public class HelpFeedbackFragment extends BaseFragment {
         hideSoftInput();
     }
 
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
+
     private void initConfiguration() {
 
     }

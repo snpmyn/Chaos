@@ -92,5 +92,15 @@ public class TestThreeFragment extends BaseTwoFragment {
     protected void startLogic() {
 
     }
+
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
 }
 

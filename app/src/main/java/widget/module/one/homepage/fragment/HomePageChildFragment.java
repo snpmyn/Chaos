@@ -129,6 +129,16 @@ public class HomePageChildFragment extends BaseFragment {
 
     }
 
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
+
     private void initConfiguration() {
         homePageChildFragmentMt.setTitle(String.valueOf(DateUtils.currentYear()));
     }

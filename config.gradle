@@ -1,9 +1,9 @@
 ext {
     android = [
-            compileSdkVersion: 32,
+            compileSdkVersion: 30,
             applicationId    : "com.example.chaos",
             minSdkVersion    : 23,
-            targetSdkVersion : 32,
+            targetSdkVersion : 30,
             versionCode      : 1,
             versionName      : "1.0"
     ]
@@ -63,6 +63,6 @@ ext {
     jitpack = [
             groupId   : 'com.github.snpmyn',
             artifactId: 'Chaos',
-            version   : 'v0.0.19.8.3',
+            version   : 'v0.0.19.8.4',
     ]
 }

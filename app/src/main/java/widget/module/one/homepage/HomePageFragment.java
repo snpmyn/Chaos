@@ -121,4 +121,14 @@ public class HomePageFragment extends BaseFragment {
     protected void invisibleToUser() {
 
     }
+
+    /**
+     * EventBus 反注册
+     * <p>
+     * onCreateView 注册。
+     */
+    @Override
+    protected void eventBusUnregister() {
+
+    }
 }
