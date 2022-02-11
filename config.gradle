@@ -61,8 +61,8 @@ ext {
             normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
     ]
     jitpack = [
-            groupId   : 'com.github.snpmyn.Chaos',
-            artifactId: 'pool',
-            version   : 'v0.0.19.8.2',
+            groupId   : 'com.github.snpmyn',
+            artifactId: 'Chaos',
+            version   : 'v0.0.19.8.3',
     ]
 }
