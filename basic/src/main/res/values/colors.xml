@@ -9,12 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <!-- Customize your theme here. -->
     <color name="transparent">#00000000</color>
-    <color name="pageBackground">#F8F8F8</color>
+    <color name="pageBackground">#FFF8F8F8</color>
     <color name="fontHint">#993C3C43</color>
-    <color name="fontInput">#202323</color>
-    <color name="gray">#CBCBCB</color>
+    <color name="fontInput">#FF202323</color>
+    <color name="gray">#FFCBCBCB</color>
 
     <color name="color_60000000">#60000000</color>
-    <color name="navigationBarBackground">#F9FAFB</color>
-    <color name="bottomNavigationViewMenuDrawableSelf">#A9B0C2</color>
+    <color name="navigationBarBackground">#FFF9FAFB</color>
+    <color name="bottomNavigationViewMenuDrawableSelf">#FFA9B0C2</color>
 </resources>
