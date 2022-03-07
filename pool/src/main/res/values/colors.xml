@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pool_login_button_background">#FFFFD100</color>
-    <color name="pool_user_agreement_and_privacy_policy_text">#FF4E80F5</color>
-    <color name="pool_user_agreement_and_privacy_policy_text_in_dialog">#FF4E80F5</color>
-    <color name="pool_user_agreement_and_privacy_policy_agree_button_text">#FFFF8C08</color>
+    <color name="pool_login_button_background">#FF91B2F5</color>
+    <color name="pool_user_agreement_and_privacy_policy_text">#FFFF9502</color>
+    <color name="pool_user_agreement_and_privacy_policy_text_in_dialog">#FF91B2F5</color>
+    <color name="pool_user_agreement_and_privacy_policy_agree_button_text">#FFFF9502</color>
 </resources>

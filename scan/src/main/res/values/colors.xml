@@ -2,5 +2,5 @@
 <resources>
     <color name="scan_line">#FF00E386</color>
     <color name="scan_flash_on_off">#FF4E80F5</color>
-    <color name="scan_photo_library">#FFFFD100</color>
+    <color name="scan_photo_library">#FFFF9502</color>
 </resources>
