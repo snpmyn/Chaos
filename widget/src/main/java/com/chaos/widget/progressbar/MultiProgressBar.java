@@ -143,7 +143,7 @@ public class MultiProgressBar extends ProgressBar {
             int height = resolveSize(expectSize, heightMeasureSpec);
             expectSize = Math.min(width, height);
             mRadius = (expectSize - getPaddingLeft() - getPaddingRight() - mMaxStrokeWidth) / 2;
-            if (fArcRect == null) {
+            if (null == fArcRect) {
                 fArcRect = new RectF();
             }
             fArcRect.set(0, 0, mRadius * 2, mRadius * 2);

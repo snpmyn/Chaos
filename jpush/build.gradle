@@ -69,8 +69,8 @@ afterEvaluate {
 dependencies {
     implementation project(path: ':util')
     /*util*/
-    implementation 'cn.jiguang.sdk:jcore:3.1.2'
+    implementation 'cn.jiguang.sdk:jcore:3.2.2'
     /*jCore*/
-    api 'cn.jiguang.sdk:jpush:4.6.0'
+    api 'cn.jiguang.sdk:jpush:4.6.2'
     /*极光推送*/
 }
