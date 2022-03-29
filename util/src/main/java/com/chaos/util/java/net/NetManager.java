@@ -1,5 +1,6 @@
 package com.chaos.util.java.net;
 
+import static android.Manifest.permission.ACCESS_NETWORK_STATE;
 import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.content.Context.TELEPHONY_SERVICE;
 import static android.content.Context.WIFI_SERVICE;
@@ -12,6 +13,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.RequiresPermission;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -46,6 +49,7 @@ public class NetManager {
      * @param context 上下文
      * @return 可用 true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean isNetConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -58,6 +62,7 @@ public class NetManager {
      * @param context 上下文
      * @return 移动数据 true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean isMobileConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -70,6 +75,7 @@ public class NetManager {
      * @param context 上下文
      * @return 2G true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean is2gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -96,6 +102,7 @@ public class NetManager {
      * @param context 上下文
      * @return 3G true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean is3gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -126,6 +133,7 @@ public class NetManager {
      * @param context 上下文
      * @return 4G true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean is4gConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -181,6 +189,7 @@ public class NetManager {
      * @param context 上下文
      * @return wifi 连 true
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     public static boolean isWifiConnected(@NotNull Context context) {
         checkNonNull(context.getApplicationContext(), "context == null");
         NetworkInfo activeInfo = getActiveNetworkInfo(context);
@@ -258,6 +267,7 @@ public class NetManager {
      * @param context 上下文
      * @return 网络信息
      */
+    @RequiresPermission(ACCESS_NETWORK_STATE)
     private static @Nullable NetworkInfo getActiveNetworkInfo(@NotNull Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         return ((null != connectivityManager) ? connectivityManager.getActiveNetworkInfo() : null);
@@ -298,6 +308,7 @@ public class NetManager {
     }
 
     private static final class NetConnChangedReceiver extends BroadcastReceiver {
+        @RequiresPermission(ACCESS_NETWORK_STATE)
         @Override
         public void onReceive(Context context, Intent intent) {
             log("onReceive");

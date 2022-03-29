@@ -562,7 +562,7 @@ public class StatusBarUtils {
      * @param context 上下文
      * @return 态栏高
      */
-    private static int getStatusBarHeight(@NotNull Context context) {
+    public static int getStatusBarHeight(@NotNull Context context) {
         int result = 0;
         // 获状态栏高
         int resourceId = context.getApplicationContext().getResources().getIdentifier("status_bar_height", "dimen", "android");

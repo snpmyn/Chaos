@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pageBackground"
+    tools:context="widget.module.textview.HorizontalTextViewActivity">
+
+    <LinearLayout
+        android:id="@+id/horizontalTextViewActivityLlTop"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/horizontalTextViewActivityMbNativeAlignment"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/nativeAlignment" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/horizontalTextViewActivityMbDistributeAlignment"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/distributeAlignment" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/horizontalTextViewActivityLlBottom"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalTextViewActivityLlTop">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/horizontalTextViewActivityMbChinese"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/chinese" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/horizontalTextViewActivityMbEnglish"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/english" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/horizontalTextViewActivityMbMix"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/mix" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_margin="@dimen/dp_12"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalTextViewActivityLlBottom">
+
+        <com.chaos.widget.textview.align.LeftAndRightAlignTextView
+            android:id="@+id/horizontalTextViewActivityLaratv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:lineSpacingMultiplier="1.5"
+            android:padding="@dimen/dp_12"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_14"
+            app:leftAndRightAlignTextViewTextHeightColor="@color/purple_500" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,13 @@
 package com.chaos.util.java.vibrator;
 
+import static android.Manifest.permission.VIBRATE;
 import static android.content.Context.VIBRATOR_SERVICE;
 
 import android.content.Context;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
-import org.jetbrains.annotations.NotNull;
+import androidx.annotation.RequiresPermission;
 
 /**
  * Created on 2019/8/31.
@@ -15,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
  * @desc VibratorUtils
  */
 public class VibratorUtils {
+    private static Vibrator vibrator;
+
     /**
      * 一次振动
      *
@@ -22,8 +25,9 @@ public class VibratorUtils {
      * @param milliseconds 振动时长（ms）
      * @param amplitude    振动强度（1 到 255 间或 DEFAULT_AMPLITUDE）
      */
-    public static void oneShotVibration(@NotNull Context context, long milliseconds, int amplitude) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+    @RequiresPermission(VIBRATE)
+    public static void oneShotVibration(Context context, long milliseconds, int amplitude) {
+        Vibrator vibrator = getVibrator(context);
         if (null != vibrator) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createOneShot(milliseconds, amplitude);
@@ -42,8 +46,9 @@ public class VibratorUtils {
      * @param amplitudes 振幅值（0（断开）到 255 间或 DEFAULT_AMPLITUDE）
      * @param repeat     振动重复模式（-1 不重复、0 一直重复、1 从数组下标 1 开始重复振动后结束、2 从数组下标 2 开始重复振动后结束）
      */
-    public static void waveformVibration(@NotNull Context context, long[] timings, int[] amplitudes, int repeat) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+    @RequiresPermission(VIBRATE)
+    public static void waveformVibration(Context context, long[] timings, int[] amplitudes, int repeat) {
+        Vibrator vibrator = getVibrator(context);
         if (null != vibrator) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 VibrationEffect vibrationEffect = VibrationEffect.createWaveform(timings, amplitudes, repeat);
@@ -52,5 +57,33 @@ public class VibratorUtils {
                 vibrator.vibrate(timings, repeat);
             }
         }
+    }
+
+    /**
+     * Cancel vibrate.
+     * Must hold <uses-permission android:name="android.permission.VIBRATE" />
+     *
+     * @param context Context
+     */
+    @RequiresPermission(VIBRATE)
+    public static void cancel(Context context) {
+        Vibrator vibrator = getVibrator(context);
+        if (null == vibrator) {
+            return;
+        }
+        vibrator.cancel();
+    }
+
+    /**
+     * Get vibrator.
+     *
+     * @param context Context
+     * @return Vibrator
+     */
+    private static Vibrator getVibrator(Context context) {
+        if (null == vibrator) {
+            vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+        }
+        return vibrator;
     }
 }

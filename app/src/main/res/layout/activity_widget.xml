@@ -31,7 +31,8 @@
                 android:id="@+id/widgetActivityBtnMoney"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/money" />
 
             <com.google.android.material.button.MaterialButton
@@ -45,7 +46,8 @@
                 android:id="@+id/widgetActivityBtnSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/search" />
 
             <com.google.android.material.button.MaterialButton
@@ -59,7 +61,8 @@
                 android:id="@+id/widgetActivityBtnScan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/scan" />
 
             <com.google.android.material.button.MaterialButton
@@ -73,7 +76,8 @@
                 android:id="@+id/widgetActivityBtnPudding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/pudding" />
 
             <com.google.android.material.button.MaterialButton
@@ -87,7 +91,8 @@
                 android:id="@+id/widgetActivityBtnProperty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/property" />
 
             <com.google.android.material.button.MaterialButton
@@ -101,7 +106,8 @@
                 android:id="@+id/widgetActivityBtnModuleOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:text="@string/moduleOne" />
 
             <com.google.android.material.button.MaterialButton
@@ -110,6 +116,15 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_12"
                 android:text="@string/moduleTwo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/widgetActivityBtnTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:text="@string/textView" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

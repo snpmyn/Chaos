@@ -20,6 +20,7 @@ import widget.dialog.BocDialogActivity;
 import widget.grid.GridActivity;
 import widget.lottie.LottieHomeActivity;
 import widget.module.one.ModuleOneActivity;
+import widget.module.textview.TextViewHomeActivity;
 import widget.module.two.ModuleTwoActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureHomeActivity;
@@ -96,7 +97,8 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnProperty,
             R.id.widgetActivityBtnBanner,
             R.id.widgetActivityBtnModuleOne,
-            R.id.widgetActivityBtnModuleTwo})
+            R.id.widgetActivityBtnModuleTwo,
+            R.id.widgetActivityBtnTextView})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -150,6 +152,10 @@ public class WidgetActivity extends BaseActivity {
             //  模块二页
             case R.id.widgetActivityBtnModuleTwo:
                 IntentJump.getInstance().jump(null, this, false, ModuleTwoActivity.class);
+                break;
+            // TextView 主页
+            case R.id.widgetActivityBtnTextView:
+                IntentJump.getInstance().jump(null, this, false, TextViewHomeActivity.class);
                 break;
             default:
                 break;

@@ -125,7 +125,7 @@ public class RegularUtils {
     }
 
     /**
-     * 身份证号码18位
+     * 身份证号码 18 位
      *
      * @param input 待验文本
      * @return true 匹 / false 不匹

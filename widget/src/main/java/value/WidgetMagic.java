@@ -69,5 +69,13 @@ public class WidgetMagic {
      */
     public static final String STRING_DOT = ".";
     public static final String STRING_ZERO = "0";
+    public static final String STRING_ONE_SPACE = " ";
+    public static final String STRING_ONE_OTHER_SPACE = "　";
+    public static final String STRING_TWO_SPACE = "  ";
+    public static final String STRING_TWO_OTHER_SPACE = "　　";
+    public static final String STRING_THREE_SPACE = "   ";
+    public static final String STRING_THREE_OTHER_SPACE = "　　　";
+    public static final String STRING_FOUR_SPACE = "    ";
+    public static final String STRING_NEW_LINE = "\n";
     public static final String STRING_OBJECTS_REQUIRE_NON_NULL_MESSAGE = "must not be null";
 }

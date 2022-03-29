@@ -11,11 +11,11 @@ import com.chaos.pool.module.login.LoginTwoActivity;
 import com.chaos.pool.module.splash.kit.SplashActivityKit;
 import com.chaos.util.java.intent.IntentJump;
 import com.example.chaos.BuildConfig;
-import com.example.chaos.MainActivity;
 
 import java.util.List;
 
 import configure.FragmentationInitConfig;
+import kit.AppKit;
 
 /**
  * Created on 2021/4/1
@@ -101,6 +101,7 @@ public class App extends PoolApp {
         SplashActivityKit splashActivityKit = new SplashActivityKit();
         splashActivityKit.setSplashActivityListener(appCompatActivity -> IntentJump.getInstance().jump(null, appCompatActivity, true, LoginTwoActivity.class));
         // 登录二页监听
-        LoginTwoActivity.setLoginTwoActivityListener((appCompatActivity, phoneNumber) -> IntentJump.getInstance().jump(null, appCompatActivity, true, MainActivity.class));
+        AppKit appKit = new AppKit();
+        LoginTwoActivity.setLoginTwoActivityListener(appKit::localSave);
     }
 }

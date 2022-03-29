@@ -110,6 +110,7 @@
     <string name="homePage">首页</string>
     <string name="mine">我的</string>
     <string name="dataStatusIsAbnormal">数据状态异常</string>
+    <string name="copySuccessful">复制成功</string>
     <string name="clear">清空</string>
     <string name="add">添加</string>
     <!--format-->

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chaos.pool.R;
 import com.chaos.pool.module.login.listener.LoginTwoActivityListener;
 import com.chaos.pool.value.PoolConstant;
+import com.chaos.util.java.number.NumberFormatUtils;
 import com.chaos.util.java.storage.mmkv.MmkvKit;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.validate.RegularUtils;
@@ -25,7 +26,7 @@ public class LoginTwoActivityKit {
      * @param editTextPleaseInputPhoneNumber 请输入手机号输入框
      */
     public void phoneNumberPreShow(@NonNull EditText editTextPleaseInputPhoneNumber) {
-        editTextPleaseInputPhoneNumber.setText(MmkvKit.defaultMmkv().decodeString(PoolConstant.LOGIN_$_PHONE_NUMBER));
+        editTextPleaseInputPhoneNumber.setText(NumberFormatUtils.formatPhoneNumberTwo(MmkvKit.defaultMmkv().decodeString(PoolConstant.LOGIN_$_PHONE_NUMBER)));
         editTextPleaseInputPhoneNumber.setSelection(editTextPleaseInputPhoneNumber.getText().length());
     }
 
@@ -37,7 +38,7 @@ public class LoginTwoActivityKit {
      * @param loginTwoActivityListener       登录二页监听
      */
     public void login(AppCompatActivity appCompatActivity, @NonNull EditText editTextPleaseInputPhoneNumber, LoginTwoActivityListener loginTwoActivityListener) {
-        String phoneNumber = editTextPleaseInputPhoneNumber.getText().toString();
+        String phoneNumber = editTextPleaseInputPhoneNumber.getText().toString().replace(" ", "");
         // 手机号（精确）
         if (RegularUtils.allMobile(phoneNumber)) {
             loginTwoActivityListener.handleWithPhoneNumber(appCompatActivity, editTextPleaseInputPhoneNumber.getText().toString());

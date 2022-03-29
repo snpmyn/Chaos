@@ -35,4 +35,18 @@
     <string name="toTestOtherWithValue">到测试其它并传值</string>
     <string name="backToTestOne">返回测试一</string>
     <string name="noValuePassed">暂无传值</string>
+    <string name="textView">TextView</string>
+    <string name="horizontalTextView">水平 TextView</string>
+    <string name="verticalTextView">垂直 TextView</string>
+    <string name="nativeAlignment">原生对齐</string>
+    <string name="distributeAlignment">分散对齐</string>
+    <string name="chinese">中文</string>
+    <string name="english">英文</string>
+    <string name="mix">混编</string>
+    <string name="translate">翻译</string>
+    <string name="share">分享</string>
+    <string name="fromLeftToRight">从左到右</string>
+    <string name="fromRightToLeft">从右到左</string>
+    <string name="showUnderLine">显下划线</string>
+    <string name="hideUnderLine">隐下划线</string>
 </resources>

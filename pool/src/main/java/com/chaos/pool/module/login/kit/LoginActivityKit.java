@@ -3,6 +3,7 @@ package com.chaos.pool.module.login.kit;
 import android.os.CountDownTimer;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.mobsms.sms.handler.MobSmsHandler;
@@ -14,8 +15,6 @@ import com.chaos.util.java.storage.mmkv.MmkvKit;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.validate.RegularUtils;
 import com.chaos.widget.dialog.materialalertdialog.MyMaterialAlertDialogBuilder;
-
-import org.jetbrains.annotations.NotNull;
 
 import cn.smssdk.EventHandler;
 
@@ -31,7 +30,7 @@ public class LoginActivityKit {
      *
      * @param editTextPleaseInputPhoneNumber 请输入手机号输入框
      */
-    public void phoneNumberPreShow(@NotNull EditText editTextPleaseInputPhoneNumber) {
+    public void phoneNumberPreShow(@NonNull EditText editTextPleaseInputPhoneNumber) {
         editTextPleaseInputPhoneNumber.setText(MmkvKit.defaultMmkv().decodeString(PoolConstant.LOGIN_$_PHONE_NUMBER));
         editTextPleaseInputPhoneNumber.setSelection(editTextPleaseInputPhoneNumber.getText().length());
     }
@@ -42,8 +41,8 @@ public class LoginActivityKit {
      * @param appCompatActivity              活动
      * @param editTextPleaseInputPhoneNumber 请输入手机号输入框
      */
-    public void getVerificationCode(AppCompatActivity appCompatActivity, @NotNull EditText editTextPleaseInputPhoneNumber) {
-        String phoneNumber = editTextPleaseInputPhoneNumber.getText().toString();
+    public void getVerificationCode(AppCompatActivity appCompatActivity, @NonNull EditText editTextPleaseInputPhoneNumber) {
+        String phoneNumber = editTextPleaseInputPhoneNumber.getText().toString().replace(" ", "");
         // 手机号（精确）
         if (RegularUtils.allMobile(phoneNumber)) {
             new MyMaterialAlertDialogBuilder(appCompatActivity)
@@ -68,7 +67,7 @@ public class LoginActivityKit {
      * @param mobSmsHandler  MobSMS 处理者
      * @param countDownTimer 计时器
      */
-    public void onDestroy(EventHandler eventHandler, @NotNull MobSmsHandler mobSmsHandler, CountDownTimer countDownTimer) {
+    public void onDestroy(EventHandler eventHandler, @NonNull MobSmsHandler mobSmsHandler, CountDownTimer countDownTimer) {
         // 注销回调接口
         MobSmsKit.getInstanceByDcl().unregisterEventHandler(eventHandler);
         // 移 Handler
