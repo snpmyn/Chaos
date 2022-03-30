@@ -90,7 +90,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
     /**
      * 下划线宽
      * <p>
-     * 默 1.5f
+     * 默 1.5F
      */
     private float mUnderLineWidth;
     /**
@@ -231,17 +231,17 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
     public VerticalTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
-        TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.VerticalTextView);
-        mLineSpacingExtra = mTypedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewLineSpacingExtra, 6);
-        mCharSpacingExtra = mTypedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewCharSpacingExtra, 6);
-        areLeftToRight = mTypedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewTextLeftToRight, false);
-        areUnderLineText = mTypedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewUnderLineText, false);
-        mUnderLineColor = mTypedArray.getColor(R.styleable.VerticalTextView_verticalTextViewUnderLineColor, Color.RED);
-        mUnderLineWidth = mTypedArray.getFloat(R.styleable.VerticalTextView_verticalTextViewUnderLineWidth, 1.5f);
-        mUnderLineOffset = mTypedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewUnderlineOffset, 3);
-        mTextHighlightColor = mTypedArray.getColor(R.styleable.VerticalTextView_verticalTextViewTextHeightLightColor, 0x60ffeb3b);
-        areShowActionMenu = mTypedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewShowActionMenu, false);
-        mTypedArray.recycle();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerticalTextView);
+        mLineSpacingExtra = typedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewLineSpacingExtra, 6);
+        mCharSpacingExtra = typedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewCharSpacingExtra, 6);
+        areLeftToRight = typedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewTextLeftToRight, false);
+        areUnderLineText = typedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewUnderLineText, false);
+        mUnderLineColor = typedArray.getColor(R.styleable.VerticalTextView_verticalTextViewUnderLineColor, Color.RED);
+        mUnderLineWidth = typedArray.getFloat(R.styleable.VerticalTextView_verticalTextViewUnderLineWidth, 1.5F);
+        mUnderLineOffset = typedArray.getDimension(R.styleable.VerticalTextView_verticalTextViewUnderlineOffset, 3);
+        mTextHighlightColor = typedArray.getColor(R.styleable.VerticalTextView_verticalTextViewTextHeightLightColor, 0x60ffeb3b);
+        areShowActionMenu = typedArray.getBoolean(R.styleable.VerticalTextView_verticalTextViewShowActionMenu, false);
+        typedArray.recycle();
         mLineSpacingExtra = Math.max(6, mLineSpacingExtra);
         mCharSpacingExtra = Math.max(6, mCharSpacingExtra);
         if (areUnderLineText) {
@@ -258,7 +258,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         mLinesTextIndex = new SparseArray<>();
         mTextAreaRoughBound = new int[]{0, 0};
         mStatusBarHeight = StatusBarUtils.getStatusBarHeight(mContext);
-        mActionMenuHeight = DensityUtils.dipToPxByFloat(mContext, 45.0f);
+        mActionMenuHeight = DensityUtils.dipToPxByFloat(mContext, 45.0F);
     }
 
     public VerticalTextView setAreLeftToRight(boolean areLeftToRight) {
@@ -335,12 +335,12 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         if (widthSize == 0) {
             measuredWidth = mTextAreaRoughBound[0];
         } else {
-            measuredWidth = (widthMode == MeasureSpec.AT_MOST) || (widthMode == MeasureSpec.UNSPECIFIED) ? mTextAreaRoughBound[0] : widthSize;
+            measuredWidth = ((widthMode == MeasureSpec.AT_MOST) || (widthMode == MeasureSpec.UNSPECIFIED)) ? mTextAreaRoughBound[0] : widthSize;
         }
         if (heightSize == 0) {
             measureHeight = mScreenHeight;
         } else {
-            measureHeight = (heightMode == MeasureSpec.AT_MOST) || (heightMode == MeasureSpec.UNSPECIFIED) ? mTextAreaRoughBound[1] : heightSize;
+            measureHeight = ((heightMode == MeasureSpec.AT_MOST) || (heightMode == MeasureSpec.UNSPECIFIED)) ? mTextAreaRoughBound[1] : heightSize;
         }
         setMeasuredDimension(measuredWidth, measureHeight);
         Timber.d(TAG, "measuredWidth %s", measuredWidth);
@@ -352,7 +352,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
     private int[] getTextRoughSize(int oriHeightSize, float lineSpacingExtra, float charSpacingExtra) {
         String[] subTextStr = getText().toString().split("\n");
         int textLines = 0;
-        String targetSubPara = "";
+        String targetSubParam = "";
         int tempLines = 1;
         float tempLength = 0;
         for (String aSubTextStr : subTextStr) {
@@ -365,7 +365,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             if ((subLines == 1) && (tempLines == 1)) {
                 if (subParagraphLength > tempLength) {
                     tempLength = subParagraphLength;
-                    targetSubPara = aSubTextStr;
+                    targetSubParam = aSubTextStr;
                 }
             }
             tempLines = subLines;
@@ -374,10 +374,10 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         if (textLines > subTextStr.length) {
             textHeight = oriHeightSize;
         } else {
-            for (int i = 0; i < targetSubPara.length(); i++) {
+            for (int i = 0; i < targetSubParam.length(); i++) {
                 String iOfChar = String.valueOf(getText().toString().charAt(i));
                 if (areUnicodeSymbol(iOfChar)) {
-                    textHeight += 1.4f * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra;
+                    textHeight += 1.4F * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra;
                 } else {
                     textHeight += getTextSize() + charSpacingExtra;
                 }
@@ -468,7 +468,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         float lineWidth = getTextSize() + mLineSpacingExtra;
         int[] drawPadding = getDrawPadding(areLeftToRight);
         if (areLeftToRight) {
-            if (offsetX >= getWidth() - drawPadding[WidgetMagic.INT_TWO]) {
+            if (offsetX >= (getWidth() - drawPadding[WidgetMagic.INT_TWO])) {
                 currentLine = mMaxTextLine;
             } else {
                 currentLine = (int) Math.ceil((offsetX - drawPadding[0]) / lineWidth);
@@ -485,9 +485,9 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         return currentLine;
     }
 
-    private void selectText(float startOffsetY, float endOffsetY, int startLine, int endLine, float charSpacingExtra, boolean isLeftToRight) {
-        int startIndex = getSelectTextIndex(startOffsetY, startLine, charSpacingExtra, isLeftToRight);
-        int endIndex = getSelectTextIndex(endOffsetY, endLine, charSpacingExtra, isLeftToRight);
+    private void selectText(float startOffsetY, float endOffsetY, int startLine, int endLine, float charSpacingExtra, boolean areLeftToRight) {
+        int startIndex = getSelectTextIndex(startOffsetY, startLine, charSpacingExtra, areLeftToRight);
+        int endIndex = getSelectTextIndex(endOffsetY, endLine, charSpacingExtra, areLeftToRight);
         if (startIndex == endIndex) {
             mSelectedText = "";
         } else {
@@ -501,8 +501,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         Timber.d(TAG, "mSelectedText %s", mSelectedText);
     }
 
-    private int getSelectTextIndex(float offsetY, int targetLine, float charSpacingExtra, boolean isLeftToRight) {
-        int[] drawPadding = getDrawPadding(isLeftToRight);
+    private int getSelectTextIndex(float offsetY, int targetLine, float charSpacingExtra, boolean areLeftToRight) {
+        int[] drawPadding = getDrawPadding(areLeftToRight);
         int[] lineIndex = mLinesTextIndex.get(targetLine);
         int targetIndex = lineIndex[1];
         float tempY = drawPadding[1];
@@ -516,7 +516,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             if ("\n".equals(iOfChar)) {
                 tempY = drawPadding[1];
             } else if (areUnicodeSymbol(iOfChar)) {
-                tempY += 1.4f * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra;
+                tempY += 1.4F * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra;
             } else {
                 tempY += getTextSize() + charSpacingExtra;
             }
@@ -536,14 +536,14 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             yOffsetEnd = temp;
         }
         int actionMenuOffsetY;
-        if (yOffsetStart < mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO + mStatusBarHeight) {
-            if (yOffsetEnd > mScreenHeight - mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO) {
-                actionMenuOffsetY = mScreenHeight / 2 - mActionMenuHeight / 2;
+        if (yOffsetStart < (mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO + mStatusBarHeight)) {
+            if (yOffsetEnd > (mScreenHeight - mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO)) {
+                actionMenuOffsetY = (mScreenHeight / 2 - mActionMenuHeight / 2);
             } else {
-                actionMenuOffsetY = yOffsetEnd + mActionMenuHeight / 2;
+                actionMenuOffsetY = (yOffsetEnd + mActionMenuHeight / 2);
             }
         } else {
-            actionMenuOffsetY = yOffsetStart - mActionMenuHeight * 3 / 2;
+            actionMenuOffsetY = (yOffsetStart - mActionMenuHeight * 3 / 2);
         }
         return actionMenuOffsetY;
     }
@@ -551,11 +551,11 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
     @NonNull
     private ActionMenu createActionMenu() {
         ActionMenu actionMenu = new ActionMenu(mContext);
-        boolean isRemoveDefaultItem = false;
+        boolean areRemoveDefaultItem = false;
         if (null != mActionMenuCallBack) {
-            isRemoveDefaultItem = mActionMenuCallBack.onCreateActionMenu(actionMenu);
+            areRemoveDefaultItem = mActionMenuCallBack.onCreateActionMenu(actionMenu);
         }
-        if (!isRemoveDefaultItem) {
+        if (!areRemoveDefaultItem) {
             actionMenu.addDefaultMenuItem();
         }
         actionMenu.addCustomMenuItem();
@@ -596,7 +596,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         }
     }
 
-    private void drawVerticalText(Canvas canvas, float lineSpacingExtra, float charSpacingExtra, boolean isLeftToRight) {
+    private void drawVerticalText(Canvas canvas, float lineSpacingExtra, float charSpacingExtra, boolean areLeftToRight) {
         TextPaint textPaint = getTextPaint();
         int textStrLength = getText().length();
         if (textStrLength == 0) {
@@ -606,8 +606,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         int currentLineStartIndex = 0;
         mLinesOffsetArray.clear();
         mLinesTextIndex.clear();
-        int[] drawPadding = getDrawPadding(isLeftToRight);
-        float currentLineOffsetX = isLeftToRight ? drawPadding[0] : getWidth() - drawPadding[2] - getTextSize();
+        int[] drawPadding = getDrawPadding(areLeftToRight);
+        float currentLineOffsetX = areLeftToRight ? drawPadding[0] : getWidth() - drawPadding[2] - getTextSize();
         float currentLineOffsetY = drawPadding[1] + getTextSize();
         for (int j = 0; j < textStrLength; j++) {
             String jOfChar = String.valueOf(getText().charAt(j));
@@ -618,7 +618,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             if (isLineBreaks || isCurrentLineFinish) {
                 mLinesOffsetArray.put(mMaxTextLine, new Float[]{currentLineOffsetX, currentLineOffsetY});
                 mLinesTextIndex.put(mMaxTextLine, new int[]{currentLineStartIndex, j});
-                currentLineOffsetX = isLeftToRight ? (currentLineOffsetX + getTextSize() + lineSpacingExtra) : (currentLineOffsetX - getTextSize() - lineSpacingExtra);
+                currentLineOffsetX = areLeftToRight ? (currentLineOffsetX + getTextSize() + lineSpacingExtra) : (currentLineOffsetX - getTextSize() - lineSpacingExtra);
                 currentLineOffsetY = drawPadding[1] + getTextSize();
                 mMaxTextLine++;
             }
@@ -628,14 +628,14 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             if (areUnicodeSymbol(jOfChar)) {
                 float drawOffsetY = currentLineOffsetY;
                 if (areSymbolNeedOffset(jOfChar)) {
-                    drawOffsetY = drawOffsetY - (getTextSize() - 1.4f * getCharHeight(jOfChar, textPaint));
+                    drawOffsetY = drawOffsetY - (getTextSize() - 1.4F * getCharHeight(jOfChar, textPaint));
                 }
                 float drawOffsetX = currentLineOffsetX;
-                if (isLeftToRight && !areVerticalSymbol(jOfChar)) {
+                if (areLeftToRight && !areVerticalSymbol(jOfChar)) {
                     drawOffsetX = drawOffsetX + getTextSize() / 2;
                 }
                 canvas.drawText(jOfChar, drawOffsetX, drawOffsetY, textPaint);
-                currentLineOffsetY += 1.4f * getCharHeight(jOfChar, textPaint) + charSpacingExtra;
+                currentLineOffsetY += 1.4F * getCharHeight(jOfChar, textPaint) + charSpacingExtra;
             } else {
                 canvas.drawText(jOfChar, currentLineOffsetX, currentLineOffsetY, textPaint);
                 currentLineOffsetY += getTextSize() + charSpacingExtra;
@@ -648,7 +648,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         Timber.d(TAG, "mMaxTextLine is %s", mMaxTextLine);
     }
 
-    private void drawTextUnderline(Canvas canvas, boolean isLeftToRight, float underLineOffset, float charSpacingExtra) {
+    private void drawTextUnderline(Canvas canvas, boolean areLeftToRight, float underLineOffset, float charSpacingExtra) {
         if (!areUnderLineText || (mUnderLineWidth == 0)) {
             return;
         }
@@ -657,7 +657,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         underLinePaint.setAntiAlias(true);
         underLinePaint.setStyle(Paint.Style.FILL);
         underLinePaint.setStrokeWidth(mUnderLineWidth);
-        int[] drawPadding = getDrawPadding(isLeftToRight);
+        int[] drawPadding = getDrawPadding(areLeftToRight);
         for (int i = 0; i < mMaxTextLine; i++) {
             float yStart = drawPadding[1];
             float yEnd = mLinesOffsetArray.get(i + 1)[1] - getTextSize();
@@ -674,7 +674,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
                 yStart = yStart + (getTextSize() + charSpacingExtra) * spaceNum;
             }
             float xStart = mLinesOffsetArray.get(i + 1)[0];
-            if (isLeftToRight) {
+            if (areLeftToRight) {
                 xStart += getTextSize() + underLineOffset;
             } else {
                 xStart -= underLineOffset;
@@ -684,7 +684,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         }
     }
 
-    private void drawSelectedTextBackground(Canvas canvas, int startLine, int endLine, float startOffsetY, float endOffsetY, float lineSpacingExtra, float charSpacingExtra, boolean isLeftToRight) {
+    private void drawSelectedTextBackground(Canvas canvas, int startLine, int endLine, float startOffsetY, float endOffsetY, float lineSpacingExtra, float charSpacingExtra, boolean areLeftToRight) {
         if ((startLine == endLine) && (Math.abs(endOffsetY - startOffsetY) == 0)) {
             return;
         }
@@ -692,7 +692,7 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         highlightPaint.setStyle(Paint.Style.FILL);
         highlightPaint.setColor(mTextHighlightColor);
         highlightPaint.setAlpha(60);
-        int[] drawPadding = getDrawPadding(isLeftToRight);
+        int[] drawPadding = getDrawPadding(areLeftToRight);
         if (startLine > endLine) {
             startLine = startLine + endLine;
             endLine = startLine - endLine;
@@ -702,10 +702,10 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             startOffsetY = startOffsetY - endOffsetY;
         }
         int lineWidth = (int) (getTextSize() + lineSpacingExtra);
-        int startLineOffsetY = getSelectTextPreciseOffsetY(startOffsetY, startLine, charSpacingExtra, isLeftToRight);
-        int endLineOffsetY = getSelectTextPreciseOffsetY(endOffsetY, endLine, charSpacingExtra, isLeftToRight);
+        int startLineOffsetY = getSelectTextPreciseOffsetY(startOffsetY, startLine, charSpacingExtra, areLeftToRight);
+        int endLineOffsetY = getSelectTextPreciseOffsetY(endOffsetY, endLine, charSpacingExtra, areLeftToRight);
         Path pathAll = new Path();
-        if (isLeftToRight) {
+        if (areLeftToRight) {
             int offsetLeftPadding = (int) (drawPadding[0] - lineSpacingExtra / 2);
             pathAll.moveTo(offsetLeftPadding + (startLine - 1) * lineWidth, startLineOffsetY);
             pathAll.lineTo(offsetLeftPadding + startLine * lineWidth, startLineOffsetY);
@@ -743,8 +743,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         if (textBoundWidth < getWidth()) {
             gravity = getGravity() & Gravity.HORIZONTAL_GRAVITY_MASK;
             if (gravity == Gravity.CENTER_HORIZONTAL) {
-                left = getPaddingLeft() + (getWidth() - textBoundWidth) / 2;
-                right = getPaddingRight() + (getWidth() - textBoundWidth) / 2;
+                left = (getPaddingLeft() + (getWidth() - textBoundWidth) / 2);
+                right = (getPaddingRight() + (getWidth() - textBoundWidth) / 2);
             } else if (gravity == Gravity.RIGHT && areLeftToRight) {
                 left = getPaddingLeft() + getWidth() - textBoundWidth;
                 right = getPaddingRight();
@@ -752,8 +752,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
                 left = getPaddingLeft();
                 right = getPaddingRight() + getWidth() - textBoundWidth;
             } else {
-                left = areLeftToRight ? getPaddingLeft() : getPaddingLeft() + getWidth() - textBoundWidth;
-                right = areLeftToRight ? getPaddingRight() + getWidth() - textBoundWidth : getPaddingRight();
+                left = areLeftToRight ? getPaddingLeft() : (getPaddingLeft() + getWidth() - textBoundWidth);
+                right = areLeftToRight ? (getPaddingRight() + getWidth() - textBoundWidth) : getPaddingRight();
             }
         } else {
             left = getPaddingLeft();
@@ -762,8 +762,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         if (textBoundHeight < getHeight()) {
             gravity = getGravity() & Gravity.VERTICAL_GRAVITY_MASK;
             if (gravity == Gravity.CENTER_VERTICAL) {
-                top = getPaddingTop() + (getHeight() - textBoundHeight) / 2;
-                bottom = getPaddingBottom() + (getHeight() - textBoundHeight) / 2;
+                top = (getPaddingTop() + (getHeight() - textBoundHeight) / 2);
+                bottom = (getPaddingBottom() + (getHeight() - textBoundHeight) / 2);
             } else if (gravity == Gravity.BOTTOM) {
                 top = getPaddingTop() + getHeight() - textBoundHeight;
                 bottom = getPaddingBottom();
@@ -778,8 +778,8 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
         return new int[]{left, top, right, bottom};
     }
 
-    private int getSelectTextPreciseOffsetY(float offsetY, int targetLine, float charSpacingExtra, boolean isLeftToRight) {
-        int[] drawPadding = getDrawPadding(isLeftToRight);
+    private int getSelectTextPreciseOffsetY(float offsetY, int targetLine, float charSpacingExtra, boolean areLeftToRight) {
+        int[] drawPadding = getDrawPadding(areLeftToRight);
         int[] lineIndex = mLinesTextIndex.get(targetLine);
         int targetOffset = drawPadding[1];
         int tempY = drawPadding[1];
@@ -793,9 +793,9 @@ public class VerticalTextView extends androidx.appcompat.widget.AppCompatTextVie
             if ("\n".equals(iOfChar)) {
                 tempY = drawPadding[1];
             } else if (areUnicodeSymbol(iOfChar)) {
-                tempY += 1.4f * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra;
+                tempY += (1.4F * getCharHeight(iOfChar, getTextPaint()) + charSpacingExtra);
             } else {
-                tempY += getTextSize() + charSpacingExtra;
+                tempY += (getTextSize() + charSpacingExtra);
             }
             if (tempY <= offsetY) {
                 targetOffset = tempY;

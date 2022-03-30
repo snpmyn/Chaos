@@ -3,6 +3,7 @@ package application;
 import android.Manifest;
 import android.app.Application;
 
+import com.chaos.doraemonkit.DoraemonKitInitConfigure;
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
 import com.chaos.jpush.configure.JpushInitConfigure;
 import com.chaos.mobsms.sms.configure.MobSmsInitConfigure;
@@ -89,6 +90,8 @@ public class App extends PoolApp {
      * 初始化配置
      */
     private void initConfiguration() {
+        // DoraemonKit
+        DoraemonKitInitConfigure.initDoraemonKit(this, "xxxxxx", debug(), true);
         // Fragmentation
         FragmentationInitConfig.initFragmentation(debug());
         // 极光推送

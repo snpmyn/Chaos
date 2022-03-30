@@ -182,18 +182,18 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
     public LeftAndRightAlignTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
-        TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.LeftAndRightAlignTextView);
-        areTextJustify = mTypedArray.getBoolean(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewTextJustify, true);
-        areForbiddenActionMenu = mTypedArray.getBoolean(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewForbiddenActionMenu, false);
-        mTextHighlightColor = mTypedArray.getColor(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewTextHeightColor, 0x60ffeb3b);
-        mTypedArray.recycle();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LeftAndRightAlignTextView);
+        areTextJustify = typedArray.getBoolean(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewTextJustify, true);
+        areForbiddenActionMenu = typedArray.getBoolean(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewForbiddenActionMenu, false);
+        mTextHighlightColor = typedArray.getColor(R.styleable.LeftAndRightAlignTextView_leftAndRightAlignTextViewTextHeightColor, 0x60ffeb3b);
+        typedArray.recycle();
         init();
     }
 
     private void init() {
         mScreenHeight = ScreenUtils.screenHeight(mContext);
         mStatusBarHeight = StatusBarUtils.getStatusBarHeight(mContext);
-        mActionMenuHeight = DensityUtils.dipToPxByFloat(mContext, 45.0f);
+        mActionMenuHeight = DensityUtils.dipToPxByFloat(mContext, 45.0F);
         if (areTextJustify) {
             setGravity(Gravity.TOP);
         }
@@ -234,11 +234,10 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
     @RequiresPermission(VIBRATE)
     @Override
     public boolean onTouchEvent(@NonNull MotionEvent event) {
-        int action = event.getAction();
         Layout layout = getLayout();
         int currentLine;
         int triggerLongPressTimeThreshold = 300;
-        switch (action) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (null == mActionMenu) {
                     mActionMenu = createActionMenu();
@@ -255,7 +254,7 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
                     currentLine = layout.getLineForVertical(getScrollY() + (int) event.getY());
                     int wordOffsetMove = layout.getOffsetForHorizontal(currentLine, (int) event.getX());
                     int triggerLongPressDistanceThreshold = 10;
-                    if ((event.getEventTime() - event.getDownTime() >= triggerLongPressTimeThreshold) && (Math.abs(event.getX() - mTouchDownX) < triggerLongPressDistanceThreshold) && (Math.abs(event.getY() - mTouchDownY) < triggerLongPressDistanceThreshold)) {
+                    if (((event.getEventTime() - event.getDownTime()) >= triggerLongPressTimeThreshold) && (Math.abs(event.getX() - mTouchDownX) < triggerLongPressDistanceThreshold) && (Math.abs(event.getY() - mTouchDownY) < triggerLongPressDistanceThreshold)) {
                         areLongPress = true;
                         areLongPressTouchActionUp = false;
                         mStartLine = currentLine;
@@ -393,14 +392,14 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
         if (yOffsetStart < (mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO + mStatusBarHeight)) {
             if (yOffsetEnd > (mScreenHeight - mActionMenuHeight * WidgetMagic.INT_THREE / WidgetMagic.INT_TWO)) {
                 // 菜单显屏中间
-                actionMenuOffsetY = mScreenHeight / 2 - mActionMenuHeight / 2;
+                actionMenuOffsetY = (mScreenHeight / 2 - mActionMenuHeight / 2);
             } else {
                 // 菜单显所选文本下方
-                actionMenuOffsetY = yOffsetEnd + mActionMenuHeight / 2;
+                actionMenuOffsetY = (yOffsetEnd + mActionMenuHeight / 2);
             }
         } else {
             // 菜单显所选文本上方
-            actionMenuOffsetY = yOffsetStart - mActionMenuHeight * 3 / 2;
+            actionMenuOffsetY = (yOffsetStart - mActionMenuHeight * 3 / 2);
         }
         return actionMenuOffsetY;
     }
@@ -412,12 +411,12 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
             // 无需两端对齐
             super.onDraw(canvas);
         } else {
-            // textview内容实宽
+            // textview 内容实宽
             mViewTextWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
             // 重绘文本（两端对齐）
             drawTextWithJustify(canvas);
             // 长按、全选、手指滑动过快需绘背景
-            // 避ACTION_UP后未绘背景
+            // 避 ACTION_UP 后未绘背景
             if (areLongPress | areActionSelectAll | areLongPressTouchActionUp) {
                 drawSelectedTextBackground(canvas);
                 areActionSelectAll = false;
@@ -436,7 +435,7 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
         TextPaint textPaint = getPaint();
         textPaint.setColor(getCurrentTextColor());
         textPaint.drawableState = getDrawableState();
-        String textStr = Objects.requireNonNull(getText()).toString();
+        String textString = Objects.requireNonNull(getText()).toString();
         // 当前所在行 Y 向偏移
         int currentLineOffsetY = getPaddingTop();
         currentLineOffsetY += getTextSize();
@@ -446,18 +445,18 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
             int lineStart = layout.getLineStart(i);
             int lineEnd = layout.getLineEnd(i);
             // TextView 每行内容
-            String lineStr = textStr.substring(lineStart, lineEnd);
+            String lineString = textString.substring(lineStart, lineEnd);
             // 每行字符串宽（不含字符间距）
-            float desiredWidth = StaticLayout.getDesiredWidth(textStr, lineStart, lineEnd, getPaint());
-            if (areLineNeedJustify(lineStr)) {
+            float desiredWidth = StaticLayout.getDesiredWidth(textString, lineStart, lineEnd, getPaint());
+            if (areLineNeedJustify(lineString)) {
                 // 末行无需重绘
                 if (i == (layout.getLineCount() - 1)) {
-                    canvas.drawText(lineStr, getPaddingLeft(), currentLineOffsetY, textPaint);
+                    canvas.drawText(lineString, getPaddingLeft(), currentLineOffsetY, textPaint);
                 } else {
-                    drawJustifyTextForLine(canvas, lineStr, desiredWidth, currentLineOffsetY);
+                    drawJustifyTextForLine(canvas, lineString, desiredWidth, currentLineOffsetY);
                 }
             } else {
-                canvas.drawText(lineStr, getPaddingLeft(), currentLineOffsetY, textPaint);
+                canvas.drawText(lineString, getPaddingLeft(), currentLineOffsetY, textPaint);
             }
             // 更新行 Y 向偏移
             currentLineOffsetY += getLineHeight();
@@ -474,28 +473,28 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
             return;
         }
         // 文字背景高亮画笔
-        Paint highlightPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        highlightPaint.setStyle(Paint.Style.FILL);
-        highlightPaint.setColor(mTextHighlightColor);
-        highlightPaint.setAlpha(60);
+        Paint highLightPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        highLightPaint.setStyle(Paint.Style.FILL);
+        highLightPaint.setColor(mTextHighlightColor);
+        highLightPaint.setAlpha(60);
         // 算开始位和结束位字符相对 view 最左侧 X 偏移
         float startToLeftPosition = calculatorCharPositionToLeft(mStartLine, mStartTextOffset);
         float currentToLeftPosition = calculatorCharPositionToLeft(mCurrentLine, mCurrentTextOffset);
         // 行高
-        int h = getLineHeight();
+        int lineHeight = getLineHeight();
         int paddingTop = getPaddingTop();
         int paddingLeft = getPaddingLeft();
         // 创三矩形（所有选中行对应矩形、起始行左侧未选中文字对应的矩形、结束行右侧未选中文字对应的矩形）
         RectF rectAll, rectLt, rectRb;
         // 版本控制
         if (mStartTextOffset < mCurrentTextOffset) {
-            rectAll = new RectF(paddingLeft, mStartLine * h + paddingTop, mViewTextWidth + paddingLeft, (mCurrentLine + 1) * h + paddingTop);
-            rectLt = new RectF(paddingLeft, mStartLine * h + paddingTop, startToLeftPosition, (mStartLine + 1) * h + paddingTop);
-            rectRb = new RectF(currentToLeftPosition, mCurrentLine * h + paddingTop, mViewTextWidth + paddingLeft, (mCurrentLine + 1) * h + paddingTop);
+            rectAll = new RectF(paddingLeft, mStartLine * lineHeight + paddingTop, mViewTextWidth + paddingLeft, (mCurrentLine + 1) * lineHeight + paddingTop);
+            rectLt = new RectF(paddingLeft, mStartLine * lineHeight + paddingTop, startToLeftPosition, (mStartLine + 1) * lineHeight + paddingTop);
+            rectRb = new RectF(currentToLeftPosition, mCurrentLine * lineHeight + paddingTop, mViewTextWidth + paddingLeft, (mCurrentLine + 1) * lineHeight + paddingTop);
         } else {
-            rectAll = new RectF(paddingLeft, mCurrentLine * h + paddingTop, mViewTextWidth + paddingLeft, (mStartLine + 1) * h + paddingTop);
-            rectLt = new RectF(paddingLeft, mCurrentLine * h + paddingTop, currentToLeftPosition, (mCurrentLine + 1) * h + paddingTop);
-            rectRb = new RectF(startToLeftPosition, mStartLine * h + paddingTop, mViewTextWidth + paddingLeft, (mStartLine + 1) * h + paddingTop);
+            rectAll = new RectF(paddingLeft, mCurrentLine * lineHeight + paddingTop, mViewTextWidth + paddingLeft, (mStartLine + 1) * lineHeight + paddingTop);
+            rectLt = new RectF(paddingLeft, mCurrentLine * lineHeight + paddingTop, currentToLeftPosition, (mCurrentLine + 1) * lineHeight + paddingTop);
+            rectRb = new RectF(startToLeftPosition, mStartLine * lineHeight + paddingTop, mViewTextWidth + paddingLeft, (mStartLine + 1) * lineHeight + paddingTop);
         }
         // 创三路径（分对应上三矩形）
         Path pathAll = new Path();
@@ -508,23 +507,22 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
         pathAll.addRect(rectAll, Path.Direction.CCW);
         pathAll.op(pathLt, Path.Op.DIFFERENCE);
         pathAll.op(pathRb, Path.Op.DIFFERENCE);
-        canvas.drawPath(pathAll, highlightPaint);
-        /*canvas.restore();*/
+        canvas.drawPath(pathAll, highLightPaint);
     }
 
     /**
      * 重绘此行（两端对齐）
      *
      * @param canvas             画布
-     * @param lineStr            该行所有文字
+     * @param lineString         该行所有文字
      * @param desiredWidth       该行文本宽总和
      * @param currentLineOffsetY 该行Y偏移
      */
-    private void drawJustifyTextForLine(Canvas canvas, String lineStr, float desiredWidth, int currentLineOffsetY) {
+    private void drawJustifyTextForLine(Canvas canvas, String lineString, float desiredWidth, int currentLineOffsetY) {
         // 画笔 X 偏移
         float lineTextOffsetX = getPaddingLeft();
         // 首行否
-        if (areFirstLineOfParagraph(lineStr)) {
+        if (areFirstLineOfParagraph(lineString)) {
             String blanks = "  ";
             // 画出缩进空格
             canvas.drawText(blanks, lineTextOffsetX, currentLineOffsetY, getPaint());
@@ -532,13 +530,13 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
             float blankWidth = StaticLayout.getDesiredWidth(blanks, getPaint());
             // 更新画笔 X 偏移
             lineTextOffsetX += blankWidth;
-            lineStr = lineStr.substring(3);
+            lineString = lineString.substring(3);
         }
         // 算相邻字符(或单词)间需填充宽，英文按单词处理，中文按字符处理。
         // (TextView 内容实际宽 - 该行字符串宽) / (字符或单词个数 - 1)
-        if (CheckOutUtils.areContainLetter(lineStr)) {
+        if (CheckOutUtils.areContainLetter(lineString)) {
             // 含英文以空格分割单词
-            String[] lineWords = lineStr.split(" ");
+            String[] lineWords = lineString.split(" ");
             // 算相邻单词间需插入空白
             float insertBlank = mViewTextWidth - desiredWidth;
             if (lineWords.length > 1) {
@@ -577,13 +575,13 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
             }
         } else {
             // 该行按中文处理
-            float insertBlank = (mViewTextWidth - desiredWidth) / (lineStr.length() - 1);
-            for (int i = 0; i < lineStr.length(); i++) {
-                String charI = String.valueOf(lineStr.charAt(i));
+            float insertBlank = (mViewTextWidth - desiredWidth) / (lineString.length() - 1);
+            for (int i = 0; i < lineString.length(); i++) {
+                String charI = String.valueOf(lineString.charAt(i));
                 float widthOfCharI = StaticLayout.getDesiredWidth(charI, getPaint());
                 canvas.drawText(charI, lineTextOffsetX, currentLineOffsetY, getPaint());
                 // 更新画笔 X 偏移
-                lineTextOffsetX += widthOfCharI + insertBlank;
+                lineTextOffsetX += (widthOfCharI + insertBlank);
             }
         }
     }
@@ -595,12 +593,12 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
      * @param charOffset 字符偏移量
      */
     private float calculatorCharPositionToLeft(int line, int charOffset) {
-        String textStr = Objects.requireNonNull(getText()).toString();
+        String text = Objects.requireNonNull(getText()).toString();
         Layout layout = getLayout();
         int lineStart = layout.getLineStart(line);
         int lineEnd = layout.getLineEnd(line);
-        String lineStr = textStr.substring(lineStart, lineEnd);
-        if (lineStr.equals(WidgetMagic.STRING_NEW_LINE)) {
+        String lineString = text.substring(lineStart, lineEnd);
+        if (lineString.equals(WidgetMagic.STRING_NEW_LINE)) {
             return getPaddingLeft();
         }
         // 最左侧
@@ -611,13 +609,13 @@ public class LeftAndRightAlignTextView extends AppCompatEditText {
         if (charOffset == lineEnd - 1) {
             return mViewTextWidth + getPaddingLeft();
         }
-        float desiredWidth = StaticLayout.getDesiredWidth(textStr, lineStart, lineEnd, getPaint());
+        float desiredWidth = StaticLayout.getDesiredWidth(text, lineStart, lineEnd, getPaint());
         // 中间位
         // 算相邻字符间需填充宽
         // (TextView 内容实际宽 - 该行字符串宽) / (字符数 - 1)
-        float insertBlank = (mViewTextWidth - desiredWidth) / (lineStr.length() - 1);
+        float insertBlank = (mViewTextWidth - desiredWidth) / (lineString.length() - 1);
         // 算当前字符左侧所有字符宽
-        float allLeftCharWidth = StaticLayout.getDesiredWidth(textStr.substring(lineStart, charOffset), getPaint());
+        float allLeftCharWidth = StaticLayout.getDesiredWidth(text.substring(lineStart, charOffset), getPaint());
         // 相邻字符间需填充宽 + 当前字符左侧所有字符宽
         return insertBlank * (charOffset - lineStart) + allLeftCharWidth + getPaddingLeft();
     }

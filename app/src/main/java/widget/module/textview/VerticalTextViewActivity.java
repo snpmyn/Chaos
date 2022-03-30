@@ -67,7 +67,7 @@ public class VerticalTextViewActivity extends BaseActivity implements ActionMenu
                 .setAreUnderLineText(true)
                 .setAreShowActionMenu(true)
                 .setUnderLineColor(R.color.purple_500)
-                .setUnderLineWidth(1.5f)
+                .setUnderLineWidth(1.5F)
                 .setUnderLineOffset(2)
                 .setTextHighlightColor(R.color.purple_500)
                 .setCustomActionMenuCallBack(this);
