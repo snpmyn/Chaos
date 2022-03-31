@@ -26,6 +26,7 @@ import com.chaos.util.java.statusbar.StatusBarUtils;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.view.ViewUtils;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 
 import cn.smssdk.EventHandler;
 
@@ -44,7 +45,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
     private ImageView loginActivityIvPhoneNumberClear;
     private EditText loginActivityEtPleaseInputVerificationCode;
     private TextView loginActivityTvGetVerificationCode;
-    private TextView loginActivityTvLogin;
+    private MaterialButton loginActivityMbLogin;
     private TextView loginActivityTvUserAgreement;
     private TextView loginActivityTvPrivacyPolicy;
     /**
@@ -109,7 +110,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
         loginActivityIvPhoneNumberClear = findViewById(R.id.loginActivityIvPhoneNumberClear);
         loginActivityEtPleaseInputVerificationCode = findViewById(R.id.loginActivityEtPleaseInputVerificationCode);
         loginActivityTvGetVerificationCode = findViewById(R.id.loginActivityTvGetVerificationCode);
-        loginActivityTvLogin = findViewById(R.id.loginActivityTvLogin);
+        loginActivityMbLogin = findViewById(R.id.loginActivityMbLogin);
         loginActivityTvUserAgreement = findViewById(R.id.loginActivityTvUserAgreement);
         loginActivityTvPrivacyPolicy = findViewById(R.id.loginActivityTvPrivacyPolicy);
     }
@@ -201,13 +202,13 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() != 0) {
-                    loginActivityTvLogin.setEnabled(true);
-                    loginActivityTvLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.fontInput));
-                    loginActivityTvLogin.setBackground(ContextCompat.getDrawable(LoginActivity.this, R.drawable.purple_500_solid_semi_circle));
+                    loginActivityMbLogin.setEnabled(true);
+                    loginActivityMbLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.fontInput));
+                    loginActivityMbLogin.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.purple_500));
                 } else {
-                    loginActivityTvLogin.setEnabled(false);
-                    loginActivityTvLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.fontHint));
-                    loginActivityTvLogin.setBackground(ContextCompat.getDrawable(LoginActivity.this, R.drawable.pool_login_button_background_solid_semi_circle));
+                    loginActivityMbLogin.setEnabled(false);
+                    loginActivityMbLogin.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.fontHint));
+                    loginActivityMbLogin.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.pool_login_button_background));
                 }
             }
 
@@ -218,7 +219,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
         });
         // 控件
         loginActivityTvGetVerificationCode.setOnClickListener(this);
-        loginActivityTvLogin.setOnClickListener(this);
+        loginActivityMbLogin.setOnClickListener(this);
         loginActivityTvUserAgreement.setOnClickListener(this);
         loginActivityTvPrivacyPolicy.setOnClickListener(this);
     }
@@ -232,7 +233,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
         } else if (id == R.id.loginActivityTvGetVerificationCode) {
             // 获取验证码
             loginActivityKit.getVerificationCode(this, loginActivityEtPleaseInputPhoneNumber);
-        } else if (id == R.id.loginActivityTvLogin) {
+        } else if (id == R.id.loginActivityMbLogin) {
             // 登录
             commonLoading(getString(R.string.loginTwo), null);
             MobSmsKit.getInstanceByDcl().submitVerificationCode("86", loginActivityEtPleaseInputPhoneNumber.getText().toString(), loginActivityEtPleaseInputVerificationCode.getText().toString());

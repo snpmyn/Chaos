@@ -110,17 +110,18 @@
             android:layout_height="@dimen/px1"
             android:background="@color/gray" />
 
-        <TextView
-            android:id="@+id/loginActivityTvLogin"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginActivityMbLogin"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginTop="@dimen/dp_36"
-            android:background="@drawable/pool_login_button_background_solid_semi_circle"
-            android:enabled="false"
-            android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/fontHint"
-            android:textSize="@dimen/sp_18" />
+            android:textSize="@dimen/sp_18"
+            app:backgroundTint="@color/pool_login_button_background"
+            app:cornerRadius="@dimen/dp_180"
+            app:rippleColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout

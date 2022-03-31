@@ -19,6 +19,7 @@ import com.chaos.pool.module.login.listener.LoginTwoActivityListener;
 import com.chaos.pool.value.PoolConstant;
 import com.chaos.util.java.statusbar.StatusBarUtils;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 
 /**
  * @desc: 登录二页
@@ -33,7 +34,7 @@ public class LoginTwoActivity extends BasePoolActivity implements View.OnClickLi
     private MaterialToolbar loginTwoActivityMt;
     private EditText loginTwoActivityEtPleaseInputPhoneNumber;
     private ImageView loginTwoActivityIvPhoneNumberClear;
-    private TextView loginTwoActivityTvLogin;
+    private MaterialButton loginTwoActivityMbLogin;
     private TextView loginTwoActivityTvUserAgreement;
     private TextView loginTwoActivityTvPrivacyPolicy;
     /**
@@ -84,7 +85,7 @@ public class LoginTwoActivity extends BasePoolActivity implements View.OnClickLi
         loginTwoActivityMt = findViewById(R.id.loginTwoActivityMt);
         loginTwoActivityEtPleaseInputPhoneNumber = findViewById(R.id.loginTwoActivityEtPleaseInputPhoneNumber);
         loginTwoActivityIvPhoneNumberClear = findViewById(R.id.loginTwoActivityIvPhoneNumberClear);
-        loginTwoActivityTvLogin = findViewById(R.id.loginTwoActivityTvLogin);
+        loginTwoActivityMbLogin = findViewById(R.id.loginTwoActivityMbLogin);
         loginTwoActivityTvUserAgreement = findViewById(R.id.loginTwoActivityTvUserAgreement);
         loginTwoActivityTvPrivacyPolicy = findViewById(R.id.loginTwoActivityTvPrivacyPolicy);
     }
@@ -117,13 +118,13 @@ public class LoginTwoActivity extends BasePoolActivity implements View.OnClickLi
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() != 0) {
-                    loginTwoActivityTvLogin.setEnabled(true);
-                    loginTwoActivityTvLogin.setTextColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.fontInput));
-                    loginTwoActivityTvLogin.setBackground(ContextCompat.getDrawable(LoginTwoActivity.this, R.drawable.purple_500_solid_semi_circle));
+                    loginTwoActivityMbLogin.setEnabled(true);
+                    loginTwoActivityMbLogin.setTextColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.fontInput));
+                    loginTwoActivityMbLogin.setBackgroundColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.purple_500));
                 } else {
-                    loginTwoActivityTvLogin.setEnabled(false);
-                    loginTwoActivityTvLogin.setTextColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.fontHint));
-                    loginTwoActivityTvLogin.setBackground(ContextCompat.getDrawable(LoginTwoActivity.this, R.drawable.pool_login_button_background_solid_semi_circle));
+                    loginTwoActivityMbLogin.setEnabled(false);
+                    loginTwoActivityMbLogin.setTextColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.fontHint));
+                    loginTwoActivityMbLogin.setBackgroundColor(ContextCompat.getColor(LoginTwoActivity.this, R.color.pool_login_button_background));
                 }
             }
 
@@ -134,7 +135,7 @@ public class LoginTwoActivity extends BasePoolActivity implements View.OnClickLi
         });
         // 控件
         loginTwoActivityIvPhoneNumberClear.setOnClickListener(this);
-        loginTwoActivityTvLogin.setOnClickListener(this);
+        loginTwoActivityMbLogin.setOnClickListener(this);
         loginTwoActivityTvUserAgreement.setOnClickListener(this);
         loginTwoActivityTvPrivacyPolicy.setOnClickListener(this);
     }
@@ -145,7 +146,7 @@ public class LoginTwoActivity extends BasePoolActivity implements View.OnClickLi
         if (id == R.id.loginTwoActivityIvPhoneNumberClear) {
             // 清手机号
             loginTwoActivityEtPleaseInputPhoneNumber.setText("");
-        } else if (id == R.id.loginTwoActivityTvLogin) {
+        } else if (id == R.id.loginTwoActivityMbLogin) {
             // 登录
             loginTwoActivityKit.login(this, loginTwoActivityEtPleaseInputPhoneNumber, loginTwoActivityListener);
         } else if (id == R.id.loginTwoActivityTvUserAgreement) {

@@ -108,8 +108,8 @@ public class SplashActivityKit {
                             dialog.dismiss();
                             if (!NetManager.isNetConnected(appCompatActivity)) {
                                 new MyMaterialAlertDialogBuilder(appCompatActivity).setTitle(R.string.hint).setMessage(R.string.currentNoNetwork)
-                                        .setPositiveButton(R.string.loginOutToRetry, (dialog1, which) -> {
-                                            dialog1.dismiss();
+                                        .setPositiveButton(R.string.loginOutToRetry, (dialog12, which) -> {
+                                            dialog12.dismiss();
                                             appCompatActivity.finish();
                                         }).setCancelable(false).show();
                                 return;
@@ -124,8 +124,8 @@ public class SplashActivityKit {
                                     @Override
                                     public void onFailure(Throwable throwable) {
                                         new MyMaterialAlertDialogBuilder(appCompatActivity).setTitle(R.string.hint).setMessage(throwable.getMessage())
-                                                .setPositiveButton(R.string.loginOutToRetry, (dialog12, which) -> {
-                                                    dialog12.dismiss();
+                                                .setPositiveButton(R.string.loginOutToRetry, (dialog1, which) -> {
+                                                    dialog1.dismiss();
                                                     appCompatActivity.finish();
                                                 }).setCancelable(false).show();
                                     }
