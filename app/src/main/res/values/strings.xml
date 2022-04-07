@@ -11,6 +11,7 @@
     <string name="commonLoadingDialog">普通加载对话框</string>
     <string name="canCancelLoadingDialog">可取消加载对话框</string>
     <string name="lottieAnimationViewLoadingDialog">LottieAnimationView 加载对话框</string>
+    <string name="lottieAnimationViewResultDialog">LottieAnimationView 结果对话框</string>
     <string name="messageDialog">消息对话框</string>
     <string name="moneyHint">￥0.00</string>
     <string name="lottie">LOTTIE</string>
@@ -49,4 +50,10 @@
     <string name="fromRightToLeft">从右到左</string>
     <string name="showUnderLine">显下划线</string>
     <string name="hideUnderLine">隐下划线</string>
+    <string name="status">状态</string>
+    <string name="emptyView">空视图</string>
+    <string name="loadingView">加载视图</string>
+    <string name="errorOneView">错误一视图</string>
+    <string name="errorTwoView">错误二视图</string>
+    <string name="errorThreeView">错误三视图</string>
 </resources>

@@ -11,19 +11,17 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.other.adapter.decoration.HorizontalDividerDecoration;
 import com.chaos.widget.other.adapter.decoration.VerticalDividerDecoration;
 import com.chaos.widget.other.listview.MeasuredListView;
+import com.chaos.widget.snackbar.SnackbarKit;
 import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 import com.example.chaos.adapter.MainActivityListViewAdapter;
 import com.example.chaos.adapter.MainActivityRecyclerViewAdapter;
 import com.example.chaos.bean.MainActivityModule;
 import com.google.android.material.button.MaterialButton;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +54,7 @@ public class MainActivityKit {
      * @param recyclerView      RecyclerView
      * @param materialButton    按钮
      */
-    public void display(AppCompatActivity appCompatActivity, @NotNull MeasuredListView measuredListView, @NotNull RecyclerView recyclerView, MaterialButton materialButton) {
+    public void display(AppCompatActivity appCompatActivity, @NonNull MeasuredListView measuredListView, @NonNull RecyclerView recyclerView, MaterialButton materialButton) {
         // 数据
         List<MainActivityModule> mainActivityModuleList = new ArrayList<>(2);
         mainActivityModuleList.add(new MainActivityModule(1, "组件", "组件 注释"));
@@ -109,10 +107,10 @@ public class MainActivityKit {
                 .build());
         // 适配器
         MainActivityListViewAdapter mainActivityListViewAdapter = new MainActivityListViewAdapter(appCompatActivity);
-        mainActivityListViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> ToastKit.showLong((mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation()));
+        mainActivityListViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> SnackbarKit.snackbarCreateByCharSequenceAndShow(childView, (mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation(), false));
         MainActivityRecyclerViewAdapter mainActivityRecyclerViewAdapter = new MainActivityRecyclerViewAdapter(appCompatActivity);
         mainActivityRecyclerViewAdapter.setOnItemClickListener((view, position) -> execute(appCompatActivity, view, mainActivityModuleList.get(position)));
-        mainActivityRecyclerViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> ToastKit.showLong((mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation()));
+        mainActivityRecyclerViewAdapter.setOnItemChildViewClickListener((position, item, childView) -> SnackbarKit.snackbarCreateByCharSequenceWithActionByCharSequenceAndShow(childView, (mainActivityListViewAdapter.itemIsVisible(measuredListView, position) ? "可见" : "不可见") + " || " + item.getModuleAnnotation(), false, appCompatActivity.getString(R.string.ok), (view, snackbar) -> snackbar.dismiss()));
         // 显示
         if (recyclerView.getVisibility() == View.VISIBLE) {
             ViewUtils.hideView(recyclerView, View.GONE);
@@ -140,7 +138,7 @@ public class MainActivityKit {
                 TransitionKit.getInstance().jumpWithTransition(appCompatActivity, view, new Intent(appCompatActivity, WidgetActivity.class));
                 break;
             case 2:
-                ToastKit.showShort("待定");
+                SnackbarKit.snackbarCreateByResIdAndShow(appCompatActivity.getWindow().getDecorView(), R.string.notRealizeYet, false);
                 break;
             default:
                 break;

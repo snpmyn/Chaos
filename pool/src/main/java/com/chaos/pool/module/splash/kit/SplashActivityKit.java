@@ -30,8 +30,6 @@ import com.chaos.widget.dialog.materialalertdialog.MyMaterialAlertDialogBuilder;
 import com.mob.OperationCallback;
 import com.permissionx.guolindev.PermissionX;
 
-import org.jetbrains.annotations.NotNull;
-
 /**
  * Created on 2021/9/16
  *
@@ -60,7 +58,7 @@ public class SplashActivityKit {
      *
      * @param appCompatActivity 活动
      */
-    private void userAgreementAndPrivacyPolicy(@NotNull AppCompatActivity appCompatActivity) {
+    private void userAgreementAndPrivacyPolicy(@NonNull AppCompatActivity appCompatActivity) {
         baseDialog = CustomDialog.init()
                 .setLayoutId(R.layout.dialog_user_agreement_and_privacy_policy)
                 .setBaseViewConvertListener(new BaseViewConvertListener() {

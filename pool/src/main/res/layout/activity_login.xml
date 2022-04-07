@@ -114,7 +114,7 @@
             android:id="@+id/loginActivityMbLogin"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
+            android:layout_height="@dimen/dp_60"
             android:layout_marginTop="@dimen/dp_36"
             android:text="@string/login"
             android:textColor="@color/fontHint"

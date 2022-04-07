@@ -18,7 +18,7 @@
             android:layout_height="@dimen/dp_256">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"
@@ -26,19 +26,19 @@
                 app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/colorline" />
+                app:lottie_rawRes="@raw/color_line" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="7735-douban-loading.json"
+                app:lottie_fileName="DouBanLoading.json"
                 app:lottie_loop="true" />
         </LinearLayout>
 
@@ -47,23 +47,23 @@
             android:layout_height="@dimen/dp_256">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="animation-w800-h800.json"
+                app:lottie_fileName="animation.json"
                 app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="7935-bouncing-loader.json"
+                app:lottie_fileName="BouncingLoading.json"
                 app:lottie_loop="true" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:lottie_autoPlay="true"

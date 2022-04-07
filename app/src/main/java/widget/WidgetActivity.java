@@ -28,6 +28,7 @@ import widget.property.PropertyActivity;
 import widget.pudding.PuddingActivity;
 import widget.scan.ScanActivity;
 import widget.search.SearchActivity;
+import widget.status.StatusActivity;
 
 /**
  * @desc: 组件页
@@ -98,7 +99,8 @@ public class WidgetActivity extends BaseActivity {
             R.id.widgetActivityBtnBanner,
             R.id.widgetActivityBtnModuleOne,
             R.id.widgetActivityBtnModuleTwo,
-            R.id.widgetActivityBtnTextView})
+            R.id.widgetActivityBtnTextView,
+            R.id.widgetActivityBtnStatus})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // BOC 对话框页
@@ -156,6 +158,10 @@ public class WidgetActivity extends BaseActivity {
             // TextView 主页
             case R.id.widgetActivityBtnTextView:
                 IntentJump.getInstance().jump(null, this, false, TextViewHomeActivity.class);
+                break;
+            // 状态页
+            case R.id.widgetActivityBtnStatus:
+                IntentJump.getInstance().jump(null, this, false, StatusActivity.class);
                 break;
             default:
                 break;

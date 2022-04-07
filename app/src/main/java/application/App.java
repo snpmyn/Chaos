@@ -11,6 +11,7 @@ import com.chaos.pool.application.PoolApp;
 import com.chaos.pool.module.login.LoginTwoActivity;
 import com.chaos.pool.module.splash.kit.SplashActivityKit;
 import com.chaos.util.java.intent.IntentJump;
+import com.chaos.widget.status.manager.StatusManager;
 import com.example.chaos.BuildConfig;
 
 import java.util.List;
@@ -33,6 +34,8 @@ public class App extends PoolApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        StatusManager.BASE_LOADING_LAYOUT_ID = com.chaos.pool.R.layout.status_loading_with_animation;
+        StatusManager.BASE_EMPTY_LAYOUT_ID = com.chaos.pool.R.layout.status_empty_with_animation;
         // 初始化配置
         initConfiguration();
     }

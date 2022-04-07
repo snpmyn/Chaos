@@ -17,11 +17,11 @@ import butterknife.BindView;
  */
 public class LottieCompositionActivity extends BaseActivity {
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.lottieCompositionActivityOne)
-    LottieAnimationView lottieCompositionActivityOne;
+    @BindView(R.id.lottieCompositionActivityLavOne)
+    LottieAnimationView lottieCompositionActivityLavOne;
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.lottieCompositionActivityTwo)
-    LottieAnimationView lottieCompositionActivityTwo;
+    @BindView(R.id.lottieCompositionActivityLavTwo)
+    LottieAnimationView lottieCompositionActivityLavTwo;
     /**
      * Lottie 配套元件
      */
@@ -74,8 +74,8 @@ public class LottieCompositionActivity extends BaseActivity {
      */
     private void execute() {
         // 一
-        lottieKit.useWithLottieTaskFromAsset(this, lottieCompositionActivityOne, "emoji_wink.json", ValueAnimator.INFINITE);
+        lottieKit.useWithLottieTaskFromAsset(this, lottieCompositionActivityLavOne, "EmojiWink.json", ValueAnimator.INFINITE, null);
         // 二
-        lottieKit.useWithLottieTaskFromRawResId(this, lottieCompositionActivityTwo, R.raw.jolly_walker, ValueAnimator.INFINITE);
+        lottieKit.useWithLottieTaskFromRawResId(this, lottieCompositionActivityLavTwo, R.raw.jolly_walker, ValueAnimator.INFINITE, null);
     }
 }

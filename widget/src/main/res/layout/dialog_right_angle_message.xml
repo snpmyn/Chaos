@@ -51,7 +51,7 @@
         <Button
             android:id="@+id/rightAngleMessageDialogBtnLeft"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/white_purple_500_drawable_selector"
@@ -67,7 +67,7 @@
         <Button
             android:id="@+id/rightAngleMessageDialogBtnRight"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/white_purple_500_drawable_selector"

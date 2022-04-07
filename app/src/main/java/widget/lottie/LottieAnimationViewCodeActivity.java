@@ -1,10 +1,12 @@
 package widget.lottie;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.chaos.lottie.LottieKit;
+import com.chaos.widget.snackbar.SnackbarKit;
 import com.example.chaos.R;
 
 import base.BaseActivity;
@@ -17,14 +19,14 @@ import butterknife.BindView;
  */
 public class LottieAnimationViewCodeActivity extends BaseActivity {
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.lottieAnimationViewCodeActivityOne)
-    LottieAnimationView lottieAnimationViewCodeActivityOne;
+    @BindView(R.id.lottieAnimationViewCodeActivityLavOne)
+    LottieAnimationView lottieAnimationViewCodeActivityLavOne;
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.lottieAnimationViewCodeActivityTwo)
-    LottieAnimationView lottieAnimationViewCodeActivityTwo;
+    @BindView(R.id.lottieAnimationViewCodeActivityLavTwo)
+    LottieAnimationView lottieAnimationViewCodeActivityLavTwo;
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.lottieAnimationViewCodeActivityThree)
-    LottieAnimationView lottieAnimationViewCodeActivityThree;
+    @BindView(R.id.lottieAnimationViewCodeActivityLavThree)
+    LottieAnimationView lottieAnimationViewCodeActivityLavThree;
     /**
      * Lottie 配套元件
      */
@@ -77,10 +79,30 @@ public class LottieAnimationViewCodeActivity extends BaseActivity {
      */
     private void execute() {
         // 一
-        lottieKit.useWithAsset(lottieAnimationViewCodeActivityOne, "camera.json", ValueAnimator.INFINITE);
+        lottieKit.useWithAsset(lottieAnimationViewCodeActivityLavOne, "camera.json", ValueAnimator.INFINITE, new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                SnackbarKit.snackbarCreateByResIdAndShow(LottieAnimationViewCodeActivity.this.getWindow().getDecorView(), R.string.ok, false);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
         // 二
-        lottieKit.useWithRaw(lottieAnimationViewCodeActivityTwo, R.raw.hamburger_arrow, ValueAnimator.INFINITE);
+        lottieKit.useWithRaw(lottieAnimationViewCodeActivityLavTwo, R.raw.hamburger_arrow, ValueAnimator.INFINITE, null);
         // 三
-        lottieKit.useWithAssetAndImageAsset(lottieAnimationViewCodeActivityThree, "splash.json", "images_splash/", ValueAnimator.INFINITE);
+        lottieKit.useWithAssetAndImageAsset(lottieAnimationViewCodeActivityLavThree, "splash.json", "images_splash/", ValueAnimator.INFINITE, null);
     }
 }

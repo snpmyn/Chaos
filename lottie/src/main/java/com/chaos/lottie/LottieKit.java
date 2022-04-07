@@ -1,5 +1,6 @@
 package com.chaos.lottie;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 
 import androidx.annotation.NonNull;
@@ -25,11 +26,16 @@ public class LottieKit {
      *                            如 "camera.json"
      * @param count               数量
      *                            如 {@link ValueAnimator#INFINITE}
+     * @param animatorListener    An animation listener receives notifications from an animation.
+     *                            Notifications indicate animation related events, such as the end or the repetition of the animation.
      */
-    public void useWithAsset(@NonNull LottieAnimationView lottieAnimationView, String assetName, int count) {
+    public void useWithAsset(@NonNull LottieAnimationView lottieAnimationView, String assetName, int count, Animator.AnimatorListener animatorListener) {
         lottieAnimationView.setAnimation(assetName);
         lottieAnimationView.playAnimation();
         lottieAnimationView.setRepeatCount(count);
+        if (null != animatorListener) {
+            lottieAnimationView.addAnimatorListener(animatorListener);
+        }
     }
 
     /**
@@ -42,12 +48,17 @@ public class LottieKit {
      *                            如 "images_splash_two/"
      * @param count               数量
      *                            如 {@link ValueAnimator#INFINITE}
+     * @param animatorListener    An animation listener receives notifications from an animation.
+     *                            Notifications indicate animation related events, such as the end or the repetition of the animation.
      */
-    public void useWithAssetAndImageAsset(@NonNull LottieAnimationView lottieAnimationView, String assetName, String imageAssetFolder, int count) {
+    public void useWithAssetAndImageAsset(@NonNull LottieAnimationView lottieAnimationView, String assetName, String imageAssetFolder, int count, Animator.AnimatorListener animatorListener) {
         lottieAnimationView.setAnimation(assetName);
         lottieAnimationView.setImageAssetsFolder(imageAssetFolder);
         lottieAnimationView.playAnimation();
         lottieAnimationView.setRepeatCount(count);
+        if (null != animatorListener) {
+            lottieAnimationView.addAnimatorListener(animatorListener);
+        }
     }
 
     /**
@@ -58,11 +69,16 @@ public class LottieKit {
      *                            如 R.raw.hamburger_arrow
      * @param count               数量
      *                            如 {@link ValueAnimator#INFINITE}
+     * @param animatorListener    An animation listener receives notifications from an animation.
+     *                            Notifications indicate animation related events, such as the end or the repetition of the animation.
      */
-    public void useWithRaw(@NonNull LottieAnimationView lottieAnimationView, int rawResId, int count) {
+    public void useWithRaw(@NonNull LottieAnimationView lottieAnimationView, int rawResId, int count, Animator.AnimatorListener animatorListener) {
         lottieAnimationView.setAnimation(rawResId);
         lottieAnimationView.playAnimation();
         lottieAnimationView.setRepeatCount(count);
+        if (null != animatorListener) {
+            lottieAnimationView.addAnimatorListener(animatorListener);
+        }
     }
 
     /**
@@ -74,14 +90,19 @@ public class LottieKit {
      *                            如 "emoji_wink.json"
      * @param count               数量
      *                            如 {@link ValueAnimator#INFINITE}
+     * @param animatorListener    An animation listener receives notifications from an animation.
+     *                            Notifications indicate animation related events, such as the end or the repetition of the animation.
      */
-    public void useWithLottieTaskFromAsset(AppCompatActivity appCompatActivity, LottieAnimationView lottieAnimationView, String assetName, int count) {
+    public void useWithLottieTaskFromAsset(AppCompatActivity appCompatActivity, LottieAnimationView lottieAnimationView, String assetName, int count, Animator.AnimatorListener animatorListener) {
         LottieTask<LottieComposition> lottieCompositionFromAsset = LottieCompositionFactory.fromAsset(appCompatActivity, assetName);
         lottieCompositionFromAsset.addListener(result -> {
             lottieAnimationView.setComposition(result);
             lottieAnimationView.playAnimation();
             lottieAnimationView.setRepeatCount(count);
         });
+        if (null != animatorListener) {
+            lottieAnimationView.addAnimatorListener(animatorListener);
+        }
     }
 
     /**
@@ -93,14 +114,19 @@ public class LottieKit {
      *                            如 R.raw.jolly_walker
      * @param count               数量
      *                            如 {@link ValueAnimator#INFINITE}
+     * @param animatorListener    An animation listener receives notifications from an animation.
+     *                            Notifications indicate animation related events, such as the end or the repetition of the animation.
      */
-    public void useWithLottieTaskFromRawResId(AppCompatActivity appCompatActivity, LottieAnimationView lottieAnimationView, int rawResId, int count) {
+    public void useWithLottieTaskFromRawResId(AppCompatActivity appCompatActivity, LottieAnimationView lottieAnimationView, int rawResId, int count, Animator.AnimatorListener animatorListener) {
         LottieTask<LottieComposition> lottieCompositionFromRawRes = LottieCompositionFactory.fromRawRes(appCompatActivity, rawResId);
         lottieCompositionFromRawRes.addListener(result -> {
             lottieAnimationView.setComposition(result);
             lottieAnimationView.playAnimation();
             lottieAnimationView.setRepeatCount(count);
         });
+        if (null != animatorListener) {
+            lottieAnimationView.addAnimatorListener(animatorListener);
+        }
     }
 
     /**

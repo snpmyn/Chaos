@@ -40,7 +40,7 @@ public class PoolApp extends BaseBasicApp implements MMKVHandler, MMKVContentCha
     public void onCreate() {
         Timber.d("onCreate");
         super.onCreate();
-        StatusManager.BASE_LOADING_LAYOUT_ID = R.layout.status_loading_two;
+        StatusManager.BASE_LOADING_LAYOUT_ID = R.layout.status_loading;
         StatusManager.BASE_EMPTY_LAYOUT_ID = R.layout.status_empty;
         StatusManager.BASE_RETRY_LAYOUT_ID = R.layout.status_retry;
         // 初始化配置

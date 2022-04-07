@@ -1,7 +1,9 @@
-package com.chaos.widget.dialog.bocdialog.loading;
+package com.chaos.widget.dialog.bocdialog.result;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 
@@ -13,13 +15,14 @@ import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
 
 /**
- * Created on 2021/10/21
+ * Created on 2022/4/6
  *
  * @author zsp
- * @desc LottieAnimationView 加载对话框
+ * @desc LottieAnimationView 结果对话框
  */
-public class LottieAnimationViewLoadingDialog extends BaseInstanceDialog {
+public class LottieAnimationViewResultDialog extends BaseInstanceDialog {
     private LottieAnimationView lottieAnimationViewLoadingAndResultDialogLav;
+    private long duration;
     private OnBackPressedListener onBackPressedListener;
 
     /**
@@ -28,7 +31,7 @@ public class LottieAnimationViewLoadingDialog extends BaseInstanceDialog {
      * @param context        上下文
      * @param selfThemeResId 自身主题资源 ID
      */
-    private LottieAnimationViewLoadingDialog(Context context, int selfThemeResId) {
+    private LottieAnimationViewResultDialog(Context context, int selfThemeResId) {
         super(context, selfThemeResId);
     }
 
@@ -101,25 +104,37 @@ public class LottieAnimationViewLoadingDialog extends BaseInstanceDialog {
         this.onBackPressedListener = onBackPressedListener;
     }
 
+    @Override
+    public void show() {
+        super.show();
+        new Handler(Looper.getMainLooper()).postDelayed(this::dismiss, duration);
+    }
+
     public static class Builder {
-        private final LottieAnimationViewLoadingDialog lottieAnimationViewLoadingDialog;
+        private final LottieAnimationViewResultDialog lottieAnimationViewResultDialog;
 
         public Builder(Context context, int selfThemeResId) {
-            this.lottieAnimationViewLoadingDialog = new LottieAnimationViewLoadingDialog(context, selfThemeResId);
+            this.lottieAnimationViewResultDialog = new LottieAnimationViewResultDialog(context, selfThemeResId);
         }
 
         public Builder setAnimation(String assetName) {
-            lottieAnimationViewLoadingDialog.setAnimation(assetName);
+            lottieAnimationViewResultDialog.setAnimation(assetName);
+            return this;
+        }
+
+        public Builder setDuration(long duration) {
+            lottieAnimationViewResultDialog.duration = duration;
             return this;
         }
 
         public Builder setOnBackPressedListener(OnBackPressedListener onBackPressedListener) {
-            lottieAnimationViewLoadingDialog.setOnBackPressedListener(onBackPressedListener);
+            lottieAnimationViewResultDialog.setOnBackPressedListener(onBackPressedListener);
             return this;
         }
 
-        public LottieAnimationViewLoadingDialog build() {
-            return lottieAnimationViewLoadingDialog;
+        public LottieAnimationViewResultDialog build() {
+            return lottieAnimationViewResultDialog;
         }
     }
 }
+

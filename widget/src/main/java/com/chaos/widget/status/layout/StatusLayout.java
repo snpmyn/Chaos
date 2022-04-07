@@ -38,12 +38,12 @@ public class StatusLayout extends FrameLayout {
         this(context, null);
     }
 
-    private boolean isMainThread() {
+    private boolean areMainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
     public void showLoading() {
-        if (isMainThread()) {
+        if (areMainThread()) {
             showView(mLoadingView);
         } else {
             post(() -> showView(mLoadingView));
@@ -53,7 +53,7 @@ public class StatusLayout extends FrameLayout {
     }
 
     public void showEmpty() {
-        if (isMainThread()) {
+        if (areMainThread()) {
             showView(mEmptyView);
         } else {
             post(() -> showView(mEmptyView));
@@ -66,7 +66,9 @@ public class StatusLayout extends FrameLayout {
         switch (status) {
             // 无网络
             case 0:
-                if (isMainThread()) {
+                ImageView statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
+                statusRetryIv.setImageResource(R.drawable.ic_status_no_network);
+                if (areMainThread()) {
                     showView(mRetryView);
                 } else {
                     post(() -> showView(mRetryView));
@@ -74,13 +76,13 @@ public class StatusLayout extends FrameLayout {
                 break;
             // 连接失败
             case 1:
-                ImageView statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
+                statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
                 TextView statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
                 TextView statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
                 statusRetryIv.setImageResource(R.drawable.ic_status_fail);
                 statusRetryTv.setText(R.string.serverExceptionAndTryAgainLater);
                 statusRetryMb.setText(R.string.retry);
-                if (isMainThread()) {
+                if (areMainThread()) {
                     showView(mRetryView);
                 } else {
                     post(() -> showView(mRetryView));
@@ -94,7 +96,7 @@ public class StatusLayout extends FrameLayout {
                 statusRetryIv.setImageResource(R.drawable.ic_status_fail);
                 statusRetryTv.setText(R.string.loadFailAndTryAgainLater);
                 statusRetryMb.setText(R.string.retry);
-                if (isMainThread()) {
+                if (areMainThread()) {
                     showView(mRetryView);
                 } else {
                     post(() -> showView(mRetryView));
@@ -108,7 +110,7 @@ public class StatusLayout extends FrameLayout {
     }
 
     public void showContent() {
-        if (isMainThread()) {
+        if (areMainThread()) {
             showView(mContentView);
         } else {
             post(() -> showView(mContentView));

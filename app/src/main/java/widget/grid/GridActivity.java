@@ -5,9 +5,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.other.grid.HorizontalGridView;
 import com.chaos.widget.other.grid.bean.GridBean;
+import com.chaos.widget.snackbar.SnackbarKit;
 import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.R;
 
@@ -74,6 +74,6 @@ public class GridActivity extends BaseActivity {
      */
     @Override
     protected void startLogic() {
-        gridActivityKit.display(gridActivityHgv, (grid, position) -> ToastKit.showShort(grid.getId() + " " + grid.getTitle() + " " + grid.getDescription()), (grid, position) -> ToastKit.showShort(grid.getTitle() + " " + getString(R.string.clickChildView)));
+        gridActivityKit.display(gridActivityHgv, (grid, position) -> SnackbarKit.snackbarCreateByCharSequenceAndShow(gridActivityHgv, grid.getId() + " " + grid.getTitle() + " " + grid.getDescription(), false), (grid, position) -> SnackbarKit.snackbarCreateByCharSequenceWithActionByCharSequenceAndShow(gridActivityHgv, grid.getTitle() + " " + getString(R.string.clickChildView), false, getString(R.string.ok), (view, snackbar) -> snackbar.dismiss()));
     }
 }

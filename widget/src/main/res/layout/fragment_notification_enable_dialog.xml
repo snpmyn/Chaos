@@ -45,7 +45,7 @@
         android:baselineAligned="false">
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -61,7 +61,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 

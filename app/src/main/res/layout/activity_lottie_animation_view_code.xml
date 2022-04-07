@@ -7,20 +7,20 @@
     tools:context="widget.lottie.LottieAnimationViewCodeActivity">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationViewCodeActivityOne"
-        android:layout_width="0dp"
+        android:id="@+id/lottieAnimationViewCodeActivityLavOne"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationViewCodeActivityTwo"
-        android:layout_width="0dp"
+        android:id="@+id/lottieAnimationViewCodeActivityLavTwo"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationViewCodeActivityThree"
-        android:layout_width="0dp"
+        android:id="@+id/lottieAnimationViewCodeActivityLavThree"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 </LinearLayout>

@@ -7,14 +7,14 @@
     tools:context="widget.lottie.LottieCompositionActivity">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieCompositionActivityOne"
-        android:layout_width="0dp"
+        android:id="@+id/lottieCompositionActivityLavOne"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieCompositionActivityTwo"
-        android:layout_width="0dp"
+        android:id="@+id/lottieCompositionActivityLavTwo"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 </LinearLayout>

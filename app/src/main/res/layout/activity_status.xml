@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pageBackground"
+    tools:context="widget.status.StatusActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/statusActivityRv"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        app:layout_constraintBottom_toTopOf="@+id/statusActivityMbEmptyView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/statusActivityMbEmptyView"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:text="@string/emptyView"
+        app:layout_constraintBottom_toTopOf="@+id/statusActivityMbLoadingView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/statusActivityMbLoadingView"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:text="@string/loadingView"
+        app:layout_constraintBottom_toTopOf="@+id/statusActivityLl"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/statusActivityLl"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/statusActivityMbErrorOneView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/errorOneView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/statusActivityMbErrorTwoView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/errorTwoView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/statusActivityMbErrorThreeView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:layout_weight="1"
+            android:text="@string/errorThreeView" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
