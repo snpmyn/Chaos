@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chaos.widget.R;
+import com.google.android.material.button.MaterialButton;
 
 import timber.log.Timber;
 
@@ -67,7 +68,11 @@ public class StatusLayout extends FrameLayout {
             // 无网络
             case 0:
                 ImageView statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
-                statusRetryIv.setImageResource(R.drawable.ic_status_no_network);
+                TextView statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
+                MaterialButton statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
+                statusRetryIv.setImageResource(R.drawable.status_no_network);
+                statusRetryTv.setText(R.string.networkExceptionAndTryAgainLater);
+                statusRetryMb.setText(R.string.checkSetting);
                 if (areMainThread()) {
                     showView(mRetryView);
                 } else {
@@ -77,9 +82,9 @@ public class StatusLayout extends FrameLayout {
             // 连接失败
             case 1:
                 statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
-                TextView statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
-                TextView statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
-                statusRetryIv.setImageResource(R.drawable.ic_status_fail);
+                statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
+                statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
+                statusRetryIv.setImageResource(R.drawable.status_connect_fail);
                 statusRetryTv.setText(R.string.serverExceptionAndTryAgainLater);
                 statusRetryMb.setText(R.string.retry);
                 if (areMainThread()) {
@@ -93,7 +98,7 @@ public class StatusLayout extends FrameLayout {
                 statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
                 statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
                 statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
-                statusRetryIv.setImageResource(R.drawable.ic_status_fail);
+                statusRetryIv.setImageResource(R.drawable.status_load_fail);
                 statusRetryTv.setText(R.string.loadFailAndTryAgainLater);
                 statusRetryMb.setText(R.string.retry);
                 if (areMainThread()) {

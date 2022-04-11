@@ -1,11 +1,14 @@
 package widget.status;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.provider.Settings;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chaos.widget.snackbar.SnackbarKit;
 import com.chaos.widget.status.listener.BaseStatusListener;
 import com.chaos.widget.status.manager.StatusManager;
 import com.example.chaos.R;
@@ -13,6 +16,7 @@ import com.example.chaos.R;
 import base.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
+import value.ChaosMagic;
 
 /**
  * @desc: 状态页
@@ -54,7 +58,15 @@ public class StatusActivity extends BaseActivity {
         statusManager = StatusManager.generate(statusActivityRv, new BaseStatusListener() {
             @Override
             public void setRetryEvent(View retryView) {
-
+                View view = retryView.findViewById(R.id.statusRetryMb);
+                view.setOnClickListener(v -> {
+                    // 0 无网络、1 连接失败、2 加载失败
+                    if (statusManager.status == 1 || statusManager.status == ChaosMagic.INT_TWO) {
+                        SnackbarKit.snackbarCreateByResIdAndShow(retryView, R.string.retry, false);
+                    } else {
+                        startActivityForResult(new Intent(Settings.ACTION_WIRELESS_SETTINGS), statusManager.requestCode);
+                    }
+                });
             }
         });
     }
@@ -105,6 +117,14 @@ public class StatusActivity extends BaseActivity {
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == statusManager.requestCode) {
+            SnackbarKit.snackbarCreateByResIdAndShow(getWindow().getDecorView(), R.string.checkSetting, false);
         }
     }
 }
