@@ -55,7 +55,7 @@ public class PoolApp extends BaseBasicApp implements MMKVHandler, MMKVContentCha
      * @return 单例
      */
     @Override
-    protected Application instance() {
+    protected BaseBasicApp instance() {
         return this;
     }
 

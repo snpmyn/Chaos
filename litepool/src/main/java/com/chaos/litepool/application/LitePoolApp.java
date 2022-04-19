@@ -55,7 +55,7 @@ public class LitePoolApp extends BaseBasicApp implements MMKVHandler, MMKVConten
      * @return 单例
      */
     @Override
-    protected Application instance() {
+    protected BaseBasicApp instance() {
         return this;
     }
 

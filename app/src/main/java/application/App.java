@@ -1,8 +1,8 @@
 package application;
 
 import android.Manifest;
-import android.app.Application;
 
+import com.chaos.basic.BaseBasicApp;
 import com.chaos.doraemonkit.DoraemonKitInitConfigure;
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
 import com.chaos.jpush.configure.JpushInitConfigure;
@@ -48,7 +48,7 @@ public class App extends PoolApp {
      * @return 单例
      */
     @Override
-    protected Application instance() {
+    protected BaseBasicApp instance() {
         return this;
     }
 

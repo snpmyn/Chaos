@@ -87,6 +87,6 @@ dependencies {
     /*okio*/
     api 'org.greenrobot:eventbus:3.3.1'
     /*EventBus*/
-    api 'com.guolindev.permissionx:permissionx:1.6.1'
+    api 'com.guolindev.permissionx:permissionx:1.6.2'
     /*PermissionX*/
 }

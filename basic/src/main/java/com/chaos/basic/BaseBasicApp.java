@@ -26,7 +26,7 @@ import java.util.List;
  * 数据传递、数据共享、数据缓存等。
  */
 public abstract class BaseBasicApp extends Application {
-    private static Application instance;
+    private static BaseBasicApp instance;
     private static Boolean debug;
     private static Boolean ensembleMobSms;
     private static List<String> permissionList;
@@ -36,7 +36,7 @@ public abstract class BaseBasicApp extends Application {
      *
      * @return 单例
      */
-    public static Application getInstance() {
+    public static BaseBasicApp getInstance() {
         return instance;
     }
 
@@ -135,7 +135,7 @@ public abstract class BaseBasicApp extends Application {
      *
      * @return 单例
      */
-    protected abstract Application instance();
+    protected abstract BaseBasicApp instance();
 
     /**
      * 调试否
