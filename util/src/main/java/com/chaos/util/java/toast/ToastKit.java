@@ -33,7 +33,7 @@ public class ToastKit {
         if (null != toast) {
             toast.cancel();
         }
-        toast = CommonToast.makeText(BaseBasicApp.getInstance(), msg, time);
+        toast = CommonToast.makeText(BaseBasicApp.getBaseBasicAppInstance(), msg, time);
         toast.show();
     }
 
@@ -41,7 +41,7 @@ public class ToastKit {
         if (null != toast) {
             toast.cancel();
         }
-        toast = CommonToast.makeText(BaseBasicApp.getInstance(), msg, time);
+        toast = CommonToast.makeText(BaseBasicApp.getBaseBasicAppInstance(), msg, time);
         toast.setGravity(gravity, 0, 0);
         toast.show();
     }

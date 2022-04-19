@@ -26,7 +26,7 @@ import java.util.List;
  * 数据传递、数据共享、数据缓存等。
  */
 public abstract class BaseBasicApp extends Application {
-    private static BaseBasicApp instance;
+    private static BaseBasicApp baseBasicAppInstance;
     private static Boolean debug;
     private static Boolean ensembleMobSms;
     private static List<String> permissionList;
@@ -36,8 +36,8 @@ public abstract class BaseBasicApp extends Application {
      *
      * @return 单例
      */
-    public static BaseBasicApp getInstance() {
-        return instance;
+    public static BaseBasicApp getBaseBasicAppInstance() {
+        return baseBasicAppInstance;
     }
 
     /**
@@ -75,8 +75,8 @@ public abstract class BaseBasicApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // 单例
-        instance = instance();
+        // Application 本已单例
+        baseBasicAppInstance = this;
         // 调试否
         debug = debug();
         // 集成 MobSms 否
@@ -127,15 +127,6 @@ public abstract class BaseBasicApp extends Application {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
-
-    /**
-     * 单例
-     * <p>
-     * Application 本已单例。
-     *
-     * @return 单例
-     */
-    protected abstract BaseBasicApp instance();
 
     /**
      * 调试否

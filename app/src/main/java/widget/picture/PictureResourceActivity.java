@@ -74,7 +74,7 @@ public class PictureResourceActivity extends BaseActivity {
         switch (view.getId()) {
             // 本地加载
             case R.id.pictureResourceActivityMbLocalLoad:
-                pictureResourceActivityIv.setImageResource(DrawableUtils.getDrawableResIdByName(App.getInstance(), "icon_background", R.mipmap.icon));
+                pictureResourceActivityIv.setImageResource(DrawableUtils.getDrawableResIdByName(App.getAppInstance(), "icon_background", R.mipmap.icon));
                 break;
             // 网络加载
             case R.id.pictureResourceActivityMbNetworkLoad:

@@ -2,7 +2,6 @@ package application;
 
 import android.Manifest;
 
-import com.chaos.basic.BaseBasicApp;
 import com.chaos.doraemonkit.DoraemonKitInitConfigure;
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
 import com.chaos.jpush.configure.JpushInitConfigure;
@@ -26,6 +25,17 @@ import kit.AppKit;
  * @desc 应用
  */
 public class App extends PoolApp {
+    private static App appInstance;
+
+    /**
+     * 获单例
+     *
+     * @return 单例
+     */
+    public static App getAppInstance() {
+        return appInstance;
+    }
+
     /**
      * 应用程序创调
      * <p>
@@ -34,22 +44,12 @@ public class App extends PoolApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        // Application 本已单例
+        appInstance = this;
         StatusManager.BASE_LOADING_LAYOUT_ID = com.chaos.pool.R.layout.status_loading_with_animation;
         StatusManager.BASE_EMPTY_LAYOUT_ID = com.chaos.pool.R.layout.status_empty_with_animation;
         // 初始化配置
         initConfiguration();
-    }
-
-    /**
-     * 单例
-     * <p>
-     * Application 本已单例。
-     *
-     * @return 单例
-     */
-    @Override
-    protected BaseBasicApp instance() {
-        return this;
     }
 
     /**
