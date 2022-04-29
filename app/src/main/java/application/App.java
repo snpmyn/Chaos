@@ -46,6 +46,7 @@ public class App extends PoolApp {
         super.onCreate();
         // Application 本已单例
         appInstance = this;
+        // 状态管理器布局 ID
         StatusManager.BASE_LOADING_LAYOUT_ID = com.chaos.pool.R.layout.status_loading_with_animation;
         StatusManager.BASE_EMPTY_LAYOUT_ID = com.chaos.pool.R.layout.status_empty_with_animation;
         // 初始化配置

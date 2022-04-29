@@ -83,7 +83,7 @@ dependencies {
     /*ReLinker*/
     api 'org.apache.commons:commons-lang3:3.12.0'
     /*BasicThreadFactory*/
-    api 'com.squareup.okio:okio:3.0.0'
+    api 'com.squareup.okio:okio:3.1.0'
     /*okio*/
     api 'org.greenrobot:eventbus:3.3.1'
     /*EventBus*/
