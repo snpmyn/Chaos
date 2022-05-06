@@ -20,6 +20,10 @@ public class PoolConstant {
      */
     public static final String PRIVACY_POLICY = "PrivacyPolicy";
     /**
+     * 闪屏（动画）
+     */
+    public static final String SPLASH_$_ANIMATION = "SplashAnimation";
+    /**
      * 登录（手机号）
      */
     public static final String LOGIN_$_PHONE_NUMBER = "LoginPhoneNumber";

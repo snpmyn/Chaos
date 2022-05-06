@@ -1,13 +1,12 @@
 package com.chaos.pool.module.splash;
 
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.chaos.lottie.LottieKit;
 import com.chaos.pool.R;
 import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.module.splash.kit.SplashActivityKit;
+import com.chaos.pool.module.splash.kit.SplashTwoActivityKit;
 import com.chaos.util.java.screen.ScreenUtils;
 
 /**
@@ -21,6 +20,10 @@ public class SplashTwoActivity extends BasePoolActivity {
      * 闪屏页配套元件
      */
     private SplashActivityKit splashActivityKit;
+    /**
+     * 闪屏二页配套元件
+     */
+    private SplashTwoActivityKit splashTwoActivityKit;
 
     /**
      * 布局资源 ID
@@ -59,7 +62,10 @@ public class SplashTwoActivity extends BasePoolActivity {
      */
     @Override
     protected void initConfiguration() {
+        // 闪屏页配套元件
         splashActivityKit = new SplashActivityKit();
+        // 闪屏二页配套元件
+        splashTwoActivityKit = new SplashTwoActivityKit();
     }
 
     /**
@@ -75,10 +81,6 @@ public class SplashTwoActivity extends BasePoolActivity {
      */
     @Override
     protected void startLogic() {
-        new Handler(getMainLooper()).postDelayed(() -> {
-            LottieKit lottieKit = new LottieKit();
-            lottieKit.cancelAnimation(splashTwoActivityLav);
-            splashActivityKit.execute(SplashTwoActivity.this);
-        }, Long.parseLong(getString(R.string.PoolSplashDuration)));
+        splashTwoActivityKit.execute(this, splashTwoActivityLav, splashActivityKit);
     }
 }

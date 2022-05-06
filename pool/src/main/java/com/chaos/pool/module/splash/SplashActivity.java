@@ -17,6 +17,9 @@ import com.chaos.util.java.screen.ScreenUtils;
  * @date: 2021/9/16 3:40 下午
  */
 public class SplashActivity extends BasePoolActivity {
+    /**
+     * 控件
+     */
     TextView splashActivityTv;
     /**
      * 闪屏页配套元件

@@ -61,6 +61,6 @@ afterEvaluate {
 dependencies {
     implementation project(path: ':util')
     /*util*/
-    api 'io.github.bmob:android-sdk:3.8.13'
+    api 'io.github.bmob:android-sdk:3.8.14'
     /*bmob*/
 }
