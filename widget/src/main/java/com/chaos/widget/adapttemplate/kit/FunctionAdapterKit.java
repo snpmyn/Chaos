@@ -38,7 +38,7 @@ public class FunctionAdapterKit {
             recyclerViewConfigure.gridLayout(spanCount, spacing, true, true, false);
         }
         // 适配器
-        FunctionAdapter functionAdapter = new FunctionAdapter(appCompatActivity, totalMargin, spanCount);
+        FunctionAdapter functionAdapter = new FunctionAdapter(appCompatActivity, spanCount, totalMargin);
         functionAdapter.setFunctionData(functionBeanList);
         functionAdapter.setOnRecyclerViewOnItemClickListener(new OnRecyclerViewOnItemClickListener() {
             @Override

@@ -29,8 +29,8 @@ import java.util.List;
  */
 public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHolder> {
     private final Context context;
-    private final int totalMargin;
     private final int spanCount;
+    private final int totalMargin;
     private List<FunctionBean> functionBeans;
     private OnRecyclerViewOnItemClickListener onRecyclerViewOnItemClickListener;
 
@@ -38,13 +38,13 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
      * constructor
      *
      * @param context     上下文
-     * @param totalMargin 总外边距
      * @param spanCount   跨距数
+     * @param totalMargin 总外边距
      */
-    public FunctionAdapter(Context context, int totalMargin, int spanCount) {
+    public FunctionAdapter(Context context, int spanCount, int totalMargin) {
         this.context = context;
-        this.totalMargin = totalMargin;
         this.spanCount = spanCount;
+        this.totalMargin = totalMargin;
         this.functionBeans = new ArrayList<>();
     }
 

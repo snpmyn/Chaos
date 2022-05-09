@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
 
@@ -43,7 +42,7 @@ public class ScreenUtils {
      * @param context 上下文
      * @return 屏宽（像素）
      */
-    public static int screenWidth(@NotNull Context context) {
+    public static int screenWidth(@NonNull Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         context.getDisplay().getMetrics(displayMetrics);
         return displayMetrics.widthPixels;
@@ -55,7 +54,7 @@ public class ScreenUtils {
      * @param context 上下文
      * @return 屏高（像素）
      */
-    public static int screenHeight(@NotNull Context context) {
+    public static int screenHeight(@NonNull Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         context.getDisplay().getMetrics(displayMetrics);
         return displayMetrics.heightPixels;
@@ -80,7 +79,7 @@ public class ScreenUtils {
      *
      * @param appCompatActivity 活动
      */
-    public static void hideNavigationWithCanShowInScroll(@NotNull AppCompatActivity appCompatActivity) {
+    public static void hideNavigationWithCanShowInScroll(@NonNull AppCompatActivity appCompatActivity) {
         View decorView = appCompatActivity.getWindow().getDecorView();
         int visibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
         decorView.setSystemUiVisibility(visibility);

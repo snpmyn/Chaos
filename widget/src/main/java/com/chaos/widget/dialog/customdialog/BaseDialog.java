@@ -70,14 +70,14 @@ public abstract class BaseDialog extends DialogFragment {
     private boolean showCenter;
 
     /**
-     * xxx
+     * 初始化布局 ID
      *
      * @return 布局 ID
      */
     public abstract int intLayoutId();
 
     /**
-     * xxx
+     * Convert View
      *
      * @param holder viewHolder
      * @param dialog baseDialog
@@ -90,7 +90,7 @@ public abstract class BaseDialog extends DialogFragment {
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.CustomDialogStyle);
         layoutId = intLayoutId();
         // 恢复所保存数据
-        if (savedInstanceState != null) {
+        if (null != savedInstanceState) {
             margin = savedInstanceState.getInt(MARGIN);
             width = savedInstanceState.getInt(WIDTH);
             height = savedInstanceState.getInt(HEIGHT);
@@ -137,41 +137,41 @@ public abstract class BaseDialog extends DialogFragment {
     }
 
     private void initParams() {
-        if (getDialog() != null) {
+        if (null != getDialog()) {
             Window window = getDialog().getWindow();
-            if (window != null) {
-                WindowManager.LayoutParams lp = window.getAttributes();
+            if (null != window) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
                 // 调节灰色背景透明度 [0-1]（默 0.5F）
-                lp.dimAmount = dimAmount;
+                layoutParams.dimAmount = dimAmount;
                 // 底部显
                 if (showBottom) {
-                    lp.gravity = Gravity.BOTTOM;
+                    layoutParams.gravity = Gravity.BOTTOM;
                     if (animStyle == 0) {
                         animStyle = R.style.DefaultAnimation;
                     }
                 }
                 // 中间显示
                 if (showCenter) {
-                    lp.gravity = Gravity.CENTER;
+                    layoutParams.gravity = Gravity.CENTER;
                     if (animStyle == 0) {
                         animStyle = R.style.DefaultAnimation;
                     }
                 }
                 // Dialog 宽
                 if ((width == 0) && (null != getContext())) {
-                    lp.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(getContext(), margin);
+                    layoutParams.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(getContext(), margin);
                 } else {
-                    lp.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
+                    layoutParams.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
                 }
                 // Dialog 高
                 if (height == 0) {
-                    lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                    layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 } else {
-                    lp.height = DensityUtils.dipToPxByFloat(getContext(), height);
+                    layoutParams.height = DensityUtils.dipToPxByFloat(getContext(), height);
                 }
-                // Dialog 进/退动画
+                // Dialog 进 / 退动画
                 window.setWindowAnimations(animStyle);
-                window.setAttributes(lp);
+                window.setAttributes(layoutParams);
             }
         }
         setCancelable(outCancel);
