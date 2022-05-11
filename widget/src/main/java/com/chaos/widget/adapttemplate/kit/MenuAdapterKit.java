@@ -38,7 +38,7 @@ public class MenuAdapterKit {
             recyclerViewConfigure.gridLayout(spanCount, spacing, true, true, false);
         }
         // 适配器
-        MenuAdapter menuAdapter = new MenuAdapter(appCompatActivity, totalMargin, spanCount);
+        MenuAdapter menuAdapter = new MenuAdapter(appCompatActivity, spanCount, totalMargin);
         menuAdapter.setMenuData(menuBeanList);
         menuAdapter.setOnRecyclerViewOnItemClickListener(new OnRecyclerViewOnItemClickListener() {
             @Override
