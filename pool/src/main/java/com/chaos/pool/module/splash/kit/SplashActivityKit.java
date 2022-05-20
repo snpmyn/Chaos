@@ -27,7 +27,6 @@ import com.chaos.widget.dialog.customdialog.BaseViewConvertListener;
 import com.chaos.widget.dialog.customdialog.CustomDialog;
 import com.chaos.widget.dialog.customdialog.ViewHolder;
 import com.chaos.widget.dialog.materialalertdialog.MyMaterialAlertDialogBuilder;
-import com.mob.OperationCallback;
 import com.permissionx.guolindev.PermissionX;
 
 /**
@@ -113,24 +112,9 @@ public class SplashActivityKit {
                                 return;
                             }
                             if (PoolApp.getEnsembleMobSms()) {
-                                MobPolicyKit.submitPolicyGrantResult(true, new OperationCallback<Void>() {
-                                    @Override
-                                    public void onComplete(Void aVoid) {
-                                        handle(appCompatActivity);
-                                    }
-
-                                    @Override
-                                    public void onFailure(Throwable throwable) {
-                                        new MyMaterialAlertDialogBuilder(appCompatActivity).setTitle(R.string.hint).setMessage(throwable.getMessage())
-                                                .setPositiveButton(R.string.loginOutToRetry, (dialog1, which) -> {
-                                                    dialog1.dismiss();
-                                                    appCompatActivity.finish();
-                                                }).setCancelable(false).show();
-                                    }
-                                });
-                            } else {
-                                handle(appCompatActivity);
+                                MobPolicyKit.submitPolicyGrantResult(true);
                             }
+                            handle(appCompatActivity);
                         });
                     }
                 })

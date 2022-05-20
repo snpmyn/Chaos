@@ -29,8 +29,6 @@ ext {
             appKey    : "xxx50b4f17xxx",
             // Mob 官方申请 AppKey 所对应 AppSecret
             appSecret : "xxx65c7ea52ef8edecd625a5cfd53xxx",
-            // 设 MobSDK 为隐私协议适配版
-            spEdition : "FP",
             // 默用 GUI（不用下关）
             gui       : true,
             // 打开短信本机号验证功能（3.7.0+）
@@ -63,6 +61,6 @@ ext {
     jitpack = [
             groupId   : 'com.github.snpmyn',
             artifactId: 'Chaos',
-            version   : 'v0.0.19.9.8',
+            version   : 'v0.0.19.9.9',
     ]
 }
