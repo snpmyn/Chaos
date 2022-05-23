@@ -28,7 +28,7 @@ public class SplashTwoActivityKit {
      */
     public void execute(AppCompatActivity appCompatActivity, LottieAnimationView lottieAnimationView, SplashActivityKit splashActivityKit) {
         String assetName = MmkvKit.defaultMmkv().decodeString(PoolConstant.SPLASH_$_ANIMATION);
-        if (TextUtils.isEmpty(assetName)) {
+        if (MmkvKit.defaultMmkv().decodeBool(PoolConstant.SPLASH_$_USE_DEFAULT_ANIMATION) || TextUtils.isEmpty(assetName)) {
             assetName = "lottie_animation_pool_splash";
         }
         LottieKit lottieKit = new LottieKit();
