@@ -40,7 +40,7 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:layout_weight="1"
                 android:tag="beta_cancel_button"
                 android:textSize="@dimen/sp_13"
@@ -49,7 +49,7 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:layout_weight="1"
                 android:tag="beta_confirm_button"
                 android:textSize="@dimen/sp_13"

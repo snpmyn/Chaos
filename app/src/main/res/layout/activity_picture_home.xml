@@ -12,7 +12,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/pictureHomeActivityMbPicturePulse"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/picturePulse"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,7 +21,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/pictureHomeActivityMbPictureResource"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/pictureResource"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

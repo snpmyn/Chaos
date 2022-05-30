@@ -12,56 +12,56 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleOne"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleOne"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleTwo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleTwo"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleThree"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleThree"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleFour"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleFour"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleFive"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleFive"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleSix"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleSix"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleSeven"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleSeven"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleEight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/exampleEight"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>

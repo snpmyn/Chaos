@@ -28,7 +28,7 @@
         android:id="@+id/statusRetryMb"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_36"
+        android:layout_height="?actionBarSize"
         android:text="@string/checkSetting"
         android:textSize="@dimen/sp_10"
         app:strokeColor="@color/purple_500"

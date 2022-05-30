@@ -114,6 +114,8 @@
     <string name="copySuccessful">复制成功</string>
     <string name="clear">清空</string>
     <string name="add">添加</string>
+    <string name="reset">重置</string>
+    <string name="screen">筛选</string>
     <!--format-->
     <string name="formatRecapVerificationCode">%1$s 后可重获验证码</string>
     <string name="formatSeconds">%1$s 秒</string>

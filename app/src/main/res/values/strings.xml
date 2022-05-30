@@ -3,7 +3,7 @@
     <string name="fileProviderAuthorities">com.example.chaos.fileprovider</string>
     <string name="useRecyclerView">使用 RecyclerView</string>
     <string name="useListView">使用 ListView</string>
-    <string name="bocDialog">BOC 对话框</string>
+    <string name="widget">组件</string>
     <string name="rightAngleMessageDialogWithNoTitle">直角消息对话框（无标题）</string>
     <string name="rightAngleMessageDialogWithTitle">直角消息对话框（有标题）</string>
     <string name="roundCornerMessageDialogWithNoTitle">圆角消息对话框（无标题）</string>
@@ -14,21 +14,16 @@
     <string name="lottieAnimationViewResultDialog">LottieAnimationView 结果对话框</string>
     <string name="messageDialog">消息对话框</string>
     <string name="moneyHint">￥0.00</string>
-    <string name="lottie">LOTTIE</string>
     <string name="lottieAnimationViewXml">LottieAnimationView 之 xml用法</string>
     <string name="lottieAnimationViewCode">LottieAnimationView 之代码用法</string>
     <string name="lottieComposition">LottieComposition</string>
-    <string name="pudding">PUDDING</string>
     <string name="clickChildView">子视图点击</string>
     <string name="picturePulse">图片脉动</string>
     <string name="pictureResource">图片资源</string>
     <string name="getProperty">获取属性</string>
-    <string name="banner">轮播</string>
     <string name="bannerOne">轮播一</string>
     <string name="bannerTwo">轮播二</string>
     <string name="bannerThree">轮播三</string>
-    <string name="moduleOne">模块一</string>
-    <string name="moduleTwo">模块二</string>
     <string name="testOne">测试一</string>
     <string name="testTwo">测试二</string>
     <string name="testThree">测试三</string>
@@ -36,7 +31,6 @@
     <string name="toTestOtherWithValue">到测试其它并传值</string>
     <string name="backToTestOne">返回测试一</string>
     <string name="noValuePassed">暂无传值</string>
-    <string name="textView">TextView</string>
     <string name="horizontalTextView">水平 TextView</string>
     <string name="verticalTextView">垂直 TextView</string>
     <string name="nativeAlignment">原生对齐</string>
@@ -50,7 +44,6 @@
     <string name="fromRightToLeft">从右到左</string>
     <string name="showUnderLine">显下划线</string>
     <string name="hideUnderLine">隐下划线</string>
-    <string name="status">状态</string>
     <string name="emptyView">空视图</string>
     <string name="loadingView">加载视图</string>
     <string name="errorOneView">错误一视图</string>

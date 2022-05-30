@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:padding="@dimen/dp_12">
 
     <TextView
@@ -17,13 +18,14 @@
         android:textSize="@dimen/sp_14"
         tools:text="吐司" />
 
-    <ImageView
-        android:id="@+id/mainActivityItemIv"
+    <ImageButton
+        android:id="@+id/mainActivityItemIb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/hint"
-        android:padding="@dimen/dp_12"
         app:srcCompat="@drawable/ic_info_white_24dp" />
 </RelativeLayout>

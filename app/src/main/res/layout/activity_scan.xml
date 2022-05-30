@@ -10,22 +10,22 @@
     tools:context="widget.scan.ScanActivity">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/scanActivityBtnScanQrCode"
+        android:id="@+id/scanActivityMbScanQrCode"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/scanQrCode"
-        app:layout_constraintBottom_toTopOf="@+id/scanActivityBtnScanBarCode"
+        app:layout_constraintBottom_toTopOf="@+id/scanActivityMbScanBarCode"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/scanActivityBtnScanBarCode"
+        android:id="@+id/scanActivityMbScanBarCode"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/scanBarCode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scanActivityBtnScanQrCode" />
+        app:layout_constraintTop_toBottomOf="@+id/scanActivityMbScanQrCode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

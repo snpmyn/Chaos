@@ -18,7 +18,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/horizontalTextViewActivityMbNativeAlignment"
             android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginTop="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_12"
@@ -28,7 +28,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/horizontalTextViewActivityMbDistributeAlignment"
             android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginTop="@dimen/dp_12"
             android:layout_marginEnd="@dimen/dp_12"
             android:layout_weight="1"
@@ -46,7 +46,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/horizontalTextViewActivityMbChinese"
             android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginStart="@dimen/dp_12"
             android:layout_weight="1"
             android:text="@string/chinese" />
@@ -54,7 +54,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/horizontalTextViewActivityMbEnglish"
             android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_12"
             android:layout_weight="1"
@@ -63,7 +63,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/horizontalTextViewActivityMbMix"
             android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginEnd="@dimen/dp_12"
             android:layout_weight="1"
             android:text="@string/mix" />

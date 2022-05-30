@@ -45,7 +45,7 @@ public class MenuAdapterKit {
             public <T> void onItemClick(View view, int position, T t) {
                 MenuBean menuBean = (MenuBean) t;
                 if (null != menuAdapterKitInterface) {
-                    menuAdapterKitInterface.onItemClick(menuBean);
+                    menuAdapterKitInterface.onItemClick(view, menuBean);
                 }
             }
         });
@@ -60,8 +60,9 @@ public class MenuAdapterKit {
         /**
          * 条目点击
          *
+         * @param view     视图
          * @param menuBean 菜单
          */
-        void onItemClick(MenuBean menuBean);
+        void onItemClick(View view, MenuBean menuBean);
     }
 }

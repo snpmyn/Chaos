@@ -32,7 +32,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mainActivityMb"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_margin="@dimen/dp_24"
         android:text="@string/useRecyclerView"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -53,7 +53,7 @@
                 android:id="@+id/fragmentNotificationEnableDialogMbTalkAboutItLater"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:layout_centerInParent="true"
                 android:text="@string/talkAboutItLater"
                 android:textColor="@color/fontInput"
@@ -69,7 +69,7 @@
                 android:id="@+id/fragmentNotificationEnableDialogMbOk"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:layout_centerInParent="true"
                 android:text="@string/ok"
                 android:textSize="@dimen/sp_13" />

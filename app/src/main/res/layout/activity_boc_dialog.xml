@@ -12,7 +12,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnRightAngleMessageDialogWithNoTitle"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/rightAngleMessageDialogWithNoTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,7 +21,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnRightAngleMessageDialogWithTitle"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/rightAngleMessageDialogWithTitle"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/roundCornerMessageDialogWithNoTitle"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +41,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnRoundCornerMessageDialogWithTitle"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/roundCornerMessageDialogWithTitle"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,7 +51,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnCommonLoadingDialog"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/commonLoadingDialog"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -61,7 +61,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnCanCancelLoadingDialog"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/canCancelLoadingDialog"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -71,7 +71,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnLottieAnimationViewLoadingDialog"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/lottieAnimationViewLoadingDialog"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -81,7 +81,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bocDialogActivityBtnLottieAnimationViewResultDialog"
         android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
         android:text="@string/lottieAnimationViewResultDialog"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +30,7 @@ public class MainActivityRecyclerViewAdapter extends BaseRecyclerViewAdapter<Mai
     @NonNull
     @Override
     public MainActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.item_main_activity, parent, false);
+        View view = layoutInflater.inflate(R.layout.main_activity_item, parent, false);
         return new MainActivityViewHolder(view);
     }
 
@@ -38,7 +38,7 @@ public class MainActivityRecyclerViewAdapter extends BaseRecyclerViewAdapter<Mai
     public void onBindViewHolder(@NonNull MainActivityViewHolder holder, int position) {
         MainActivityModule mainActivityModule = getItem(position);
         // 设置条目子视图点击监听
-        setOnItemChildViewClickListener(position, mainActivityModule, holder.mainActivityItemIv);
+        setOnItemChildViewClickListener(position, mainActivityModule, holder.mainActivityItemIb);
         // 模块名称
         holder.mainActivityItemTv.setText(mainActivityModule.getModuleName());
     }
@@ -48,8 +48,8 @@ public class MainActivityRecyclerViewAdapter extends BaseRecyclerViewAdapter<Mai
         @BindView(R.id.mainActivityItemTv)
         TextView mainActivityItemTv;
         @SuppressLint("NonConstantResourceId")
-        @BindView(R.id.mainActivityItemIv)
-        ImageView mainActivityItemIv;
+        @BindView(R.id.mainActivityItemIb)
+        ImageButton mainActivityItemIb;
 
         MainActivityViewHolder(@NonNull View itemView) {
             super(itemView);

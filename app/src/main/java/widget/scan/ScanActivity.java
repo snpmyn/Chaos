@@ -71,15 +71,15 @@ public class ScanActivity extends BaseActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    @OnClick({R.id.scanActivityBtnScanQrCode, R.id.scanActivityBtnScanBarCode})
+    @OnClick({R.id.scanActivityMbScanQrCode, R.id.scanActivityMbScanBarCode})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 扫描二维码
-            case R.id.scanActivityBtnScanQrCode:
+            case R.id.scanActivityMbScanQrCode:
                 scanActivityKit.scanQrCode(this);
                 break;
             // 扫描条形码
-            case R.id.scanActivityBtnScanBarCode:
+            case R.id.scanActivityMbScanBarCode:
                 scanActivityKit.scanBarCode(this);
                 break;
             default:

@@ -69,14 +69,14 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bannerTwoActivityMbClear"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:layout_marginEnd="?actionBarSize"
             android:text="@string/clear" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bannerTwoActivityMbAdd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:text="@string/add" />
     </LinearLayout>
 </LinearLayout>

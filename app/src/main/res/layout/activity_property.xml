@@ -34,7 +34,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/propertyActivityMbGetProperty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_margin="@dimen/dp_12"
         android:text="@string/getProperty"
         app:layout_constraintBottom_toBottomOf="parent"

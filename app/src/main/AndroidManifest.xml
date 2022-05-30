@@ -17,6 +17,10 @@
         tools:replace="android:allowBackup"
         tools:targetApi="n">
         <activity
+            android:name="widget.screen.ScreenActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name="widget.status.StatusActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />

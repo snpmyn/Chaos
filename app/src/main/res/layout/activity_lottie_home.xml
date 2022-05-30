@@ -12,7 +12,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/lottieHomeActivityMbLottieAnimationViewXml"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/lottieAnimationViewXml"
         android:textAppearance="?android:attr/textAppearanceInverse"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +20,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/lottieHomeActivityMbLottieAnimationViewCode"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/lottieAnimationViewCode"
         android:textAppearance="?android:attr/textAppearanceInverse"
         app:layout_constraintTop_toBottomOf="@+id/lottieHomeActivityMbLottieAnimationViewXml" />
@@ -28,7 +28,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/lottieHomeActivityMbLottieComposition"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:text="@string/lottieComposition"
         android:textAppearance="?android:attr/textAppearanceInverse"
         app:layout_constraintTop_toBottomOf="@+id/lottieHomeActivityMbLottieAnimationViewCode" />

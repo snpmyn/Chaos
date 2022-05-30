@@ -1,136 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pageBackground"
+    android:orientation="vertical"
     tools:context="widget.WidgetActivity">
 
-    <ScrollView
+    <com.google.android.material.appbar.MaterialToolbar
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        app:title="@string/widget" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnBocDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/bocDialog"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnMoney"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/money" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnChoose"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/choose" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnSearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/search" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnPicture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/picture" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnScan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/scan" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnLottie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/lottie" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnPudding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/pudding" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/grid" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnProperty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/property" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnBanner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/banner" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnModuleOne"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/moduleOne" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnModuleTwo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/moduleTwo" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_12"
-                android:layout_marginRight="@dimen/dp_12"
-                android:text="@string/textView" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/widgetActivityBtnStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp_12"
-                android:text="@string/status" />
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/widgetActivityRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pageBackground"
+        android:scrollbars="none" />
+</LinearLayout>

@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.3536458333333333" />
+        <entry key="app/src/main/res/drawable/ic_widgets_purple_500_24dp.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/drawable/icon_background.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/module_two_activity_bottom_navigation_view_menu_test_one.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/module_two_activity_bottom_navigation_view_menu_test_three.xml" value="0.3578125" />
@@ -25,16 +26,24 @@
         <entry key="app/src/main/res/layout/activity_banner_two.xml" value="0.2884963768115942" />
         <entry key="app/src/main/res/layout/activity_boc_dialog.xml" value="0.18840579710144928" />
         <entry key="app/src/main/res/layout/activity_choose.xml" value="0.33061594202898553" />
+        <entry key="app/src/main/res/layout/activity_grid.xml" value="0.24682971014492755" />
         <entry key="app/src/main/res/layout/activity_horizontal_text_view.xml" value="0.19411764705882353" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_code.xml" value="0.2971014492753623" />
         <entry key="app/src/main/res/layout/activity_lottie_animation_view_xml.xml" value="0.18568840579710144" />
         <entry key="app/src/main/res/layout/activity_lottie_composition.xml" value="0.31929347826086957" />
         <entry key="app/src/main/res/layout/activity_lottie_home.xml" value="0.29257246376811596" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1897644927536232" />
+        <entry key="app/src/main/res/layout/activity_module_one.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/activity_module_two.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/activity_money.xml" value="0.24682971014492755" />
         <entry key="app/src/main/res/layout/activity_picture_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_picture_pulse.xml" value="0.24682971014492755" />
         <entry key="app/src/main/res/layout/activity_picture_resource.xml" value="0.33061594202898553" />
         <entry key="app/src/main/res/layout/activity_property.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/activity_pudding.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/activity_scan.xml" value="0.2871376811594203" />
+        <entry key="app/src/main/res/layout/activity_screen.xml" value="0.2871376811594203" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.24682971014492755" />
         <entry key="app/src/main/res/layout/activity_status.xml" value="0.25317028985507245" />
         <entry key="app/src/main/res/layout/activity_status_two.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/activity_text_view.xml" value="0.3177083333333333" />
@@ -42,21 +51,35 @@
         <entry key="app/src/main/res/layout/activity_vertical_text_view.xml" value="0.3061594202898551" />
         <entry key="app/src/main/res/layout/activity_widget.xml" value="0.19429347826086957" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2848731884057971" />
+        <entry key="app/src/main/res/layout/fragment_help_feedback.xml" value="0.16145307769929365" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16145307769929365" />
+        <entry key="app/src/main/res/layout/fragment_home_page.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/fragment_home_page_child.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/fragment_mine_child.xml" value="0.16145307769929365" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.16145307769929365" />
+        <entry key="app/src/main/res/layout/fragment_test_one.xml" value="0.3269927536231884" />
+        <entry key="app/src/main/res/layout/fragment_test_other.xml" value="0.3269927536231884" />
+        <entry key="app/src/main/res/layout/fragment_test_three.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/fragment_test_two.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/item_main_activity.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/main_activity_item.xml" value="0.23867753623188406" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/menu/module_two_activity_bottom_navigation_view_menu.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/icon.xml" value="0.3578125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/icon_round.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable-v24/icon_foreground.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/background_two_solid_c4.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page_normal_22dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_home_page_select_22dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_mine.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_mine_normal_22dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/bottom_navigation_view_menu_mine_select_22dp.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/color_primary_solid_c4.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/gray_dot.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/gray_solid_r8.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/gray_solid_semi_circle.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/gray_stroke_r6.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/ic_arrow_back_10dp_18dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/ic_arrow_back_font_input_24dp.xml" value="0.3578125" />
@@ -69,17 +92,23 @@
         <entry key="basic/src/main/res/drawable/ic_visibility_font_input_20dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/ic_visibility_off_font_input_20dp.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/icon_background.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/page_background_purple_500_solid_r4_selector.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/page_background_solid_circle.xml" value="0.346782431052094" />
+        <entry key="basic/src/main/res/drawable/page_background_solid_r4.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/page_background_solid_r8.xml" value="0.33425925925925926" />
         <entry key="basic/src/main/res/drawable/preview_window.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_200_purple_500_drawable_selector.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_500_dot.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/purple_500_page_background_solid_r4_selector.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/purple_500_solid_blr10.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_500_solid_r10.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/purple_500_solid_r4.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/purple_500_solid_semi_circle.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_500_white_drawable_selector.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_blr14_selector.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/purple_500_white_solid_brr14_selector.xml" value="0.3578125" />
+        <entry key="basic/src/main/res/drawable/test_font_hint_background_selector.xml" value="0.3536458333333333" />
+        <entry key="basic/src/main/res/drawable/text_font_hint_white_selector.xml" value="0.3536458333333333" />
         <entry key="basic/src/main/res/drawable/white_purple_500_drawable_selector.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_blr14_selector.xml" value="0.3578125" />
         <entry key="basic/src/main/res/drawable/white_purple_500_solid_brr14_selector.xml" value="0.3578125" />
@@ -111,6 +140,8 @@
         <entry key="widget/src/main/res/drawable/ic_status_fail.xml" value="0.3578125" />
         <entry key="widget/src/main/res/drawable/ic_status_no_network.xml" value="0.3578125" />
         <entry key="widget/src/main/res/layout/banner_view_pager.xml" value="0.28351449275362317" />
+        <entry key="widget/src/main/res/layout/base_picker_view.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/dialog_can_cancel_loading.xml" value="0.24682971014492755" />
         <entry key="widget/src/main/res/layout/dialog_lottie_animation_view_loading.xml" value="0.3269927536231884" />
         <entry key="widget/src/main/res/layout/dialog_lottie_animation_view_loading_and_result.xml" value="0.2726449275362319" />
         <entry key="widget/src/main/res/layout/dialog_right_angle_message.xml" value="0.32065217391304346" />
@@ -118,8 +149,18 @@
         <entry key="widget/src/main/res/layout/download_progress_dialog.xml" value="0.21739130434782608" />
         <entry key="widget/src/main/res/layout/fragment_notification_enable_dialog.xml" value="0.1796875" />
         <entry key="widget/src/main/res/layout/function_item.xml" value="0.19927536231884058" />
+        <entry key="widget/src/main/res/layout/grid_view_item.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/horizontal_gridview.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/list_popup_window_item.xml" value="0.24682971014492755" />
         <entry key="widget/src/main/res/layout/menu_item.xml" value="0.3197463768115942" />
         <entry key="widget/src/main/res/layout/module_item.xml" value="0.19157608695652173" />
+        <entry key="widget/src/main/res/layout/money_input_keyboard_view.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/picker_view_options.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/picker_view_time.xml" value="0.24682971014492755" />
+        <entry key="widget/src/main/res/layout/picker_view_top_bar_include.xml" value="0.3269927536231884" />
+        <entry key="widget/src/main/res/layout/screen_bottom_sheet_dialog.xml" value="0.16145307769929365" />
+        <entry key="widget/src/main/res/layout/screen_item.xml" value="0.27853260869565216" />
+        <entry key="widget/src/main/res/layout/screen_nest_item.xml" value="0.27853260869565216" />
         <entry key="widget/src/main/res/layout/status_empty.xml" value="0.31431159420289856" />
         <entry key="widget/src/main/res/layout/status_empty_two.xml" value="0.31431159420289856" />
         <entry key="widget/src/main/res/layout/status_empty_with_animation.xml" value="0.2817028985507246" />

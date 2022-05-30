@@ -81,15 +81,15 @@ dependencies {
     /*ButterKnife*/
     debugImplementation 'com.glance.guolindev:glance:1.0.0'
     /*glance*/
-    debugImplementation 'io.github.didi.dokit:dokitx:3.6.2'
+    debugImplementation 'io.github.didi.dokit:dokitx:3.7.1'
     /*核心模块*/
     debugImplementation 'io.github.didi.dokit:dokitx-ft:3.6.2'
     /*文件同步模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.6.2'
+    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.7.1'
     /*一机多控模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.6.2'
+    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.7.1'
     /*weex 模块*/
-    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.6.2'
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.7.1'
     /*no-op 模块*/
     /*仅 release 环境需引 no-op*/
     /*否则插件注入相关代码致找不到对应 class*/
