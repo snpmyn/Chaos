@@ -71,6 +71,6 @@ dependencies {
     /*util*/
     implementation 'cn.jiguang.sdk:jcore:3.2.4'
     /*jCore*/
-    api 'cn.jiguang.sdk:jpush:4.6.6'
+    api 'cn.jiguang.sdk:jpush:4.7.0'
     /*极光推送*/
 }

@@ -99,7 +99,7 @@ dependencies {
     /*util*/
     debugImplementation 'io.github.didi.dokit:dokitx:3.7.1'
     /*核心模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.6.2'
+    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.7.1'
     /*文件同步模块*/
     debugImplementation 'io.github.didi.dokit:dokitx-mc:3.7.1'
     /*一机多控模块*/

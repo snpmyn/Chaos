@@ -93,7 +93,7 @@ public class ScreenHandleKit implements View.OnClickListener {
         this.unfoldAndFoldBeanList = new ArrayList<>();
         this.unfoldAndFoldBeanListActiveControlClassificationList = new ArrayList<>();
         this.unfoldAndFoldBeanListPassiveControlClassificationList = new ArrayList<>();
-        // 初始BottomSheetDialog
+        // 初始 BottomSheetDialog
         stepBottomSheetDialog();
     }
 

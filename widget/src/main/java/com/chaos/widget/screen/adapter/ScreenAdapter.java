@@ -233,7 +233,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         }
         // 互斥类别
         for (MutuallyExclusiveBean mutuallyExclusive : mutuallyExclusiveBeanList) {
-            if (groupId != null && groupId.equals(mutuallyExclusive.getGroupId())) {
+            if ((null != groupId) && groupId.equals(mutuallyExclusive.getGroupId())) {
                 classifications.add(mutuallyExclusive.getClassification());
             }
         }
