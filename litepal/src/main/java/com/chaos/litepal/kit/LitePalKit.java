@@ -158,26 +158,30 @@ public class LitePalKit {
      *
      * @param modelClass 模型类
      * @param column     列
+     * @param asc        升序否
      * @param columns    列
      * @param <T>        <T>
      * @return 结果集合
      */
-    public <T extends LitePalSupport> List<T> queryByOrderAndSelect(Class<T> modelClass, String column, String... columns) {
-        return LitePal.order(column).select(columns).find(modelClass);
+    public <T extends LitePalSupport> List<T> queryByOrderAndSelect(Class<T> modelClass, String column, boolean asc, String... columns) {
+        return LitePal.order(column + (asc ? " asc" : " desc")).select(columns).find(modelClass);
     }
 
     /**
      * 条件并且排序并且选择查询
+     * <p>
+     * asc 正序、desc 倒序。
      *
      * @param modelClass 模型类
      * @param conditions 条件
      * @param column     列
+     * @param asc        升序否
      * @param columns    列
      * @param <T>        <T>
      * @return 结果集合
      */
-    public <T extends LitePalSupport> List<T> queryByWhereAndOrderAndSelect(Class<T> modelClass, String[] conditions, String column, String... columns) {
-        return LitePal.where(conditions).order(column).select(columns).find(modelClass);
+    public <T extends LitePalSupport> List<T> queryByWhereAndOrderAndSelect(Class<T> modelClass, String[] conditions, String column, boolean asc, String... columns) {
+        return LitePal.where(conditions).order(column + (asc ? " asc" : " desc")).select(columns).find(modelClass);
     }
 
     /**
