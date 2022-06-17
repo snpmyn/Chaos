@@ -18,7 +18,7 @@ public class BaseDataBaseTable extends LitePalSupport {
     /**
      * 手机号
      */
-    @Column(unique = true, defaultValue = "12345678910")
+    @Column(nullable = false)
     private String phoneNumber;
     /**
      * 年
