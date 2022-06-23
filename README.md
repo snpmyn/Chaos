@@ -246,6 +246,7 @@ api 'com.airbnb.android:lottie:xxx'
 
 ```
 implementation project(path: ':basic')
+api 'com.pgyer:analytics:4.2.8'
 ```
 
 ### kotlin
