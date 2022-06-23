@@ -54,6 +54,11 @@ allprojects {
         mavenCentral()
         // [Ucrop]
         maven { url "https://jitpack.io" }
+        // [Pgyer]
+        // 上 主力仓库
+        // 下 备用仓库（主力仓库下载不下来使用）
+        maven { url "https://frontjs-static.pgyer.com/dist/sdk/pgyersdk" }
+        maven { url "https://raw.githubusercontent.com/PGYER/analytics/master" }
     }
 }
 

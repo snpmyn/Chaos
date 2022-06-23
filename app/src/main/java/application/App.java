@@ -6,12 +6,14 @@ import com.chaos.doraemonkit.DoraemonKitInitConfigure;
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
 import com.chaos.jpush.configure.JpushInitConfigure;
 import com.chaos.mobsms.sms.configure.MobSmsInitConfigure;
+import com.chaos.pgyer.configure.PgyerInitConfigure;
 import com.chaos.pool.application.PoolApp;
 import com.chaos.pool.module.login.LoginTwoActivity;
 import com.chaos.pool.module.splash.kit.SplashActivityKit;
 import com.chaos.util.java.intent.IntentJump;
 import com.chaos.widget.status.manager.StatusManager;
 import com.example.chaos.BuildConfig;
+import com.pgyer.pgyersdk.pgyerenum.Features;
 
 import java.util.List;
 
@@ -104,6 +106,8 @@ public class App extends PoolApp {
         JanalyticsInitConfigure.initJanalytics(this, debug());
         // MobSMS
         MobSmsInitConfigure.initMobSms(this);
+        // Pgyer
+        PgyerInitConfigure.initPgyer(this, "b40f6bc02fc9fd0280d38b3752a5d4a4", "33ff1520a3b3b352210b83f33b7bdf96", Features.CHECK_UPDATE);
         // 闪屏页监听
         SplashActivityKit splashActivityKit = new SplashActivityKit();
         splashActivityKit.setSplashActivityListener(appCompatActivity -> IntentJump.getInstance().jump(null, appCompatActivity, true, LoginTwoActivity.class));

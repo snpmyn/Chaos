@@ -96,6 +96,8 @@ public class MainActivity extends BaseActivity {
         mainActivityKit.requestPermissions(this);
         // 展示
         mainActivityKit.display(this, mainActivityMlv, mainActivityRv, mainActivityMb);
+        // 检测版本更新
+        mainActivityKit.checkVersionUpdate(this);
     }
 
     @OnClick({R.id.mainActivityMb})

@@ -1,6 +1,7 @@
 include ':litepool'
 include ':pool'
 include ':kotlin'
+include ':pgyer'
 include ':lottie'
 include ':scan'
 include ':tbs'

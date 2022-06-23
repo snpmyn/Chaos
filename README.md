@@ -78,6 +78,10 @@ DoraemonKit
 
 动画
 
+#### [pgyer](./pgyer)
+
+Pgyer
+
 #### [kotlin](./kotlin)
 
 Kotlin
@@ -238,6 +242,12 @@ implementation project(path: ':basic')
 api 'com.airbnb.android:lottie:xxx'
 ```
 
+### pgyer
+
+```
+implementation project(path: ':basic')
+```
+
 ### kotlin
 
 ```
@@ -310,7 +320,7 @@ gradle(config)
 ## License
 
 ```
-Copyright [2021] [snpmyn]
+Copyright [2022] [snpmyn]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

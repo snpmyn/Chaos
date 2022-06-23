@@ -76,6 +76,7 @@ afterEvaluate {
 }
 
 dependencies {
+    api project(path: ':pgyer')
     api project(path: ':lottie')
     api project(path: ':scan')
     api project(path: ':tbs')

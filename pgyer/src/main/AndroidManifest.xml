@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chaos.pgyer">
+
+    <application>
+        <!--渠道-->
+        <meta-data
+            android:name="PGYER_CHALNNEL_KEY"
+            android:value="" />
+        <!--fps(页面卡顿)阈值默 10-->
+        <meta-data
+            android:name="PGYER_FPS_THRESHOLD"
+            android:value="10" />
+    </application>
+
+</manifest>

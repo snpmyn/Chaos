@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chaos.pgyer.kit.PgyerKit;
+import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.other.adapter.decoration.HorizontalDividerDecoration;
 import com.chaos.widget.other.adapter.decoration.VerticalDividerDecoration;
@@ -22,6 +24,8 @@ import com.example.chaos.adapter.MainActivityListViewAdapter;
 import com.example.chaos.adapter.MainActivityRecyclerViewAdapter;
 import com.example.chaos.bean.MainActivityModule;
 import com.google.android.material.button.MaterialButton;
+import com.pgyer.pgyersdk.callback.CheckoutCallBack;
+import com.pgyer.pgyersdk.model.CheckSoftModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,5 +147,29 @@ public class MainActivityKit {
             default:
                 break;
         }
+    }
+
+    /**
+     * 检测版本更新
+     *
+     * @param appCompatActivity 活动
+     */
+    public void checkVersionUpdate(AppCompatActivity appCompatActivity) {
+        PgyerKit.checkVersionUpdate(appCompatActivity, new CheckoutCallBack() {
+            @Override
+            public void onNewVersionExist(CheckSoftModel checkSoftModel) {
+                ToastKit.showShort(checkSoftModel.getForceUpdateVersionNo());
+            }
+
+            @Override
+            public void onNonentityVersionExist(String s) {
+                ToastKit.showShort(s);
+            }
+
+            @Override
+            public void onFail(String s) {
+                ToastKit.showShort(s);
+            }
+        });
     }
 }
