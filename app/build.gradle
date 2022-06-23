@@ -67,30 +67,6 @@ android {
             versionNameSuffix "-debug"
         }
     }
-    // Specifies one flavor dimension.
-    flavorDimensions "version"
-    productFlavors {
-        // 开发环境
-        develop {
-            buildConfigField "int", "ENVIRONMENT_TYPE", "1"
-            // Assigns this product flavor to the "version" flavor dimension.
-            // This property is optional if you are using only one dimension.
-            dimension "version"
-            versionCode 3
-            versionName "3.0"
-            versionNameSuffix "-develop"
-        }
-        // 生产环境
-        product {
-            buildConfigField "int", "ENVIRONMENT_TYPE", "3"
-            // Assigns this product flavor to the "version" flavor dimension.
-            // This property is optional if you are using only one dimension.
-            dimension "version"
-            versionCode 1
-            versionName "1.0"
-            versionNameSuffix "-product"
-        }
-    }
     compileOptions {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
