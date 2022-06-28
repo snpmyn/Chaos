@@ -1,0 +1,171 @@
+package com.chaos.widget.dialog.bocdialog.lottie;
+
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+
+import com.airbnb.lottie.LottieAnimationView;
+import com.chaos.lottie.LottieKit;
+import com.chaos.util.java.density.DensityUtils;
+import com.chaos.widget.R;
+import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
+import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
+import com.chaos.widget.dialog.bocdialog.lottie.bean.DialogLottieAnimationEnum;
+
+/**
+ * Created on 2022/4/6
+ *
+ * @author zsp
+ * @desc LottieAnimationView 对话框
+ */
+public class LottieAnimationViewDialog extends BaseInstanceDialog {
+    private LottieAnimationView lottieAnimationViewDialogLav;
+    private boolean loading;
+    private OnBackPressedListener onBackPressedListener;
+
+    /**
+     * constructor
+     *
+     * @param context        上下文
+     * @param selfThemeResId 自身主题资源 ID
+     */
+    private LottieAnimationViewDialog(Context context, int selfThemeResId) {
+        super(context, selfThemeResId);
+    }
+
+    /**
+     * 布局资源 ID
+     *
+     * @return 布局资源 ID
+     */
+    @Override
+    protected int layoutResId() {
+        return R.layout.dialog_lottie_animation_view;
+    }
+
+    /**
+     * 初始控件
+     */
+    @Override
+    protected void stepUi() {
+        lottieAnimationViewDialogLav = view.findViewById(R.id.lottieAnimationViewDialogLav);
+    }
+
+    /**
+     * 设置监听
+     */
+    @Override
+    protected void setListener() {
+
+    }
+
+    /**
+     * 初始数据
+     */
+    @Override
+    protected void initData() {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = DensityUtils.dipToPxByFloat(context, 80);
+        layoutParams.height = DensityUtils.dipToPxByFloat(context, 80);
+        view.setLayoutParams(layoutParams);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (null != onBackPressedListener) {
+            onBackPressedListener.backPressed();
+            onBackPressedListener = null;
+        }
+    }
+
+    /**
+     * 设置动画
+     *
+     * @param dialogLottieAnimationEnum 对话框 Lottie 动画枚举
+     */
+    private void setAnimation(@NonNull DialogLottieAnimationEnum dialogLottieAnimationEnum) {
+        // 资产名
+        // 如 "camera.json"
+        String assetName = dialogLottieAnimationEnum.getAssetName();
+        if (TextUtils.isEmpty(assetName)) {
+            return;
+        }
+        // 宽
+        int width = dialogLottieAnimationEnum.getWidth();
+        // 高
+        int height = dialogLottieAnimationEnum.getHeight();
+        if ((width != 0) && (height != 0)) {
+            ViewGroup.LayoutParams layoutParams = lottieAnimationViewDialogLav.getLayoutParams();
+            layoutParams.width = DensityUtils.dipToPxByFloat(context, width);
+            layoutParams.height = DensityUtils.dipToPxByFloat(context, height);
+            lottieAnimationViewDialogLav.setLayoutParams(layoutParams);
+        }
+        LottieKit lottieKit = new LottieKit();
+        lottieKit.useWithAsset(lottieAnimationViewDialogLav, assetName, ValueAnimator.INFINITE, new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                if (loading) {
+                    return;
+                }
+                LottieAnimationViewDialog.this.dismiss();
+            }
+        });
+    }
+
+    /**
+     * 设置回退按压监听
+     *
+     * @param onBackPressedListener 回退按压监听
+     */
+    private void setOnBackPressedListener(OnBackPressedListener onBackPressedListener) {
+        this.onBackPressedListener = onBackPressedListener;
+    }
+
+    public static class Builder {
+        private final LottieAnimationViewDialog lottieAnimationViewDialog;
+
+        public Builder(Context context, int selfThemeResId) {
+            this.lottieAnimationViewDialog = new LottieAnimationViewDialog(context, selfThemeResId);
+        }
+
+        public Builder setAnimation(DialogLottieAnimationEnum dialogLottieAnimationEnum) {
+            lottieAnimationViewDialog.setAnimation(dialogLottieAnimationEnum);
+            return this;
+        }
+
+        public Builder setLoading(boolean loading) {
+            lottieAnimationViewDialog.loading = loading;
+            return this;
+        }
+
+        public Builder setOnBackPressedListener(OnBackPressedListener onBackPressedListener) {
+            lottieAnimationViewDialog.setOnBackPressedListener(onBackPressedListener);
+            return this;
+        }
+
+        public LottieAnimationViewDialog build() {
+            return lottieAnimationViewDialog;
+        }
+    }
+}
+

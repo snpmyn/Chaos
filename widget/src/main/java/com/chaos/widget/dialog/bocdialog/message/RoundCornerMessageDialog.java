@@ -1,4 +1,4 @@
-package com.chaos.widget.dialog.message;
+package com.chaos.widget.dialog.bocdialog.message;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat;
 
 import com.chaos.widget.R;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
-import com.chaos.widget.dialog.message.listener.OnRoundCornerMessageDialogButtonClickListener;
+import com.chaos.widget.dialog.bocdialog.message.listener.OnRoundCornerMessageDialogButtonClickListener;
 
 import org.jetbrains.annotations.NotNull;
 

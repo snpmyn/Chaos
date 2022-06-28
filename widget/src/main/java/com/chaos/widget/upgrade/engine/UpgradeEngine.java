@@ -91,7 +91,7 @@ public class UpgradeEngine {
             final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
             builder.sslSocketFactory(sslSocketFactory).hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
         } catch (Exception e) {
-            Timber.e(UpgradeEngine.class.getSimpleName(), "Failed to new TrustManager.%s", e.getMessage());
+            Timber.e(UpgradeEngine.class.getSimpleName(), "Failed to new TrustManager. %s", e.getMessage());
         }
         return builder.build();
     }

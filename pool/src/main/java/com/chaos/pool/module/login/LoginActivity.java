@@ -25,6 +25,7 @@ import com.chaos.pool.value.PoolConstant;
 import com.chaos.util.java.statusbar.StatusBarUtils;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.view.ViewUtils;
+import com.chaos.widget.dialog.bocdialog.kit.DialogKit;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
@@ -235,7 +236,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
             loginActivityKit.getVerificationCode(this, loginActivityEtPleaseInputPhoneNumber);
         } else if (id == R.id.loginActivityMbLogin) {
             // 登录
-            commonLoading(getString(R.string.loginTwo), null);
+            DialogKit.getInstance(this).commonLoading(getString(R.string.loginTwo), null);
             MobSmsKit.getInstanceByDcl().submitVerificationCode("86", loginActivityEtPleaseInputPhoneNumber.getText().toString(), loginActivityEtPleaseInputVerificationCode.getText().toString());
         } else if (id == R.id.loginActivityTvUserAgreement) {
             // 用户协议
@@ -277,7 +278,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
     @Override
     public void eventGetVerificationCode() {
         countDownTimer.start();
-        dismissLoading();
+        DialogKit.getInstance(this).dismissLoading();
         ToastKit.showShort(getString(R.string.authenticationCodeAlreadySend));
     }
 
@@ -286,7 +287,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
      */
     @Override
     public void resultError() {
-        dismissLoading();
+        DialogKit.getInstance(this).dismissLoading();
     }
 
     /**

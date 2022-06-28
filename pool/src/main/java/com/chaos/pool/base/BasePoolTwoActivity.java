@@ -12,14 +12,6 @@ import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
 import com.chaos.util.java.view.ViewUtils;
-import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
-import com.chaos.widget.dialog.bocdialog.loading.CanCancelLoadingDialog;
-import com.chaos.widget.dialog.bocdialog.loading.CommonLoadingDialog;
-import com.chaos.widget.dialog.bocdialog.loading.LottieAnimationViewLoadingDialog;
-import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
-import com.chaos.widget.dialog.bocdialog.loading.listener.OnClickToCloseListener;
-import com.chaos.widget.dialog.bocdialog.loading.listener.OnDialogCloseListener;
-import com.chaos.widget.dialog.bocdialog.result.LottieAnimationViewResultDialog;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -41,8 +33,6 @@ import org.jetbrains.annotations.NotNull;
  * {@link #startLogic()}
  */
 public abstract class BasePoolTwoActivity extends AppCompatActivity {
-    private BaseInstanceDialog baseInstanceDialog;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,82 +82,6 @@ public abstract class BasePoolTwoActivity extends AppCompatActivity {
      * 开始逻辑
      */
     protected abstract void startLogic();
-
-    /**
-     * 普通加载
-     *
-     * @param hint                  提示
-     * @param onBackPressedListener 回退按压监听
-     */
-    public void commonLoading(String hint, OnBackPressedListener onBackPressedListener) {
-        baseInstanceDialog = new CommonLoadingDialog.Builder(this, 0)
-                .setHint(hint)
-                .setOnBackPressedListener(onBackPressedListener).build();
-        baseInstanceDialog.setCancelable(false);
-        baseInstanceDialog.show();
-    }
-
-    /**
-     * 可取消加载
-     *
-     * @param hint                   提示
-     * @param onClickToCloseListener 点击关闭监听
-     * @param onDialogCloseListener  对话框关闭监听
-     * @param onBackPressedListener  回退按压监听
-     */
-    public void canCancelLoading(String hint, OnClickToCloseListener onClickToCloseListener, OnDialogCloseListener onDialogCloseListener, OnBackPressedListener onBackPressedListener) {
-        baseInstanceDialog = new CanCancelLoadingDialog.Builder(this, 0)
-                .setHint(hint)
-                .setOnClickToCloseListener(onClickToCloseListener)
-                .setOnDialogCloseListener(onDialogCloseListener)
-                .setOnBackPressedListener(onBackPressedListener).build();
-        baseInstanceDialog.setCancelable(false);
-        baseInstanceDialog.show();
-    }
-
-    /**
-     * LottieAnimationView 加载
-     *
-     * @param assetName             资产名
-     *                              如 "camera.json"
-     * @param onBackPressedListener 回退按压监听
-     */
-    public void lottieAnimationViewLoadingDialog(String assetName, OnBackPressedListener onBackPressedListener) {
-        baseInstanceDialog = new LottieAnimationViewLoadingDialog.Builder(this, 0)
-                .setAnimation(assetName)
-                .setOnBackPressedListener(onBackPressedListener).build();
-        baseInstanceDialog.setCancelable(false);
-        baseInstanceDialog.show();
-    }
-
-    /**
-     * LottieAnimationView 结果
-     *
-     * @param assetName             资产名
-     *                              如 "camera.json"
-     * @param duration              时长
-     * @param onBackPressedListener 回退按压监听
-     */
-    public void lottieAnimationViewResultDialog(String assetName, long duration, OnBackPressedListener onBackPressedListener) {
-        baseInstanceDialog = new LottieAnimationViewResultDialog.Builder(this, 0)
-                .setAnimation(assetName)
-                .setDuration(duration)
-                .setOnBackPressedListener(onBackPressedListener).build();
-        baseInstanceDialog.setCancelable(false);
-        baseInstanceDialog.show();
-    }
-
-    /**
-     * 取消加载
-     */
-    public void dismissLoading() {
-        if (null != baseInstanceDialog) {
-            if (baseInstanceDialog.isShowing()) {
-                baseInstanceDialog.dismiss();
-            }
-            baseInstanceDialog = null;
-        }
-    }
 
     /**
      * 传 EditText 的 ID

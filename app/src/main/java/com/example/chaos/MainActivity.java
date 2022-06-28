@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chaos.util.java.listener.AppListener;
 import com.chaos.util.java.toast.ToastKit;
-import com.chaos.widget.dialog.message.RoundCornerMessageDialog;
+import com.chaos.widget.dialog.bocdialog.message.RoundCornerMessageDialog;
 import com.chaos.widget.other.listview.MeasuredListView;
 import com.chaos.widget.transition.kit.TransitionKit;
 import com.example.chaos.kit.MainActivityKit;

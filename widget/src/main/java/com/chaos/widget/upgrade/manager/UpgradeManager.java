@@ -108,12 +108,14 @@ public class UpgradeManager {
     /**
      * FileProvider 之 auth
      *
+     * @param suffix 后缀
+     *               如 ".bga_update.file_provider"
      * @return authority
      */
-    private static @Nullable String getFileProviderAuthority() {
+    private static @Nullable String getFileProviderAuthority(String suffix) {
         try {
             for (ProviderInfo provider : APPLICATION.getPackageManager().getPackageInfo(APPLICATION.getPackageName(), PackageManager.GET_PROVIDERS).providers) {
-                if (FileProvider.class.getName().equals(provider.name) && provider.authority.endsWith(".bga_update.file_provider")) {
+                if (FileProvider.class.getName().equals(provider.name) && provider.authority.endsWith(suffix)) {
                     return provider.authority;
                 }
             }

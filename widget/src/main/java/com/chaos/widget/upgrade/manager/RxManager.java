@@ -27,7 +27,7 @@ public class RxManager {
             synchronized (RxManager.class) {
                 if (null == sInstance) {
                     // 单例模式之双重检测
-                    // 线程一在此前线程二到位 [1]，此不二判则线程二执行到此仍重 new
+                    // 线程一在此前线程二到位 [1]，此不二判则线程二执行到此仍重 new。
                     sInstance = new RxManager();
                 }
             }

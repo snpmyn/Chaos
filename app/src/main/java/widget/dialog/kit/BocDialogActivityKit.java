@@ -2,16 +2,16 @@ package widget.dialog.kit;
 
 import android.view.Gravity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.util.java.data.CaesarCipherUtils;
 import com.chaos.util.java.sign.SignUtils;
 import com.chaos.util.java.toast.ToastKit;
-import com.chaos.widget.dialog.message.RightAngleMessageDialog;
-import com.chaos.widget.dialog.message.RoundCornerMessageDialog;
+import com.chaos.widget.dialog.bocdialog.kit.DialogKit;
+import com.chaos.widget.dialog.bocdialog.lottie.bean.DialogLottieAnimationEnum;
+import com.chaos.widget.dialog.bocdialog.message.RightAngleMessageDialog;
+import com.chaos.widget.dialog.bocdialog.message.RoundCornerMessageDialog;
 import com.example.chaos.R;
 
 /**
@@ -135,9 +135,8 @@ public class BocDialogActivityKit {
      *
      * @param appCompatActivity 活动
      */
-    public void commonLoadingDialog(@NonNull AppCompatActivity appCompatActivity) {
-        BasePoolActivity basePoolActivity = (BasePoolActivity) appCompatActivity;
-        basePoolActivity.commonLoading(appCompatActivity.getString(R.string.loading), () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+    public void commonLoadingDialog(AppCompatActivity appCompatActivity) {
+        DialogKit.getInstance(appCompatActivity).commonLoading(appCompatActivity.getString(R.string.loading), () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
                 SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
     }
 
@@ -146,9 +145,8 @@ public class BocDialogActivityKit {
      *
      * @param appCompatActivity 活动
      */
-    public void canCancelLoadingDialog(@NonNull AppCompatActivity appCompatActivity) {
-        BasePoolActivity basePoolActivity = (BasePoolActivity) appCompatActivity;
-        basePoolActivity.canCancelLoading(appCompatActivity.getString(R.string.loading), () -> ToastKit.showShort("clickToClose"), () -> ToastKit.showShort("dialogClose"), () -> ToastKit.showShort("backPressed"));
+    public void canCancelLoadingDialog(AppCompatActivity appCompatActivity) {
+        DialogKit.getInstance(appCompatActivity).canCancelLoading(appCompatActivity.getString(R.string.loading), () -> ToastKit.showShort("clickToClose"), () -> ToastKit.showShort("dialogClose"), () -> ToastKit.showShort("backPressed"));
     }
 
     /**
@@ -157,19 +155,20 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void lottieAnimationViewLoadingDialog(AppCompatActivity appCompatActivity) {
-        BasePoolActivity basePoolActivity = (BasePoolActivity) appCompatActivity;
-        basePoolActivity.lottieAnimationViewLoadingDialog("camera.json", () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
-                SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
+        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.LOADING_TWO, true, () -> {
+            DialogKit.getInstance(appCompatActivity).dismissLoading();
+            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+                    SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
+        });
     }
 
     /**
-     * LottieAnimationView 结果对话框
+     * LottieAnimationView 其它对话框
      *
      * @param appCompatActivity 活动
      */
-    public void lottieAnimationViewResultDialog(AppCompatActivity appCompatActivity) {
-        BasePoolActivity basePoolActivity = (BasePoolActivity) appCompatActivity;
-        basePoolActivity.lottieAnimationViewResultDialog("camera.json", 3000, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+    public void lottieAnimationViewOtherDialog(AppCompatActivity appCompatActivity) {
+        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.SECOND_SET_RESULT_SUCCESS, false, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
                 SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
     }
 }

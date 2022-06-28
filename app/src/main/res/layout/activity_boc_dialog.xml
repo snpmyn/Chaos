@@ -79,11 +79,11 @@
         app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnCanCancelLoadingDialog" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/bocDialogActivityBtnLottieAnimationViewResultDialog"
+        android:id="@+id/bocDialogActivityBtnLottieAnimationViewOtherDialog"
         android:layout_width="@dimen/dp_0"
         android:layout_height="?actionBarSize"
         android:layout_marginTop="@dimen/dp_12"
-        android:text="@string/lottieAnimationViewResultDialog"
+        android:text="@string/lottieAnimationViewOtherDialog"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bocDialogActivityBtnLottieAnimationViewLoadingDialog" />

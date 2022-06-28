@@ -26,7 +26,7 @@ class AppManager {
             try {
                 application = (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null);
             } catch (final Exception ex) {
-                Timber.e(AppManager.class.getSimpleName(), "Failed to get current application from ActivityThread.%s", e.getMessage());
+                Timber.e(AppManager.class.getSimpleName(), "Failed to get current application from ActivityThread. %s", e.getMessage());
             }
         } finally {
             APPLICATION = application;

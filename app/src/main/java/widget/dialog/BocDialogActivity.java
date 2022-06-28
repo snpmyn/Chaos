@@ -69,7 +69,7 @@ public class BocDialogActivity extends BaseActivity {
             R.id.bocDialogActivityBtnCommonLoadingDialog,
             R.id.bocDialogActivityBtnCanCancelLoadingDialog,
             R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog,
-            R.id.bocDialogActivityBtnLottieAnimationViewResultDialog})
+            R.id.bocDialogActivityBtnLottieAnimationViewOtherDialog})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 直角消息对话框（无标题）
@@ -100,9 +100,9 @@ public class BocDialogActivity extends BaseActivity {
             case R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog:
                 bocDialogActivityKit.lottieAnimationViewLoadingDialog(this);
                 break;
-            // LottieAnimationView 结果对话框
-            case R.id.bocDialogActivityBtnLottieAnimationViewResultDialog:
-                bocDialogActivityKit.lottieAnimationViewResultDialog(this);
+            // LottieAnimationView 其它对话框
+            case R.id.bocDialogActivityBtnLottieAnimationViewOtherDialog:
+                bocDialogActivityKit.lottieAnimationViewOtherDialog(this);
                 break;
             default:
                 break;

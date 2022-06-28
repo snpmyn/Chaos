@@ -158,17 +158,17 @@ public class MainActivityKit {
         PgyerKit.checkVersionUpdate(appCompatActivity, new CheckoutCallBack() {
             @Override
             public void onNewVersionExist(CheckSoftModel checkSoftModel) {
-                ToastKit.showShort(checkSoftModel.getForceUpdateVersionNo());
+                appCompatActivity.runOnUiThread(() -> ToastKit.showShort(checkSoftModel.getForceUpdateVersionNo()));
             }
 
             @Override
             public void onNonentityVersionExist(String s) {
-                ToastKit.showShort(s);
+                appCompatActivity.runOnUiThread(() -> ToastKit.showShort(s));
             }
 
             @Override
             public void onFail(String s) {
-                ToastKit.showShort(s);
+                appCompatActivity.runOnUiThread(() -> ToastKit.showShort(s));
             }
         });
     }

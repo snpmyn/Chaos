@@ -1,8 +1,8 @@
-package com.chaos.widget.dialog.message.listener;
+package com.chaos.widget.dialog.bocdialog.message.listener;
 
 import android.view.View;
 
-import com.chaos.widget.dialog.message.RightAngleMessageDialog;
+import com.chaos.widget.dialog.bocdialog.message.RightAngleMessageDialog;
 
 /**
  * Created on 2020-09-03

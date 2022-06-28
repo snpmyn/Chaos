@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chaos.mobsms.sms.handler.MobSmsHandler;
 import com.chaos.mobsms.sms.kit.MobSmsKit;
 import com.chaos.pool.R;
-import com.chaos.pool.base.BasePoolActivity;
 import com.chaos.pool.value.PoolConstant;
 import com.chaos.util.java.storage.mmkv.MmkvKit;
 import com.chaos.util.java.toast.ToastKit;
 import com.chaos.util.java.validate.RegularUtils;
+import com.chaos.widget.dialog.bocdialog.kit.DialogKit;
 import com.chaos.widget.dialog.materialalertdialog.MyMaterialAlertDialogBuilder;
 
 import cn.smssdk.EventHandler;
@@ -50,8 +50,7 @@ public class LoginActivityKit {
                     .setMessage(phoneNumber)
                     .setPositiveButton(R.string.agree, (dialog, which) -> {
                         dialog.dismiss();
-                        BasePoolActivity baseActivity = (BasePoolActivity) appCompatActivity;
-                        baseActivity.commonLoading(appCompatActivity.getString(R.string.getting), null);
+                        DialogKit.getInstance(appCompatActivity).commonLoading(appCompatActivity.getString(R.string.getting), null);
                         MobSmsKit.getInstanceByDcl().getVerificationCode("86", phoneNumber, null, null);
                     })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss()).show();
