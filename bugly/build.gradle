@@ -69,7 +69,7 @@ dependencies {
     implementation project(path: ':tbs')
     /*tbs*/
     /*api 'com.tencent.bugly:crashreport_upgrade:latest.release'*/
-    api 'com.tencent.bugly:crashreport_upgrade:1.5.23'
+    api 'com.tencent.bugly:crashreport_upgrade:1.6.1'
     /*implementation 'com.tencent.bugly:nativecrashreport:latest.release'*/
     implementation 'com.tencent.bugly:nativecrashreport:3.9.2'
     /*bugly*/
