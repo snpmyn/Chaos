@@ -136,8 +136,11 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void commonLoadingDialog(AppCompatActivity appCompatActivity) {
-        DialogKit.getInstance(appCompatActivity).commonLoading(appCompatActivity.getString(R.string.loading), () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
-                SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
+        DialogKit.getInstance(appCompatActivity).commonLoading(appCompatActivity.getString(R.string.loading), () -> {
+            DialogKit.getInstance(appCompatActivity).end();
+            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+                    SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
+        });
     }
 
     /**
@@ -155,8 +158,8 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void lottieAnimationViewLoadingDialog(AppCompatActivity appCompatActivity) {
-        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.LOADING_TWO, true, () -> {
-            DialogKit.getInstance(appCompatActivity).dismissLoading();
+        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.LOADING_ONE, "chaos", true, () -> {
+            DialogKit.getInstance(appCompatActivity).end();
             ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
                     SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
         });
@@ -168,7 +171,7 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void lottieAnimationViewOtherDialog(AppCompatActivity appCompatActivity) {
-        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.SECOND_SET_RESULT_SUCCESS, false, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
+        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.SECOND_SET_RESULT_SUCCESS, null, false, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
                 SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
     }
 }

@@ -72,12 +72,14 @@ public class DialogKit {
      * LottieAnimationView
      *
      * @param dialogLottieAnimationEnum 对话框 Lottie 动画枚举
+     * @param hint                      提示
      * @param loading                   加载否
      * @param onBackPressedListener     回退按压监听
      */
-    public void lottieAnimationViewDialog(DialogLottieAnimationEnum dialogLottieAnimationEnum, boolean loading, OnBackPressedListener onBackPressedListener) {
+    public void lottieAnimationViewDialog(DialogLottieAnimationEnum dialogLottieAnimationEnum, String hint, boolean loading, OnBackPressedListener onBackPressedListener) {
         baseInstanceDialog = new LottieAnimationViewDialog.Builder(weakReference.get(), 0)
                 .setAnimation(dialogLottieAnimationEnum)
+                .setHintAndWidthHeight(hint)
                 .setLoading(loading)
                 .setOnBackPressedListener(onBackPressedListener).build();
         baseInstanceDialog.setCancelable(false);
@@ -85,9 +87,9 @@ public class DialogKit {
     }
 
     /**
-     * 取消加载
+     * 结束
      */
-    public void dismissLoading() {
+    public void end() {
         if (null != weakReference) {
             weakReference.clear();
         }

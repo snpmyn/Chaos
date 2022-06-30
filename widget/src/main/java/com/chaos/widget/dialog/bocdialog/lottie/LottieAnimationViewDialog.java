@@ -4,13 +4,17 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.chaos.lottie.LottieKit;
+import com.chaos.util.java.data.StringUtils;
 import com.chaos.util.java.density.DensityUtils;
+import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.R;
 import com.chaos.widget.dialog.bocdialog.base.BaseInstanceDialog;
 import com.chaos.widget.dialog.bocdialog.loading.listener.OnBackPressedListener;
@@ -24,6 +28,7 @@ import com.chaos.widget.dialog.bocdialog.lottie.bean.DialogLottieAnimationEnum;
  */
 public class LottieAnimationViewDialog extends BaseInstanceDialog {
     private LottieAnimationView lottieAnimationViewDialogLav;
+    private TextView lottieAnimationViewDialogTv;
     private boolean loading;
     private OnBackPressedListener onBackPressedListener;
 
@@ -53,6 +58,7 @@ public class LottieAnimationViewDialog extends BaseInstanceDialog {
     @Override
     protected void stepUi() {
         lottieAnimationViewDialogLav = view.findViewById(R.id.lottieAnimationViewDialogLav);
+        lottieAnimationViewDialogTv = view.findViewById(R.id.lottieAnimationViewDialogTv);
     }
 
     /**
@@ -68,10 +74,7 @@ public class LottieAnimationViewDialog extends BaseInstanceDialog {
      */
     @Override
     protected void initData() {
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = DensityUtils.dipToPxByFloat(context, 80);
-        layoutParams.height = DensityUtils.dipToPxByFloat(context, 80);
-        view.setLayoutParams(layoutParams);
+
     }
 
     @Override
@@ -95,16 +98,10 @@ public class LottieAnimationViewDialog extends BaseInstanceDialog {
         if (TextUtils.isEmpty(assetName)) {
             return;
         }
-        // 宽
-        int width = dialogLottieAnimationEnum.getWidth();
-        // 高
-        int height = dialogLottieAnimationEnum.getHeight();
-        if ((width != 0) && (height != 0)) {
-            ViewGroup.LayoutParams layoutParams = lottieAnimationViewDialogLav.getLayoutParams();
-            layoutParams.width = DensityUtils.dipToPxByFloat(context, width);
-            layoutParams.height = DensityUtils.dipToPxByFloat(context, height);
-            lottieAnimationViewDialogLav.setLayoutParams(layoutParams);
-        }
+        ViewGroup.LayoutParams layoutParams = lottieAnimationViewDialogLav.getLayoutParams();
+        layoutParams.width = DensityUtils.dipToPxByFloat(context, dialogLottieAnimationEnum.getWidth());
+        layoutParams.height = DensityUtils.dipToPxByFloat(context, dialogLottieAnimationEnum.getHeight());
+        lottieAnimationViewDialogLav.setLayoutParams(layoutParams);
         LottieKit lottieKit = new LottieKit();
         lottieKit.useWithAsset(lottieAnimationViewDialogLav, assetName, ValueAnimator.INFINITE, new Animator.AnimatorListener() {
             @Override
@@ -133,6 +130,26 @@ public class LottieAnimationViewDialog extends BaseInstanceDialog {
     }
 
     /**
+     * 设置提示和宽高
+     *
+     * @param hint 提示
+     */
+    private void setHintAndWidthHeight(String hint) {
+        int value;
+        if (StringUtils.areEmpty(hint)) {
+            value = 80;
+            ViewUtils.hideView(lottieAnimationViewDialogTv, View.GONE);
+        } else {
+            value = 120;
+            lottieAnimationViewDialogTv.setText(hint);
+        }
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = DensityUtils.dipToPxByFloat(context, value);
+        layoutParams.height = DensityUtils.dipToPxByFloat(context, value);
+        view.setLayoutParams(layoutParams);
+    }
+
+    /**
      * 设置回退按压监听
      *
      * @param onBackPressedListener 回退按压监听
@@ -150,6 +167,11 @@ public class LottieAnimationViewDialog extends BaseInstanceDialog {
 
         public Builder setAnimation(DialogLottieAnimationEnum dialogLottieAnimationEnum) {
             lottieAnimationViewDialog.setAnimation(dialogLottieAnimationEnum);
+            return this;
+        }
+
+        public Builder setHintAndWidthHeight(String hint) {
+            lottieAnimationViewDialog.setHintAndWidthHeight(hint);
             return this;
         }
 

@@ -10,23 +10,23 @@ public enum DialogLottieAnimationEnum {
     /**
      * 点赞一
      */
-    LIKE_ONE("lottie_animation_dialog_like_one.json", 0, 0),
+    LIKE_ONE("lottie_animation_dialog_like_one.json", 66, 66),
     /**
      * 加载一
      */
-    LOADING_ONE("lottie_animation_dialog_loading_one.json", 0, 0),
+    LOADING_ONE("lottie_animation_dialog_loading_one.json", 66, 66),
     /**
      * 加载二
      */
-    LOADING_TWO("lottie_animation_dialog_loading_two.json", 0, 0),
+    LOADING_TWO("lottie_animation_dialog_loading_two.json", 66, 66),
     /**
      * 成功一
      */
-    SUCCESS_ONE("lottie_animation_dialog_success_one.json", 0, 0),
+    SUCCESS_ONE("lottie_animation_dialog_success_one.json", 66, 66),
     /**
      * 成功二
      */
-    SUCCESS_TWO("lottie_animation_dialog_success_two.json", 0, 0),
+    SUCCESS_TWO("lottie_animation_dialog_success_two.json", 66, 66),
     /**
      * 第一套结果警告
      */

@@ -61,6 +61,6 @@ ext {
     jitpack = [
             groupId   : 'com.github.snpmyn',
             artifactId: 'Chaos',
-            version   : 'v0.0.20.10.1',
+            version   : 'v0.0.20.10.2',
     ]
 }

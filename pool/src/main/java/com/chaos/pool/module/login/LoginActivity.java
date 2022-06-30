@@ -278,7 +278,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
     @Override
     public void eventGetVerificationCode() {
         countDownTimer.start();
-        DialogKit.getInstance(this).dismissLoading();
+        DialogKit.getInstance(this).end();
         ToastKit.showShort(getString(R.string.authenticationCodeAlreadySend));
     }
 
@@ -287,7 +287,7 @@ public class LoginActivity extends BasePoolActivity implements View.OnClickListe
      */
     @Override
     public void resultError() {
-        DialogKit.getInstance(this).dismissLoading();
+        DialogKit.getInstance(this).end();
     }
 
     /**
