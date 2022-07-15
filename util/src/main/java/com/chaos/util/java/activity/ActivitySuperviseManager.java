@@ -37,19 +37,11 @@ import timber.log.Timber;
  */
 public class ActivitySuperviseManager {
     private static final long WAIT_TIME = 2000L;
-    private static ActivitySuperviseManager instance;
     private final List<Activity> ACTIVITIES = Collections.synchronizedList(new LinkedList<>());
     private long touchDownTime = 0L;
 
     public static ActivitySuperviseManager getInstance() {
-        if (null == instance) {
-            synchronized (ActivitySuperviseManager.class) {
-                if (null == instance) {
-                    instance = new ActivitySuperviseManager();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -181,5 +173,9 @@ public class ActivitySuperviseManager {
         } catch (Exception e) {
             Timber.e(e);
         }
+    }
+
+    private static final class InstanceHolder {
+        static final ActivitySuperviseManager INSTANCE = new ActivitySuperviseManager();
     }
 }

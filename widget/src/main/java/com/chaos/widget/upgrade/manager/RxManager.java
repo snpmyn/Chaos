@@ -14,7 +14,6 @@ import rx.subjects.Subject;
  * @date: 2018/8/22 8:55
  */
 public class RxManager {
-    private static RxManager sInstance;
     private final Subject<Object, Object> mBus;
 
     private RxManager() {
@@ -22,17 +21,10 @@ public class RxManager {
     }
 
     private static RxManager getInstance() {
-        if (null == sInstance) {
-            // [1]
-            synchronized (RxManager.class) {
-                if (null == sInstance) {
-                    // 单例模式之双重检测
-                    // 线程一在此前线程二到位 [1]，此不二判则线程二执行到此仍重 new。
-                    sInstance = new RxManager();
-                }
-            }
-        }
-        return sInstance;
+        // [1]
+        // 单例模式之双重检测
+        // 线程一在此前线程二到位 [1]，此不二判则线程二执行到此仍重 new。
+        return InstanceHolder.S_INSTANCE;
     }
 
     public static void send(Object obj) {
@@ -52,5 +44,9 @@ public class RxManager {
 
     private Subject<Object, Object> getBus() {
         return mBus;
+    }
+
+    private static final class InstanceHolder {
+        static final RxManager S_INSTANCE = new RxManager();
     }
 }

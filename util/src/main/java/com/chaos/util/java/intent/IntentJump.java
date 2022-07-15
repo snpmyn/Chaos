@@ -11,17 +11,8 @@ import android.content.Intent;
  * @desc 意图跳转
  */
 public class IntentJump {
-    private static IntentJump instance;
-
     public static IntentJump getInstance() {
-        if (null == instance) {
-            synchronized (IntentJump.class) {
-                if (null == instance) {
-                    instance = new IntentJump();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -65,5 +56,9 @@ public class IntentJump {
     public void jumpWithAnimation(Intent withValueIntent, Activity activity, boolean finish, Class<?> targetActivityClass, int enterAnim, int exitAnim) {
         jump(withValueIntent, activity, finish, targetActivityClass);
         activity.overridePendingTransition((enterAnim == 0) ? android.R.anim.fade_in : enterAnim, (exitAnim == 0) ? android.R.anim.fade_out : exitAnim);
+    }
+
+    private static final class InstanceHolder {
+        static final IntentJump INSTANCE = new IntentJump();
     }
 }

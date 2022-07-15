@@ -1,6 +1,7 @@
 package com.chaos.widget.screen.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chaos.util.java.list.ListUtils;
+import com.chaos.util.java.view.ViewUtils;
 import com.chaos.widget.R;
 import com.chaos.widget.recyclerview.configure.RecyclerViewConfigure;
 import com.chaos.widget.recyclerview.controller.RecyclerViewDisplayController;
@@ -147,7 +149,11 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         List<Boolean> booleanList = new ArrayList<>(rightMap.values());
         // 类别
         String classification = leftList.get(0);
-        holder.screenItemTv.setText(classification);
+        if (TextUtils.isEmpty(classification)) {
+            ViewUtils.hideView(holder.screenItemTv, View.GONE);
+        } else {
+            holder.screenItemTv.setText(classification);
+        }
         // 嵌套（控件）
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
         // 避内容充整屏滑时头/末项频繁重绘

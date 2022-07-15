@@ -10,6 +10,7 @@ import com.chaos.janalytics.kit.JanalyticsKit;
 import com.chaos.jpush.kit.JpushKit;
 import com.chaos.util.java.edittext.EditTextUtils;
 import com.chaos.util.java.keyboard.KeyboardUtils;
+import com.chaos.util.java.navigationbar.NavigationBarUtils;
 import com.chaos.util.java.view.ViewUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +38,8 @@ public abstract class BasePoolActivity extends SupportActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 设导航栏色
+        NavigationBarUtils.setNavigationBarColorInBaseActivity(this);
         // 加载视图
         initContentView(savedInstanceState, layoutResId());
         // 初始控件

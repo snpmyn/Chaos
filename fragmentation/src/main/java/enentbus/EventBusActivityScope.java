@@ -24,8 +24,8 @@ import timber.log.Timber;
  */
 public class EventBusActivityScope {
     private static final AtomicBoolean S_INITIALIZED = new AtomicBoolean(false);
-    private static volatile EventBus sInvalidEventBus;
     private static final Map<Activity, LazyEventBusInstance> S_ACTIVITY_EVENT_BUS_SCOPE_POOL = new ConcurrentHashMap<>();
+    private static volatile EventBus sInvalidEventBus;
 
     static void init(Context context) {
         if (S_INITIALIZED.getAndSet(true)) {

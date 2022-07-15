@@ -11,17 +11,8 @@ import org.jetbrains.annotations.NotNull;
  * @desc MenuItem 配套元件
  */
 public class MenuItemKit {
-    private static MenuItemKit instance;
-
     public static MenuItemKit getInstance() {
-        if (null == instance) {
-            synchronized (MenuItemKit.class) {
-                if (null == instance) {
-                    instance = new MenuItemKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -42,5 +33,9 @@ public class MenuItemKit {
     public void hide(@NotNull MenuItem menuItem) {
         menuItem.setVisible(false);
         menuItem.setEnabled(false);
+    }
+
+    private static final class InstanceHolder {
+        static final MenuItemKit INSTANCE = new MenuItemKit();
     }
 }

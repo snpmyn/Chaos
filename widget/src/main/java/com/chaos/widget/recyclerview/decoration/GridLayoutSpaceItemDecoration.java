@@ -32,9 +32,9 @@ public class GridLayoutSpaceItemDecoration extends RecyclerView.ItemDecoration {
         // item column
         int column = position % spanCount;
         if (includeEdge) {
-            // spacing - column * ((1f / spanCount) * spacing)
+            // spacing - column * ((1.0F / spanCount) * spacing)
             outRect.left = (spacing - column * spacing / spanCount);
-            // (column + 1) * ((1f / spanCount) * spacing)
+            // (column + 1) * ((1.0F / spanCount) * spacing)
             outRect.right = (column + 1) * spacing / spanCount;
             if (position < spanCount) {
                 // top edge
@@ -43,9 +43,9 @@ public class GridLayoutSpaceItemDecoration extends RecyclerView.ItemDecoration {
             // item bottom
             outRect.bottom = spacing;
         } else {
-            // column * ((1f / spanCount) * spacing)
+            // column * ((1.0F / spanCount) * spacing)
             outRect.left = column * spacing / spanCount;
-            // spacing - (column + 1) * ((1f / spanCount) * spacing)
+            // spacing - (column + 1) * ((1.0F / spanCount) * spacing)
             outRect.right = (spacing - (column + 1) * spacing / spanCount);
             if (position >= spanCount) {
                 // item top

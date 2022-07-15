@@ -1,7 +1,10 @@
 package com.chaos.util.java.edittext;
 
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created on 2021/8/27
@@ -44,5 +47,24 @@ public class EditTextUtils {
             }
         }
         return false;
+    }
+
+    /**
+     * 显隐
+     *
+     * @param editText 输入框
+     * @return true 显、false 隐
+     */
+    @NonNull
+    public static Boolean showOrHide(@NonNull EditText editText) {
+        boolean flag;
+        if (editText.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+            flag = false;
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        } else {
+            flag = true;
+            editText.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
+        return flag;
     }
 }

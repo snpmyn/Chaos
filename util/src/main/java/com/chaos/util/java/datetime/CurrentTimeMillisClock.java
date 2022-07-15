@@ -18,6 +18,11 @@ public class CurrentTimeMillisClock {
         scheduleTick();
     }
 
+    public static CurrentTimeMillisClock
+    getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+
     private void scheduleTick() {
         new ScheduledThreadPoolExecutor(1,
                 runnable -> {
@@ -30,11 +35,6 @@ public class CurrentTimeMillisClock {
 
     public long now() {
         return now;
-    }
-
-    public static CurrentTimeMillisClock
-    getInstance() {
-        return SingletonHolder.INSTANCE;
     }
 
     private static class SingletonHolder {

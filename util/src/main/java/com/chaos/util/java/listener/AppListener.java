@@ -19,21 +19,13 @@ import java.util.Set;
  * @desc 应用监听
  */
 public class AppListener {
-    private static AppListener appListener;
     private final String TAG = this.getClass().getSimpleName();
     private final Set<Callback> callbackSet = new HashSet<>();
     private boolean hasInitConfiguration = false;
     private boolean areForeground = false;
 
     public static AppListener getInstance() {
-        if (null == appListener) {
-            synchronized (AppListener.class) {
-                if (null == appListener) {
-                    appListener = new AppListener();
-                }
-            }
-        }
-        return appListener;
+        return AppListenerHolder.APP_LISTENER;
     }
 
     public void initConfiguration(Application application) {
@@ -85,6 +77,10 @@ public class AppListener {
          * @param areForeground 是否前台
          */
         void onStateChange(boolean areForeground);
+    }
+
+    private static final class AppListenerHolder {
+        static final AppListener APP_LISTENER = new AppListener();
     }
 
     private class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {

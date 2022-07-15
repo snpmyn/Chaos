@@ -11,17 +11,8 @@ import java.lang.ref.WeakReference;
  * @desc 单选材料对话框配套元件
  */
 public class SingleChooseMaterialAlertDialogKit {
-    private static SingleChooseMaterialAlertDialogKit instance;
-
     public static SingleChooseMaterialAlertDialogKit getInstance() {
-        if (null == instance) {
-            synchronized (SingleChooseMaterialAlertDialogKit.class) {
-                if (null == instance) {
-                    instance = new SingleChooseMaterialAlertDialogKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -47,5 +38,9 @@ public class SingleChooseMaterialAlertDialogKit {
          * @param value 值
          */
         void onItemClick(String value);
+    }
+
+    private static final class InstanceHolder {
+        static final SingleChooseMaterialAlertDialogKit INSTANCE = new SingleChooseMaterialAlertDialogKit();
     }
 }

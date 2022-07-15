@@ -14,17 +14,8 @@ import java.util.List;
  * @desc LitePal 配套元件
  */
 public class LitePalKit {
-    private static LitePalKit instance;
-
     public static LitePalKit getInstance() {
-        if (null == instance) {
-            synchronized (LitePalKit.class) {
-                if (null == instance) {
-                    instance = new LitePalKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -442,5 +433,9 @@ public class LitePalKit {
      */
     public <T extends LitePalSupport> int minByWhere(Class<T> modelClass, String columnName, String... conditions) {
         return LitePal.where(conditions).min(modelClass, columnName, int.class);
+    }
+
+    private static final class InstanceHolder {
+        static final LitePalKit INSTANCE = new LitePalKit();
     }
 }

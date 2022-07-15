@@ -17,17 +17,8 @@ import java.lang.ref.WeakReference;
  * @desp 材料日期选择器配套原件
  */
 public class MaterialDatePickerKit {
-    private static MaterialDatePickerKit instance;
-
     public static MaterialDatePickerKit getInstance() {
-        if (null == instance) {
-            synchronized (MaterialDatePickerKit.class) {
-                if (null == instance) {
-                    instance = new MaterialDatePickerKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -62,5 +53,9 @@ public class MaterialDatePickerKit {
          * 消极按钮点击
          */
         void onNegativeButtonClick();
+    }
+
+    private static final class InstanceHolder {
+        static final MaterialDatePickerKit INSTANCE = new MaterialDatePickerKit();
     }
 }

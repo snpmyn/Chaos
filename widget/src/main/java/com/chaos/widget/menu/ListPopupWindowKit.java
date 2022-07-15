@@ -17,17 +17,8 @@ import java.lang.ref.WeakReference;
  * @desc ListPopupWindow 配套元件
  */
 public class ListPopupWindowKit {
-    private static ListPopupWindowKit instance;
-
     public static ListPopupWindowKit getInstance() {
-        if (null == instance) {
-            synchronized (ListPopupWindowKit.class) {
-                if (null == instance) {
-                    instance = new ListPopupWindowKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -63,5 +54,9 @@ public class ListPopupWindowKit {
          * @param id       ID
          */
         void onItemClick(View view, int position, long id);
+    }
+
+    private static final class InstanceHolder {
+        static final ListPopupWindowKit INSTANCE = new ListPopupWindowKit();
     }
 }

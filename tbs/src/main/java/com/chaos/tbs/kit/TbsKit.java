@@ -14,17 +14,8 @@ import java.util.HashMap;
  * @desc TBS 配套元件
  */
 public class TbsKit {
-    private static TbsKit instance;
-
     public static TbsKit getInstance() {
-        if (null == instance) {
-            synchronized (TbsKit.class) {
-                if (null == instance) {
-                    instance = new TbsKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -70,5 +61,9 @@ public class TbsKit {
      */
     public void closeFileReader(Context context) {
         QbSdk.closeFileReader(context);
+    }
+
+    private static final class InstanceHolder {
+        static final TbsKit INSTANCE = new TbsKit();
     }
 }

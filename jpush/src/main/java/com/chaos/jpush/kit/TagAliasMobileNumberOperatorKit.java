@@ -1,6 +1,5 @@
 package com.chaos.jpush.kit;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -49,8 +48,6 @@ public class TagAliasMobileNumberOperatorKit {
     private static final int ACTION_CHECK = 6;
     private static final int DELAY_SEND_ACTION = 1;
     private static final int DELAY_SET_MOBILE_NUMBER_ACTION = 2;
-    @SuppressLint("StaticFieldLeak")
-    private static TagAliasMobileNumberOperatorKit mInstance;
     private static int sequence = 1;
     private final SparseArray<Object> setActionCache = new SparseArray<>();
     private Context context;
@@ -99,14 +96,7 @@ public class TagAliasMobileNumberOperatorKit {
     }
 
     public static TagAliasMobileNumberOperatorKit getInstance() {
-        if (null == mInstance) {
-            synchronized (TagAliasMobileNumberOperatorKit.class) {
-                if (null == mInstance) {
-                    mInstance = new TagAliasMobileNumberOperatorKit();
-                }
-            }
-        }
-        return mInstance;
+        return InstanceHolder.M_INSTANCE;
     }
 
     private void init(Context context) {
@@ -365,6 +355,10 @@ public class TagAliasMobileNumberOperatorKit {
                 ExampleKit.showToast(logs);
             }
         }
+    }
+
+    private static final class InstanceHolder {
+        static final TagAliasMobileNumberOperatorKit M_INSTANCE = new TagAliasMobileNumberOperatorKit();
     }
 
     public static class TagAliasBean {

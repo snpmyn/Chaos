@@ -21,17 +21,8 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
  * @desc 过渡配套元件
  */
 public class TransitionKit {
-    private static TransitionKit instance;
-
     public static TransitionKit getInstance() {
-        if (null == instance) {
-            synchronized (TransitionKit.class) {
-                if (null == instance) {
-                    instance = new TransitionKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -96,5 +87,9 @@ public class TransitionKit {
      */
     public void jumpWithTransition(@NonNull AppCompatActivity appCompatActivity, View view, Intent intent) {
         appCompatActivity.startActivity(intent, makeSceneTransitionAnimation(appCompatActivity, view).toBundle());
+    }
+
+    private static final class InstanceHolder {
+        static final TransitionKit INSTANCE = new TransitionKit();
     }
 }

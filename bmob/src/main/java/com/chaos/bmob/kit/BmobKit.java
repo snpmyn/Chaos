@@ -32,17 +32,8 @@ import cn.bmob.v3.listener.UpdateListener;
  * doBatch	批量添加、批量更新、批量删除同时操作
  */
 public class BmobKit {
-    private static BmobKit instance;
-
     public static BmobKit getInstance() {
-        if (null == instance) {
-            synchronized (BmobKit.class) {
-                if (null == instance) {
-                    instance = new BmobKit();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -255,5 +246,9 @@ public class BmobKit {
         BmobQuery<T> bmobQuery = new BmobQuery<>();
         bmobQuery.addWhereGreaterThanOrEqualTo(key, value);
         bmobQuery.findObjects(findListener);
+    }
+
+    private static final class InstanceHolder {
+        static final BmobKit INSTANCE = new BmobKit();
     }
 }
