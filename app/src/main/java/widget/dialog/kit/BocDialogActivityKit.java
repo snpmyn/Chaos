@@ -27,24 +27,13 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void rightAngleMessageDialogWithNoTitle(AppCompatActivity appCompatActivity) {
-        RightAngleMessageDialog rightAngleMessageDialog = new RightAngleMessageDialog.Builder(appCompatActivity, 0)
-                .setTitle(null)
-                .setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput))
-                .setContent(appCompatActivity.getString(R.string.example))
-                .setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint))
-                .setContentHorizontalCenter()
-                .setLeftButtonText(appCompatActivity.getString(R.string.cancel))
-                .setRightButtonText(appCompatActivity.getString(R.string.ensure))
-                .setLeftButtonDefaultSelect()
-                .setOnRightAngleMessageDialogLeftButtonClickListener((view, rightAngleMessageDialog1) -> {
-                    rightAngleMessageDialog1.handle(rightAngleMessageDialog1.getClass());
-                    ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
-                })
-                .setOnRightAngleMessageDialogRightButtonClickListener((view, rightAngleMessageDialog12) -> {
-                    rightAngleMessageDialog12.handle(rightAngleMessageDialog12.getClass());
-                    ToastKit.showShortWithGravity(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||"
-                            + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10), Gravity.CENTER_VERTICAL);
-                }).build();
+        RightAngleMessageDialog rightAngleMessageDialog = new RightAngleMessageDialog.Builder(appCompatActivity, 0).setTitle(null).setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput)).setContent(appCompatActivity.getString(R.string.example)).setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint)).setContentHorizontalCenter().setLeftButtonText(appCompatActivity.getString(R.string.cancel)).setRightButtonText(appCompatActivity.getString(R.string.ensure)).setLeftButtonDefaultSelect().setOnRightAngleMessageDialogLeftButtonClickListener((view, rightAngleMessageDialog1) -> {
+            rightAngleMessageDialog1.handle(rightAngleMessageDialog1.getClass());
+            ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
+        }).setOnRightAngleMessageDialogRightButtonClickListener((view, rightAngleMessageDialog12) -> {
+            rightAngleMessageDialog12.handle(rightAngleMessageDialog12.getClass());
+            ToastKit.showShortWithGravity(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||" + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10), Gravity.CENTER_VERTICAL);
+        }).build();
         rightAngleMessageDialog.show();
     }
 
@@ -54,24 +43,13 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void rightAngleMessageDialogWithTitle(AppCompatActivity appCompatActivity) {
-        RightAngleMessageDialog rightAngleMessageDialog = new RightAngleMessageDialog.Builder(appCompatActivity, 0)
-                .setTitle(appCompatActivity.getString(R.string.messageDialog))
-                .setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput))
-                .setContent(appCompatActivity.getString(R.string.example))
-                .setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint))
-                .setContentHorizontalCenter()
-                .setLeftButtonText(appCompatActivity.getString(R.string.cancel))
-                .setRightButtonText(appCompatActivity.getString(R.string.ensure))
-                .setRightButtonDefaultSelect()
-                .setOnRightAngleMessageDialogLeftButtonClickListener((view, rightAngleMessageDialog1) -> {
-                    rightAngleMessageDialog1.handle(rightAngleMessageDialog1.getClass());
-                    ToastKit.showLong(appCompatActivity.getString(R.string.cancel));
-                })
-                .setOnRightAngleMessageDialogRightButtonClickListener((view, rightAngleMessageDialog12) -> {
-                    rightAngleMessageDialog12.handle(rightAngleMessageDialog12.getClass());
-                    ToastKit.showLongWithGravity(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + " || "
-                            + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10), Gravity.CENTER_VERTICAL);
-                }).build();
+        RightAngleMessageDialog rightAngleMessageDialog = new RightAngleMessageDialog.Builder(appCompatActivity, 0).setTitle(appCompatActivity.getString(R.string.messageDialog)).setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput)).setContent(appCompatActivity.getString(R.string.example)).setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint)).setContentHorizontalCenter().setLeftButtonText(appCompatActivity.getString(R.string.cancel)).setRightButtonText(appCompatActivity.getString(R.string.ensure)).setRightButtonDefaultSelect().setOnRightAngleMessageDialogLeftButtonClickListener((view, rightAngleMessageDialog1) -> {
+            rightAngleMessageDialog1.handle(rightAngleMessageDialog1.getClass());
+            ToastKit.showLong(appCompatActivity.getString(R.string.cancel));
+        }).setOnRightAngleMessageDialogRightButtonClickListener((view, rightAngleMessageDialog12) -> {
+            rightAngleMessageDialog12.handle(rightAngleMessageDialog12.getClass());
+            ToastKit.showLongWithGravity(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + " || " + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10), Gravity.CENTER_VERTICAL);
+        }).build();
         rightAngleMessageDialog.show();
     }
 
@@ -81,24 +59,13 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void roundCornerMessageDialogWithNoTitle(AppCompatActivity appCompatActivity) {
-        RoundCornerMessageDialog roundCornerMessageDialog = new RoundCornerMessageDialog.Builder(appCompatActivity, 0)
-                .setTitle(null)
-                .setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput))
-                .setContent(appCompatActivity.getString(R.string.example))
-                .setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint))
-                .setContentHorizontalCenter()
-                .setLeftButtonText(appCompatActivity.getString(R.string.cancel))
-                .setRightButtonText(appCompatActivity.getString(R.string.ensure))
-                .setLeftButtonDefaultSelect()
-                .setOnRoundCornerMessageDialogLeftButtonClickListener((view, roundCornerMessageDialog1) -> {
-                    roundCornerMessageDialog1.handle(roundCornerMessageDialog1.getClass());
-                    ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
-                })
-                .setOnRoundCornerMessageDialogRightButtonClickListener((view, roundCornerMessageDialog12) -> {
-                    roundCornerMessageDialog12.handle(roundCornerMessageDialog12.getClass());
-                    ToastKit.showShort(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||"
-                            + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10));
-                }).build();
+        RoundCornerMessageDialog roundCornerMessageDialog = new RoundCornerMessageDialog.Builder(appCompatActivity, 0).setTitle(null).setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput)).setContent(appCompatActivity.getString(R.string.example)).setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint)).setContentHorizontalCenter().setLeftButtonText(appCompatActivity.getString(R.string.cancel)).setRightButtonText(appCompatActivity.getString(R.string.ensure)).setLeftButtonDefaultSelect().setOnRoundCornerMessageDialogLeftButtonClickListener((view, roundCornerMessageDialog1) -> {
+            roundCornerMessageDialog1.handle(roundCornerMessageDialog1.getClass());
+            ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
+        }).setOnRoundCornerMessageDialogRightButtonClickListener((view, roundCornerMessageDialog12) -> {
+            roundCornerMessageDialog12.handle(roundCornerMessageDialog12.getClass());
+            ToastKit.showShort(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||" + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10));
+        }).build();
         roundCornerMessageDialog.show();
     }
 
@@ -108,24 +75,13 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void roundCornerMessageDialogWithTitle(AppCompatActivity appCompatActivity) {
-        RoundCornerMessageDialog roundCornerMessageDialog = new RoundCornerMessageDialog.Builder(appCompatActivity, 0)
-                .setTitle(appCompatActivity.getString(R.string.messageDialog))
-                .setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput))
-                .setContent(appCompatActivity.getString(R.string.example))
-                .setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint))
-                .setContentHorizontalCenter()
-                .setLeftButtonText(appCompatActivity.getString(R.string.cancel))
-                .setRightButtonText(appCompatActivity.getString(R.string.ensure))
-                .setRightButtonDefaultSelect()
-                .setOnRoundCornerMessageDialogLeftButtonClickListener((view, roundCornerMessageDialog1) -> {
-                    roundCornerMessageDialog1.handle(roundCornerMessageDialog1.getClass());
-                    ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
-                })
-                .setOnRoundCornerMessageDialogRightButtonClickListener((view, roundCornerMessageDialog12) -> {
-                    roundCornerMessageDialog12.handle(roundCornerMessageDialog12.getClass());
-                    ToastKit.showShort(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||"
-                            + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10));
-                }).build();
+        RoundCornerMessageDialog roundCornerMessageDialog = new RoundCornerMessageDialog.Builder(appCompatActivity, 0).setTitle(appCompatActivity.getString(R.string.messageDialog)).setTitleColor(ContextCompat.getColor(appCompatActivity, R.color.fontInput)).setContent(appCompatActivity.getString(R.string.example)).setContentColor(ContextCompat.getColor(appCompatActivity, R.color.fontHint)).setContentHorizontalCenter().setLeftButtonText(appCompatActivity.getString(R.string.cancel)).setRightButtonText(appCompatActivity.getString(R.string.ensure)).setRightButtonDefaultSelect().setOnRoundCornerMessageDialogLeftButtonClickListener((view, roundCornerMessageDialog1) -> {
+            roundCornerMessageDialog1.handle(roundCornerMessageDialog1.getClass());
+            ToastKit.showShort(appCompatActivity.getString(R.string.cancel));
+        }).setOnRoundCornerMessageDialogRightButtonClickListener((view, roundCornerMessageDialog12) -> {
+            roundCornerMessageDialog12.handle(roundCornerMessageDialog12.getClass());
+            ToastKit.showShort(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10) + "||" + CaesarCipherUtils.decrypt(CaesarCipherUtils.encrypt(appCompatActivity.getString(R.string.ensure), 10), 10));
+        }).build();
         roundCornerMessageDialog.setCancelable(false);
         roundCornerMessageDialog.show();
     }
@@ -138,8 +94,7 @@ public class BocDialogActivityKit {
     public void commonLoadingDialog(AppCompatActivity appCompatActivity) {
         DialogKit.getInstance(appCompatActivity).commonLoading(appCompatActivity.getString(R.string.loading), () -> {
             DialogKit.getInstance(appCompatActivity).end();
-            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
-                    SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
+            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" + SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
         });
     }
 
@@ -160,8 +115,7 @@ public class BocDialogActivityKit {
     public void lottieAnimationViewLoadingDialog(AppCompatActivity appCompatActivity) {
         DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.LOADING_ONE, "chaos", true, () -> {
             DialogKit.getInstance(appCompatActivity).end();
-            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
-                    SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
+            ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" + SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos"));
         });
     }
 
@@ -171,7 +125,6 @@ public class BocDialogActivityKit {
      * @param appCompatActivity 活动
      */
     public void lottieAnimationViewOtherDialog(AppCompatActivity appCompatActivity) {
-        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.SECOND_SET_RESULT_SUCCESS, null, false, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" +
-                SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
+        DialogKit.getInstance(appCompatActivity).lottieAnimationViewDialog(DialogLottieAnimationEnum.SECOND_SET_RESULT_SUCCESS, null, false, () -> ToastKit.showShort(SignUtils.getSignMd5Hex(appCompatActivity, "com.example.chaos") + "||" + SignUtils.getSignSha256Hex(appCompatActivity, "com.example.chaos")));
     }
 }

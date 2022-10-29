@@ -62,14 +62,7 @@ public class BocDialogActivity extends BaseActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    @OnClick({R.id.bocDialogActivityBtnRightAngleMessageDialogWithNoTitle,
-            R.id.bocDialogActivityBtnRightAngleMessageDialogWithTitle,
-            R.id.bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle,
-            R.id.bocDialogActivityBtnRoundCornerMessageDialogWithTitle,
-            R.id.bocDialogActivityBtnCommonLoadingDialog,
-            R.id.bocDialogActivityBtnCanCancelLoadingDialog,
-            R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog,
-            R.id.bocDialogActivityBtnLottieAnimationViewOtherDialog})
+    @OnClick({R.id.bocDialogActivityBtnRightAngleMessageDialogWithNoTitle, R.id.bocDialogActivityBtnRightAngleMessageDialogWithTitle, R.id.bocDialogActivityBtnRoundCornerMessageDialogWithNoTitle, R.id.bocDialogActivityBtnRoundCornerMessageDialogWithTitle, R.id.bocDialogActivityBtnCommonLoadingDialog, R.id.bocDialogActivityBtnCanCancelLoadingDialog, R.id.bocDialogActivityBtnLottieAnimationViewLoadingDialog, R.id.bocDialogActivityBtnLottieAnimationViewOtherDialog})
     public void onViewClicked(@NonNull View view) {
         switch (view.getId()) {
             // 直角消息对话框（无标题）

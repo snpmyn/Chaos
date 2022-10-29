@@ -10,9 +10,9 @@ import com.example.chaos.R;
  */
 public enum WidgetMenuEnum {
     /**
-     * BOC 对话框
+     * 对话框
      */
-    BOC_DIALOG(1, R.drawable.ic_widgets_purple_500_24dp, "BOC 对话框", true),
+    BOC_DIALOG(1, R.drawable.ic_widgets_purple_500_24dp, "对话框", true),
     /**
      * 金额
      */

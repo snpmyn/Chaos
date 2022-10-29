@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/dp_290"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/white_solid_r10"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_20"
+    android:paddingBottom="@dimen/dp_20">
+
+    <ImageView
+        android:id="@+id/customImage"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/toDo"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/errorFrame"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/error_circle" />
+
+        <ImageView
+            android:id="@+id/errorX"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/toDo"
+            android:scaleType="center"
+            android:src="@drawable/error_center" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/successFrame"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/success_sign" />
+
+        <View
+            android:id="@+id/maskRight"
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="end"
+            android:layout_marginTop="-13dp"
+            android:background="@android:color/white" />
+
+        <View
+            android:id="@+id/maskLeft"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_60"
+            android:layout_gravity="start"
+            android:layout_marginStart="-3dp"
+            android:background="@android:color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/success_circle" />
+
+        <com.chaos.widget.dialog.sweetalertdialog.SuccessTickView
+            android:id="@+id/successTick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/warningFrame"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/warning_circle" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/toDo"
+            android:scaleType="center"
+            android:src="@drawable/warning_sigh" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/progressDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.chaos.widget.progressbar.ProgressWheel
+            android:id="@+id/progressWheel"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="center"
+            wheel:progressWheelProgressIndeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:id="@+id/contentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:textAlignment="center"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_13"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_24"
+        android:paddingRight="@dimen/dp_24">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbCancel"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_13"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbConfirm"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_13" />
+    </LinearLayout>
+</LinearLayout>

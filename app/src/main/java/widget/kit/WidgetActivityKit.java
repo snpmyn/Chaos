@@ -16,7 +16,7 @@ import java.util.List;
 import widget.banner.BannerHomeActivity;
 import widget.bean.WidgetMenuEnum;
 import widget.choose.ChooseActivity;
-import widget.dialog.BocDialogActivity;
+import widget.dialog.DialogActivity;
 import widget.grid.GridActivity;
 import widget.lottie.LottieHomeActivity;
 import widget.module.one.ModuleOneActivity;
@@ -67,9 +67,9 @@ public class WidgetActivityKit {
      */
     private void distribute(AppCompatActivity appCompatActivity, View view, int menuId) {
         switch (menuId) {
-            // BOC 对话框页
+            // 对话框页
             case 1:
-                jumpWithTransition(appCompatActivity, view, BocDialogActivity.class);
+                jumpWithTransition(appCompatActivity, view, DialogActivity.class);
                 break;
             // 金额页
             case 2:

@@ -4,6 +4,8 @@
     <string name="useRecyclerView">使用 RecyclerView</string>
     <string name="useListView">使用 ListView</string>
     <string name="widget">组件</string>
+    <string name="bocDialog">BOC 对话框</string>
+    <string name="sweetAlertDialog">SweetAlertDialog</string>
     <string name="rightAngleMessageDialogWithNoTitle">直角消息对话框（无标题）</string>
     <string name="rightAngleMessageDialogWithTitle">直角消息对话框（有标题）</string>
     <string name="roundCornerMessageDialogWithNoTitle">圆角消息对话框（无标题）</string>
@@ -13,6 +15,7 @@
     <string name="lottieAnimationViewLoadingDialog">LottieAnimationView 加载对话框</string>
     <string name="lottieAnimationViewOtherDialog">LottieAnimationView 其它对话框</string>
     <string name="messageDialog">消息对话框</string>
+    <string name="use">使用</string>
     <string name="moneyHint">￥0.00</string>
     <string name="lottieAnimationViewXml">LottieAnimationView 之 xml用法</string>
     <string name="lottieAnimationViewCode">LottieAnimationView 之代码用法</string>

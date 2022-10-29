@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="widget_notification_enable_dialog_fragment_background">#FF6AAEFF</color>
+    <color name="widget_sweet_alert_dialog_warning_color">#F8BB86</color>
+    <color name="widget_sweet_alert_dialog_success_sign">#A5DC86</color>
+    <color name="widget_sweet_alert_dialog_success_circle">#33A5DC86</color>
 </resources>

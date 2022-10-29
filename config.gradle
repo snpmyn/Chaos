@@ -1,29 +1,20 @@
 ext {
-    android = [
-            compileSdkVersion: 30,
-            applicationId    : "com.example.chaos",
-            minSdkVersion    : 23,
-            targetSdkVersion : 30,
-            versionCode      : 1,
-            versionName      : "1.0"
-    ]
-    compileOptions = [
-            sourceCompatibility: JavaVersion.VERSION_1_8,
-            targetCompatibility: JavaVersion.VERSION_1_8
-    ]
-    kotlinOptions = [
-            jvmTarget: '1.8'
-    ]
+    android = [compileSdkVersion: 30,
+               applicationId    : "com.example.chaos",
+               minSdkVersion    : 23,
+               targetSdkVersion : 30,
+               versionCode      : 1,
+               versionName      : "1.0"]
+    compileOptions = [sourceCompatibility: JavaVersion.VERSION_1_8,
+                      targetCompatibility: JavaVersion.VERSION_1_8]
+    kotlinOptions = [jvmTarget: '1.8']
     jpush = [
             // JPush 注册包名对应 AppKey
             jpushAppKey : "5a12e20622325c81ead16ec3",
             // 暂默值即可
-            jpushChannel: "developer-default",
-    ]
-    bugly = [
-            appId : 'xxx62dfxxx',
-            appKey: 'xxx39694-ce7d-4857-903f-e6112afc1xxx',
-    ]
+            jpushChannel: "developer-default",]
+    bugly = [appId : 'xxx62dfxxx',
+             appKey: 'xxx39694-ce7d-4857-903f-e6112afc1xxx',]
     mobsms = [
             // Mob 官方申请 AppKey
             appKey    : "xxx50b4f17xxx",
@@ -34,8 +25,7 @@ ext {
             // 打开短信本机号验证功能（3.7.0+）
             // 独用短信才需通开关打开短信本机号验证功能
             // 同用秒验和短信，默支持短信本机号验证功能，无需也不可通开关打开（类冲突）
-            mobileAuth: true,
-    ]
+            mobileAuth: true,]
     doraemonkit = [
             // 地图经纬度开关
             gpsSwitch                  : true,
@@ -56,11 +46,8 @@ ext {
             // [普通模式配置] 需针对函数插装的包名
             normalMethodPackageNames   : ["com.didichuxing.doraemondemo"],
             // [普通模式配置] 无需针对函数插装的包名和类名
-            normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],
-    ]
-    jitpack = [
-            groupId   : 'com.github.snpmyn',
-            artifactId: 'Chaos',
-            version   : 'v0.0.20.10.5',
-    ]
+            normalMethodMethodBlacklist: ["com.didichuxing.doraemondemo.dokit"],]
+    jitpack = [groupId   : 'com.github.snpmyn',
+               artifactId: 'Chaos',
+               version   : 'v0.0.20.10.6',]
 }
