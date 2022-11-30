@@ -6,9 +6,11 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chaos.util.java.toast.ToastKit;
 import com.chaos.widget.adapttemplate.bean.MenuBean;
 import com.chaos.widget.adapttemplate.kit.MenuAdapterKit;
 import com.chaos.widget.transition.kit.TransitionKit;
+import com.example.chaos.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,6 @@ import widget.grid.GridActivity;
 import widget.lottie.LottieHomeActivity;
 import widget.module.one.ModuleOneActivity;
 import widget.module.textview.TextViewHomeActivity;
-import widget.module.two.ModuleTwoActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureHomeActivity;
 import widget.property.PropertyActivity;
@@ -117,7 +118,7 @@ public class WidgetActivityKit {
                 break;
             //  模块二页
             case 13:
-                jumpWithTransition(appCompatActivity, view, ModuleTwoActivity.class);
+                ToastKit.showShort(appCompatActivity.getString(R.string.notRealizeYet));
                 break;
             // TextView 主页
             case 14:

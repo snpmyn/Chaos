@@ -3,6 +3,7 @@ package com.chaos.pool.application;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -77,7 +78,17 @@ public class PoolApp extends BaseBasicApp implements MMKVHandler, MMKVContentCha
     @Override
     protected List<String> permissionList() {
         List<String> list = new ArrayList<>(1);
-        list.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Manifest.permission.READ_MEDIA_IMAGES 和 Manifest.permission.READ_MEDIA_VIDEO 同权限组
+            list.add(Manifest.permission.READ_MEDIA_IMAGES);
+            list.add(Manifest.permission.READ_MEDIA_VIDEO);
+            list.add(Manifest.permission.READ_MEDIA_AUDIO);
+        } else {
+            // Manifest.permission.READ_EXTERNAL_STORAGE 和 Manifest.permission.WRITE_EXTERNAL_STORAGE 同权限组
+            list.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+            // TODO: 2021/10/12 华为机型除 Manifest.permission.READ_EXTERNAL_STORAGE 外，亦需 Manifest.permission.WRITE_EXTERNAL_STORAGE。待优化。
+            list.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
         return list;
     }
 

@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     /*maven*/
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 android {
@@ -28,6 +27,7 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    namespace 'com.chaos.bmob'
 }
 
 // Because the components are created only during the afterEvaluate phase,
@@ -61,6 +61,6 @@ afterEvaluate {
 dependencies {
     implementation project(path: ':util')
     /*util*/
-    api 'io.github.bmob:android-sdk:3.8.14'
+    api 'io.github.bmob:android-sdk:3.8.20'
     /*bmob*/
 }

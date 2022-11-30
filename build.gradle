@@ -1,19 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     apply from: "config.gradle"
-    ext.kotlin_version = '1.7.0'
-    def nav_version = "2.3.5"
+    ext.kotlin_version = '1.7.20'
+    def nav_version = '2.4.1'
     repositories {
         google()
         jcenter()
         mavenCentral()
         // Mob Maven 仓库地址
         maven {
+            allowInsecureProtocol = true
             url "http://mvn.mob.com/android"
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         // Android Maven Gradle Plugin
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         // kotlin

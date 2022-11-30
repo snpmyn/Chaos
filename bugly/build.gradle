@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     /*maven*/
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 // 配符号表用 Bugly 插件
@@ -33,6 +32,7 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    namespace 'com.chaos.bugly'
 }
 
 // Because the components are created only during the afterEvaluate phase,
