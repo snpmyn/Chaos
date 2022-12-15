@@ -303,7 +303,7 @@ gradle(config)
 #### 优化集成
 
 - [mobsms](./mobsms)
-- [doraemonkit](./doraemonkit)
+- [doraemonkit](./doraemonkit) 暂去
 
 ## License
 
