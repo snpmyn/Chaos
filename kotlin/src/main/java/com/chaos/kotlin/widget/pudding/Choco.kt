@@ -29,9 +29,7 @@ import timber.log.Timber
  * @date: 2019/7/18 9:59
  */
 class Choco @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private lateinit var animEnter: ObjectAnimator
     private val animEnterInterceptor = OvershootInterpolator()
@@ -89,10 +87,7 @@ class Choco @JvmOverloads constructor(
         if (onlyOnce) {
             onlyOnce = false
             animEnter = ObjectAnimator.ofFloat(
-                this@Choco,
-                "translationY",
-                -this@Choco.measuredHeight.toFloat(),
-                -80.0F
+                this@Choco, "translationY", -this@Choco.measuredHeight.toFloat(), -80.0F
             )
             animEnter.interpolator = animEnterInterceptor
             animEnter.duration = ANIMATION_DURATION
@@ -123,10 +118,7 @@ class Choco @JvmOverloads constructor(
         }
         chocoCl.isClickable = false
         val anim = ObjectAnimator.ofFloat(
-            this@Choco,
-            "translationY",
-            -80.0F,
-            -this@Choco.measuredHeight.toFloat()
+            this@Choco, "translationY", -80.0F, -this@Choco.measuredHeight.toFloat()
         )
         anim.interpolator = AnticipateOvershootInterpolator()
         anim.duration = ANIMATION_DURATION
@@ -366,21 +358,19 @@ class Choco @JvmOverloads constructor(
      */
     fun enableSwipeToDismiss() {
         chocoCl.setOnTouchListener(
-            SwipeDismissTouchListener(
-                chocoCl,
-                object : SwipeDismissTouchListener.DismissCallbacks {
-                    override fun canDismiss(): Boolean {
-                        return true
-                    }
+            SwipeDismissTouchListener(chocoCl, object : SwipeDismissTouchListener.DismissCallbacks {
+                override fun canDismiss(): Boolean {
+                    return true
+                }
 
-                    override fun onDismiss(view: View) {
-                        hide(true)
-                    }
+                override fun onDismiss(view: View) {
+                    hide(true)
+                }
 
-                    override fun onTouch(view: View, touch: Boolean) {
-                        // ignore
-                    }
-                })
+                override fun onTouch(view: View, touch: Boolean) {
+                    // ignore
+                }
+            })
         )
     }
 

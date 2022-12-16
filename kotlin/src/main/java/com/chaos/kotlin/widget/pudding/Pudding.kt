@@ -62,7 +62,9 @@ class Pudding : LifecycleObserver {
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
-            0, 0, PixelFormat.TRANSPARENT
+            0,
+            0,
+            PixelFormat.TRANSPARENT
         )
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.gravity = Gravity.TOP

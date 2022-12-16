@@ -18,9 +18,7 @@ import kotlin.properties.Delegates
  * @date: 2019/8/19 16:19
  */
 class BannerView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr), IBannerViewInstance,
     ViewTreeObserver.OnGlobalLayoutListener {
 
@@ -203,31 +201,23 @@ class BannerView @JvmOverloads constructor(
                 )
                 // 默 MATCH_PARENT
                 if (mViewHeight <= 0) mViewHeight = (LayoutParams.MATCH_PARENT).toFloat()
-                mViewCornerRadius =
-                    a.getDimension(
-                        R.styleable.BannerView_BannerViewCornerRadius,
-                        DensityUtils.dipToPxByFloat(context, DEFAULT_VIEW_CORNER_RADIUS).toFloat()
-                    )
-                mItemViewWidthRatio =
-                    a.getFloat(
-                        R.styleable.BannerView_BannerViewWidthRatio,
-                        DEFAULT_ITEM_VIEW_WIDTH_RATIO
-                    )
-                mItemViewMargin =
-                    a.getDimension(
-                        R.styleable.BannerView_BannerViewMargin,
-                        DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_VIEW_MARGIN).toFloat()
-                    )
-                mIntervalInMillis =
-                    a.getInteger(
-                        R.styleable.BannerView_BannerViewIntervalInMillis,
-                        DEFAULT_INTERVAL_IN_MILLIS
-                    )
-                mPageHoldInMillis =
-                    a.getInteger(
-                        R.styleable.BannerView_BannerViewHoldInMillis,
-                        DEFAULT_PAGE_HOLD_IN_MILLIS
-                    )
+                mViewCornerRadius = a.getDimension(
+                    R.styleable.BannerView_BannerViewCornerRadius,
+                    DensityUtils.dipToPxByFloat(context, DEFAULT_VIEW_CORNER_RADIUS).toFloat()
+                )
+                mItemViewWidthRatio = a.getFloat(
+                    R.styleable.BannerView_BannerViewWidthRatio, DEFAULT_ITEM_VIEW_WIDTH_RATIO
+                )
+                mItemViewMargin = a.getDimension(
+                    R.styleable.BannerView_BannerViewMargin,
+                    DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_VIEW_MARGIN).toFloat()
+                )
+                mIntervalInMillis = a.getInteger(
+                    R.styleable.BannerView_BannerViewIntervalInMillis, DEFAULT_INTERVAL_IN_MILLIS
+                )
+                mPageHoldInMillis = a.getInteger(
+                    R.styleable.BannerView_BannerViewHoldInMillis, DEFAULT_PAGE_HOLD_IN_MILLIS
+                )
                 mScrollMode =
                     a.getInteger(R.styleable.BannerView_BannerViewScrollMode, DEFAULT_SCROLL_MODE)
                 mItemViewAlign =
@@ -329,14 +319,10 @@ class BannerView @JvmOverloads constructor(
         // 建四圆角
         val path = mPath.apply {
             addRoundRect(
-                mViewRectF,
-                mViewCornerRadius,
-                mViewCornerRadius,
-                Path.Direction.CW
+                mViewRectF, mViewCornerRadius, mViewCornerRadius, Path.Direction.CW
             )
             addRect(
-                mViewRectF,
-                Path.Direction.CW
+                mViewRectF, Path.Direction.CW
             )
             fillType = Path.FillType.EVEN_ODD
         }

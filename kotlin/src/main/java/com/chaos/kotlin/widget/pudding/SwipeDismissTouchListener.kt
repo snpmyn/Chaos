@@ -24,8 +24,7 @@ import kotlin.math.min
  * @date: 2019/7/18 10:15
  */
 internal class SwipeDismissTouchListener(
-    private val mView: View,
-    private val mCallbacks: DismissCallbacks
+    private val mView: View, private val mCallbacks: DismissCallbacks
 ) : View.OnTouchListener {
     // cached ViewConfiguration and system-wide constant values
     private val mSlop: Int
@@ -91,8 +90,7 @@ internal class SwipeDismissTouchListener(
                         // dismiss
                         mView.animate()
                             .translationX((if (dismissRight) mViewWidth else -mViewWidth).toFloat())
-                            .alpha(0.0F)
-                            .setDuration(mAnimationTime)
+                            .alpha(0.0F).setDuration(mAnimationTime)
                             .setListener(object : AnimatorListenerAdapter() {
                                 override fun onAnimationEnd(animation: Animator) {
                                     performDismiss()
@@ -100,10 +98,7 @@ internal class SwipeDismissTouchListener(
                             })
                     } else if (mSwiping) {
                         // cancel
-                        mView.animate()
-                            .translationX(0.0F)
-                            .alpha(1.0F)
-                            .setDuration(mAnimationTime)
+                        mView.animate().translationX(0.0F).alpha(1.0F).setDuration(mAnimationTime)
                             .setListener(null)
                         mCallbacks.onTouch(view, false)
                     }
@@ -117,10 +112,7 @@ internal class SwipeDismissTouchListener(
             }
             MotionEvent.ACTION_CANCEL -> {
                 mVelocityTracker?.run {
-                    mView.animate()
-                        .translationX(0.0F)
-                        .alpha(1.0F)
-                        .setDuration(mAnimationTime)
+                    mView.animate().translationX(0.0F).alpha(1.0F).setDuration(mAnimationTime)
                         .setListener(null)
                     this.recycle()
                     mVelocityTracker = null

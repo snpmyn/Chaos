@@ -24,9 +24,7 @@ import kotlin.properties.Delegates
  * @date: 2019/8/19 16:14
  */
 class PagerRecyclerView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr), ViewTreeObserver.OnGlobalLayoutListener,
     IPagerViewInstance {
     override fun startAutoScroll(intervalInMillis: Int) {

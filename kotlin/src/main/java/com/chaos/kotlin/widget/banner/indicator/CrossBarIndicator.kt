@@ -21,9 +21,7 @@ import kotlin.properties.Delegates
  * @date: 2019/8/19 16:11
  */
 class CrossBarIndicator @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr), IIndicatorInstance {
 
     //********************************
@@ -172,31 +170,26 @@ class CrossBarIndicator @JvmOverloads constructor(
         val a = context.obtainStyledAttributes(attrs, R.styleable.CrossBarIndicator)
         try {
             a.run {
-                mItemWidth =
-                    a.getDimension(
-                        R.styleable.CrossBarIndicator_CrossBarIndicatorWidth,
-                        DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_WIDTH).toFloat()
-                    )
-                mItemHeight =
-                    a.getDimension(
-                        R.styleable.CrossBarIndicator_CrossBarIndicatorHeight,
-                        DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_HEIGHT).toFloat()
-                    )
-                mItemSpace =
-                    a.getDimension(
-                        R.styleable.CrossBarIndicator_CrossBarIndicatorSpace,
-                        DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_SPACE).toFloat()
-                    )
-                mItemBackgroundColor =
-                    a.getColor(
-                        R.styleable.CrossBarIndicator_CrossBarIndicatorBackgroundColor,
-                        DEFAULT_ITEM_BACKGROUND_COLOR
-                    )
-                mItemForegroundColor =
-                    a.getColor(
-                        R.styleable.CrossBarIndicator_CrossBarIndicatorForegroundColor,
-                        DEFAULT_ITEM_FOREGROUND_COLOR
-                    )
+                mItemWidth = a.getDimension(
+                    R.styleable.CrossBarIndicator_CrossBarIndicatorWidth,
+                    DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_WIDTH).toFloat()
+                )
+                mItemHeight = a.getDimension(
+                    R.styleable.CrossBarIndicator_CrossBarIndicatorHeight,
+                    DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_HEIGHT).toFloat()
+                )
+                mItemSpace = a.getDimension(
+                    R.styleable.CrossBarIndicator_CrossBarIndicatorSpace,
+                    DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_SPACE).toFloat()
+                )
+                mItemBackgroundColor = a.getColor(
+                    R.styleable.CrossBarIndicator_CrossBarIndicatorBackgroundColor,
+                    DEFAULT_ITEM_BACKGROUND_COLOR
+                )
+                mItemForegroundColor = a.getColor(
+                    R.styleable.CrossBarIndicator_CrossBarIndicatorForegroundColor,
+                    DEFAULT_ITEM_FOREGROUND_COLOR
+                )
             }
         } finally {
             a.recycle()

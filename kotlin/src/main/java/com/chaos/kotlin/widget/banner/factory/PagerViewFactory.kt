@@ -19,8 +19,7 @@ import com.chaos.kotlin.widget.banner.pager.PagerRecyclerView
  * @date: 2019/8/19 16:08
  */
 internal class PagerViewFactory(
-    private val bannerView: IBannerViewInstance,
-    private val intervalUseViewPager: Boolean = false
+    private val bannerView: IBannerViewInstance, private val intervalUseViewPager: Boolean = false
 ) : IPagerViewFactory {
     /**
      * 据参创对应 PagerView 实例
@@ -57,20 +56,16 @@ internal class PagerViewFactory(
                 if (!isActivityDestroyed(holder.itemView.context)) {
                     val realPos = position % bannerView.getCount()
                     bannerView.onBindView(
-                        holder.itemView.findViewById(R.id.KotlinBannerViewRealItem),
-                        realPos
+                        holder.itemView.findViewById(R.id.KotlinBannerViewRealItem), realPos
                     )
                 }
             }
 
             override fun onCreateViewHolder(
-                parent: ViewGroup,
-                viewType: Int
+                parent: ViewGroup, viewType: Int
             ): RecyclerView.ViewHolder {
                 val itemWrapper = LayoutInflater.from(parent.context).inflate(
-                    R.layout.banner_view_item,
-                    parent,
-                    false
+                    R.layout.banner_view_item, parent, false
                 ) as RelativeLayout
                 // 处理 ItemWrapperView 宽
                 itemWrapper.layoutParams.width =
@@ -79,8 +74,7 @@ internal class PagerViewFactory(
                 val itemView = bannerView.getItemView(parent.context)
                 itemView.id = R.id.KotlinBannerViewRealItem
                 val ivParams = RelativeLayout.LayoutParams(
-                    bannerView.getItemViewWidth(),
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                    bannerView.getItemViewWidth(), ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 ivParams.addRule(bannerView.getItemViewAlign())
                 // 添 ItemView 至 Wrapper
