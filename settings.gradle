@@ -1,5 +1,4 @@
 include ':pool'
-include ':kotlin'
 include ':pgyer'
 include ':lottie'
 include ':scan'

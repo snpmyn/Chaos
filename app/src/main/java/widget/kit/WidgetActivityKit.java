@@ -26,7 +26,6 @@ import widget.module.textview.TextViewHomeActivity;
 import widget.money.MoneyActivity;
 import widget.picture.PictureHomeActivity;
 import widget.property.PropertyActivity;
-import widget.pudding.PuddingActivity;
 import widget.scan.ScanActivity;
 import widget.screen.ScreenActivity;
 import widget.search.SearchActivity;
@@ -98,7 +97,9 @@ public class WidgetActivityKit {
                 break;
             // Pudding 页
             case 8:
-                jumpWithTransition(appCompatActivity, view, PuddingActivity.class);
+                // 模块二页
+            case 13:
+                ToastKit.showShort(appCompatActivity.getString(R.string.notRealizeYet));
                 break;
             // 网格页
             case 9:
@@ -112,13 +113,9 @@ public class WidgetActivityKit {
             case 11:
                 jumpWithTransition(appCompatActivity, view, BannerHomeActivity.class);
                 break;
-            //  模块一页
+            // 模块一页
             case 12:
                 jumpWithTransition(appCompatActivity, view, ModuleOneActivity.class);
-                break;
-            //  模块二页
-            case 13:
-                ToastKit.showShort(appCompatActivity.getString(R.string.notRealizeYet));
                 break;
             // TextView 主页
             case 14:

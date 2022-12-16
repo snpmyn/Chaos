@@ -82,10 +82,6 @@ DoraemonKit
 
 Pgyer
 
-#### [kotlin](./kotlin)
-
-Kotlin
-
 #### [pool](./pool)
 
 水池（供外部使用）
@@ -123,7 +119,7 @@ api 'com.guolindev.permissionx:permissionx:xxx'
 #### util
 
 ```
-api project(path: ':kotlin')
+api project(path: ':basic')
 ```
 
 #### widget
@@ -243,14 +239,6 @@ api 'com.airbnb.android:lottie:xxx'
 ```
 implementation project(path: ':basic')
 api 'com.pgyer:analytics:xxx'
-```
-
-### kotlin
-
-```
-api project(path: ':basic')
-api 'androidx.core:core-ktx:xxx'
-api "org.jetbrains.kotlin:kotlin-stdlib:xxx"
 ```
 
 #### pool

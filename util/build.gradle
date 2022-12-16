@@ -57,6 +57,6 @@ afterEvaluate {
 }
 
 dependencies {
-    api project(path: ':kotlin')
-    /*kotlin*/
+    api project(path: ':basic')
+    /*basic*/
 }
