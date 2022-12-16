@@ -65,6 +65,6 @@ dependencies {
     /*util*/
     implementation 'cn.jiguang.sdk:jcore:4.0.0'
     /*jCore*/
-    api 'cn.jiguang.sdk:janalytics:2.1.6'
+    api 'cn.jiguang.sdk:janalytics:2.1.7'
     /*极光统计*/
 }

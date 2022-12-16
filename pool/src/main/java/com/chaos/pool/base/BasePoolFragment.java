@@ -1,16 +1,20 @@
 package com.chaos.pool.base;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.chaos.janalytics.kit.JanalyticsKit;
 import com.chaos.pool.R;
 import com.chaos.util.java.activity.ActivitySuperviseManager;
 import com.chaos.util.java.datetime.CurrentTimeMillisClock;
+
 import support.SupportFragment;
 /**
  * Created on 2021/3/12

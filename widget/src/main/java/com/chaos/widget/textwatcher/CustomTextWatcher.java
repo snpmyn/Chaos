@@ -1,8 +1,10 @@
 package com.chaos.widget.textwatcher;
+
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.EditText;
+
 import com.google.android.material.textfield.TextInputLayout;
 /**
  * Created on 2020/12/25
