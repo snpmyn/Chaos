@@ -3,9 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-// Safe Args
-apply plugin: "androidx.navigation.safeargs"
-
 // MobSDK 插件
 apply plugin: 'com.mob.sdk'
 // MobSDK 扩展
@@ -44,9 +41,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'//,'x86_64','mips','mips64'
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'//, 'mips', 'mips64'
         }
-        resConfigs "en", "zh"
+        resConfigs 'en', 'zh'
         manifestPlaceholders = [JPUSH_PKGNAME: applicationId,
                                 // JPush 注册包名对应 AppKey
                                 JPUSH_APPKEY : rootProject.ext.jpush["jpushAppKey"],
@@ -92,6 +89,7 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    namespace 'com.example.chaos'
 }
 
 dependencies {
@@ -100,20 +98,20 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     /*ButterKnife*/
-    debugImplementation 'com.glance.guolindev:glance:1.0.0'
+    /*debugImplementation 'com.glance.guolindev:glance:1.0.0'*/
     /*glance*/
-    debugImplementation 'io.github.didi.dokit:dokitx:3.7.1'
+    /*debugImplementation 'io.github.didi.dokit:dokitx:3.7.1'*/
     /*核心模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-ft:3.7.1'
+    /*debugImplementation 'io.github.didi.dokit:dokitx-ft:3.7.1'*/
     /*文件同步模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-mc:3.7.1'
+    /*debugImplementation 'io.github.didi.dokit:dokitx-mc:3.7.1'*/
     /*一机多控模块*/
-    debugImplementation 'io.github.didi.dokit:dokitx-weex:3.7.1'
+    /*debugImplementation 'io.github.didi.dokit:dokitx-weex:3.7.1'*/
     /*weex 模块*/
-    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.7.1'
+    /*releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.7.1'*/
     /*no-op 模块*/
     /*仅 release 环境需引 no-op*/
     /*否则插件注入相关代码致找不到对应 class*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
     /*LeakCanary*/
 }

@@ -62,7 +62,7 @@ Bmob
 
 LitePal
 
-#### [doraemonkit](./doraemonkit)
+#### [doraemonkit](./doraemonkit) 暂去
 
 DoraemonKit
 
@@ -89,10 +89,6 @@ Kotlin
 #### [pool](./pool)
 
 水池（供外部使用）
-
-#### [litepool](./litepool)
-
-轻量水池（供外部使用）
 
 ## 依赖
 
@@ -210,7 +206,7 @@ implementation project(path: ':util')
 api 'org.litepal.guolindev:core:xxx'
 ```
 
-#### doraemonkit
+#### doraemonkit 暂去
 
 ```
 implementation project(path: ':util')
@@ -263,7 +259,7 @@ api "org.jetbrains.kotlin:kotlin-stdlib:xxx"
 api project(path: ':lottie')
 api project(path: ':scan')
 api project(path: ':tbs')
-api project(path: ':doraemonkit')
+/*api project(path: ':doraemonkit')*/
 api project(path: ':litepal')
 api project(path: ':bmob')
 api project(path: ':mobsms')
@@ -274,15 +270,6 @@ api project(path: ':fragmentation')
 api project(path: ':ucrop')
 api project(path: ':matisse')
 api project(path: ':banner')
-api project(path: ':widget')
-api project(path: ':util')
-```
-
-#### litepool
-
-```
-api project(path: ':litepal')
-api project(path: ':fragmentation')
 api project(path: ':widget')
 api project(path: ':util')
 ```
@@ -316,7 +303,7 @@ gradle(config)
 #### 优化集成
 
 - [mobsms](./mobsms)
-- [doraemonkit](./doraemonkit)
+- [doraemonkit](./doraemonkit) 暂去
 
 ## License
 

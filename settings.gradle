@@ -1,11 +1,10 @@
-include ':litepool'
 include ':pool'
 include ':kotlin'
 include ':pgyer'
 include ':lottie'
 include ':scan'
 include ':tbs'
-include ':doraemonkit'
+/*include ':doraemonkit'*/
 include ':litepal'
 include ':bmob'
 include ':mobsms'

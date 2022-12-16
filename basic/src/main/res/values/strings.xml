@@ -15,16 +15,11 @@
     <string name="scanBarCode">扫描条形码</string>
     <string name="loading">加载中</string>
     <string name="example">示例</string>
-    <string name="choose">选择</string>
-    <string name="money">金额</string>
     <string name="moneyIsIllegal">金额不合法</string>
-    <string name="search">搜索</string>
     <string name="pleaseInput">请输入</string>
     <string name="picture">图片</string>
     <string name="localLoad">本地加载</string>
     <string name="networkLoad">网络加载</string>
-    <string name="property">属性</string>
-    <string name="scan">扫描</string>
     <string name="suggestToAllowThesePermissions">建议授权这些权限</string>
     <string name="agree">同意</string>
     <string name="youNeedToAllowNecessaryPermissionInSettingManually">你需要手动在设置中授予该权限</string>
@@ -105,7 +100,6 @@
     <string name="content">内容</string>
     <string name="show">显示</string>
     <string name="dismiss">消失</string>
-    <string name="grid">网格</string>
     <string name="doubleClick">双重点击</string>
     <string name="notRealizeYet">暂未实现</string>
     <string name="homePage">首页</string>

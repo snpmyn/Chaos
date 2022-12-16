@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.chaos.doraemonkit">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application>
         <!--拾色器功能失效(适配 Android Q)-->

@@ -2,7 +2,6 @@ package application;
 
 import android.Manifest;
 
-import com.chaos.doraemonkit.DoraemonKitInitConfigure;
 import com.chaos.janalytics.configure.JanalyticsInitConfigure;
 import com.chaos.jpush.configure.JpushInitConfigure;
 import com.chaos.mobsms.sms.configure.MobSmsInitConfigure;
@@ -85,8 +84,6 @@ public class App extends PoolApp {
     @Override
     protected List<String> permissionList() {
         List<String> list = super.permissionList();
-        // TODO: 2021/10/12 华为机型除 Manifest.permission.READ_EXTERNAL_STORAGE 外，亦需 Manifest.permission.WRITE_EXTERNAL_STORAGE。待优化。
-        list.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         list.add(Manifest.permission.READ_PHONE_STATE);
         list.add(Manifest.permission.ACCESS_FINE_LOCATION);
         return list;
@@ -97,7 +94,7 @@ public class App extends PoolApp {
      */
     private void initConfiguration() {
         // DoraemonKit
-        DoraemonKitInitConfigure.initDoraemonKit(this, "xxxxxx", debug(), true);
+        /*DoraemonKitInitConfigure.initDoraemonKit(this, "xxxxxx", debug(), true);*/
         // Fragmentation
         FragmentationInitConfig.initFragmentation(debug());
         // 极光推送

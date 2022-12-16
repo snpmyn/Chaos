@@ -6,7 +6,6 @@ plugins {
     id 'kotlin-android-extensions'
     /*maven*/
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 android {
@@ -33,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = rootProject.ext.kotlinOptions["jvmTarget"]
     }
+    namespace 'com.chaos.kotlin'
 }
 
 // Because the components are created only during the afterEvaluate phase,
@@ -66,7 +66,7 @@ afterEvaluate {
 dependencies {
     api project(path: ':basic')
     /*basic*/
-    api 'androidx.core:core-ktx:1.6.0'
+    api 'androidx.core:core-ktx:1.8.0'
     /*kotlin 自带*/
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     /*kotlin 补充*/

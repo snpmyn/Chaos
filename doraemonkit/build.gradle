@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     /*maven*/
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 // 流量监控及其它 AOP 功能（可选）
@@ -29,6 +28,7 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    namespace 'com.chaos.doraemonkit'
 }
 // DoraemonKit 扩展
 dokitExt {

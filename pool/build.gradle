@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     /*maven*/
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 // MobSDK 插件
@@ -45,6 +44,7 @@ android {
         sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
         targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
+    namespace 'com.chaos.pool'
 }
 
 // Because the components are created only during the afterEvaluate phase,
@@ -80,7 +80,7 @@ dependencies {
     api project(path: ':lottie')
     api project(path: ':scan')
     api project(path: ':tbs')
-    api project(path: ':doraemonkit')
+    /*api project(path: ':doraemonkit')*/
     api project(path: ':litepal')
     api project(path: ':bmob')
     api project(path: ':mobsms')
